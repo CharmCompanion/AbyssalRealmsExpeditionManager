@@ -17,8 +17,12 @@ MD_EXTENSIONS = {".md"}
 
 
 def is_safe_path(path_str):
-    resolved = (PROJECT_ROOT / path_str).resolve()
-    return str(resolved).startswith(str(PROJECT_ROOT.resolve()))
+    try:
+        resolved = (PROJECT_ROOT / path_str).resolve()
+        root_resolved = PROJECT_ROOT.resolve()
+        return resolved == root_resolved or str(resolved).startswith(str(root_resolved) + os.sep)
+    except (ValueError, OSError):
+        return False
 
 
 def get_tree(directory, prefix=""):
