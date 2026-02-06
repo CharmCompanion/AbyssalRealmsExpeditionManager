@@ -10,7 +10,10 @@ from web_game.game_data import (
     KINGDOM_MAP_FILES, STAT_CATEGORIES, ADVENTURER_CLASSES,
     generate_kingdom_resources, generate_stats, generate_starting_adventurers,
 )
-from web_game.game_logic import DungeonThreatSystem, ExpeditionBoard, AutonomousExpeditions
+from web_game.game_logic import DungeonThreatSystem, ExpeditionBoard, AutonomousExpeditions, CivilianAI
+from web_game.appearance import (
+    generate_civilian_population, generate_enemy_party,
+)
 
 app = Flask(
     __name__,
@@ -124,9 +127,11 @@ def create_save():
         buildings[bname] = {'level': 0}
 
     lord_appearance = data.get('lord_appearance', {})
+    pop_count = min(population, 30)
+    population_data = generate_civilian_population(pop_count, seed, {"kingdom_id": kingdom_id})
     game_data = {
         'buildings': buildings,
-        'adventurers': generate_starting_adventurers(seed, 4),
+        'adventurers': generate_starting_adventurers(seed, 4, kingdom_id),
         'dungeons': initial_dungeons,
         'expeditions': {},
         'expedition_board': {'jobs': []},
@@ -134,6 +139,7 @@ def create_save():
         'stats': stats,
         'lord_appearance': lord_appearance,
         'city_grid': [],
+        'population': population_data,
     }
 
     slot = SaveSlot.query.filter_by(slot_number=slot_number).first()
@@ -340,6 +346,23 @@ def game_tick():
                 elif res == 'mana':
                     save.mana = (save.mana or 0) + daily
 
+    pop_data = gd.get('population', {})
+    civilians = pop_data.get('civilians', [])
+    if civilians:
+        danger = 0.0
+        for raid in raids:
+            if not raid.get('resolved', False):
+                danger = max(danger, 0.7)
+        for i, npc in enumerate(civilians):
+            CivilianAI.tick_needs(npc)
+            npc["danger"] = danger
+            goal = CivilianAI.choose_goal(npc)
+            CivilianAI.apply_action(npc, goal["action"])
+            npc.pop("danger", None)
+            civilians[i] = npc
+        pop_data['civilians'] = civilians
+        gd['population'] = pop_data
+
     save.game_data = gd
     flag_modified(save, 'game_data')
     db.session.commit()
@@ -494,6 +517,28 @@ def update_city(slot):
     flag_modified(save, 'game_data')
     db.session.commit()
     return jsonify({'ok': True})
+
+
+@app.route('/api/saves/<int:slot>/population', methods=['GET'])
+def get_population(slot):
+    save = SaveSlot.query.filter_by(slot_number=slot).first()
+    if not save or save.is_empty:
+        return jsonify({'error': 'Save slot is empty'}), 404
+    gd = save.game_data or {}
+    pop_data = gd.get('population', {})
+    return jsonify(pop_data)
+
+
+@app.route('/api/saves/<int:slot>/enemies', methods=['POST'])
+def get_enemies(slot):
+    data = request.get_json() or {}
+    save = SaveSlot.query.filter_by(slot_number=slot).first()
+    if not save or save.is_empty:
+        return jsonify({'error': 'Save slot is empty'}), 404
+    dungeon_theme = data.get('theme', 'undead')
+    enemy_count = min(20, max(1, data.get('count', 5)))
+    enemies = generate_enemy_party(enemy_count, save.seed or 0, dungeon_theme, save.kingdom_id or 1)
+    return jsonify({'enemies': enemies})
 
 
 if __name__ == '__main__':

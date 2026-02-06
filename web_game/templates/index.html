@@ -352,6 +352,21 @@
             <div id="threats-list"></div>
             <div id="raid-warnings" class="mt-16"></div>
         </div>
+
+        <div id="population-content" class="tab-content" style="display:none;">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                <h2 class="section-title mb-0">Population</h2>
+            </div>
+            <div class="pop-stats-bar" id="pop-stats-bar"></div>
+            <div class="pop-tabs" id="pop-tabs">
+                <button class="pop-tab-btn active" onclick="showPopSubTab('families')">Families</button>
+                <button class="pop-tab-btn" onclick="showPopSubTab('singles')">Singles</button>
+                <button class="pop-tab-btn" onclick="showPopSubTab('all')">All</button>
+            </div>
+            <div id="pop-families" class="pop-tab-content active"></div>
+            <div id="pop-singles" class="pop-tab-content"></div>
+            <div id="pop-all" class="pop-tab-content"></div>
+        </div>
     </div>
 
 </div>
@@ -380,6 +395,10 @@
     <button class="nav-tab" id="nav-threats" onclick="showTab('threats')">
         <span class="nav-icon">💀</span>
         <span class="nav-label">Threats</span>
+    </button>
+    <button class="nav-tab" id="nav-population" onclick="showTab('population')">
+        <span class="nav-icon">🏘️</span>
+        <span class="nav-label">People</span>
     </button>
 </div>
 
@@ -511,6 +530,9 @@ function showTab(tabName) {
     }
     if (tabName === 'city' && activeSave) {
         initCityBuilder();
+    }
+    if (tabName === 'population' && activeSave) {
+        renderPopulation(activeSave);
     }
 }
 
@@ -1195,7 +1217,11 @@ function renderAdventurers(adventurers) {
         html += '<div class="adv-panel' + (isDead ? ' adv-dead' : '') + '" onclick="toggleAdvPanel(this)">';
 
         html += '<div class="adv-panel-header">';
-        html += '<div class="adv-portrait-wrap"><span class="adv-portrait">' + (adv.portrait || '🧙') + '</span></div>';
+        if (adv.appearance) {
+            html += '<div class="adv-appearance-wrap">' + renderCharFigure(adv.appearance) + '</div>';
+        } else {
+            html += '<div class="adv-portrait-wrap"><span class="adv-portrait">' + (adv.portrait || '🧙') + '</span></div>';
+        }
         html += '<div class="adv-header-info">';
         html += '<div class="adv-name-row"><span class="adv-name">' + (adv.name || 'Unknown') + '</span>';
         html += '<span class="adv-status-badge" style="background:' + si.color + '20;color:' + si.color + ';border:1px solid ' + si.color + '40">' + si.icon + ' ' + si.label + '</span></div>';
@@ -1255,6 +1281,21 @@ function renderAdventurers(adventurers) {
             html += '</div></div>';
         }
 
+        if (adv.appearance && adv.appearance.accessories) {
+            var accKeys = Object.keys(adv.appearance.accessories);
+            if (accKeys.length > 0) {
+                html += '<div class="adv-equip-section"><div class="adv-section-label">Accessories</div><div class="enemy-acc-list">';
+                accKeys.forEach(function(key) {
+                    var icon = ACC_ICONS[key] || '•';
+                    html += '<span class="enemy-acc-tag">' + icon + ' ' + adv.appearance.accessories[key] + '</span>';
+                });
+                html += '</div></div>';
+            }
+        }
+        if (adv.is_evil) {
+            html += '<div style="margin-top:6px;"><span class="enemy-theme-badge cultist">Evil Adventurer</span></div>';
+        }
+
         html += '<div class="adv-record">';
         html += '<div class="record-stat"><span class="record-label">Missions</span><span class="record-val">' + (adv.missions_completed||0) + '</span></div>';
         html += '<div class="record-stat"><span class="record-label">Kills</span><span class="record-val">' + (adv.kills||0) + '</span></div>';
@@ -1295,6 +1336,119 @@ function renderThreats(dungeons) {
             '</div>';
     });
     list.innerHTML = html;
+}
+
+var ACC_ICONS = {
+    bag: '🎒', melee: '⚔️', ranged: '🏹', shield: '🛡️',
+    magic: '✨', effect: '🔥', wings: '🦇', mount: '🐎'
+};
+
+function renderCharFigure(appearance, extraClass) {
+    if (!appearance) return '<div class="char-figure"></div>';
+    var colors = appearance.colors || {};
+    var accessories = appearance.accessories || {};
+    var isKid = appearance.is_kid;
+    var cls = 'char-figure' + (isKid ? ' kid' : '') + (extraClass ? ' ' + extraClass : '');
+
+    var skinColor = colors.body || '#FDDCB5';
+    var outfitColor = colors.chest || '#5a4a3a';
+    var legsColor = colors.legs || '#4a3a2a';
+    var shoesColor = colors.shoes || '#3a2a1a';
+
+    var html = '<div class="' + cls + '">';
+    html += '<div class="char-head" style="background:' + skinColor + '">';
+    html += '<div class="char-eyes"><div class="char-eye"></div><div class="char-eye"></div></div>';
+    html += '</div>';
+    html += '<div class="char-outfit" style="background:' + outfitColor + '"></div>';
+    html += '<div class="char-body" style="background:' + skinColor + '"></div>';
+    html += '<div class="char-legs" style="background:' + legsColor + '"></div>';
+    html += '<div class="char-shoes" style="background:' + shoesColor + '"></div>';
+
+    var accKeys = Object.keys(accessories);
+    if (accKeys.length > 0) {
+        var positions = ['char-acc-left', 'char-acc-right', 'char-acc-top', 'char-acc-back'];
+        accKeys.forEach(function(key, i) {
+            var pos = positions[i % positions.length];
+            var icon = ACC_ICONS[key] || '•';
+            html += '<div class="char-acc ' + pos + '" title="' + accessories[key] + '">' + icon + '</div>';
+        });
+    }
+    html += '</div>';
+    return html;
+}
+
+function renderPopulation(saveData) {
+    var gd = saveData.game_data || {};
+    var popData = gd.population || {};
+    var civilians = popData.civilians || [];
+    var families = popData.families || {};
+
+    var statsBar = document.getElementById('pop-stats-bar');
+    var familyCount = Object.keys(families).length;
+    var kidCount = civilians.filter(function(c) { return c.is_kid; }).length;
+    var adultCount = civilians.length - kidCount;
+    var moods = {};
+    civilians.forEach(function(c) { moods[c.mood || 'neutral'] = (moods[c.mood || 'neutral'] || 0) + 1; });
+
+    statsBar.innerHTML =
+        '<span class="pop-stat">Total: <span class="pop-stat-val">' + civilians.length + '</span></span>' +
+        '<span class="pop-stat">Families: <span class="pop-stat-val">' + familyCount + '</span></span>' +
+        '<span class="pop-stat">Adults: <span class="pop-stat-val">' + adultCount + '</span></span>' +
+        '<span class="pop-stat">Children: <span class="pop-stat-val">' + kidCount + '</span></span>' +
+        (moods.happy ? '<span class="pop-stat">Happy: <span class="pop-stat-val" style="color:#4ade80">' + moods.happy + '</span></span>' : '') +
+        (moods.worried ? '<span class="pop-stat">Worried: <span class="pop-stat-val" style="color:#facc15">' + moods.worried + '</span></span>' : '');
+
+    var familyHtml = '';
+    for (var famId in families) {
+        var fam = families[famId];
+        var memberIds = fam.member_ids || [];
+        var members = civilians.filter(function(c) { return c.family_id === famId; });
+
+        familyHtml += '<div class="family-group">';
+        familyHtml += '<div class="family-header"><span class="family-icon">🏠</span> The ' + fam.family_name + ' Family <span class="text-secondary" style="font-size:11px;">(' + members.length + ' members)</span></div>';
+        familyHtml += '<div class="family-members">';
+        members.forEach(function(npc) {
+            familyHtml += renderNpcCard(npc);
+        });
+        familyHtml += '</div></div>';
+    }
+    document.getElementById('pop-families').innerHTML = familyHtml || '<div class="empty-state"><div class="empty-text">No families</div></div>';
+
+    var singles = civilians.filter(function(c) { return !c.family_id; });
+    var singlesHtml = '<div class="singles-grid">';
+    singles.forEach(function(npc) {
+        singlesHtml += renderNpcCard(npc);
+    });
+    singlesHtml += '</div>';
+    document.getElementById('pop-singles').innerHTML = singles.length > 0 ? singlesHtml : '<div class="empty-state"><div class="empty-text">No singles</div></div>';
+
+    var allHtml = '<div class="singles-grid">';
+    civilians.forEach(function(npc) {
+        allHtml += renderNpcCard(npc);
+    });
+    allHtml += '</div>';
+    document.getElementById('pop-all').innerHTML = civilians.length > 0 ? allHtml : '<div class="empty-state"><div class="empty-text">No population</div></div>';
+}
+
+function renderNpcCard(npc) {
+    var kidClass = npc.is_kid ? ' kid-card' : '';
+    var moodClass = npc.mood || 'neutral';
+    return '<div class="npc-card' + kidClass + '">' +
+        renderCharFigure(npc.appearance) +
+        '<div class="npc-info">' +
+        '<div class="npc-name">' + (npc.name || 'Unknown') + '</div>' +
+        '<div class="npc-role">' + (npc.role || 'Civilian') + '</div>' +
+        '</div>' +
+        '<span class="npc-mood ' + moodClass + '">' + moodClass + '</span>' +
+        '</div>';
+}
+
+function showPopSubTab(tabName) {
+    document.querySelectorAll('.pop-tab-content').forEach(function(el) { el.classList.remove('active'); });
+    document.querySelectorAll('.pop-tab-btn').forEach(function(el) { el.classList.remove('active'); });
+    var target = document.getElementById('pop-' + tabName);
+    if (target) target.classList.add('active');
+    event.target.classList.add('active');
 }
 
 function updateGameMap() {

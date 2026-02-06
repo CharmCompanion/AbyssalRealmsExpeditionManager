@@ -10,6 +10,75 @@ def _seed_for(base_seed, tag):
     return seed_from_code("seed:" + str(base_seed) + "|" + tag)
 
 
+class CivilianAI:
+    GOALS = ["safety", "eat", "rest"]
+
+    @staticmethod
+    def choose_goal(agent_state):
+        hunger = float(agent_state.get("hunger", 0.0))
+        rest_need = float(agent_state.get("rest_need", 0.0))
+        is_sheltered = agent_state.get("is_sheltered", True)
+        danger = float(agent_state.get("danger", 0.0))
+
+        if danger > 0.5 and not is_sheltered:
+            return {"goal": "safety", "action": "seek_shelter"}
+        if hunger > 0.6:
+            return {"goal": "eat", "action": "find_food"}
+        if rest_need > 0.7:
+            return {"goal": "rest", "action": "go_rest"}
+        return {"goal": "idle", "action": "wander"}
+
+    @staticmethod
+    def tick_needs(npc, day_fraction=1.0):
+        npc["hunger"] = min(1.0, round(float(npc.get("hunger", 0)) + 0.08 * day_fraction, 2))
+        npc["rest_need"] = min(1.0, round(float(npc.get("rest_need", 0)) + 0.06 * day_fraction, 2))
+        return npc
+
+    @staticmethod
+    def apply_action(npc, action):
+        if action == "find_food":
+            npc["hunger"] = max(0, round(float(npc.get("hunger", 0)) - 0.5, 2))
+            npc["mood"] = "content"
+        elif action == "go_rest":
+            npc["rest_need"] = max(0, round(float(npc.get("rest_need", 0)) - 0.6, 2))
+            npc["mood"] = "content"
+        elif action == "seek_shelter":
+            npc["is_sheltered"] = True
+            npc["mood"] = "worried"
+        elif action == "wander":
+            npc["mood"] = random.choice(["content", "happy", "neutral"])
+        return npc
+
+
+class EnemyAI:
+    @staticmethod
+    def tick(enemy, day_fraction=1.0):
+        behavior = enemy.get("behavior", "idle")
+        if behavior == "raid":
+            progress = float(enemy.get("raid_progress", 0.0))
+            progress = min(1.0, progress + 0.25 * day_fraction)
+            enemy["raid_progress"] = round(progress, 2)
+            if progress >= 1.0:
+                enemy["behavior"] = "attacking"
+        return enemy
+
+    @staticmethod
+    def start_raid(enemy):
+        enemy["behavior"] = "raid"
+        enemy["raid_progress"] = 0.0
+        return enemy
+
+    @staticmethod
+    def resolve_attack(enemy, town_defense):
+        enemy_power = float(enemy.get("level", 1)) * 10
+        if town_defense > enemy_power:
+            enemy["hp"] = 0
+            return {"result": "defended", "damage_to_town": 0}
+        else:
+            damage = max(1, int(enemy_power - town_defense * 0.5))
+            return {"result": "damage", "damage_to_town": damage}
+
+
 class SimClock:
     seconds_per_day = 30.0
 

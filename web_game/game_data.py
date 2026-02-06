@@ -381,7 +381,8 @@ ADVENTURER_STATUS_TYPES = {
 }
 
 
-def generate_adventurer(seed_val, index=0):
+def generate_adventurer(seed_val, index=0, kingdom_id=1, is_evil=False):
+    from web_game.appearance import generate_adventurer_appearance
     seed_int = seed_from_code(str(seed_val) if seed_val is not None else "0")
     rng = random.Random(seed_from_code("adventurer|seed:%s|idx:%d" % (seed_val, index)))
 
@@ -430,6 +431,8 @@ def generate_adventurer(seed_val, index=0):
         else:
             equipment[slot_name] = None
 
+    appearance = generate_adventurer_appearance(seed_val, index, kingdom_id, is_evil)
+
     return {
         "id": "adv_%d_%d" % (seed_int % 100000, index),
         "name": first + " " + last,
@@ -451,13 +454,15 @@ def generate_adventurer(seed_val, index=0):
         "missions_completed": missions_completed,
         "days_hired": days_hired,
         "injury_days_left": injury_days_left,
+        "appearance": appearance,
+        "is_evil": is_evil,
     }
 
 
-def generate_starting_adventurers(seed_val, count=4):
+def generate_starting_adventurers(seed_val, count=4, kingdom_id=1):
     adventurers = []
     for i in range(count):
-        adventurers.append(generate_adventurer(seed_val, i))
+        adventurers.append(generate_adventurer(seed_val, i, kingdom_id))
     return adventurers
 
 
