@@ -1,0 +1,21 @@
+🎯 FINAL BUILDING LIST (4 Total)
+
+### 🏠 ESSENTIAL BUILDINGS
+- Academy (learning/research + library + combat training for melee classes + magic academy with monster research & alchemy/potions)
+- Temple (religion/morale + healing + monument with 6 deity variations for prestige)
+- Adventurer's Guild (quests/recruitment + protection + general store with supplies/provisions/blacksmith/crafting + inn/tavern for rest/happiness)
+- Bank (gold storage/loans + warehouse storage)
+
+### 🏘️ HOUSING
+- Cottage (basic housing)
+- Estate (mid-tier & large/luxury housing)
+- Lord's Manor (leadership/administration + civic functions)
+
+---
+
+📊 MODEL COUNT
+
+Total Models Needed: 7
+- 4 Essential Buildings
+- 3 Housing Buildings
+- Temple has 6 deity texture variations (same model)

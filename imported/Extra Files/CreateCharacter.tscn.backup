@@ -1,0 +1,1716 @@
+[gd_scene load_steps=7 format=3 uid="uid://cg8xvwy6uw5bw"]
+
+[ext_resource type="Script" uid="uid://d3rxrqkp2y4ct" path="res://scripts/ui/CreateCharacter.gd" id="1_1x2y4"]
+[ext_resource type="Texture2D" uid="uid://2csn740edufk" path="res://assets/ui/textures/desk.png" id="2_desk"]
+[ext_resource type="Texture2D" uid="uid://bnry3svq8y60k" path="res://assets/ui/textures/book_open.png" id="3_book"]
+[ext_resource type="Texture2D" path="res://assets/map/map.png" id="4_map"]
+[ext_resource type="FontFile" uid="uid://cn7yn72nerg5i" path="res://assets/ui/font/CrimsonText-Bold.ttf" id="5_title_font"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_outline_deity"]
+bg_color = Color(0.15, 0.15, 0.15, 0.6)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.6, 0.3, 0.8)
+
+[node name="CreateCharacter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1x2y4")
+
+[node name="Desk" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_desk")
+
+[node name="Book" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_book")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="PageContainer" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.30
+anchor_top = 0.24
+anchor_right = 0.70
+anchor_bottom = 0.76
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftPage" type="Control" parent="PageContainer"]
+layout_mode = 1
+anchor_left = 0.10
+anchor_top = 0.10
+anchor_right = 0.43
+anchor_bottom = 0.90
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftPageContent" type="VBoxContainer" parent="PageContainer/LeftPage"]
+layout_mode = 1
+anchor_left = 0.12
+anchor_top = 0.10
+anchor_right = 0.88
+anchor_bottom = 0.90
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+custom_minimum_size = Vector2(0, 0)
+theme_override_constants/separation = 2
+
+[node name="Title" type="Label" parent="PageContainer/LeftPage/LeftPageContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Create New Settlement"
+horizontal_alignment = 1
+
+[node name="LordNameLabel" type="Label" parent="PageContainer/LeftPage/LeftPageContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Ruler Name:"
+
+[node name="LordNameInput" type="LineEdit" parent="PageContainer/LeftPage/LeftPageContent"]
+layout_mode = 2
+placeholder_text = "Enter your name..."
+
+[node name="SeedLabel" type="Label" parent="PageContainer/LeftPage/LeftPageContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "World Seed:"
+
+[node name="SeedContainer" type="HBoxContainer" parent="PageContainer/LeftPage/LeftPageContent"]
+layout_mode = 2
+
+[node name="SeedInput" type="LineEdit" parent="PageContainer/LeftPage/LeftPageContent/SeedContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Random seed..."
+
+[node name="RandomSeedButton" type="Button" parent="PageContainer/LeftPage/LeftPageContent/SeedContainer"]
+layout_mode = 2
+text = "Random"
+
+[node name="DeityLabel" type="Label" parent="PageContainer/LeftPage/LeftPageContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Choose Patron Deity:"
+
+[node name="DeityButtonContainer" type="GridContainer" parent="PageContainer/LeftPage/LeftPageContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+custom_minimum_size = Vector2(0, 70)
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 3
+
+[node name="NivariusPanel" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer"]
+custom_minimum_size = Vector2(35, 30)
+layout_mode = 2
+custom_maximum_size = Vector2(50, 45)
+size_flags_horizontal = 3
+
+[node name="Glow" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/NivariusPanel"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.8, 0.3, 0.6)
+
+[node name="BG" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/NivariusPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 0.6)
+
+[node name="Outline" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/NivariusPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outline_deity")
+
+[node name="Content" type="VBoxContainer" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/NivariusPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="DeityName" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/NivariusPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_title_font")
+theme_override_font_sizes/font_size = 5
+text = "NIVARIUS"
+horizontal_alignment = 1
+
+[node name="DeityTitle" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/NivariusPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "God of Time"
+horizontal_alignment = 1
+
+[node name="Bonus1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/NivariusPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "+25% Research"
+horizontal_alignment = 1
+
+[node name="Bonus2" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/NivariusPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "+10 Mana/Day"
+horizontal_alignment = 1
+
+[node name="Penalty1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/NivariusPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "-15% Gold"
+horizontal_alignment = 1
+
+[node name="SeraPanel" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer"]
+custom_minimum_size = Vector2(35, 30)
+layout_mode = 2
+custom_maximum_size = Vector2(50, 45)
+size_flags_horizontal = 3
+
+[node name="Glow" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/SeraPanel"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.8, 0.3, 0.6)
+
+[node name="BG" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/SeraPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 0.6)
+
+[node name="Outline" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/SeraPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outline_deity")
+
+[node name="Content" type="VBoxContainer" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/SeraPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DeityName" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/SeraPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_title_font")
+theme_override_font_sizes/font_size = 5
+text = "SERAPHINA"
+horizontal_alignment = 1
+
+[node name="DeityTitle" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/SeraPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Goddess of Creation"
+horizontal_alignment = 1
+
+[node name="Bonus1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/SeraPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "+30% Population"
+horizontal_alignment = 1
+
+[node name="Bonus2" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/SeraPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "+20% Food"
+horizontal_alignment = 1
+
+[node name="Penalty1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/SeraPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "-10% Combat"
+horizontal_alignment = 1
+
+[node name="FortPanel" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer"]
+custom_minimum_size = Vector2(90, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Glow" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/FortPanel"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.8, 0.3, 0.6)
+
+[node name="BG" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/FortPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 0.6)
+
+[node name="Outline" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/FortPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outline_deity")
+
+[node name="Content" type="VBoxContainer" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/FortPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DeityName" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/FortPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_title_font")
+theme_override_font_sizes/font_size = 5
+text = "FORTANE"
+horizontal_alignment = 1
+
+[node name="DeityTitle" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/FortPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Goddess of Darkness"
+horizontal_alignment = 1
+
+[node name="Bonus1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/FortPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "+40% Combat Strength"
+horizontal_alignment = 1
+
+[node name="Bonus2" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/FortPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "+15% Iron Mining"
+horizontal_alignment = 1
+
+[node name="Penalty1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/FortPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "-20% Population Growth"
+horizontal_alignment = 1
+
+[node name="ThornPanel" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer"]
+custom_minimum_size = Vector2(90, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Glow" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ThornPanel"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.8, 0.3, 0.6)
+
+[node name="BG" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ThornPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 0.6)
+
+[node name="Outline" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ThornPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outline_deity")
+
+[node name="Content" type="VBoxContainer" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ThornPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DeityName" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ThornPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_title_font")
+theme_override_font_sizes/font_size = 5
+text = "THORN"
+horizontal_alignment = 1
+
+[node name="DeityTitle" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ThornPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Goddess of Earth"
+horizontal_alignment = 1
+
+[node name="Bonus1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ThornPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "+35% Resources"
+horizontal_alignment = 1
+
+[node name="Bonus2" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ThornPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "+25% Stone & Wood"
+horizontal_alignment = 1
+
+[node name="Penalty1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ThornPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "-20% Trade Income"
+horizontal_alignment = 1
+
+[node name="AureliaPanel" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer"]
+custom_minimum_size = Vector2(90, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Glow" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/AureliaPanel"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.8, 0.3, 0.6)
+
+[node name="BG" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/AureliaPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 0.6)
+
+[node name="Outline" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/AureliaPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outline_deity")
+
+[node name="Content" type="VBoxContainer" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/AureliaPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DeityName" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/AureliaPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_title_font")
+theme_override_font_sizes/font_size = 5
+text = "AURELIA"
+horizontal_alignment = 1
+
+[node name="DeityTitle" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/AureliaPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Goddess of Light"
+horizontal_alignment = 1
+
+[node name="Bonus1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/AureliaPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "+50% Gold"
+horizontal_alignment = 1
+
+[node name="Bonus2" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/AureliaPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "+20% Trade Income"
+horizontal_alignment = 1
+
+[node name="Penalty1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/AureliaPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "-15% Resources"
+horizontal_alignment = 1
+
+[node name="ZephraPanel" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer"]
+custom_minimum_size = Vector2(90, 70)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Glow" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ZephraPanel"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.8, 0.3, 0.6)
+
+[node name="BG" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ZephraPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 0.6)
+
+[node name="Outline" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ZephraPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outline_deity")
+
+[node name="Content" type="VBoxContainer" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ZephraPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="DeityName" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ZephraPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_title_font")
+theme_override_font_sizes/font_size = 5
+text = "ZEPHRA"
+horizontal_alignment = 1
+
+[node name="DeityTitle" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ZephraPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Goddess of Wind"
+horizontal_alignment = 1
+
+[node name="Bonus1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ZephraPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "+40% Trade Income"
+horizontal_alignment = 1
+
+[node name="Bonus2" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ZephraPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "+25% Movement Speed"
+horizontal_alignment = 1
+
+[node name="Penalty1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/DeityButtonContainer/ZephraPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 5
+text = "-25% Stone & Iron"
+horizontal_alignment = 1
+
+[node name="KingdomLabel" type="Label" parent="PageContainer/LeftPage/LeftPageContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Choose Kingdom:"
+
+[node name="KingdomContainer" type="GridContainer" parent="PageContainer/LeftPage/LeftPageContent"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+size_flags_stretch_ratio = 0.0
+custom_minimum_size = Vector2(0, 60)
+theme_override_constants/h_separation = 1
+theme_override_constants/v_separation = 1
+columns = 2
+
+[node name="GostinPanel" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer"]
+custom_minimum_size = Vector2(55, 45)
+layout_mode = 2
+custom_maximum_size = Vector2(80, 60)
+size_flags_horizontal = 3
+
+[node name="Glow" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/GostinPanel"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.8, 0.3, 0.6)
+
+[node name="BG" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/GostinPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 0.6)
+
+[node name="Outline" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/GostinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outline_deity")
+
+[node name="Content" type="VBoxContainer" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/GostinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="KingdomName" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/GostinPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_title_font")
+theme_override_font_sizes/font_size = 4
+text = "GOSAIN EMPIRE"
+horizontal_alignment = 1
+
+[node name="KingdomType" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/GostinPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Temperate Plains"
+horizontal_alignment = 1
+
+[node name="Bonus1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/GostinPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "+30% Food"
+horizontal_alignment = 1
+
+[node name="Bonus2" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/GostinPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "+15% Trade Routes"
+horizontal_alignment = 1
+
+[node name="Penalty1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/GostinPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "-10% Stone Mining"
+horizontal_alignment = 1
+
+[node name="KelsinPanel" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer"]
+custom_minimum_size = Vector2(55, 45)
+layout_mode = 2
+custom_maximum_size = Vector2(80, 60)
+size_flags_horizontal = 3
+
+[node name="Glow" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/KelsinPanel"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.8, 0.3, 0.6)
+
+[node name="BG" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/KelsinPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 0.6)
+
+[node name="Outline" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/KelsinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outline_deity")
+
+[node name="Content" type="VBoxContainer" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/KelsinPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="KingdomName" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/KelsinPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_title_font")
+theme_override_font_sizes/font_size = 4
+text = "KELSIN FEDERATION"
+horizontal_alignment = 1
+
+[node name="KingdomType" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/KelsinPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Coastal Waters"
+horizontal_alignment = 1
+
+[node name="Bonus1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/KelsinPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "+50% Trade Income"
+horizontal_alignment = 1
+
+[node name="Bonus2" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/KelsinPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "+25% Food (Fishing)"
+horizontal_alignment = 1
+
+[node name="Penalty1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/KelsinPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "-20% Stone & Iron"
+horizontal_alignment = 1
+
+[node name="YozuanPanel" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer"]
+custom_minimum_size = Vector2(55, 45)
+layout_mode = 2
+custom_maximum_size = Vector2(80, 60)
+size_flags_horizontal = 3
+
+[node name="Glow" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/YozuanPanel"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.8, 0.3, 0.6)
+
+[node name="BG" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/YozuanPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 0.6)
+
+[node name="Outline" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/YozuanPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outline_deity")
+
+[node name="Content" type="VBoxContainer" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/YozuanPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="KingdomName" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/YozuanPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_title_font")
+theme_override_font_sizes/font_size = 4
+text = "YOZUAN DESERT"
+horizontal_alignment = 1
+
+[node name="KingdomType" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/YozuanPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Arid Dunes"
+horizontal_alignment = 1
+
+[node name="Bonus1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/YozuanPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "+30% Stone Production"
+horizontal_alignment = 1
+
+[node name="Bonus2" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/YozuanPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "+15% Trade Routes"
+horizontal_alignment = 1
+
+[node name="Penalty1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/YozuanPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "-25% Food & Wood"
+horizontal_alignment = 1
+
+[node name="RabaricPanel" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer"]
+custom_minimum_size = Vector2(55, 45)
+layout_mode = 2
+custom_maximum_size = Vector2(80, 60)
+size_flags_horizontal = 3
+
+[node name="Glow" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/RabaricPanel"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.8, 0.3, 0.6)
+
+[node name="BG" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/RabaricPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 0.6)
+
+[node name="Outline" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/RabaricPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outline_deity")
+
+[node name="Content" type="VBoxContainer" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/RabaricPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="KingdomName" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/RabaricPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_title_font")
+theme_override_font_sizes/font_size = 4
+text = "RABARIC REPUBLIC"
+horizontal_alignment = 1
+
+[node name="KingdomType" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/RabaricPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Rolling Hills"
+horizontal_alignment = 1
+
+[node name="Bonus1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/RabaricPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "+35% Food"
+horizontal_alignment = 1
+
+[node name="Bonus2" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/RabaricPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "+15% Population Growth"
+horizontal_alignment = 1
+
+[node name="Penalty1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/RabaricPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "-10% Mana Production"
+horizontal_alignment = 1
+
+[node name="ElRuhnPanel" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer"]
+custom_minimum_size = Vector2(55, 45)
+layout_mode = 2
+custom_maximum_size = Vector2(80, 60)
+size_flags_horizontal = 3
+
+[node name="Glow" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/ElRuhnPanel"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.8, 0.3, 0.6)
+
+[node name="BG" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/ElRuhnPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 0.6)
+
+[node name="Outline" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/ElRuhnPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outline_deity")
+
+[node name="Content" type="VBoxContainer" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/ElRuhnPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="KingdomName" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/ElRuhnPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_title_font")
+theme_override_font_sizes/font_size = 4
+text = "EL RUHN KINGDOM"
+horizontal_alignment = 1
+
+[node name="KingdomType" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/ElRuhnPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Mountain Highlands"
+horizontal_alignment = 1
+
+[node name="Bonus1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/ElRuhnPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "+60% Stone & Iron"
+horizontal_alignment = 1
+
+[node name="Bonus2" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/ElRuhnPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "+25% Wood Production"
+horizontal_alignment = 1
+
+[node name="Penalty1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/ElRuhnPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "-20% Trade Income"
+horizontal_alignment = 1
+
+[node name="TzaludPanel" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer"]
+custom_minimum_size = Vector2(55, 45)
+layout_mode = 2
+custom_maximum_size = Vector2(80, 60)
+size_flags_horizontal = 3
+
+[node name="Glow" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/TzaludPanel"]
+visible = false
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -4.0
+offset_right = 4.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 0.8, 0.3, 0.6)
+
+[node name="BG" type="ColorRect" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/TzaludPanel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.15, 0.15, 0.15, 0.6)
+
+[node name="Outline" type="Panel" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/TzaludPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_outline_deity")
+
+[node name="Content" type="VBoxContainer" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/TzaludPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="KingdomName" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/TzaludPanel/Content"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("5_title_font")
+theme_override_font_sizes/font_size = 4
+text = "VYLFOD DOMINION"
+horizontal_alignment = 1
+
+[node name="KingdomType" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/TzaludPanel/Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 4
+text = "Mystical Peaks"
+horizontal_alignment = 1
+
+[node name="Bonus1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/TzaludPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "+50% Mana Production"
+horizontal_alignment = 1
+
+[node name="Bonus2" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/TzaludPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "+30% Research"
+horizontal_alignment = 1
+
+[node name="Penalty1" type="Label" parent="PageContainer/LeftPage/LeftPageContent/KingdomContainer/TzaludPanel/Content"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.8, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 4
+text = "-25% Food & Gold"
+horizontal_alignment = 1
+
+[node name="RightPage" type="Control" parent="PageContainer"]
+layout_mode = 1
+anchor_left = 0.58
+anchor_top = 0.10
+anchor_right = 0.90
+anchor_bottom = 0.90
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RightPageContent" type="VBoxContainer" parent="PageContainer/RightPage"]
+layout_mode = 1
+anchor_left = 0.12
+anchor_top = 0.10
+anchor_right = 0.88
+anchor_bottom = 0.90
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="WorldTitle" type="Label" parent="PageContainer/RightPage/RightPageContent"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "World Information"
+horizontal_alignment = 1
+
+[node name="HSeparator1" type="HSeparator" parent="PageContainer/RightPage/RightPageContent"]
+layout_mode = 2
+
+[node name="MapSection" type="VBoxContainer" parent="PageContainer/RightPage/RightPageContent"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="MapLabel" type="Label" parent="PageContainer/RightPage/RightPageContent/MapSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Kingdom Map:"
+horizontal_alignment = 1
+
+[node name="MapContainer" type="Control" parent="PageContainer/RightPage/RightPageContent/MapSection"]
+layout_mode = 2
+custom_minimum_size = Vector2(300, 180)
+
+[node name="MapBackground" type="TextureRect" parent="PageContainer/RightPage/RightPageContent/MapSection/MapContainer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource("4_map")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="KingdomRegion1" type="Button" parent="PageContainer/RightPage/RightPageContent/MapSection/MapContainer"]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.2
+anchor_right = 0.35
+anchor_bottom = 0.45
+flat = true
+text = ""
+
+[node name="KingdomRegion2" type="Button" parent="PageContainer/RightPage/RightPageContent/MapSection/MapContainer"]
+layout_mode = 1
+anchor_left = 0.4
+anchor_top = 0.15
+anchor_right = 0.65
+anchor_bottom = 0.4
+flat = true
+text = ""
+
+[node name="KingdomRegion3" type="Button" parent="PageContainer/RightPage/RightPageContent/MapSection/MapContainer"]
+layout_mode = 1
+anchor_left = 0.7
+anchor_top = 0.25
+anchor_right = 0.95
+anchor_bottom = 0.5
+flat = true
+text = ""
+
+[node name="KingdomRegion4" type="Button" parent="PageContainer/RightPage/RightPageContent/MapSection/MapContainer"]
+layout_mode = 1
+anchor_left = 0.15
+anchor_top = 0.55
+anchor_right = 0.4
+anchor_bottom = 0.8
+flat = true
+text = ""
+
+[node name="KingdomRegion5" type="Button" parent="PageContainer/RightPage/RightPageContent/MapSection/MapContainer"]
+layout_mode = 1
+anchor_left = 0.45
+anchor_top = 0.6
+anchor_right = 0.7
+anchor_bottom = 0.85
+flat = true
+text = ""
+
+[node name="KingdomRegion6" type="Button" parent="PageContainer/RightPage/RightPageContent/MapSection/MapContainer"]
+layout_mode = 1
+anchor_left = 0.75
+anchor_top = 0.55
+anchor_right = 1.0
+anchor_bottom = 0.8
+flat = true
+text = ""
+
+[node name="HSeparator_Settlement" type="HSeparator" parent="PageContainer/RightPage/RightPageContent"]
+layout_mode = 2
+
+[node name="SettlementInfo" type="VBoxContainer" parent="PageContainer/RightPage/RightPageContent"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="SettlementLabel" type="Label" parent="PageContainer/RightPage/RightPageContent/SettlementInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Settlement Details:"
+
+[node name="TownNameContainer" type="HBoxContainer" parent="PageContainer/RightPage/RightPageContent/SettlementInfo"]
+layout_mode = 2
+
+[node name="TownNameLabel" type="Label" parent="PageContainer/RightPage/RightPageContent/SettlementInfo/TownNameContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 5
+text = "Town Name:"
+
+[node name="TownNameInput" type="LineEdit" parent="PageContainer/RightPage/RightPageContent/SettlementInfo/TownNameContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 5
+placeholder_text = "Enter town name"
+
+[node name="LocationPreview" type="Label" parent="PageContainer/RightPage/RightPageContent/SettlementInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Location: River Crossing"
+
+[node name="TradeRoutes" type="Label" parent="PageContainer/RightPage/RightPageContent/SettlementInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 5
+text = "Trade Routes: 2 available"
+
+[node name="HSeparatorA" type="HSeparator" parent="PageContainer/RightPage/RightPageContent"]
+layout_mode = 2
+
+[node name="TerrainInfo" type="VBoxContainer" parent="PageContainer/RightPage/RightPageContent"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TerrainLabel" type="Label" parent="PageContainer/RightPage/RightPageContent/TerrainInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Terrain & Climate:"
+
+[node name="WorldPreview" type="Label" parent="PageContainer/RightPage/RightPageContent/TerrainInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Rolling Hills | Temperate"
+
+[node name="DifficultyPreview" type="Label" parent="PageContainer/RightPage/RightPageContent/TerrainInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+text = "Difficulty: Normal | Season: Spring"
+
+[node name="HSeparator_Resources" type="HSeparator" parent="PageContainer/RightPage/RightPageContent"]
+layout_mode = 2
+
+[node name="ResourcesInfo" type="VBoxContainer" parent="PageContainer/RightPage/RightPageContent"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="ResourcesLabel" type="Label" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+text = "Starting Resources:"
+
+[node name="GoldContainer" type="HBoxContainer" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo"]
+layout_mode = 2
+
+[node name="GoldLabel" type="Label" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/GoldContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 5
+text = "Gold:"
+
+[node name="GoldMinus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/GoldContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "-"
+
+[node name="GoldInput" type="LineEdit" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/GoldContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 5
+text = "4178"
+alignment = 1
+
+[node name="GoldPlus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/GoldContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "+"
+
+[node name="PopulationContainer" type="HBoxContainer" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo"]
+layout_mode = 2
+
+[node name="PopulationLabel" type="Label" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/PopulationContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 5
+text = "People:"
+
+[node name="PopulationMinus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/PopulationContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "-"
+
+[node name="PopulationInput" type="LineEdit" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/PopulationContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 5
+text = "50"
+alignment = 1
+
+[node name="PopulationPlus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/PopulationContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "+"
+
+[node name="FoodContainer" type="HBoxContainer" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo"]
+layout_mode = 2
+
+[node name="FoodLabel" type="Label" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/FoodContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 5
+text = "Food:"
+
+[node name="FoodMinus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/FoodContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "-"
+
+[node name="FoodInput" type="LineEdit" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/FoodContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 5
+text = "100"
+alignment = 1
+
+[node name="FoodPlus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/FoodContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "+"
+
+[node name="WoodContainer" type="HBoxContainer" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo"]
+layout_mode = 2
+
+[node name="WoodLabel" type="Label" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/WoodContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 5
+text = "Wood:"
+
+[node name="WoodMinus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/WoodContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "-"
+
+[node name="WoodInput" type="LineEdit" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/WoodContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 5
+text = "50"
+alignment = 1
+
+[node name="WoodPlus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/WoodContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "+"
+
+[node name="StoneContainer" type="HBoxContainer" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo"]
+layout_mode = 2
+
+[node name="StoneLabel" type="Label" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/StoneContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 5
+text = "Stone:"
+
+[node name="StoneMinus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/StoneContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "-"
+
+[node name="StoneInput" type="LineEdit" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/StoneContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 5
+text = "30"
+alignment = 1
+
+[node name="StonePlus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/StoneContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "+"
+
+[node name="IronContainer" type="HBoxContainer" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo"]
+layout_mode = 2
+
+[node name="IronLabel" type="Label" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/IronContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 5
+text = "Iron:"
+
+[node name="IronMinus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/IronContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "-"
+
+[node name="IronInput" type="LineEdit" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/IronContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 5
+text = "15"
+alignment = 1
+
+[node name="IronPlus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/IronContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "+"
+
+[node name="ManaContainer" type="HBoxContainer" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo"]
+layout_mode = 2
+
+[node name="ManaLabel" type="Label" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/ManaContainer"]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 5
+text = "Mana:"
+
+[node name="ManaMinus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/ManaContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "-"
+
+[node name="ManaInput" type="LineEdit" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/ManaContainer"]
+custom_minimum_size = Vector2(40, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 5
+text = "20"
+alignment = 1
+
+[node name="ManaPlus" type="Button" parent="PageContainer/RightPage/RightPageContent/ResourcesInfo/ManaContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 4
+text = "+"
+
+[node name="HSeparator_ButtonArea" type="HSeparator" parent="PageContainer/RightPage/RightPageContent"]
+layout_mode = 2
+
+[node name="ButtonArea" type="Control" parent="PageContainer"]
+layout_mode = 1
+anchor_left = 0.2
+anchor_top = 0.85
+anchor_right = 0.8
+anchor_bottom = 0.95000005
+offset_left = 15.9999695
+offset_top = 46.23999
+offset_right = 294.66672
+offset_bottom = 228.607
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.48, 0.48)
+
+[node name="ButtonContainer" type="HBoxContainer" parent="PageContainer/ButtonArea"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.73
+anchor_top = -0.53800005
+anchor_right = 1.4000001
+anchor_bottom = -0.404
+offset_left = 0.34002686
+offset_top = -0.091918945
+offset_right = 0.36645508
+offset_bottom = -0.033103943
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackButton" type="Button" parent="PageContainer/ButtonArea/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"
+
+[node name="CreateButton" type="Button" parent="PageContainer/ButtonArea/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Found Settlement"
+

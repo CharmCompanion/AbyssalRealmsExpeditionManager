@@ -1,0 +1,248 @@
+﻿Comprehensive Architectural Integration of Project Chimera: Advanced Procedural Environments and Modular Structural Engineering
+The convergence of biological simulation and architectural sandbox mechanics represents a significant technical challenge in modern systems-driven game design. Project Chimera establishes a framework where pet management and town infrastructure are inextricably linked, necessitating a world that is both procedurally diverse and structurally malleable.1 This report provides an exhaustive analysis of the methodologies required to implement a 3D environment that responds to kingdom-based seeding, a part-by-part modular construction engine with advanced geometric transformations, and a semantic validation system that ensures freeform player creativity meets the functional requirements of the Chimera facility specifications.1
+Macro-Environmental Proceduralism and Kingdom-Based Seeding
+The global geography of the Chimera environment must facilitate six distinct starting kingdoms, each anchored in a biome that dictates the resource availability and pet attribute affinities for the player’s initial progression.1 Achieving this level of variation while maintaining a coherent world-map requires a hierarchical seeding strategy that integrates Voronoi partitioning with multi-octave noise functions.4
+The primary layer of generation is the "Kingdom Anchor System." Upon selecting one of the six kingdoms—Igneous Peaks, Glacial Expanses, Nebulous Arbors, Abyssal Lowlands, Ethereal Plateaus, or Verdant Cradles—the generator designates a central seed point for the chosen biome.5 To prevent predictable or "square" world shapes, the engine utilizes Voronoi diagrams to partition the landmass into regions of influence.4 These regions, or cells, are then processed through a random fill algorithm or breadth-first search to assign biome identities based on their proximity to the kingdom anchors.5 This ensures that while the chosen kingdom dominates the starting experience, the surrounding world evolves into a complex tapestry of sub-biomes dictated by the seed.3
+Table 1: Kingdom Biome Attributes and Resource Distribution
+Kingdom
+	Primary Biome
+	Terrain Complexity
+	Essential Resources
+	Attribute Bias
+	Igneous Peaks
+	Volcanic / Ashlands
+	High Verticality
+	Rare Masonry Stones
+	PAtk (Force)
+	Glacial Expanses
+	Tundra / Ice Fields
+	Low (Plains)
+	Durable Fibers
+	PDef (Guard)
+	Nebulous Arbors
+	Rainforest
+	High (Dense)
+	Exotic Spices
+	Agility (Vigor)
+	Abyssal Lowlands
+	Swamp / Fen
+	Medium (Water-heavy)
+	Special Catalysts
+	Luck / MAtk
+	Ethereal Plateaus
+	Alpine / Floating
+	High (Fragmented)
+	Fine Grains
+	Intelligence (Wit)
+	Verdant Cradles
+	Forest / Meadow
+	Medium (Rolling)
+	Balanced Timber
+	Accuracy (Focus)
+	The seed settings must allow for "multiple generations per biome" to provide replayability even within a single kingdom choice.8 This is implemented by using the kingdom selection as a "Bias Parameter" for the global noise generation rather than a static template.9 By adjusting the temperature and humidity threshold values in a 2D lookup table, the generator can shift the entire world's ecological profile while maintaining local variation.8 For instance, a seed favoring the Igneous Peaks would mathematically shift the humidity map toward lower values, increasing the frequency of arid or volcanic noise peaks while reducing the probability of glacial occurrences.5
+Mathematical variation within the biomes is further refined using Simplex noise, which avoids the 45-degree ridging artifacts common in older Perlin noise implementations.8 The elevation is determined by a summation of noise octaves where persistence and lacunarity are modified by the kingdom's "Terrain Complexity" metric.8
+
+
+$$\text{Height}(x, y) = \sum_{n=0}^{\text{octaves}} \text{persistence}^n \times \text{noise}(x \times \text{lacunarity}^n, y \times \text{lacunarity}^n)$$
+This equation allows for the creation of smooth rolling hills in the Verdant Cradles while simultaneously producing the sharp, jagged basaltic spires of the Igneous Peaks simply by varying the persistence and lacunarity values provided by the seed.8
+Micro-Architectural Framework: The Part-by-Part Construction Engine
+Project Chimera moves away from prefab-only buildings toward a systematic construction engine where players craft or purchase discrete structural components.1 This modular approach is modeled after architectural "Lego" kits, utilizing a standardized metric system—typically 2 or 4-meter units—to ensure that disparate parts align seamlessly across a 3D grid.2 The construction pipeline is a multi-stage process involving resource gathering, crafting in the Workshop (or purchase from the General Store), and runtime placement.1
+The technical foundation of this system is the "Modular Part Library." Each part, such as a wall, floor, or window frame, is stored as a specialized Resource that contains its mesh data, material costs, and "Socket Metadata".2 Sockets are invisible markers that define how parts can connect.2 For example, a "Wall" part would have sockets on its top, bottom, and sides, while a "Roof" part might only have sockets on its base.2 When a player enters the building mode, the engine renders a "Hologram" of the selected part at the mouse position, snapped to the nearest grid coordinates.15
+Table 2: Structural Component Metrics and Snapping Logic
+Component Type
+	Base Dimensions
+	Socket Configuration
+	Primary Usage
+	Foundation
+	4x4x1m
+	Top, All Sides
+	Base stability and ground leveling.
+	Standard Wall
+	4x4x0.25m
+	Top, Bottom, Sides
+	Vertical structure and room enclosure.
+	Door Frame
+	4x4x0.25m
+	Top, Bottom, Sides
+	Specific socket for functional door props.
+	Floor / Ceiling
+	4x4x0.25m
+	All Sides
+	Horizontal surfaces and multi-story builds.
+	Roof Section
+	4x2x2m
+	Bottom, Slanted Sides
+	Exterior finish and weather protection.
+	Prop / Detail
+	Variable
+	Pivot-based
+	Interior furnishing and facility validation.
+	To satisfy the requirement for advanced geometric flexibility, the engine must support transformations that go beyond simple 90-degree rotations.17 This is achieved by providing the player with a 3D gizmo that modifies the object's basis matrix in real-time.19 The implementation of rotation, skew, tilt, and mirror is handled by directly manipulating the local transform vectors of the part.21
+Rotation is managed via quaternions to avoid gimbal lock, allowing players to orient parts in any direction.17 Tilting is a specialized form of rotation around the X or Z axes, enabling the creation of slanted walls or custom roof shapes.18 Resizing, or scaling, is handled uniforms or non-uniformly; however, the engine must account for texture distortion by utilizing triplanar mapping on materials, ensuring that a wall stretched to double its height does not also stretch its brick pattern.17
+Mirroring and flipping are implemented by setting a scale axis to -1.0.25 While simple in concept, this requires the engine to recalculate the normals of the mesh to prevent it from appearing "inside out" or having incorrect lighting.26 Skewing is perhaps the most advanced transformation requested; it involves shifting the basis vectors so they are no longer perpendicular.21 This is mathematically represented by adding a portion of one axis to another.21
+
+
+$$\text{Basis}_{\text{skewed}} = \begin{bmatrix} 1 & k_x & 0 \\ k_y & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix}$$
+This skewing allows for the creation of parallelogram-shaped rooms or "crooked" fairytale architecture that gives the town a hand-built, organic aesthetic.12
+Semantic Validation and Facility Intelligence
+While the building system provides freeform creative freedom, Project Chimera requires that constructed structures meet specific "Facility Needs" to function as a Health Clinic, Kitchen, or Training Academy.1 This requires a semantic validation layer that analyzes the player's build in real-time to determine if it fulfills the requirements for a functional building.27
+The first step in this process is "Room Detection".3 When a part is placed, the engine runs a 3D flood-fill algorithm starting from the internal empty space.3 If the algorithm is bounded by "Enclosure Parts" (walls, floors, and roofs), it identifies the volume as an Enclosed Room.29 Once a room is identified, the system performs "Facility Enumeration" by scanning the internal volume for specific props and furniture that have functional tags.27
+Table 3: Facility Requirements and Semantic Validation Tags
+
+
+Facility Type
+	Mandatory Props
+	Required Tags
+	Minimum Volume
+	Gameplay Benefit
+	Health Clinic
+	Medical Bed, Basin
+	is_medical, is_water
+	16m³
+	Burnout Recovery 1
+	Kitchen
+	Stove, Pantry, Table
+	is_stove, is_storage
+	24m³
+	3-Course Cooking 1
+	Academy
+	Desks, Bookshelf
+	is_study, is_lore
+	32m³
+	AP / IP Generation 1
+	Workshop
+	Forge, Anvil, Rack
+	is_forge, is_craft
+	32m³
+	Catalyst Crafting 1
+	House
+	Bed, Hearth, Chest
+	is_rest, is_storage
+	16m³
+	Ranch Expansion 1
+	This system allows for "Functional Design Independence".27 A player can build a castle, a humble shack, or a futuristic laboratory; as long as the engine detects a medical bed and a basin within an enclosed room, it validates the structure as a Health Clinic.27 This validation is critical because it triggers the "District Laborer" slots, allowing the player to assign pets to the building to provide passive efficiency buffs based on their stat ranks.1
+The validation layer also supports "Prop and Detail Placement," which includes non-functional but aesthetic items like paintings, rugs, and crates.2 These items are tracked via the same data structure as structural parts, but they contribute to a "Beauty/Luster" metric which can indirectly influence the Morale of the pets assigned to that facility.1
+Visual Construction Dynamics: Holograms and Shaders
+The construction experience is enhanced through high-fidelity visual feedback, specifically the use of holograms and animated build sequences.16 When a player selects a part to build, the engine does not immediately instance the final mesh; instead, it displays a "Hologram Guide".32
+The hologram is rendered using a custom spatial shader that utilizes a blue or violet gradient with animated Perlin noise to create a "digital shimmer" effect.32 This shader is also used to indicate placement validity: the hologram glows red if the part is intersecting with an existing object or lacks proper structural support, and blue if the placement is valid.16 To fulfill the request for a building "built over time," the engine employs a "Progress Reveal Shader".33 As the construction timer progresses, a step function in the fragment shader revealed the mesh from the base upward, often accompanied by a "glow" at the leading edge of the construction.33
+For complex facilities or for players who prefer structured guidance, the system provides "Template Buildings".13 Templates are pre-configured structures stored as Blueprints.13 When a template is selected, a full-scale hologram of the entire building is projected into the world.16 This allows the player to orient and position a large structure as a single unit before committing resources to its construction.18 If a player chooses to build manually but desires help, they can toggle "Hologram Placement Guides".16 These are "ghost" versions of parts that appear where the system suggests a wall or floor should be placed to complete a room that satisfies a specific facility’s needs.16
+Persistence and the Blueprint Paradigm
+Project Chimera requires a robust way to save, delete, and duplicate buildings.1 This is achieved through a "Blueprint Resource System".13 Every building in the player’s district is treated as a unique Data Resource that can be serialized into a binary or text-based file format.13
+A Blueprint contains a list of every part in the building, including its Part ID and its relative transform (position, rotation, skew, tilt, scale).13 This structure allows for "Multi-Copy" functionality; a player can select a group of parts (e.g., a specific tower or decorative wing), save them as a sub-template, and then paste that entire assembly elsewhere.12 When a building is selected from the "Saved List," the engine turns the hologram placement mechanic into that building's full-scale hologram, enabling the player to Orient and move it before instantiating the build.18
+Table 4: Serialization Data Structure for Building Resources
+Data Field
+	Type
+	Description
+	building_name
+	String
+	User-assigned name for the structure.
+	facility_type
+	Enum
+	The validated gameplay role (e.g., Kitchen).
+	parts_list
+	Array
+	Every structural part with its ID and Basis matrix.
+	prop_list
+	Array
+	Every decorative or functional prop within the building.
+	assigned_pets
+	Array
+	References to the Chimera pets assigned to the facility.
+	interior_seed
+	Integer
+	Used to reconstruct procedurally generated interior details.
+	Deletion of buildings involves removing the resource from the active scene and, if applicable, returning a portion of the materials to the player's inventory.1 The "Save to List" feature allows players to share designs or replicate successful facility layouts across different districts or even different kingdom seeds.13
+Algorithmic Interior Design and Building Generation
+To handle the complexity of "building out the inside" of large structures, Project Chimera utilizes a "Building Generator" based on an asset library and a set of predefined rules.39 This system is particularly useful for players who build the exterior "shell" of a massive castle or tavern but wish to automate the tedious placement of internal walls and hallways.39
+The generator employs Wave Function Collapse (WFC) or a "Recursive Bisection" algorithm to divide the internal volume into logical rooms.42 The algorithm starts with the "Enclosed Volume" detected during room validation and recursively slices the space along the longest dimension until individual parts fall below a certain size.42
+1. Input Phase: The player defines the "Style" of the interior (e.g., "Rustic Academy" or "Sterile Clinic") and selects a target volume.39
+2. Slicing Phase: The bisection algorithm divides the space into regions, ensuring that each region has a minimum footprint suitable for its intended facility role.42
+3. Connection Phase: The generator identifies "Corridor Rooms" and places doors between adjacent rooms to ensure all spaces are reachable from the building's main entrance.30
+4. Furnishing Phase: The system pulls from the "Asset Library" to place functional and decorative props. It uses a "Constraint Solver" to ensure that a bed is placed against a wall and that a stove has clear space in front of it.43
+This process results in an interior that "makes sense".41 For example, the generator will attempt to group "Abyssal" themed props together if the building is in a swamp biome, or prioritize "Ethereal" library modules if the structure is tagged as an Academy.42 This automated system can be manually overridden, allowing players to build how they want while the algorithm handles the repetitive details of structural integrity and functional layout.39
+Technical Synthesis: Integrating Pets into the Built Environment
+The ultimate goal of the modular building and map system is to serve the Chimera Pet population.1 The map provides the habitat, and the buildings provide the infrastructure for growth and recovery.1 The "Active Companion" follows the player through the procedurally generated kingdoms, its state tracked via the "Vitality HUD".1
+The "Sanctuary" or "Ranch" storage capacity is directly tied to the player’s House upgrades.1 As the player builds larger estates and upgrades them with high-tier materials from the Igneous Peaks, the Ranch capacity expands from 20 to over 100 slots.1 Furthermore, the "Visual Growth" of pets—where they physically change size based on trained stats—is rendered using the same "Paper-doll" or "Modular Puppet" system used for the buildings.1 This ensures visual consistency: just as a building can be skewed or tilted to look more "Forceful," a pet trained in PAtk will appear bulkier and more muscular as it walks through its assigned District.1
+The combat system, or "The Delve," takes place in the "Tower"—a non-buildable, procedurally generated dungeon that serves as the source for "Ascension Catalysts".1 These catalysts are used in the buildings (specifically the Academy or Clinic) to break a pet’s rank limit, unlocking new segments of the "Resonance Grid".1 This creates a complete loop where the world generation provides the materials for building, the building allows for pet management, and the pet management enables the delvings required for further building upgrades.1
+Future Outlook and Optimization Strategies
+The management of thousands of modular building parts and dynamic map chunks requires advanced rendering techniques to maintain performance.47 The engine utilizes "MultiMeshInstance3D" to batch draw-calls for identical building parts.47 For example, if a player builds a massive fortress using 1,000 "Basalt Wall" modules in the Igneous Peaks, the engine renders them in a single draw-call rather than 1,000 separate operations.47
+To further optimize the "Map Variation" requirement, the generator can utilize "GPU-Side Texture Chunks," which generate the kingdom biomes and terrain flows directly on the graphics card.8 This allows the world to expand infinitely as the player explores, with the kingdom biomes blending smoothly into one another via "Weight Maps" that sum to 1.0 at every vertex.8
+Table 5: Optimization Metrics for Building and Map Systems
+System
+	Optimization Technique
+	Benefit
+	Primary Resource Impact
+	Buildings
+	MultiMesh Batching
+	90% reduction in Draw Calls.
+	GPU VRAM
+	Terrain
+	GPU-Side Generation
+	Zero-latency world expansion.
+	GPU Core
+	Logic
+	Requirement Caching
+	Validation runs only on part change.
+	CPU
+	Visuals
+	Triplanar Mapping
+	No texture distortion on resize/skew.
+	VRAM / Shader Complexity
+	Persistence
+	Binary Serialization
+	Smaller save files for complex districts.
+	Disk I/O
+	The final integration of Project Chimera results in a world where architecture and biology are symbiotic. The map changes based on kingdom selection to provide a unique "Primal Start," while the building system offers the granular control necessary to craft a personalized colony infrastructure.1 By merging the semantic validation of facilities with the creative freedom of a part-by-part construction engine, Project Chimera establishes a new benchmark for depth and agency in the simulation genre.27 This report concludes that the successful merger of these features relies on a unified data-resource approach, where every pet, part, and biome seed is a synchronized component of the Chimera Master Specification.1
+Works cited
+1. Master Spec (No Game Names added).txt
+2. What Are 3D Modular Systems in Game Development? A Beginner-Friendly Guide, accessed January 2, 2026, https://devotedstudios.com/what-are-3d-modular-systems-in-game-development-a-beginner-friendly-guide/
+3. Biome generation - Help - Godot Forum, accessed January 2, 2026, https://forum.godotengine.org/t/biome-generation/77106
+4. Polygonal Map Generation for Games - Stanford, accessed January 2, 2026, http://www-cs-students.stanford.edu/~amitp/game-programming/polygon-map-generation/
+5. Procedural map generation on a sphere - Red Blob Games, accessed January 2, 2026, https://www.redblobgames.com/x/1843-planet-generation/
+6. Procedural biome-based regions generation and naming in my open world colony sim : r/proceduralgeneration - Reddit, accessed January 2, 2026, https://www.reddit.com/r/proceduralgeneration/comments/1hlhfvd/procedural_biomebased_regions_generation_and/
+7. Procedural generation: how to guarantee a set of buildings within biome? - Godot Forum, accessed January 2, 2026, https://forum.godotengine.org/t/procedural-generation-how-to-guarantee-a-set-of-buildings-within-biome/122905
+8. Procedural World Generation with Biomes in Unity | by Emre Safa Baltacı | Medium, accessed January 2, 2026, https://medium.com/@mrrsff/procedural-world-generation-with-biomes-in-unity-a474e11ff0b7
+9. How to Create a Procedural Map for a 3D Game? - Godot Forums, accessed January 2, 2026, https://godotforums.org/d/41953-how-to-create-a-procedural-map-for-a-3d-game
+10. Biomes in Procedural Terrain Generation : r/Unity3D - Reddit, accessed January 2, 2026, https://www.reddit.com/r/Unity3D/comments/10nu50d/biomes_in_procedural_terrain_generation/
+11. Approaches to Modular Construction for Real-time Game Environments - Squarespace, accessed January 2, 2026, https://static1.squarespace.com/static/574e757260b5e93b27fb18ac/t/5b4804012b6a286d041b6fc9/1531446278799/BraidenFenech_ApproachesToModularConstructionForReal-timeGameEnvironments.pdf
+12. I made a modular building system for our city-building game and this is the first building we've created. : r/Unity3D - Reddit, accessed January 2, 2026, https://www.reddit.com/r/Unity3D/comments/xmzb3y/i_made_a_modular_building_system_for_our/
+13. Saving and Loading Games in Godot 4 (with resources) | GDQuest Library, accessed January 2, 2026, https://www.gdquest.com/library/save_game_godot4/
+14. My Workflow for 3D Modular Interior Architecture : r/godot - Reddit, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/1i3elv9/my_workflow_for_3d_modular_interior_architecture/
+15. Need help with building system in 3D - Godot Forum, accessed January 2, 2026, https://forum.godotengine.org/t/need-help-with-building-system-in-3d/53748
+16. How to create character-placeable items in game, such as buildings, furniture, etc.?, accessed January 2, 2026, https://forum.godotengine.org/t/how-to-create-character-placeable-items-in-game-such-as-buildings-furniture-etc/19117
+17. Translate, Rotate, and Scale Manipulators in 3D Modelling Programs - Edward Zhang, accessed January 2, 2026, https://ed.ilogues.com/2018/06/27/translate-rotate-and-scale-manipulators-in-3d-modelling-programs
+18. 3D Gizmo: Move and Rotate Objects - Structure Studios, accessed January 2, 2026, https://www.structurestudios.com/help/editing-the-objects
+19. Editor gizmos to translate, rotate, scale - Castle Game Engine, accessed January 2, 2026, https://castle-engine.io/wp/2020/09/25/editor-gizmos-to-translate-rotate-scale/
+20. Mastering 3D Animation with Gizmo Rotation: A Guide for Animators - AniFuzion, accessed January 2, 2026, https://www.anifuzion.com/mastering-3d-animation-with-gizmo-rotation-a-guide-for-animators/
+21. Transform2D — Godot Engine (stable) documentation in English, accessed January 2, 2026, https://docs.godotengine.org/en/stable/classes/class_transform2d.html
+22. Creating a runtime rotation Gizmo - Blueprint - Epic Developer Community Forums, accessed January 2, 2026, https://forums.unrealengine.com/t/creating-a-runtime-rotation-gizmo/139831
+23. First steps with Rooms and Portals - Godot Docs, accessed January 2, 2026, https://docs.godotengine.org/en/3.5/tutorials/3d/portals/first_steps_with_rooms_and_portals.html
+24. Transforms :: Godot 4 Recipes - KidsCanCode.org, accessed January 2, 2026, https://kidscancode.org/godot_recipes/4.x/math/transforms/index.html
+25. Mirror/flip nodes (3D) horizontally in editor? - godot - Reddit, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/1ltwzln/mirrorflip_nodes_3d_horizontally_in_editor/
+26. how to flip/mirror a 3d model (without screwing up lighting?) : r/godot - Reddit, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/1f1en2a/how_to_flipmirror_a_3d_model_without_screwing_up/
+27. Automated Facility Enumeration for Building Compliance Checking using Door Detection and Large Language Models - arXiv, accessed January 2, 2026, https://arxiv.org/pdf/2509.17283
+28. Building Accessibility Code Compliance Verification Using Game Simulations in Virtual Reality | Request PDF - ResearchGate, accessed January 2, 2026, https://www.researchgate.net/publication/317575268_Building_Accessibility_Code_Compliance_Verification_Using_Game_Simulations_in_Virtual_Reality
+29. A prototype for detecting rooms in a tile map - godot - Reddit, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/197o55v/a_prototype_for_detecting_rooms_in_a_tile_map/
+30. A Novel Algorithm for Real-time Procedural Generation of Building Floor Plans - ar5iv - arXiv, accessed January 2, 2026, https://ar5iv.labs.arxiv.org/html/1211.5842
+31. Why you should use data tagging standards in smart buildings - Kiona, accessed January 2, 2026, https://kiona.com/story/blog/why-you-should-use-data-tagging-standards-in-smart-buildings
+32. I made a hologram shader! : r/godot - Reddit, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/1aqnzsm/i_made_a_hologram_shader/
+33. A Progress bar applied with a shader. : r/godot - Reddit, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/1bgvk3e/a_progress_bar_applied_with_a_shader/
+34. Making 3D objects glow in Godot 4.3: a direct route - Reddit, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/1exv4tl/making_3d_objects_glow_in_godot_43_a_direct_route/
+35. Procedural map generation like doors - Help - Godot Forum, accessed January 2, 2026, https://forum.godotengine.org/t/procedural-map-generation-like-doors/110549
+36. Resources — Godot Engine (4.4) documentation in English, accessed January 2, 2026, https://docs.godotengine.org/en/4.4/getting_started/step_by_step/resources.html
+37. How to load and save things with Godot: a complete tutorial about serialization, accessed January 2, 2026, https://forum.godotengine.org/t/how-to-load-and-save-things-with-godot-a-complete-tutorial-about-serialization/44515
+38. Saving games — Godot Engine (stable) documentation in English, accessed January 2, 2026, https://docs.godotengine.org/en/stable/tutorials/io/saving_games.html
+39. Exploring procedural generation of buildings - DiVA portal, accessed January 2, 2026, https://www.diva-portal.org/smash/get/diva2:1480518/FULLTEXT01.pdf
+40. Help me design a wave function collapse system - Godot Forum, accessed January 2, 2026, https://forum.godotengine.org/t/help-me-design-a-wave-function-collapse-system/66001
+41. Procedurally generating structures with rooms / corridors / stairs / doors : r/godot - Reddit, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/1fdvnq4/procedurally_generating_structures_with_rooms/
+42. How would you approach procedurally generating an interior level? : r/proceduralgeneration - Reddit, accessed January 2, 2026, https://www.reddit.com/r/proceduralgeneration/comments/1akgnjg/how_would_you_approach_procedurally_generating_an/
+43. Procedural... house with rooms generator - Game Development Stack Exchange, accessed January 2, 2026, https://gamedev.stackexchange.com/questions/47917/procedural-house-with-rooms-generator
+44. Created level generation using a Wave Function Collapse. Tested at 100+ rooms : r/godot, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/1jfvi4x/created_level_generation_using_a_wave_function/
+45. My approach for a procedural generation of city layouts : r/godot - Reddit, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/1nogxil/my_approach_for_a_procedural_generation_of_city/
+46. Using Wavefunction Collapse for Procedural Terrain : r/gamedev - Reddit, accessed January 2, 2026, https://www.reddit.com/r/gamedev/comments/u2ecip/using_wavefunction_collapse_for_procedural_terrain/
+47. I'm creating a room building system for my first 3D game : r/godot - Reddit, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/1hoap2i/im_creating_a_room_building_system_for_my_first/
+48. Rooms and Portals example — Godot Engine (3.5) documentation in English, accessed January 2, 2026, https://docs.godotengine.org/en/3.5/tutorials/3d/portals/rooms_and_portals_example.html
+49. Procedural map generation with multiple biomes : r/Unity3D - Reddit, accessed January 2, 2026, https://www.reddit.com/r/Unity3D/comments/sa3le0/procedural_map_generation_with_multiple_biomes/
+50. Procedural landmass generation + Biomes : r/proceduralgeneration - Reddit, accessed January 2, 2026, https://www.reddit.com/r/proceduralgeneration/comments/1fqsuoz/procedural_landmass_generation_biomes/
+51. How would you go about procedurally generating a map based on given points? : r/godot, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/1k8fwnw/how_would_you_go_about_procedurally_generating_a/
+52. how to build for modularity in Godot 4 - Reddit, accessed January 2, 2026, https://www.reddit.com/r/godot/comments/126w4ag/how_to_build_for_modularity_in_godot_4/

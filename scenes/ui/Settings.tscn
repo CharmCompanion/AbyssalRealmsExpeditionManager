@@ -1,0 +1,262 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn1riyplnco1r"]
+
+[ext_resource type="Theme" uid="uid://c8fh3t34vsa6o" path="res://assets/ui/theme/ui_fib_quaver.tres" id="1"]
+[ext_resource type="Script" uid="uid://cnwub7625a67r" path="res://scripts/ui/Settings.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://bp5mg3tg5r8o0" path="res://assets/ui/panel/Panel.png" id="2_asmva"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.45)
+
+[node name="Panel" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.03
+anchor_right = 0.98
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_asmva")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ContentRoot" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.027
+anchor_top = 0.034
+anchor_right = 0.96700007
+anchor_bottom = 0.94100004
+offset_left = 9.896
+offset_top = 9.9679985
+offset_right = -9.984131
+offset_bottom = -4.7680054
+
+[node name="RootVBox" type="VBoxContainer" parent="ContentRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="TabsRow" type="HBoxContainer" parent="ContentRoot/RootVBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="GeneralTab" type="Button" parent="ContentRoot/RootVBox/TabsRow"]
+layout_mode = 2
+toggle_mode = true
+button_pressed = true
+text = "General"
+
+[node name="AudioTab" type="Button" parent="ContentRoot/RootVBox/TabsRow"]
+layout_mode = 2
+toggle_mode = true
+text = "Audio"
+
+[node name="VideoTab" type="Button" parent="ContentRoot/RootVBox/TabsRow"]
+layout_mode = 2
+toggle_mode = true
+text = "Video"
+
+[node name="ControlsTab" type="Button" parent="ContentRoot/RootVBox/TabsRow"]
+layout_mode = 2
+toggle_mode = true
+text = "Controls"
+
+[node name="TabsSpacer" type="Control" parent="ContentRoot/RootVBox/TabsRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PagesFrame" type="PanelContainer" parent="ContentRoot/RootVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PagesMargin" type="MarginContainer" parent="ContentRoot/RootVBox/PagesFrame"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="Pages" type="Control" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin"]
+layout_mode = 2
+
+[node name="GeneralPage" type="VBoxContainer" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="GeneralTitle" type="Label" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/GeneralPage"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "General Settings"
+
+[node name="GeneralGameplayLabel" type="Label" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/GeneralPage"]
+layout_mode = 2
+text = "Gameplay:"
+
+[node name="ShowTips" type="CheckBox" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/GeneralPage"]
+layout_mode = 2
+text = "Show gameplay tips"
+pressed = true
+
+[node name="AutoSave" type="CheckBox" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/GeneralPage"]
+layout_mode = 2
+text = "Enable autosave"
+pressed = true
+
+[node name="AudioPage" type="VBoxContainer" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="AudioTitle" type="Label" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/AudioPage"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Audio Settings"
+
+[node name="MasterVolumeLabel" type="Label" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/AudioPage"]
+layout_mode = 2
+text = "Master Volume:"
+
+[node name="MasterVolume" type="HSlider" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/AudioPage"]
+layout_mode = 2
+min_value = 0
+max_value = 100
+step = 1
+value = 80
+
+[node name="MusicVolumeLabel" type="Label" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/AudioPage"]
+layout_mode = 2
+text = "Music Volume:"
+
+[node name="MusicVolume" type="HSlider" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/AudioPage"]
+layout_mode = 2
+min_value = 0
+max_value = 100
+step = 1
+value = 70
+
+[node name="SfxVolumeLabel" type="Label" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/AudioPage"]
+layout_mode = 2
+text = "SFX Volume:"
+
+[node name="SfxVolume" type="HSlider" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/AudioPage"]
+layout_mode = 2
+min_value = 0
+max_value = 100
+step = 1
+value = 80
+
+[node name="VideoPage" type="VBoxContainer" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="VideoTitle" type="Label" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/VideoPage"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Video Settings"
+
+[node name="DisplayModeLabel" type="Label" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/VideoPage"]
+layout_mode = 2
+text = "Display Mode:"
+
+[node name="DisplayMode" type="OptionButton" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/VideoPage"]
+layout_mode = 2
+items = ["Windowed", "Fullscreen", "Borderless"]
+selected = 0
+
+[node name="Vsync" type="CheckBox" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/VideoPage"]
+layout_mode = 2
+text = "Enable VSync"
+pressed = true
+
+[node name="ControlsPage" type="VBoxContainer" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="ControlsTitle" type="Label" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/ControlsPage"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Controls Settings"
+
+[node name="MouseSensitivityLabel" type="Label" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/ControlsPage"]
+layout_mode = 2
+text = "Mouse Sensitivity:"
+
+[node name="MouseSensitivity" type="HSlider" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/ControlsPage"]
+layout_mode = 2
+min_value = 0.1
+max_value = 2.0
+step = 0.01
+value = 1.0
+
+[node name="InvertY" type="CheckBox" parent="ContentRoot/RootVBox/PagesFrame/PagesMargin/Pages/ControlsPage"]
+layout_mode = 2
+text = "Invert Y Axis"
+pressed = false
+
+[node name="BottomRow" type="HBoxContainer" parent="ContentRoot/RootVBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="BottomSpacerLeft" type="Control" parent="ContentRoot/RootVBox/BottomRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Back" type="Button" parent="ContentRoot/RootVBox/BottomRow"]
+layout_mode = 2
+text = "Back"
+
+[node name="Revert" type="Button" parent="ContentRoot/RootVBox/BottomRow"]
+layout_mode = 2
+text = "Revert"
+
+[node name="Apply" type="Button" parent="ContentRoot/RootVBox/BottomRow"]
+layout_mode = 2
+text = "Apply"
+
+[node name="BottomSpacerRight" type="Control" parent="ContentRoot/RootVBox/BottomRow"]
+layout_mode = 2
+size_flags_horizontal = 3

@@ -1,0 +1,82 @@
+	
+KayKit City Builder Bits 1.0 3D Tools 4.1 Community
+Submitted by user KayKit Game Assets; CC0; 2023-09-16
+
+This pack has a bunch of game assets for creating cities, great to use with city planning, simulation, RTS games and whatever you can think of putting these in.
+
+Features
+
+- 32+ Low poly optimized 3D models, suitable for all ranges of games, including mobile.
+- Textured using a single gradient atlas texture (1024x1024) that can be downsampled up to 128x128 for further optimization.
+- Free for personal and commercial use, no attribution required. (CC0 Licensed)
+https://godotengine.org/asset-library/asset/2123
+
+
+	
+CityCrafter3D 1.0.1 3D Tools 4.4 Community
+Submitted by user GEG-Fairbear8974; MIT; 2025-08-03
+
+This is a city generator that builds 3D cities using a slot-based grid system. Each block can be different sizes (1x1, 2x1, 2x2), and blocks are assigned district types (residential, commercial, industrial) using noise or random placement.
+
+- Buildings are placed based on the district and density settings, and can be reused by saving the CityConfiguration resource.
+- Visuals and materials are pulled from your assigned assets in the configuration.
+- Support for further subdivision and smaller subroads in residential zones.
+- All generated components are standalone nodes within the world, allowing for post-generation adjustments.
+
+UPDATE 1.0.1 = Updated .gitattribute file to play nice with the Asset Library, and added some additional examples in the main scene.
+https://godotengine.org/asset-library/asset/4188
+
+
+Starter Kit City Builder 1.0.0 Templates 4.5 Community
+Submitted by user Kenney; MIT; 2025-09-20
+
+Starter Kit City Builder is a basic template for a 3D city builder in Godot 4.3 (stable). Includes features like;
+
+- Building and removing structures
+- Smooth camera controls
+- Dynamic MeshLibrary creation
+- Saving/loading
+- Sprites and 3D Models (CC0 licensed)
+
+Controls:
+
+- W A S D: Move camera
+- Right mouse button: Hold to rotate camera
+- Left mouse button: Place building
+- DEL: Remove building
+- Spacebar: Rotate building
+- Q / E: Toggle between buildings
+- F1: Save
+- F2: Load
+https://godotengine.org/asset-library/asset/2174
+
+
+	
+BehaviourToolkit - StateMachine and Behaviour Tree for AI & NPCs 2.0.4 Tools 4.3 Community
+Submitted by user ThePat02; MIT; 2025-09-19
+
+This plugin provides a set of tools to create custom and complex behaviour in the Godot 4.x Game Engine.
+
+Features
+- Behaviour Architectures
+- Finite State Machine
+- Behaviour Tree
+- Nest Behaviour Trees inside State Machines and vice versa!
+- Blackboard Resource
+- Editor Interface
+- Templates for easy extension and integration.
+- Example Scene
+- Full documentation
+https://godotengine.org/asset-library/asset/2333
+
+
+This looks really similar to what I might need?
+godot-watabou-city 0.1 Tools 4.0 Community
+Submitted by user tavurth; MIT; 2023-03-09
+
+Allows loading of the awesome watabou.github.io/city-generator JSON export files in Godot 4.x
+https://godotengine.org/asset-library/asset/1720
+https://raw.githubusercontent.com/tavurth/godot-watabou-city/da969a3054094c1a1dac74ae5d6f3057eaf8dce9/demo/screenshot.png
+
+
+

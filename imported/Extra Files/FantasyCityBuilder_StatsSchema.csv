@@ -1,0 +1,19 @@
+Category,Element,Description
+Population,Total Population,"Tracks total citizens, divided into classes or professions"
+Population,Worker Availability,"Shows employed, unemployed, and worker shortage levels"
+Housing,Evolution Levels,"Houses evolve based on goods, services, and desirability"
+Housing,Desirability,"Score affected by surroundings, pollution, and aesthetics"
+Goods,Resource Stocks,Displays total goods by type across storage buildings
+Goods,Food Supply,"Tracks per-type food quantity, variety, and distribution coverage"
+Services,Coverage,"Heatmap and % of houses serviced by fire, health, culture, religion"
+Economy,Treasury,"Shows income, expenses, trade balance, and tax rate impact"
+Trade,World Map,"Displays trade partners, route status, and yearly imports/exports"
+Trade,Favor Levels,Shows relations per city or faction affecting trade or alliances
+Military,Readiness,"Unit count, morale, and resource readiness"
+Events,Requests/Demands,Lists external requests and missions with timers and rewards
+Events,Mythic/Adventure Events,Magical or divine events offering blessings or threats
+UI,Building Panels,"Clickable info for stock, worker, and service status"
+UI,Overlays,"Heatmaps for services, desirability, and distribution"
+UI,House Need Icons,Visual indicators above homes for missing goods/services
+Special,Monuments,Long-term builds requiring multiple goods and labor
+Special,Magic System,"Fantasy mechanic replacing gods—elemental, divine, or curse system"

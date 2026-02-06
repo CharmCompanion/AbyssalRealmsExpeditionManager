@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bho6esx4rx27s"
+
+[deps]
+
+files=["res://imported/Extra Files/FantasyCityBuilder_StatsSchema.Element.translation", "res://imported/Extra Files/FantasyCityBuilder_StatsSchema.Description.translation"]
+
+source_file="res://imported/Extra Files/FantasyCityBuilder_StatsSchema.csv"
+dest_files=["res://imported/Extra Files/FantasyCityBuilder_StatsSchema.Element.translation", "res://imported/Extra Files/FantasyCityBuilder_StatsSchema.Description.translation"]
+
+[params]
+
+compress=true
+delimiter=0

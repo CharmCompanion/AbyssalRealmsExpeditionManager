@@ -1,0 +1,281 @@
+[gd_scene load_steps=4 format=3 uid="uid://dh3q73jt0876o"]
+
+[ext_resource type="Theme" uid="uid://c8fh3t34vsa6o" path="res://assets/ui/theme/ui_fib_quaver.tres" id="1"]
+[ext_resource type="Script" uid="uid://cnaevw7q8u0ll" path="res://scripts/ui/SaveSelect.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://bp5mg3tg5r8o0" path="res://assets/ui/panel/Panel.png" id="3_s38o0"]
+
+[node name="SaveSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("3")
+
+[node name="Dim" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.45)
+
+[node name="Panel" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.03
+anchor_right = 0.98
+anchor_bottom = 0.97
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s38o0")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="ContentRoot" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.02
+anchor_top = 0.03
+anchor_right = 0.98
+anchor_bottom = 0.97
+
+[node name="Margin" type="MarginContainer" parent="ContentRoot"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 42
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 36
+
+[node name="Content" type="Control" parent="ContentRoot/Margin"]
+layout_mode = 2
+
+[node name="PageContainer" type="HBoxContainer" parent="ContentRoot/Margin/Content"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 24
+
+[node name="LeftPage" type="PanelContainer" parent="ContentRoot/Margin/Content/PageContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.85
+
+[node name="LeftMargin" type="MarginContainer" parent="ContentRoot/Margin/Content/PageContainer/LeftPage"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="DetailPanel" type="VBoxContainer" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SaveTitle" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Save Details"
+horizontal_alignment = 1
+
+[node name="Sep1" type="HSeparator" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel"]
+layout_mode = 2
+
+[node name="BasicInfo" type="VBoxContainer" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="SaveName" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/BasicInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Town Name: ---"
+
+[node name="PlayTime" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/BasicInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Play Time: ---"
+
+[node name="LastSaved" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/BasicInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Last Saved: ---"
+
+[node name="ResourcesTitle" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Resources & Population"
+
+[node name="ResourcesGrid" type="GridContainer" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel"]
+layout_mode = 2
+theme_override_constants/h_separation = 18
+theme_override_constants/v_separation = 6
+columns = 2
+
+[node name="PopulationLabel" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/ResourcesGrid"]
+layout_mode = 2
+text = "Population:"
+
+[node name="PopulationValue" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/ResourcesGrid"]
+layout_mode = 2
+text = "---"
+horizontal_alignment = 2
+
+[node name="GoldLabel2" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/ResourcesGrid"]
+layout_mode = 2
+text = "Gold:"
+
+[node name="GoldValue2" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/ResourcesGrid"]
+layout_mode = 2
+text = "---"
+horizontal_alignment = 2
+
+[node name="FoodLabel2" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/ResourcesGrid"]
+layout_mode = 2
+text = "Food Stores:"
+
+[node name="FoodValue2" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/ResourcesGrid"]
+layout_mode = 2
+text = "---"
+horizontal_alignment = 2
+
+[node name="WoodLabel" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/ResourcesGrid"]
+layout_mode = 2
+text = "Wood:"
+
+[node name="WoodValue" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/ResourcesGrid"]
+layout_mode = 2
+text = "---"
+horizontal_alignment = 2
+
+[node name="StoneLabel" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/ResourcesGrid"]
+layout_mode = 2
+text = "Stone:"
+
+[node name="StoneValue" type="Label" parent="ContentRoot/Margin/Content/PageContainer/LeftPage/LeftMargin/DetailPanel/ResourcesGrid"]
+layout_mode = 2
+text = "---"
+horizontal_alignment = 2
+
+[node name="RightPage" type="PanelContainer" parent="ContentRoot/Margin/Content/PageContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.35
+
+[node name="RightMargin" type="MarginContainer" parent="ContentRoot/Margin/Content/PageContainer/RightPage"]
+layout_mode = 2
+theme_override_constants/margin_left = 18
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 18
+theme_override_constants/margin_bottom = 18
+
+[node name="RightVBox" type="VBoxContainer" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="SavesTitle" type="Label" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "Save Files"
+horizontal_alignment = 1
+
+[node name="SlotsScroll" type="ScrollContainer" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="Slots" type="VBoxContainer" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox/SlotsScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="Slot1" type="Button" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox/SlotsScroll/Slots"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Empty Slot 1"
+tooltip_text = "Select or create a save in this slot"
+# icon_path = "res://assets/ui/icons/save_slot.png"
+
+[node name="Slot2" type="Button" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox/SlotsScroll/Slots"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Empty Slot 2"
+
+[node name="Slot3" type="Button" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox/SlotsScroll/Slots"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Empty Slot 3"
+
+[node name="Slot4" type="Button" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox/SlotsScroll/Slots"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Empty Slot 4"
+
+[node name="Slot5" type="Button" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox/SlotsScroll/Slots"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Empty Slot 5"
+
+[node name="Slot6" type="Button" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox/SlotsScroll/Slots"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+text = "Empty Slot 6"
+
+[node name="BottomBar" type="HBoxContainer" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Select" type="Button" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox/BottomBar"]
+layout_mode = 2
+disabled = true
+text = "Select"
+tooltip_text = "Load this save and continue your adventure"
+# icon = preload("res://assets/ui/icons/select.png")
+
+[node name="Copy" type="Button" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox/BottomBar"]
+layout_mode = 2
+text = "Copy"
+tooltip_text = "Duplicate this save to another slot"
+# icon = preload("res://assets/ui/icons/copy.png")
+
+[node name="Delete" type="Button" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox/BottomBar"]
+layout_mode = 2
+text = "Delete"
+tooltip_text = "Delete this save (cannot be undone)"
+# icon = preload("res://assets/ui/icons/delete.png")
+
+[node name="Back" type="Button" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox/BottomBar"]
+layout_mode = 2
+text = "Back"
+tooltip_text = "Return to the main menu"
+# icon = preload("res://assets/ui/icons/back.png")
+
+[node name="Create" type="Button" parent="ContentRoot/Margin/Content/PageContainer/RightPage/RightMargin/RightVBox/BottomBar"]
+layout_mode = 2
+disabled = true
+text = "Create"
+tooltip_text = "Create a new save in this slot"
+# icon = preload("res://assets/ui/icons/create.png")
+
+[node name="Confirm" type="ConfirmationDialog" parent="ContentRoot/Margin/Content"]
+oversampling_override = 1.0
+title = "Confirm Delete"
+initial_position = 1
+size = Vector2i(549, 100)
+dialog_text = "Delete this save? This cannot be undone."

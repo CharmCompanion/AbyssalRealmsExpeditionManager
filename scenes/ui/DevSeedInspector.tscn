@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/DevSeedInspector.gd" id="1"]
+
+[node name="DevSeedInspector" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Root" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+
+[node name="PasswordRow" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="PasswordLabel" type="Label" parent="Root/PasswordRow"]
+layout_mode = 2
+text = "Password"
+
+[node name="PasswordInput" type="LineEdit" parent="Root/PasswordRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+max_length = 6
+secret = true
+placeholder_text = "6 chars (1 uppercase + 1 special)"
+
+[node name="Unlock" type="Button" parent="Root/PasswordRow"]
+layout_mode = 2
+text = "Unlock"
+
+[node name="PasswordStatus" type="Label" parent="Root"]
+layout_mode = 2
+text = "Locked"
+
+[node name="TopRow" type="HBoxContainer" parent="Root"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SeedInput" type="LineEdit" parent="Root/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Paste RunCode (ARX1:...) or seed"
+
+[node name="LoadSave" type="Button" parent="Root/TopRow"]
+layout_mode = 2
+text = "Load Save"
+
+[node name="Decode" type="Button" parent="Root/TopRow"]
+layout_mode = 2
+text = "Decode"
+
+[node name="Copy" type="Button" parent="Root/TopRow"]
+layout_mode = 2
+text = "Copy"
+
+[node name="Export" type="Button" parent="Root/TopRow"]
+layout_mode = 2
+text = "Export"
+
+[node name="Close" type="Button" parent="Root/TopRow"]
+layout_mode = 2
+text = "Close"
+
+[node name="Output" type="TextEdit" parent="Root"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+editable = false
+wrap_mode = 2

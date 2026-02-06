@@ -1,0 +1,95 @@
+# TOWN VIEW DESIGN DOCUMENT
+
+## Visual Concept
+- Transition from book scene to large parchment scroll laid out on same desk
+- Book remains visible (closed) on side of desk as decorative element
+- Parchment eventually rolls out LEFT TO RIGHT with animation (not implemented yet)
+- Maintains medieval/fantasy theme with desk background
+
+## Layout Structure (UPDATED - Book UI Style)
+
+```
+┌─────────────────────────────────────────────────┐
+│  Gold: 500  Wood: 200  Stone: 150              │ ← Top bar: Resources
+├─────┬───────────────────────────────┬───────────┤
+│Build│                               │ Building  │
+│ings │     ISOMETRIC GRID VIEW       │   Info    │
+│List │    (20x20, 2m cells)          │           │
+│     │                               │ Cost: -   │
+│[Img]│    ┌──────────────┐           │ Upkeep: - │
+│Acad.│    │              │           │ Benefit:- │
+│     │    │              │           │           │
+│[Img]│    │              │           │ [Place]   │
+│Templ│    │              │           │ [Rotate]  │
+│     │    │              │           │ [Back]    │
+│[...]│    └──────────────┘           │           │
+└─────┴───────────────────────────────┴───────────┘
+ Left     Center (grid plane)          Right
+```
+
+**Key Changes from Original:**
+- Matches CreateCharacter.tscn PageContainer anchors (0.153, 0.068, 0.847, 0.932)
+- Building panels now show 3D model preview + name below
+- Grid is flat plane (not 3D map) with 20x20 2-meter squares
+- Medieval font (antiquity-print.ttf) and brown text color
+- Compact panels matching Settings/StatsMenu styling
+
+## Scene Structure: TownView.tscn
+
+**Root: Control (full screen)**
+├── Desk (TextureRect) - assets/ui/Desk/1.png
+├── ParchmentBackground (ColorRect or TextureRect) - placeholder for parchment texture
+└── MainContainer (MarginContainer)
+    ├── TopBar (HBoxContainer) - Resource displays
+    │   ├── GoldDisplay (HBoxContainer)
+    │   ├── WoodDisplay (HBoxContainer)
+    │   └── StoneDisplay (HBoxContainer)
+    │
+    └── ContentContainer (HBoxContainer)
+        ├── LeftPanel (Panel) - Building list
+        │   └── ScrollContainer
+        │       └── VBoxContainer - Building buttons
+        │
+        ├── CenterView (SubViewportContainer) - Main town view
+        │   └── SubViewport
+        │       └── Node3D - Isometric town scene
+        │           └── Camera3D (orthographic isometric)
+        │
+        └── RightPanel (Panel) - Selected building info
+            └── VBoxContainer
+                ├── BuildingName (Label)
+                ├── BuildingDescription (RichTextLabel)
+                ├── BuildingStats (VBoxContainer)
+                └── ActionButtons (HBoxContainer)
+
+## Buildings Available (assets/buildings/)
+1. Bank.glb - Essential
+2. Cottage.glb - Housing
+3. Estate.glb - Housing
+4. Guild.glb - Essential (Adventurer's Guild)
+5. Manor.glb - Housing (Lord's Manor)
+6. School.glb - Essential (Academy)
+7. Temple.glb - Essential
+
+## Transition Animation (Future Implementation)
+1. Book page flip sound
+2. Book closes (0.3s)
+3. Parchment rolls onto desk from LEFT (0.5s)
+4. Parchment unrolls to RIGHT (0.4s)
+5. UI elements fade in (0.2s)
+
+## Features to Implement
+- Building placement system in 3D view
+- Building rotation (90° increments)
+- Resource management display
+- Building construction queue
+- Upgrade system for buildings
+- Click to select/place buildings
+- Drag camera to pan around town
+
+## Technical Notes
+- Use 3D models directly (not sprite sheets)
+- Orthographic camera for isometric view
+- Building rotation handled in Godot (not pre-rendered)
+- Scale buildings to match character sprite size in-game
+- Parchment texture placeholder: use ColorRect with beige color until asset created

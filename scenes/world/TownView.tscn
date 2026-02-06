@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwmjsxgqcg22l"]
+
+[ext_resource type="Script" uid="uid://b843pbb6a84a5" path="res://scripts/world/TownView.gd" id="1"]
+
+[node name="TownView" type="Node2D"]
+script = ExtResource("1")

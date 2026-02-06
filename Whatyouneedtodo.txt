@@ -1,0 +1,106 @@
+Yep — you’re clear.
+
+Here’s a **Copilot “Agent prompt”** you can paste into VS Code (Chat/Copilot Edits) so it can fix your project *without redesigning your UI content* and while using `UIFrame.tscn` exactly like MainMenu.
+
+---
+
+## Copilot Prompt (paste this as-is)
+
+You are working inside a Godot 4.5 project. DO NOT redesign UI layouts or replace content. DO NOT invent new UI. The goal is to restore/repair scenes so they match MainMenu’s panel framing system and keep all existing inner content working and sized correctly.
+
+### Objective
+
+Make these scenes use the shared frame in `res://scenes/ui/shared/UIFrame.tscn`:
+
+* `res://scenes/ui/SaveSelect.tscn`
+* `res://scenes/ui/CreateTown.tscn` (CreateCharacter has been renamed to CreateTown; CreateCharacter name must remain available for later use)
+* `res://scenes/ui/Settings.tscn`
+
+MainMenu is already correct. Use it as the reference for sizing and wrapper structure.
+
+### Requirements (must follow exactly)
+
+1. Each scene must show the BACKGROUND around the panel (panel must NOT fill the whole screen).
+2. Every scene’s panel frame must be the SAME SIZE as MainMenu’s panel frame.
+3. The frame must include:
+
+   * Dim background overlay
+   * Panel background
+   * Drop shadow
+   * Gold outline/border
+4. KEEP ALL EXISTING CONTENT/NODES inside each scene exactly as they are (buttons, lists, containers, signals, scripts).
+
+   * No renaming of existing content nodes.
+   * No deletion of content nodes.
+   * No moving content nodes around except to place them under the proper frame container.
+5. Fix “Parent path has vanished when instantiating” warnings by restoring the expected node parent chain.
+6. Fix “This node doesn’t have a control parent” problems by ensuring scene roots and wrappers are Controls.
+7. Use backups for recovery if needed:
+
+   * There is a `backups/` folder containing prior versions of scenes and scripts. Use it to restore content trees if something is missing.
+8. CreateTown rename:
+
+   * Update references from CreateCharacter -> CreateTown ONLY where it refers to the town creation scene (scene path, script path, button scene change).
+   * Do NOT delete or repurpose CreateCharacter for later work.
+9. Do not touch `MainMenu.tscn` except to ensure its scene-change paths point to the renamed `CreateTown.tscn` if needed.
+
+### Implementation details (match MainMenu structure)
+
+In each target scene, ensure this high-level structure exists (exact names if MainMenu uses them):
+
+* Root: `Control` (named same as scene root, e.g., SaveSelect)
+* `Dim` (ColorRect) full-rect overlay
+* `PanelWrap` (Control) anchored/centered like MainMenu so the panel does NOT fill the screen
+* Inside PanelWrap: instantiate `UIFrame.tscn` OR duplicate the same node structure used by MainMenu that came from UIFrame
+* Place the scene’s existing content inside the UIFrame’s content container (whatever MainMenu uses, e.g., `Panel/Margin/PageContainer` or similar)
+
+### Tasks
+
+A) Inspect MainMenu.tscn to identify:
+
+* exact node names for Dim, PanelWrap, and UIFrame instance
+* exact container node where content should be parented
+* panel size / anchors / offsets used
+  B) For each of SaveSelect, CreateTown, Settings:
+* Restore the same frame/wrapper structure as MainMenu
+* Reparent the existing content tree under the correct container node in the UIFrame without changing that content’s internal hierarchy
+* Ensure anchors for PanelWrap / UIFrame match MainMenu so all frames are identical size
+* Preserve signals and script attachments
+  C) Fix broken parent paths:
+* If a scene has nodes referencing missing parents (warnings), repair by reparenting nodes or restoring missing wrapper nodes from backups.
+  D) Output:
+* Provide the final updated `.tscn` files and any modified `.gd` script changes as a patch/diff or direct file edits.
+* Summarize exactly what was changed per file.
+
+### Guardrails
+
+* Do not change fonts, theme colors, button sizes, or inner layout of the content.
+* Only adjust the OUTER frame/wrapper and the parenting location so the content sits inside the shared frame.
+* If any content nodes are missing, recover them from backups and reinsert them under the same names.
+* If any scripts reference old node paths, update the script paths carefully to match the restored structure, but keep content node names.
+
+Start now by analyzing `res://scenes/ui/MainMenu.tscn` and `res://scenes/ui/shared/UIFrame.tscn`, then apply the same structure to SaveSelect, CreateTown, and Settings.
+
+---
+
+## One extra line you should add (makes Copilot behave)
+
+At the top of the Copilot chat, add:
+
+**“Do not generate new UI. Only fix frame parenting and sizing to match MainMenu exactly.”**
+
+---
+
+## Quick sanity checklist (so you know it did the right thing)
+
+After Copilot finishes, you should see:
+
+* No more “Parent path … has vanished” spam
+* In every scene:
+
+  * background visible around the panel
+  * same panel size as MainMenu
+  * same drop shadow + gold outline
+  * content looks identical (just correctly placed)
+
+If you want, paste your MainMenu scene tree (just the node hierarchy) and I’ll tailor the prompt to your *exact* container node names so Copilot has less room to drift.

@@ -1,0 +1,55 @@
+1  #c1616e
+2  #a1185f
+3  #f33123
+4  #fd9c5d
+5  #ffe760
+6  #c9ff70
+7  #54ec6f
+8  #12a680
+9  #3d6eea
+10 #4cacff
+11 #59faff
+12 #4dd7f5
+13 #c0fff9
+14 #ffffff
+15 #c5c5e5
+16 #8282a8
+
+Book
+1  #1A1A1A  (darkest overlay - shadows)
+2  #262626  (dark panel backgrounds)
+3  #805926  (dark brown - borders/outlines)
+4  #99804D  (medium brown - accents)
+5  #AE8A26  (brown text - primary)
+6  #CC994D  (bronze/copper - highlights)
+7  #BFAD8C  (tan - UI backgrounds)
+8  #D9CCA6  (light tan - card backgrounds)
+9  #ECD7BA  (parchment - main background)
+10 #FFCC4D  (gold - highlights/currency)
+11 #F5F5DC  (beige white - light text)
+12 #FFFFFF  (pure white - brightest text)
+13 #CC6666  (red - negative/danger)
+14 #B35555  (dark red - negative hover)
+15 #66CC66  (green - positive/success)
+16 #66B366  (dark green - positive hover)
+
+
+
+Medieval UI
+1  #C1616E  (dusty rose - hearts/health)
+2  #A1185F  (burgundy - dark accents)
+3  #54EC6F  (bright green - positive/success)
+4  #12A680  (forest green - dark green accents)
+5  #F33123  (red - danger/warning)
+6  #FD9C5D  (coral/orange - warm accents)
+7  #FFE760  (gold yellow - currency/highlights)
+8  #C9FF70  (lime - bright accents)
+9  #ECD7BA  (light parchment - main background)
+10 #D9CCA6  (tan parchment - panels)
+11 #BFAD8C  (medium tan - UI elements)
+12 #99804D  (brown - borders/text)
+13 #805926  (dark brown - outlines/shadows)
+14 #C5C5E5  (light purple - subtle accents)
+15 #262626  (charcoal - dark UI)
+16 #1A1A1A  (near black - darkest elements)
+
