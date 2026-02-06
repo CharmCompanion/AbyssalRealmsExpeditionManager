@@ -13,7 +13,7 @@ class SaveSlot(db.Model):
     town_name = db.Column(db.String(100))
     kingdom_id = db.Column(db.Integer)
     deity_id = db.Column(db.Integer)
-    seed = db.Column(db.Integer)
+    seed = db.Column(db.String(50))
     day = db.Column(db.Integer, default=0)
     gold = db.Column(db.Integer, default=100)
     population = db.Column(db.Integer, default=10)

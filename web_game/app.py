@@ -123,6 +123,7 @@ def create_save():
     for bname in BUILDING_TYPES:
         buildings[bname] = {'level': 0}
 
+    lord_appearance = data.get('lord_appearance', {})
     game_data = {
         'buildings': buildings,
         'adventurers': generate_starting_adventurers(seed, 4),
@@ -131,6 +132,7 @@ def create_save():
         'expedition_board': {'jobs': []},
         'kingdom_resources': kingdom_resources,
         'stats': stats,
+        'lord_appearance': lord_appearance,
     }
 
     slot = SaveSlot.query.filter_by(slot_number=slot_number).first()

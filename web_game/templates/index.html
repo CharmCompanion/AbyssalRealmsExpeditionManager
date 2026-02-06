@@ -199,9 +199,76 @@
                     <label>Lord Name</label>
                     <input type="text" id="lord-name-input" placeholder="Enter lord name" oninput="updateSeed(); updateCreateButton();">
                 </div>
-                <div class="empty-state" style="padding:20px;">
-                    <div class="empty-icon">🛡️</div>
-                    <div class="empty-text">More lord customization coming soon</div>
+                <div class="form-group" style="margin-top:8px;">
+                    <label>Title</label>
+                    <div class="lord-option-row">
+                        <button class="lord-cycle-btn" onclick="cycleLordOption('title',-1)">‹</button>
+                        <span class="lord-option-val" id="lord-title-val">Lord</span>
+                        <button class="lord-cycle-btn" onclick="cycleLordOption('title',1)">›</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title mb-12">Appearance</h3>
+                <div class="lord-preview-wrap">
+                    <div class="lord-preview" id="lord-preview">
+                        <div class="lord-preview-body" id="lp-body"></div>
+                        <div class="lord-preview-head" id="lp-head"></div>
+                        <div class="lord-preview-hair" id="lp-hair"></div>
+                        <div class="lord-preview-outfit" id="lp-outfit"></div>
+                        <div class="lord-preview-accessory" id="lp-acc"></div>
+                    </div>
+                    <button class="btn btn-secondary btn-sm" onclick="randomizeLordAppearance()" style="margin-top:8px;">Randomize All</button>
+                </div>
+                <div class="lord-options-grid">
+                    <div class="lord-opt-group">
+                        <label>Skin Tone</label>
+                        <div class="lord-option-row">
+                            <button class="lord-cycle-btn" onclick="cycleLordOption('skin',-1)">‹</button>
+                            <span class="lord-option-val" id="lord-skin-val">Fair</span>
+                            <button class="lord-cycle-btn" onclick="cycleLordOption('skin',1)">›</button>
+                        </div>
+                    </div>
+                    <div class="lord-opt-group">
+                        <label>Hair Style</label>
+                        <div class="lord-option-row">
+                            <button class="lord-cycle-btn" onclick="cycleLordOption('hair',-1)">‹</button>
+                            <span class="lord-option-val" id="lord-hair-val">Short</span>
+                            <button class="lord-cycle-btn" onclick="cycleLordOption('hair',1)">›</button>
+                        </div>
+                    </div>
+                    <div class="lord-opt-group">
+                        <label>Hair Color</label>
+                        <div class="lord-option-row">
+                            <button class="lord-cycle-btn" onclick="cycleLordOption('haircolor',-1)">‹</button>
+                            <span class="lord-option-val" id="lord-haircolor-val">Brown</span>
+                            <button class="lord-cycle-btn" onclick="cycleLordOption('haircolor',1)">›</button>
+                        </div>
+                    </div>
+                    <div class="lord-opt-group">
+                        <label>Eyes</label>
+                        <div class="lord-option-row">
+                            <button class="lord-cycle-btn" onclick="cycleLordOption('eyes',-1)">‹</button>
+                            <span class="lord-option-val" id="lord-eyes-val">Blue</span>
+                            <button class="lord-cycle-btn" onclick="cycleLordOption('eyes',1)">›</button>
+                        </div>
+                    </div>
+                    <div class="lord-opt-group">
+                        <label>Outfit</label>
+                        <div class="lord-option-row">
+                            <button class="lord-cycle-btn" onclick="cycleLordOption('outfit',-1)">‹</button>
+                            <span class="lord-option-val" id="lord-outfit-val">Noble Robes</span>
+                            <button class="lord-cycle-btn" onclick="cycleLordOption('outfit',1)">›</button>
+                        </div>
+                    </div>
+                    <div class="lord-opt-group">
+                        <label>Accessory</label>
+                        <div class="lord-option-row">
+                            <button class="lord-cycle-btn" onclick="cycleLordOption('accessory',-1)">‹</button>
+                            <span class="lord-option-val" id="lord-accessory-val">None</span>
+                            <button class="lord-cycle-btn" onclick="cycleLordOption('accessory',1)">›</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -817,6 +884,85 @@ function updateCreateButton() {
     btn.disabled = !(selectedKingdom > 0 && townName.length > 0 && lordName.length > 0);
 }
 
+var LORD_OPTIONS = {
+    title: {choices: ['Lord','Lady','Baron','Baroness','Duke','Duchess','Count','Countess','Regent','Sovereign','Warden','Keeper','Commander','Archon','Chancellor'], index: 0},
+    skin: {choices: ['Fair','Light','Medium','Tan','Olive','Brown','Dark','Ebony'], index: 0,
+           colors: ['#FDDCB5','#F5CBA7','#E0B08A','#C9976B','#A67C52','#8B5E3C','#6B4226','#3D2314']},
+    hair: {choices: ['Short','Long','Braided','Shaved','Ponytail','Curly','Mohawk','Bald'], index: 0},
+    haircolor: {choices: ['Brown','Black','Blonde','Red','Silver','White','Auburn','Blue-Black'], index: 0,
+                colors: ['#8B4513','#1a1a1a','#DAA520','#B22222','#C0C0C0','#F5F5F5','#A0522D','#191970']},
+    eyes: {choices: ['Blue','Green','Brown','Hazel','Grey','Amber','Violet','Black'], index: 0,
+           colors: ['#4A90D9','#2E8B57','#8B4513','#C9A95C','#808080','#FFBF00','#9B30FF','#1a1a1a']},
+    outfit: {choices: ['Noble Robes','Battle Armor','Scholar Garb','Ranger Cloak','Royal Plate','Mystic Vestments','Merchant Attire','Assassin Leathers'], index: 0,
+             colors: ['#8B0000','#4A4A4A','#2E4057','#2D5016','#DAA520','#4B0082','#8B6914','#2F2F2F']},
+    accessory: {choices: ['None','Crown','Circlet','Eyepatch','Scar','Monocle','War Paint','Hood'], index: 0}
+};
+
+function cycleLordOption(key, delta) {
+    var opt = LORD_OPTIONS[key];
+    opt.index = ((opt.index + delta) % opt.choices.length + opt.choices.length) % opt.choices.length;
+    document.getElementById('lord-' + key + '-val').textContent = opt.choices[opt.index];
+    updateLordPreview();
+    updateSeed();
+}
+
+function randomizeLordAppearance() {
+    Object.keys(LORD_OPTIONS).forEach(function(key) {
+        var opt = LORD_OPTIONS[key];
+        opt.index = Math.floor(Math.random() * opt.choices.length);
+        var el = document.getElementById('lord-' + key + '-val');
+        if (el) el.textContent = opt.choices[opt.index];
+    });
+    updateLordPreview();
+    updateSeed();
+}
+
+function updateLordPreview() {
+    var preview = document.getElementById('lord-preview');
+    if (!preview) return;
+    var skin = LORD_OPTIONS.skin;
+    var skinColor = skin.colors ? skin.colors[skin.index] : '#FDDCB5';
+    var hair = LORD_OPTIONS.hair;
+    var hc = LORD_OPTIONS.haircolor;
+    var hairColor = hc.colors ? hc.colors[hc.index] : '#8B4513';
+    var eyes = LORD_OPTIONS.eyes;
+    var eyeColor = eyes.colors ? eyes.colors[eyes.index] : '#4A90D9';
+    var outfit = LORD_OPTIONS.outfit;
+    var outfitColor = outfit.colors ? outfit.colors[outfit.index] : '#8B0000';
+    var acc = LORD_OPTIONS.accessory;
+
+    var bodyEl = document.getElementById('lp-body');
+    var headEl = document.getElementById('lp-head');
+    var hairEl = document.getElementById('lp-hair');
+    var outfitEl = document.getElementById('lp-outfit');
+    var accEl = document.getElementById('lp-acc');
+
+    bodyEl.style.background = skinColor;
+    headEl.style.background = skinColor;
+    headEl.innerHTML = '<div class="lp-eye" style="background:' + eyeColor + ';left:30%;"></div><div class="lp-eye" style="background:' + eyeColor + ';right:30%;"></div>';
+
+    var hairStyle = hair.choices[hair.index];
+    hairEl.style.background = hairColor;
+    hairEl.style.display = hairStyle === 'Bald' ? 'none' : 'block';
+    hairEl.className = 'lord-preview-hair lp-hair-' + hairStyle.toLowerCase().replace(/\s+/g,'-');
+
+    outfitEl.style.background = outfitColor;
+    outfitEl.className = 'lord-preview-outfit';
+
+    var accName = acc.choices[acc.index];
+    accEl.style.display = accName === 'None' ? 'none' : 'block';
+    accEl.textContent = accName === 'Crown' ? '👑' : accName === 'Circlet' ? '💎' : accName === 'Eyepatch' ? '🏴' : accName === 'Scar' ? '⚔️' : accName === 'Monocle' ? '🧐' : accName === 'War Paint' ? '🎭' : accName === 'Hood' ? '🧥' : '';
+}
+
+function getLordAppearance() {
+    var result = {};
+    Object.keys(LORD_OPTIONS).forEach(function(key) {
+        result[key] = LORD_OPTIONS[key].choices[LORD_OPTIONS[key].index];
+        result[key + '_index'] = LORD_OPTIONS[key].index;
+    });
+    return result;
+}
+
 async function submitCreate() {
     const townName = document.getElementById('town-name-input').value.trim();
     const lordName = document.getElementById('lord-name-input').value.trim();
@@ -826,15 +972,18 @@ async function submitCreate() {
     const dotX = parseFloat(dot.style.left) / 100;
     const dotY = parseFloat(dot.style.top) / 100;
 
+    const lordTitle = LORD_OPTIONS.title.choices[LORD_OPTIONS.title.index];
+    const fullLordName = lordTitle + ' ' + lordName;
     const body = {
         slot: selectedSlot,
         town_name: townName,
-        lord_name: lordName,
+        lord_name: fullLordName,
         kingdom_id: selectedKingdom,
         seed: seed,
         position_x: dotX,
         position_y: dotY,
-        starting_resources: createResources
+        starting_resources: createResources,
+        lord_appearance: getLordAppearance()
     };
 
     try {
@@ -1202,6 +1351,7 @@ document.getElementById('lord-name-input').addEventListener('input', updateCreat
 
 setupMapDrag();
 document.getElementById('seed-input').value = computeSeedHash('init' + Date.now());
+updateLordPreview();
 </script>
 
 </body>

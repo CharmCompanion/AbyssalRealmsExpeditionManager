@@ -44,13 +44,13 @@ class DungeonThreatSystem:
         self.extra_dungeon_spawn_chance = extra_dungeon_spawn_chance
 
     def generate_initial_sites(self, kingdom_id):
-        kid = int(kingdom_id) if kingdom_id is not None else 0
-        rng = random.Random(_seed_for(self.base_seed, "dungeons|kingdom:%d" % kid))
+        kid = str(kingdom_id) if kingdom_id is not None else "0"
+        rng = random.Random(_seed_for(self.base_seed, "dungeons|kingdom:%s" % kid))
         theme_pool = list(self.THEME_POOL)
         sites = []
         count = max(0, self.dungeons_per_kingdom)
         for i in range(count):
-            site_id = "k%d_site_%d" % (kid, i)
+            site_id = "k%s_site_%d" % (kid, i)
             theme_id = theme_pool[rng.randint(0, len(theme_pool) - 1)]
             distance_days = rng.randint(self.min_distance_days, self.max_distance_days)
             growth = rng.uniform(1.0, 3.5)
@@ -106,8 +106,8 @@ class DungeonThreatSystem:
         if rng.random() > p:
             return
         kingdom_id = sites[0]["kingdom_id"] if sites else 1
-        kid = int(kingdom_id) if kingdom_id is not None else 0
-        site_id = "k%d_extra_%d" % (kid, day)
+        kid = str(kingdom_id) if kingdom_id is not None else "0"
+        site_id = "k%s_extra_%d" % (kid, day)
         theme_pool = list(self.THEME_POOL)
         theme_id = theme_pool[rng.randint(0, len(theme_pool) - 1)]
         distance_days = rng.randint(self.min_distance_days, self.max_distance_days)

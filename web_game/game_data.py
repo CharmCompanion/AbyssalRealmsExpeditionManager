@@ -382,8 +382,8 @@ ADVENTURER_STATUS_TYPES = {
 
 
 def generate_adventurer(seed_val, index=0):
-    seed_int = int(seed_val) if seed_val is not None else 0
-    rng = random.Random(seed_from_code("adventurer|seed:%d|idx:%d" % (seed_int, index)))
+    seed_int = seed_from_code(str(seed_val) if seed_val is not None else "0")
+    rng = random.Random(seed_from_code("adventurer|seed:%s|idx:%d" % (seed_val, index)))
 
     class_keys = list(ADVENTURER_CLASSES.keys())
     class_id = class_keys[rng.randint(0, len(class_keys) - 1)]
