@@ -11,61 +11,46 @@ KINGDOM_PRIMARY_BIOME = {
     6: "desert",
 }
 
-BASE_PARTS = ["body", "head", "chest", "hands", "belt", "legs", "shoes"]
-EXTRA_PARTS = ["bag", "melee", "ranged", "shield", "magic", "effect", "wings", "mount"]
+BASE_PARTS = ["Body", "Head", "Chest", "Hands", "Belt", "Legs", "Shoes"]
+EXTRA_PARTS = ["Bag", "Melee", "Ranged", "Shield", "Magic", "Effect", "Wings", "Mount"]
 
-BODY_OPTIONS = [
-    "Slim", "Athletic", "Stocky", "Heavy", "Lithe", "Broad", "Petite", "Muscular"
-]
-HEAD_OPTIONS = [
-    "Round", "Angular", "Long", "Square", "Heart", "Oval", "Diamond", "Narrow"
-]
-CHEST_OPTIONS = [
-    "Tunic", "Leather Vest", "Chain Mail", "Plate Chest", "Robe", "Cloth Wrap",
-    "Brigandine", "Scale Mail"
-]
-HANDS_OPTIONS = [
-    "Bare", "Leather Gloves", "Gauntlets", "Bracers", "Cloth Wraps",
-    "Ring Mail Gloves", "Fingerless Gloves", "Plated Gauntlets"
-]
-BELT_OPTIONS = [
-    "None", "Leather Belt", "Rope Belt", "Chain Belt", "Sash",
-    "Utility Belt", "War Belt", "Ornate Belt"
-]
-LEGS_OPTIONS = [
-    "Cloth Pants", "Leather Leggings", "Chain Greaves", "Plate Greaves",
-    "Robes", "Loincloth", "Padded Pants", "Scale Leggings"
-]
-SHOES_OPTIONS = [
-    "Sandals", "Leather Boots", "Iron Boots", "Cloth Shoes",
-    "Armored Boots", "Fur Boots", "Moccasins", "Plate Sabatons"
-]
+SPRITE_FOLDERS = {
+    "Body": ["NakedBody", "NakedBody2", "NakedBody3"],
+    "Head": ["Head1", "Head2", "Head3", "Head4", "Head5", "Head6", "Head7", "Head8",
+             "Head9", "Head10", "Head11", "Head12", "Head13", "Head14", "Head15",
+             "Head16", "Head17", "Head18", "Head19", "Head20", "Head21", "Head22",
+             "Head23", "Head24"],
+    "Chest": ["Chest1", "Chest2", "Chest3", "Chest4", "Chest5", "Chest6", "Chest7",
+              "Chest8", "Chest9", "Chest10", "Chest11", "Chest12", "Chest13",
+              "Chest14", "Chest15", "Chest16", "Chest17", "Chest18", "Chest19"],
+    "Hands": ["Hands1", "Hands2", "Hands3", "Hands4"],
+    "Belt": ["Belt1", "Belt2"],
+    "Legs": ["Legs1", "Legs2", "Legs3", "Legs4", "Legs5", "Legs6", "Legs7", "Legs8", "Legs9"],
+    "Shoes": ["Shoes1", "Shoes2", "Shoes3", "Shoes4", "Shoes5"],
+    "Bag": ["Bag1", "Bag2", "Bag3", "Bag4", "Bag5", "Bag6", "Bag8"],
+    "Melee": ["Melee1", "Melee2", "Melee3", "Melee4", "Melee5", "Melee6", "Melee7",
+              "Melee8", "Melee9", "Melee10", "Melee11", "Melee12", "Melee13",
+              "Melee14", "Melee15", "Melee16", "Melee17", "Melee18", "Melee19",
+              "Melee20", "Melee21", "Melee22", "Melee23", "Melee24", "Melee25"],
+    "Ranged": ["Ranged1", "Ranged2", "Ranged3", "Ranged4", "Ranged5", "Ranged6", "Ranged7"],
+    "Shield": ["Shield1", "Shield2", "Shield3", "Shield4", "Shield5", "Shield6", "Shield7"],
+    "Magic": ["Magic1", "Magic2", "Magic3"],
+    "Effect": ["Effect1", "Effect2", "Effect3", "Effect4", "Effect5"],
+    "Wings": [],
+    "Mount": ["Mount1", "Mount2", "Mount3", "Mount4", "Mount5"],
+}
 
-BAG_OPTIONS = ["Satchel", "Backpack", "Pouch", "Saddlebag", "Rucksack"]
-MELEE_OPTIONS = ["Sword", "Axe", "Mace", "Spear", "Dagger", "Hammer", "Halberd"]
-RANGED_OPTIONS = ["Longbow", "Shortbow", "Crossbow", "Sling", "Javelin"]
-SHIELD_OPTIONS = ["Buckler", "Kite Shield", "Tower Shield", "Round Shield"]
-MAGIC_OPTIONS = ["Staff", "Wand", "Orb", "Tome", "Crystal", "Focus"]
-EFFECT_OPTIONS = ["Flames", "Frost Aura", "Shadow Wisps", "Holy Glow", "Poison Mist", "Lightning"]
-WINGS_OPTIONS = ["Bat Wings", "Feathered Wings", "Skeletal Wings", "Shadow Wings", "Insect Wings"]
-MOUNT_OPTIONS = ["War Horse", "Dire Wolf", "Skeletal Steed", "Giant Boar", "Wyvern"]
+PART_TO_PREFIX = {
+    "Body": "NakedBody", "Head": "Head", "Chest": "Chest", "Hands": "Hands",
+    "Belt": "Belt", "Legs": "Legs", "Shoes": "Shoes", "Bag": "Bag",
+    "Melee": "Melee", "Ranged": "Ranged", "Shield": "Shield", "Magic": "Magic",
+    "Effect": "Effect", "Wings": "Wings", "Mount": "Mount",
+}
 
-PART_OPTIONS = {
-    "body": BODY_OPTIONS,
-    "head": HEAD_OPTIONS,
-    "chest": CHEST_OPTIONS,
-    "hands": HANDS_OPTIONS,
-    "belt": BELT_OPTIONS,
-    "legs": LEGS_OPTIONS,
-    "shoes": SHOES_OPTIONS,
-    "bag": BAG_OPTIONS,
-    "melee": MELEE_OPTIONS,
-    "ranged": RANGED_OPTIONS,
-    "shield": SHIELD_OPTIONS,
-    "magic": MAGIC_OPTIONS,
-    "effect": EFFECT_OPTIONS,
-    "wings": WINGS_OPTIONS,
-    "mount": MOUNT_OPTIONS,
+DEFAULT_LAYER_Z = {
+    "Body": 0, "Legs": 10, "Shoes": 12, "Chest": 20, "Belt": 24,
+    "Head": 30, "Hands": 40, "Bag": 45, "Shield": 46, "Melee": 47,
+    "Ranged": 48, "Magic": 60, "Wings": 65, "Effect": 90, "Mount": -10,
 }
 
 SKIN_TONES = [
@@ -100,27 +85,25 @@ DUNGEON_PALETTES = {
 }
 
 ADVENTURER_ACCESSORY_CHANCES = {
-    "bag": 0.65,
-    "melee": 0.55,
-    "shield": 0.35,
-    "ranged": 0.30,
-    "magic": 0.25,
+    "Bag": 0.65,
+    "Melee": 0.55,
+    "Shield": 0.35,
+    "Ranged": 0.30,
+    "Magic": 0.25,
 }
 
 EVIL_EXTRA_CHANCES = {
-    "wings": 0.25,
-    "effect": 0.20,
+    "Effect": 0.20,
 }
 
 ENEMY_ACCESSORY_CHANCES = {
-    "wings": 0.35,
-    "effect": 0.45,
-    "magic": 0.40,
-    "melee": 0.55,
-    "ranged": 0.35,
-    "shield": 0.25,
-    "bag": 0.15,
-    "mount": 0.10,
+    "Effect": 0.45,
+    "Magic": 0.40,
+    "Melee": 0.55,
+    "Ranged": 0.35,
+    "Shield": 0.25,
+    "Bag": 0.15,
+    "Mount": 0.10,
 }
 
 FAMILY_FRACTION = 0.55
@@ -243,55 +226,57 @@ def generate_appearance(profile_id, seed_val, opts=None):
         "is_kid": is_kid,
         "is_evil": is_evil,
         "skin_tone": skin_name,
-        "parts": {},
-        "colors": {},
+        "part_folders": {},
+        "part_colors": {},
     }
 
     for part in BASE_PARTS:
-        options = PART_OPTIONS.get(part, [])
-        if not options:
+        folders = SPRITE_FOLDERS.get(part, [])
+        if not folders:
             continue
         if family_seed is not None and rng.random() < FAMILY_RESEMBLANCE_STRENGTH:
-            idx = random.Random(seed_from_code("family|%s|%s" % (family_seed, part))).randint(0, len(options) - 1)
+            idx = random.Random(seed_from_code("family|%s|%s" % (family_seed, part))).randint(0, len(folders) - 1)
         else:
-            idx = rng.randint(0, len(options) - 1)
-        recipe["parts"][part] = options[idx]
+            idx = rng.randint(0, len(folders) - 1)
+        recipe["part_folders"][part] = folders[idx]
 
-        if part == "body":
-            recipe["colors"][part] = skin_hex
-        elif part == "head":
-            recipe["colors"][part] = skin_hex
+        if part == "Body":
+            recipe["part_colors"][part] = skin_hex
+        elif part == "Head":
+            recipe["part_colors"][part] = skin_hex
         else:
-            recipe["colors"][part] = _jitter_color(rng, family_base_h, family_base_s, family_base_v)
+            recipe["part_colors"][part] = _jitter_color(rng, family_base_h, family_base_s, family_base_v)
 
-    accessories = {}
+    acc_folders = {}
     if profile_id == "adventurer":
         chances = dict(ADVENTURER_ACCESSORY_CHANCES)
         if is_evil:
             chances.update(EVIL_EXTRA_CHANCES)
         for acc_part, chance in chances.items():
             if rng.random() < chance:
-                options = PART_OPTIONS.get(acc_part, [])
-                if options:
-                    accessories[acc_part] = _pick_option(rng, options)
-                    recipe["colors"][acc_part] = _palette_color(rng, palette)
+                folders = SPRITE_FOLDERS.get(acc_part, [])
+                if folders:
+                    acc_folders[acc_part] = _pick_option(rng, folders)
+                    recipe["part_colors"][acc_part] = _palette_color(rng, palette)
 
     elif profile_id == "enemy":
         for acc_part, chance in ENEMY_ACCESSORY_CHANCES.items():
-            if acc_part == "mount" and is_kid:
+            if acc_part == "Mount" and is_kid:
                 continue
             if rng.random() < chance:
-                options = PART_OPTIONS.get(acc_part, [])
-                if options:
-                    accessories[acc_part] = _pick_option(rng, options)
-                    recipe["colors"][acc_part] = _palette_color(rng, palette)
+                folders = SPRITE_FOLDERS.get(acc_part, [])
+                if folders:
+                    acc_folders[acc_part] = _pick_option(rng, folders)
+                    recipe["part_colors"][acc_part] = _palette_color(rng, palette)
 
     elif profile_id == "civilian":
         if not is_kid and rng.random() < 0.15:
-            accessories["bag"] = _pick_option(rng, BAG_OPTIONS)
-            recipe["colors"]["bag"] = _palette_color(rng, palette)
+            folders = SPRITE_FOLDERS.get("Bag", [])
+            if folders:
+                acc_folders["Bag"] = _pick_option(rng, folders)
+                recipe["part_colors"]["Bag"] = _palette_color(rng, palette)
 
-    recipe["accessories"] = accessories
+    recipe["part_folders"].update(acc_folders)
     return recipe
 
 

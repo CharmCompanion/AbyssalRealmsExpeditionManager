@@ -280,9 +280,13 @@
 
     <div class="screen" id="town-screen">
         <div id="town-content" class="tab-content">
-            <div style="margin-bottom:16px;">
-                <h2 class="section-title" id="town-header-name"></h2>
-                <p class="text-secondary" id="town-header-kingdom"></p>
+            <div class="lord-banner" style="margin-bottom:16px;display:flex;align-items:center;gap:12px;">
+                <div id="lord-sprite-container" class="lord-sprite-wrap"></div>
+                <div>
+                    <h2 class="section-title mb-0" id="town-header-name"></h2>
+                    <p class="text-secondary mb-0" id="town-header-lord"></p>
+                    <p class="text-secondary" id="town-header-kingdom" style="font-size:11px;"></p>
+                </div>
             </div>
             <div class="card-grid" id="buildings-grid"></div>
         </div>
@@ -1045,8 +1049,17 @@ function renderTown(saveData) {
     updateResourceBar(saveData);
 
     document.getElementById('town-header-name').textContent = saveData.town_name || 'Unknown Town';
-    const kName = KINGDOM_DATA[saveData.kingdom_id] ? KINGDOM_DATA[saveData.kingdom_id].name : '';
+    document.getElementById('town-header-lord').textContent = 'Lord ' + (saveData.lord_name || 'Unknown');
+    var kName = KINGDOM_DATA[saveData.kingdom_id] ? KINGDOM_DATA[saveData.kingdom_id].name : '';
     document.getElementById('town-header-kingdom').textContent = kName;
+
+    var lordContainer = document.getElementById('lord-sprite-container');
+    var lordApp = (gd.lord_appearance);
+    if (lordApp && lordApp.part_folders) {
+        lordContainer.innerHTML = createSpriteCanvas(lordApp, 96, 'lord-sprite');
+    } else {
+        lordContainer.innerHTML = '<div class="lord-sprite-placeholder">👑</div>';
+    }
 
     renderBuildings(saveData.buildings || gd.buildings || {});
     var expData = gd.expeditions || {};
@@ -1281,13 +1294,19 @@ function renderAdventurers(adventurers) {
             html += '</div></div>';
         }
 
-        if (adv.appearance && adv.appearance.accessories) {
-            var accKeys = Object.keys(adv.appearance.accessories);
-            if (accKeys.length > 0) {
+        if (adv.appearance && adv.appearance.part_folders) {
+            var BASE = ['Body','Head','Chest','Hands','Belt','Legs','Shoes'];
+            var accEntries = [];
+            for (var pn in adv.appearance.part_folders) {
+                if (BASE.indexOf(pn) === -1 && adv.appearance.part_folders[pn]) {
+                    accEntries.push({key: pn, val: adv.appearance.part_folders[pn]});
+                }
+            }
+            if (accEntries.length > 0) {
                 html += '<div class="adv-equip-section"><div class="adv-section-label">Accessories</div><div class="enemy-acc-list">';
-                accKeys.forEach(function(key) {
-                    var icon = ACC_ICONS[key] || '•';
-                    html += '<span class="enemy-acc-tag">' + icon + ' ' + adv.appearance.accessories[key] + '</span>';
+                accEntries.forEach(function(e) {
+                    var icon = ACC_ICONS[e.key] || '•';
+                    html += '<span class="enemy-acc-tag">' + icon + ' ' + e.val + '</span>';
                 });
                 html += '</div></div>';
             }
@@ -1339,42 +1358,123 @@ function renderThreats(dungeons) {
 }
 
 var ACC_ICONS = {
+    Bag: '🎒', Melee: '⚔️', Ranged: '🏹', Shield: '🛡️',
+    Magic: '✨', Effect: '🔥', Wings: '🦇', Mount: '🐎',
     bag: '🎒', melee: '⚔️', ranged: '🏹', shield: '🛡️',
     magic: '✨', effect: '🔥', wings: '🦇', mount: '🐎'
 };
 
-function renderCharFigure(appearance, extraClass) {
-    if (!appearance) return '<div class="char-figure"></div>';
-    var colors = appearance.colors || {};
-    var accessories = appearance.accessories || {};
-    var isKid = appearance.is_kid;
-    var cls = 'char-figure' + (isKid ? ' kid' : '') + (extraClass ? ' ' + extraClass : '');
+var LAYER_Z_ORDER = {
+    Mount: -10, Body: 0, Legs: 10, Shoes: 12, Chest: 20,
+    Belt: 24, Head: 30, Hands: 40, Bag: 45, Shield: 46,
+    Melee: 47, Ranged: 48, Magic: 60, Wings: 65, Effect: 90
+};
 
-    var skinColor = colors.body || '#FDDCB5';
-    var outfitColor = colors.chest || '#5a4a3a';
-    var legsColor = colors.legs || '#4a3a2a';
-    var shoesColor = colors.shoes || '#3a2a1a';
+var FRAME_SIZE = 128;
+var _spriteImageCache = {};
 
-    var html = '<div class="' + cls + '">';
-    html += '<div class="char-head" style="background:' + skinColor + '">';
-    html += '<div class="char-eyes"><div class="char-eye"></div><div class="char-eye"></div></div>';
-    html += '</div>';
-    html += '<div class="char-outfit" style="background:' + outfitColor + '"></div>';
-    html += '<div class="char-body" style="background:' + skinColor + '"></div>';
-    html += '<div class="char-legs" style="background:' + legsColor + '"></div>';
-    html += '<div class="char-shoes" style="background:' + shoesColor + '"></div>';
+function loadSpriteImage(folder, action) {
+    var url = '/sprites/' + folder + '/' + (action || 'Idle') + '.png';
+    if (_spriteImageCache[url]) return Promise.resolve(_spriteImageCache[url]);
+    return new Promise(function(resolve) {
+        var img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = function() { _spriteImageCache[url] = img; resolve(img); };
+        img.onerror = function() {
+            if (action !== 'Idle') {
+                loadSpriteImage(folder, 'Idle').then(resolve);
+            } else { resolve(null); }
+        };
+        img.src = url;
+    });
+}
 
-    var accKeys = Object.keys(accessories);
-    if (accKeys.length > 0) {
-        var positions = ['char-acc-left', 'char-acc-right', 'char-acc-top', 'char-acc-back'];
-        accKeys.forEach(function(key, i) {
-            var pos = positions[i % positions.length];
-            var icon = ACC_ICONS[key] || '•';
-            html += '<div class="char-acc ' + pos + '" title="' + accessories[key] + '">' + icon + '</div>';
-        });
+function renderSpriteCharacter(canvas, appearance, opts) {
+    if (!canvas || !appearance) return;
+    opts = opts || {};
+    var direction = opts.direction || 0;
+    var frame = opts.frame || 0;
+    var scale = opts.scale || 1;
+    var size = opts.size || 128;
+
+    canvas.width = size;
+    canvas.height = size;
+    var ctx = canvas.getContext('2d');
+    ctx.clearRect(0, 0, size, size);
+    ctx.imageSmoothingEnabled = false;
+
+    var partFolders = appearance.part_folders || {};
+    var partColors = appearance.part_colors || {};
+
+    var layers = [];
+    for (var partName in partFolders) {
+        var folder = partFolders[partName];
+        if (!folder) continue;
+        var z = LAYER_Z_ORDER[partName] !== undefined ? LAYER_Z_ORDER[partName] : 50;
+        layers.push({part: partName, folder: folder, z: z, color: partColors[partName]});
     }
-    html += '</div>';
-    return html;
+    layers.sort(function(a, b) { return a.z - b.z; });
+
+    var promises = layers.map(function(layer) {
+        return loadSpriteImage(layer.folder, 'Idle').then(function(img) {
+            layer.img = img;
+            return layer;
+        });
+    });
+
+    Promise.all(promises).then(function(loadedLayers) {
+        ctx.clearRect(0, 0, size, size);
+        var drawScale = size / FRAME_SIZE;
+        if (appearance.is_kid) drawScale *= (appearance.scale || 0.85);
+        var offsetX = (size - FRAME_SIZE * drawScale) / 2;
+        var offsetY = (size - FRAME_SIZE * drawScale);
+
+        loadedLayers.forEach(function(layer) {
+            if (!layer.img) return;
+            var cols = Math.floor(layer.img.width / FRAME_SIZE);
+            var col = frame % cols;
+            var row = Math.min(direction, 7);
+            var sx = col * FRAME_SIZE;
+            var sy = row * FRAME_SIZE;
+
+            if (layer.color && layer.color !== '#ffffff') {
+                var offCanvas = document.createElement('canvas');
+                offCanvas.width = FRAME_SIZE;
+                offCanvas.height = FRAME_SIZE;
+                var offCtx = offCanvas.getContext('2d');
+                offCtx.imageSmoothingEnabled = false;
+                offCtx.drawImage(layer.img, sx, sy, FRAME_SIZE, FRAME_SIZE, 0, 0, FRAME_SIZE, FRAME_SIZE);
+                offCtx.globalCompositeOperation = 'multiply';
+                offCtx.fillStyle = layer.color;
+                offCtx.fillRect(0, 0, FRAME_SIZE, FRAME_SIZE);
+                offCtx.globalCompositeOperation = 'destination-in';
+                offCtx.drawImage(layer.img, sx, sy, FRAME_SIZE, FRAME_SIZE, 0, 0, FRAME_SIZE, FRAME_SIZE);
+                ctx.drawImage(offCanvas, 0, 0, FRAME_SIZE, FRAME_SIZE,
+                    offsetX, offsetY, FRAME_SIZE * drawScale, FRAME_SIZE * drawScale);
+            } else {
+                ctx.drawImage(layer.img, sx, sy, FRAME_SIZE, FRAME_SIZE,
+                    offsetX, offsetY, FRAME_SIZE * drawScale, FRAME_SIZE * drawScale);
+            }
+        });
+    });
+}
+
+function createSpriteCanvas(appearance, size, extraClass) {
+    var s = size || 64;
+    var cls = 'sprite-canvas' + (extraClass ? ' ' + extraClass : '');
+    var id = 'sc_' + Math.random().toString(36).substr(2, 8);
+    setTimeout(function() {
+        var c = document.getElementById(id);
+        if (c) renderSpriteCharacter(c, appearance, {size: s});
+    }, 10);
+    return '<canvas id="' + id + '" class="' + cls + '" width="' + s + '" height="' + s + '" style="width:' + s + 'px;height:' + s + 'px;image-rendering:pixelated;"></canvas>';
+}
+
+function renderCharFigure(appearance, extraClass) {
+    if (!appearance || !appearance.part_folders) {
+        return '<div class="char-figure-placeholder"></div>';
+    }
+    return createSpriteCanvas(appearance, 56, extraClass);
 }
 
 function renderPopulation(saveData) {
@@ -1387,16 +1487,16 @@ function renderPopulation(saveData) {
     var familyCount = Object.keys(families).length;
     var kidCount = civilians.filter(function(c) { return c.is_kid; }).length;
     var adultCount = civilians.length - kidCount;
-    var moods = {};
-    civilians.forEach(function(c) { moods[c.mood || 'neutral'] = (moods[c.mood || 'neutral'] || 0) + 1; });
+    var moodCounts = {};
+    civilians.forEach(function(c) { var m = c.mood || 'neutral'; moodCounts[m] = (moodCounts[m] || 0) + 1; });
 
     statsBar.innerHTML =
         '<span class="pop-stat">Total: <span class="pop-stat-val">' + civilians.length + '</span></span>' +
         '<span class="pop-stat">Families: <span class="pop-stat-val">' + familyCount + '</span></span>' +
         '<span class="pop-stat">Adults: <span class="pop-stat-val">' + adultCount + '</span></span>' +
         '<span class="pop-stat">Children: <span class="pop-stat-val">' + kidCount + '</span></span>' +
-        (moods.happy ? '<span class="pop-stat">Happy: <span class="pop-stat-val" style="color:#4ade80">' + moods.happy + '</span></span>' : '') +
-        (moods.worried ? '<span class="pop-stat">Worried: <span class="pop-stat-val" style="color:#facc15">' + moods.worried + '</span></span>' : '');
+        (moodCounts.happy ? '<span class="pop-stat">Happy: <span class="pop-stat-val" style="color:#4ade80">' + moodCounts.happy + '</span></span>' : '') +
+        (moodCounts.worried ? '<span class="pop-stat">Worried: <span class="pop-stat-val" style="color:#facc15">' + moodCounts.worried + '</span></span>' : '');
 
     var familyHtml = '';
     for (var famId in families) {

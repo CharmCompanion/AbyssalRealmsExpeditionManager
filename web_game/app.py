@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, send_from_directory
 from PIL import Image
 
 from sqlalchemy.orm.attributes import flag_modified
@@ -13,6 +13,7 @@ from web_game.game_data import (
 from web_game.game_logic import DungeonThreatSystem, ExpeditionBoard, AutonomousExpeditions, CivilianAI
 from web_game.appearance import (
     generate_civilian_population, generate_enemy_party,
+    generate_appearance,
 )
 
 app = Flask(
@@ -44,6 +45,48 @@ def no_cache(response):
     response.headers['Pragma'] = 'no-cache'
     response.headers['Expires'] = '0'
     return response
+
+
+SPRITESHEETS_ROOT = os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+    'imported', 'Map and Character',
+    'Stand-alone Character creator - 2D Fantasy', 'spritesheets'
+)
+
+_sprite_catalog_cache = None
+
+def _build_sprite_catalog():
+    global _sprite_catalog_cache
+    if _sprite_catalog_cache is not None:
+        return _sprite_catalog_cache
+    catalog = {}
+    if not os.path.isdir(SPRITESHEETS_ROOT):
+        _sprite_catalog_cache = catalog
+        return catalog
+    for folder in sorted(os.listdir(SPRITESHEETS_ROOT)):
+        folder_path = os.path.join(SPRITESHEETS_ROOT, folder)
+        if not os.path.isdir(folder_path):
+            continue
+        prefix = ''.join(c for c in folder if not c.isdigit())
+        if prefix not in catalog:
+            catalog[prefix] = []
+        actions = []
+        for f in os.listdir(folder_path):
+            if f.endswith('.png') and not f.endswith('.import'):
+                actions.append(f.replace('.png', ''))
+        catalog[prefix].append({'folder': folder, 'actions': sorted(actions)})
+    _sprite_catalog_cache = catalog
+    return catalog
+
+
+@app.route('/api/sprites/catalog')
+def sprite_catalog():
+    return jsonify(_build_sprite_catalog())
+
+
+@app.route('/sprites/<path:filepath>')
+def serve_sprite(filepath):
+    return send_from_directory(SPRITESHEETS_ROOT, filepath, max_age=86400)
 
 
 _boundary_cache = {}
@@ -126,7 +169,9 @@ def create_save():
     for bname in BUILDING_TYPES:
         buildings[bname] = {'level': 0}
 
-    lord_appearance = data.get('lord_appearance', {})
+    lord_appearance = data.get('lord_appearance')
+    if not lord_appearance or not lord_appearance.get('part_folders'):
+        lord_appearance = generate_appearance("adventurer", seed, {"kingdom_id": kingdom_id})
     pop_count = min(population, 30)
     population_data = generate_civilian_population(pop_count, seed, {"kingdom_id": kingdom_id})
     game_data = {
