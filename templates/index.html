@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+    <h2>{{ project_name }}</h2>
+    <p class="subtitle">Godot Engine Game Project</p>
+    <div style="margin-top: 12px;">
+        <span class="badge badge-godot">Godot Engine</span>
+        <span class="badge badge-version">v{{ godot_version }}</span>
+    </div>
+</div>
+
+<div class="stats-grid">
+    <div class="stat-card">
+        <div class="number">{{ scenes|length }}</div>
+        <div class="label">Scenes (.tscn)</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">{{ scripts|length }}</div>
+        <div class="label">Scripts (.gd)</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">{{ docs|length }}</div>
+        <div class="label">Documentation</div>
+    </div>
+    <div class="stat-card">
+        <div class="number">{{ file_counts.values()|list|sum }}</div>
+        <div class="label">Total Files</div>
+    </div>
+</div>
+
+{% if readme_content %}
+<div class="section">
+    <h3 class="section-title">README</h3>
+    <div class="markdown-content">
+        {{ readme_content|safe }}
+    </div>
+</div>
+{% endif %}
+
+<div class="two-col">
+    <div class="section">
+        <h3 class="section-title">Scenes</h3>
+        <div class="card">
+            <ul class="file-list">
+                {% for scene in scenes %}
+                <li><a href="/browse/{{ scene }}"><span class="file-icon">&#9656;</span> {{ scene }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    <div class="section">
+        <h3 class="section-title">Documentation</h3>
+        <div class="card">
+            <ul class="file-list">
+                {% for doc in docs[:15] %}
+                <li><a href="/browse/{{ doc }}"><span class="file-icon">&#9776;</span> {{ doc }}</a></li>
+                {% endfor %}
+                {% if docs|length > 15 %}
+                <li><a href="/docs/" style="color: var(--accent-purple);">View all {{ docs|length }} docs &rarr;</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h3 class="section-title">File Types</h3>
+    <div class="card">
+        <div class="file-type-counts">
+            {% for ext, count in file_counts.items() %}
+            {% if count > 1 %}
+            <span class="file-type-tag">{{ ext }} <span class="count">{{ count }}</span></span>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

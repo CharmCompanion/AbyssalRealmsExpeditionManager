@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Documentation{% endblock %}
+{% block content %}
+<div class="section" style="margin-top: 24px;">
+    <h3 class="section-title">All Documentation ({{ docs|length }} files)</h3>
+    <div class="card">
+        <ul class="file-list">
+            {% for doc in docs %}
+            <li><a href="/browse/{{ doc }}"><span class="file-icon">&#9776;</span> {{ doc }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

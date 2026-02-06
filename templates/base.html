@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Abyssal Realms Expedition Manager{% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="logo-icon">A</div>
+                <h1>Abyssal Realms</h1>
+            </a>
+            <nav>
+                <a href="/" class="{{ 'active' if request.path == '/' }}">Overview</a>
+                <a href="/browse/" class="{{ 'active' if request.path.startswith('/browse') }}">Browse</a>
+                <a href="/docs/" class="{{ 'active' if request.path.startswith('/docs') }}">Docs</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <div class="container">
+            Godot 4.5 Project Viewer
+        </div>
+    </footer>
+</body>
+</html>

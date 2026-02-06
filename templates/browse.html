@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Browse - {{ current_path or 'Root' }}{% endblock %}
+{% block content %}
+<div class="breadcrumb">
+    <a href="/browse/">root</a>
+    {% if current_path %}
+    {% set parts = current_path.split('/') %}
+    {% for part in parts %}
+     / <a href="/browse/{{ '/'.join(parts[:loop.index]) }}">{{ part }}</a>
+    {% endfor %}
+    {% endif %}
+</div>
+
+<div class="dir-listing">
+    {% if parent is not none %}
+    <a href="/browse/{{ parent }}" class="dir-item folder">
+        <span class="icon">&#8617;</span>
+        <span class="name">..</span>
+    </a>
+    {% endif %}
+    {% for item in items %}
+    {% if item.type == 'dir' %}
+    <a href="/browse/{{ item.path }}" class="dir-item folder">
+        <span class="icon">&#128193;</span>
+        <span class="name">{{ item.name }}</span>
+    </a>
+    {% else %}
+    <a href="/browse/{{ item.path }}" class="dir-item file">
+        <span class="icon">&#128196;</span>
+        <span class="name">{{ item.name }}</span>
+    </a>
+    {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}

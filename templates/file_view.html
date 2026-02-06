@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ file_name }}{% endblock %}
+{% block content %}
+<div class="breadcrumb">
+    <a href="/browse/">root</a>
+    {% set parts = file_path.split('/') %}
+    {% for part in parts %}
+     / {% if not loop.last %}<a href="/browse/{{ '/'.join(parts[:loop.index]) }}">{{ part }}</a>{% else %}{{ part }}{% endif %}
+    {% endfor %}
+</div>
+
+{% if is_markdown and content %}
+<div class="markdown-content">
+    {{ content|safe }}
+</div>
+{% elif is_image %}
+<div class="image-view">
+    <img src="{{ content }}" alt="{{ file_name }}">
+</div>
+{% elif is_code and content %}
+<div class="code-view">
+    <pre>{{ content }}</pre>
+</div>
+{% else %}
+<div class="binary-notice card">
+    <p>Binary file: {{ file_name }} ({{ ext }})</p>
+    <p style="margin-top: 8px;"><a href="/raw/{{ file_path }}" style="color: var(--text-link);">Download raw file</a></p>
+</div>
+{% endif %}
+{% endblock %}

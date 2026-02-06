@@ -1,3 +1,18 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pythonlibs/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Replit
+.cache/
+.local/
