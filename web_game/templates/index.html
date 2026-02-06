@@ -123,12 +123,6 @@
                     </div>
                 </div>
             </div>
-            <div class="card">
-                <div class="form-group" style="margin-bottom:0;">
-                    <label>Extra Dungeon Chance: <span id="dungeon-chance-val">10</span>%</label>
-                    <input type="range" id="dungeon-chance" min="0" max="100" value="10" style="width:100%;" oninput="document.getElementById('dungeon-chance-val').textContent=this.value">
-                </div>
-            </div>
         </div>
 
         <div id="creation-kingdom" class="creation-content" style="display:none;">
@@ -498,8 +492,6 @@ function createNewGame(slotNumber) {
         const el = document.getElementById('create-' + r);
         if (el) el.textContent = createResources[r];
     });
-    document.getElementById('dungeon-chance').value = 10;
-    document.getElementById('dungeon-chance-val').textContent = '10';
     document.querySelectorAll('.kingdom-btn').forEach(b => b.classList.remove('selected'));
     document.getElementById('kingdom-details').style.display = 'none';
     document.getElementById('deity-info').style.display = 'none';
@@ -590,13 +582,28 @@ function selectKingdom(kingdomId) {
 
     updateMapOverlays(kingdomId);
 
-    const center = KINGDOM_CENTERS[kingdomId];
     const dot = document.getElementById('city-dot');
     dot.style.display = 'block';
-    dot.style.left = (center.x * 100) + '%';
-    dot.style.top = (center.y * 100) + '%';
 
-    fetchBoundaryData(kingdomId);
+    if (boundaryCache[kingdomId] && boundaryCache[kingdomId].positions && boundaryCache[kingdomId].positions.length > 0) {
+        const positions = boundaryCache[kingdomId].positions;
+        const idx = Math.floor(Math.random() * positions.length);
+        dot.style.left = (positions[idx][0] * 100) + '%';
+        dot.style.top = (positions[idx][1] * 100) + '%';
+    } else {
+        const center = KINGDOM_CENTERS[kingdomId];
+        dot.style.left = (center.x * 100) + '%';
+        dot.style.top = (center.y * 100) + '%';
+    }
+
+    fetchBoundaryData(kingdomId).then(function() {
+        if (boundaryCache[kingdomId] && boundaryCache[kingdomId].positions && boundaryCache[kingdomId].positions.length > 0) {
+            const positions = boundaryCache[kingdomId].positions;
+            const idx = Math.floor(Math.random() * positions.length);
+            dot.style.left = (positions[idx][0] * 100) + '%';
+            dot.style.top = (positions[idx][1] * 100) + '%';
+        }
+    });
     updateCreateButton();
 }
 
@@ -789,7 +796,6 @@ async function submitCreate() {
     const townName = document.getElementById('town-name-input').value.trim();
     const lordName = document.getElementById('lord-name-input').value.trim();
     const seed = document.getElementById('seed-input').value.trim();
-    const dungeonChance = parseInt(document.getElementById('dungeon-chance').value);
 
     const dot = document.getElementById('city-dot');
     const dotX = parseFloat(dot.style.left) / 100;
@@ -803,7 +809,6 @@ async function submitCreate() {
         seed: seed,
         position_x: dotX,
         position_y: dotY,
-        dungeon_chance: dungeonChance,
         starting_resources: createResources
     };
 

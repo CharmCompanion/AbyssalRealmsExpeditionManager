@@ -455,55 +455,91 @@ body {
 
 .kingdom-btn[data-kingdom="vylfod"] {
   border-left: 3px solid #2ea6a6;
+  background: linear-gradient(135deg, rgba(46, 166, 166, 0.15) 0%, rgba(30, 80, 120, 0.1) 100%);
 }
 
 .kingdom-btn[data-kingdom="rabaric"] {
   border-left: 3px solid #4a9f4a;
+  background: linear-gradient(135deg, rgba(74, 159, 74, 0.15) 0%, rgba(120, 140, 60, 0.1) 100%);
 }
 
 .kingdom-btn[data-kingdom="elruhn"] {
-  border-left: 3px solid #8b6914;
+  border-left: 3px solid #2d7a3a;
+  background: linear-gradient(135deg, rgba(45, 122, 58, 0.15) 0%, rgba(100, 80, 60, 0.1) 100%);
 }
 
 .kingdom-btn[data-kingdom="kelsin"] {
-  border-left: 3px solid #2d8f5e;
+  border-left: 3px solid #3a8f6e;
+  background: linear-gradient(135deg, rgba(58, 143, 110, 0.15) 0%, rgba(60, 120, 90, 0.1) 100%);
 }
 
 .kingdom-btn[data-kingdom="gosain"] {
-  border-left: 3px solid #6b8fa3;
+  border-left: 3px solid #7b6fa3;
+  background: linear-gradient(135deg, rgba(123, 111, 163, 0.15) 0%, rgba(80, 90, 130, 0.1) 100%);
 }
 
 .kingdom-btn[data-kingdom="yozuan"] {
   border-left: 3px solid #b8860b;
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.15) 0%, rgba(160, 100, 40, 0.1) 100%);
+}
+
+.kingdom-btn[data-kingdom="vylfod"]:hover {
+  background: linear-gradient(135deg, rgba(46, 166, 166, 0.25) 0%, rgba(30, 80, 120, 0.15) 100%);
+}
+
+.kingdom-btn[data-kingdom="rabaric"]:hover {
+  background: linear-gradient(135deg, rgba(74, 159, 74, 0.25) 0%, rgba(120, 140, 60, 0.15) 100%);
+}
+
+.kingdom-btn[data-kingdom="elruhn"]:hover {
+  background: linear-gradient(135deg, rgba(45, 122, 58, 0.25) 0%, rgba(100, 80, 60, 0.15) 100%);
+}
+
+.kingdom-btn[data-kingdom="kelsin"]:hover {
+  background: linear-gradient(135deg, rgba(58, 143, 110, 0.25) 0%, rgba(60, 120, 90, 0.15) 100%);
+}
+
+.kingdom-btn[data-kingdom="gosain"]:hover {
+  background: linear-gradient(135deg, rgba(123, 111, 163, 0.25) 0%, rgba(80, 90, 130, 0.15) 100%);
+}
+
+.kingdom-btn[data-kingdom="yozuan"]:hover {
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.25) 0%, rgba(160, 100, 40, 0.15) 100%);
 }
 
 .kingdom-btn[data-kingdom="vylfod"].selected {
   border-color: #2ea6a6;
+  background: linear-gradient(135deg, rgba(46, 166, 166, 0.3) 0%, rgba(30, 80, 120, 0.2) 100%);
   box-shadow: 0 0 0 1px #2ea6a6, 0 0 12px rgba(46, 166, 166, 0.2);
 }
 
 .kingdom-btn[data-kingdom="rabaric"].selected {
   border-color: #4a9f4a;
+  background: linear-gradient(135deg, rgba(74, 159, 74, 0.3) 0%, rgba(120, 140, 60, 0.2) 100%);
   box-shadow: 0 0 0 1px #4a9f4a, 0 0 12px rgba(74, 159, 74, 0.2);
 }
 
 .kingdom-btn[data-kingdom="elruhn"].selected {
-  border-color: #8b6914;
-  box-shadow: 0 0 0 1px #8b6914, 0 0 12px rgba(139, 105, 20, 0.2);
+  border-color: #2d7a3a;
+  background: linear-gradient(135deg, rgba(45, 122, 58, 0.3) 0%, rgba(100, 80, 60, 0.2) 100%);
+  box-shadow: 0 0 0 1px #2d7a3a, 0 0 12px rgba(45, 122, 58, 0.2);
 }
 
 .kingdom-btn[data-kingdom="kelsin"].selected {
-  border-color: #2d8f5e;
-  box-shadow: 0 0 0 1px #2d8f5e, 0 0 12px rgba(45, 143, 94, 0.2);
+  border-color: #3a8f6e;
+  background: linear-gradient(135deg, rgba(58, 143, 110, 0.3) 0%, rgba(60, 120, 90, 0.2) 100%);
+  box-shadow: 0 0 0 1px #3a8f6e, 0 0 12px rgba(58, 143, 110, 0.2);
 }
 
 .kingdom-btn[data-kingdom="gosain"].selected {
-  border-color: #6b8fa3;
-  box-shadow: 0 0 0 1px #6b8fa3, 0 0 12px rgba(107, 143, 163, 0.2);
+  border-color: #7b6fa3;
+  background: linear-gradient(135deg, rgba(123, 111, 163, 0.3) 0%, rgba(80, 90, 130, 0.2) 100%);
+  box-shadow: 0 0 0 1px #7b6fa3, 0 0 12px rgba(123, 111, 163, 0.2);
 }
 
 .kingdom-btn[data-kingdom="yozuan"].selected {
   border-color: #b8860b;
+  background: linear-gradient(135deg, rgba(184, 134, 11, 0.3) 0%, rgba(160, 100, 40, 0.2) 100%);
   box-shadow: 0 0 0 1px #b8860b, 0 0 12px rgba(184, 134, 11, 0.2);
 }
 

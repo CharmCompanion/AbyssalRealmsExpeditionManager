@@ -96,27 +96,26 @@ def get_saves():
 @app.route('/api/saves', methods=['POST'])
 def create_save():
     data = request.get_json()
-    slot_number = data.get('slot_number')
+    slot_number = data.get('slot_number', data.get('slot'))
     lord_name = data.get('lord_name')
     town_name = data.get('town_name')
     kingdom_id = data.get('kingdom_id')
     seed = data.get('seed')
-    gold = data.get('gold', 100)
-    population = data.get('population', 10)
-    food = data.get('food', 0)
-    wood = data.get('wood', 0)
-    stone = data.get('stone', 0)
-    ore = data.get('ore', 0)
+    sr = data.get('starting_resources', {})
+    gold = sr.get('gold', data.get('gold', 100))
+    population = sr.get('population', data.get('population', 10))
+    food = sr.get('food', data.get('food', 0))
+    wood = sr.get('wood', data.get('wood', 0))
+    stone = sr.get('stone', data.get('stone', 0))
+    ore = sr.get('ore', data.get('ore', 0))
     location_name = data.get('location_name', '')
-    dot_x = data.get('dot_x', 0.5)
-    dot_y = data.get('dot_y', 0.5)
-    extra_dungeon_chance = data.get('extra_dungeon_chance', 0.0)
-
+    dot_x = data.get('dot_x', data.get('position_x', 0.5))
+    dot_y = data.get('dot_y', data.get('position_y', 0.5))
     deity_id = KINGDOM_TO_DEITY.get(kingdom_id, 0)
     kingdom_resources = generate_kingdom_resources(kingdom_id, seed)
     stats = generate_stats(seed)
 
-    dungeon_system = DungeonThreatSystem(base_seed=seed, extra_dungeon_spawn_chance=extra_dungeon_chance)
+    dungeon_system = DungeonThreatSystem(base_seed=seed, extra_dungeon_spawn_chance=0.1)
     initial_dungeons = dungeon_system.generate_initial_sites(kingdom_id)
 
     buildings = {}
@@ -157,7 +156,7 @@ def create_save():
     slot.location_name = location_name
     slot.dot_x = dot_x
     slot.dot_y = dot_y
-    slot.extra_dungeon_chance = extra_dungeon_chance
+    slot.extra_dungeon_chance = 0.1
     slot.game_data = game_data
     slot.is_empty = False
 
