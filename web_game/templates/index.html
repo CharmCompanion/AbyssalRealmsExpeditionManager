@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Abyssal Realms</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+
+<div class="resource-bar" id="resource-bar" style="display:none;">
+    <div class="resource-item"><span class="resource-icon">💰</span><span class="resource-value" id="res-gold">0</span></div>
+    <div class="resource-item"><span class="resource-icon">🍖</span><span class="resource-value" id="res-food">0</span></div>
+    <div class="resource-item"><span class="resource-icon">🪵</span><span class="resource-value" id="res-wood">0</span></div>
+    <div class="resource-item"><span class="resource-icon">🪨</span><span class="resource-value" id="res-stone">0</span></div>
+    <div class="resource-item"><span class="resource-icon">⛏️</span><span class="resource-value" id="res-ore">0</span></div>
+    <div class="resource-item"><span class="resource-icon">💎</span><span class="resource-value" id="res-gems">0</span></div>
+    <div class="resource-item"><span class="resource-icon">🏺</span><span class="resource-value" id="res-relics">0</span></div>
+    <div class="resource-item"><span class="resource-icon">📚</span><span class="resource-value" id="res-knowledge">0</span></div>
+    <div class="resource-item"><span class="resource-icon">✨</span><span class="resource-value" id="res-mana">0</span></div>
+    <div class="resource-item"><span class="resource-icon">👥</span><span class="resource-value" id="res-population">0</span></div>
+    <div class="day-counter" id="day-counter">Day 1</div>
+</div>
+
+<div class="main-content" id="main-content">
+
+    <div class="screen active" id="title-screen">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;text-align:center;padding:20px;">
+            <h1 style="font-size:42px;font-weight:700;color:var(--accent);margin-bottom:8px;letter-spacing:2px;">Abyssal Realms</h1>
+            <p style="font-size:16px;color:var(--text-secondary);margin-bottom:48px;font-style:italic;">Expedition Manager</p>
+            <div style="display:flex;flex-direction:column;gap:12px;width:100%;max-width:280px;">
+                <button class="btn btn-primary btn-lg btn-block" onclick="continueGame()">Continue</button>
+                <button class="btn btn-secondary btn-lg btn-block" onclick="showScreen('save-select-screen');loadSaves();selectedSlot=-1;">New Game</button>
+                <button class="btn btn-secondary btn-lg btn-block" onclick="showScreen('save-select-screen');loadSaves();selectedSlot=-1;">Load Game</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="screen" id="save-select-screen">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <button class="btn btn-secondary btn-sm" onclick="showScreen('title-screen')">← Back</button>
+            <h2 class="section-title" style="margin-bottom:0;">Select Save Slot</h2>
+        </div>
+        <div id="save-slots-grid"></div>
+    </div>
+
+    <div class="screen create-screen" id="create-screen">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
+            <button class="btn btn-secondary btn-sm" onclick="showScreen('save-select-screen');loadSaves();">← Back</button>
+            <h2 class="section-title" style="margin-bottom:0;">Create New Game</h2>
+        </div>
+
+        <div class="creation-tabs">
+            <button class="creation-tab active" id="tab-town" onclick="switchCreationTab('town')">Town</button>
+            <button class="creation-tab" id="tab-kingdom" onclick="switchCreationTab('kingdom')">Kingdom</button>
+            <button class="creation-tab" id="tab-lord" onclick="switchCreationTab('lord')">Lord</button>
+        </div>
+
+        <div id="creation-town" class="creation-content">
+            <div class="card">
+                <div class="form-group">
+                    <label>Town Name</label>
+                    <input type="text" id="town-name-input" placeholder="Enter town name">
+                </div>
+                <div class="form-group">
+                    <label>Seed</label>
+                    <div style="display:flex;gap:8px;">
+                        <input type="text" id="seed-input" placeholder="World seed" style="flex:1;">
+                        <button class="btn btn-secondary" onclick="randomizeSeed()">Randomize</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <h3 class="card-title mb-12">Starting Resources</h3>
+                <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;">
+                    <div>
+                        <label style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;display:block;">💰 Gold</label>
+                        <div class="resource-control">
+                            <button onclick="adjustResource('gold',-10)">−</button>
+                            <span class="resource-val" id="create-gold">200</span>
+                            <button onclick="adjustResource('gold',10)">+</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;display:block;">👥 Population</label>
+                        <div class="resource-control">
+                            <button onclick="adjustResource('population',-1)">−</button>
+                            <span class="resource-val" id="create-population">10</span>
+                            <button onclick="adjustResource('population',1)">+</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;display:block;">🍖 Food</label>
+                        <div class="resource-control">
+                            <button onclick="adjustResource('food',-10)">−</button>
+                            <span class="resource-val" id="create-food">100</span>
+                            <button onclick="adjustResource('food',10)">+</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;display:block;">🪵 Wood</label>
+                        <div class="resource-control">
+                            <button onclick="adjustResource('wood',-10)">−</button>
+                            <span class="resource-val" id="create-wood">100</span>
+                            <button onclick="adjustResource('wood',10)">+</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;display:block;">🪨 Stone</label>
+                        <div class="resource-control">
+                            <button onclick="adjustResource('stone',-10)">−</button>
+                            <span class="resource-val" id="create-stone">50</span>
+                            <button onclick="adjustResource('stone',10)">+</button>
+                        </div>
+                    </div>
+                    <div>
+                        <label style="font-size:12px;color:var(--text-secondary);margin-bottom:4px;display:block;">⛏️ Ore</label>
+                        <div class="resource-control">
+                            <button onclick="adjustResource('ore',-10)">−</button>
+                            <span class="resource-val" id="create-ore">0</span>
+                            <button onclick="adjustResource('ore',10)">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="form-group" style="margin-bottom:0;">
+                    <label>Extra Dungeon Chance: <span id="dungeon-chance-val">10</span>%</label>
+                    <input type="range" id="dungeon-chance" min="0" max="100" value="10" style="width:100%;" oninput="document.getElementById('dungeon-chance-val').textContent=this.value">
+                </div>
+            </div>
+        </div>
+
+        <div id="creation-kingdom" class="creation-content" style="display:none;">
+            <div class="creation-layout">
+                <div class="creation-form">
+                    <div class="kingdom-grid">
+                        <button class="kingdom-btn" data-kingdom="vylfod" onclick="selectKingdom(1)">
+                            <div class="kingdom-name">Vylfod Dominion</div>
+                        </button>
+                        <button class="kingdom-btn" data-kingdom="rabaric" onclick="selectKingdom(2)">
+                            <div class="kingdom-name">Rabaric Republic</div>
+                        </button>
+                        <button class="kingdom-btn" data-kingdom="elruhn" onclick="selectKingdom(3)">
+                            <div class="kingdom-name">Kingdom of El'Ruhn</div>
+                        </button>
+                        <button class="kingdom-btn" data-kingdom="kelsin" onclick="selectKingdom(4)">
+                            <div class="kingdom-name">Kelsin Federation</div>
+                        </button>
+                        <button class="kingdom-btn" data-kingdom="gosain" onclick="selectKingdom(5)">
+                            <div class="kingdom-name">Divine Empire of Gosain</div>
+                        </button>
+                        <button class="kingdom-btn" data-kingdom="yozuan" onclick="selectKingdom(6)">
+                            <div class="kingdom-name">Yozuan Desert</div>
+                        </button>
+                    </div>
+
+                    <div id="kingdom-details" class="card" style="display:none;">
+                        <h3 id="kingdom-detail-name" class="text-gold mb-8"></h3>
+                        <div class="card-body">
+                            <p><strong>Biomes:</strong> <span id="kingdom-detail-biomes"></span></p>
+                            <p><strong>Climate:</strong> <span id="kingdom-detail-climate"></span></p>
+                            <p><strong>Favored Resources:</strong> <span id="kingdom-detail-favored"></span></p>
+                            <p><strong>Favored Building:</strong> <span id="kingdom-detail-building"></span></p>
+                        </div>
+                    </div>
+
+                    <div id="deity-info" class="deity-card" style="display:none;">
+                        <div class="deity-name" id="deity-name"></div>
+                        <div class="deity-desc" id="deity-domain"></div>
+                        <div class="deity-bonus"><strong>Passive:</strong> <span id="deity-passive"></span></div>
+                        <div class="deity-bonus" style="color:var(--mana);"><strong>Active:</strong> <span id="deity-active"></span></div>
+                        <div class="deity-bonus" style="color:var(--danger);"><strong>Bane:</strong> <span id="deity-bane"></span></div>
+                    </div>
+                </div>
+
+                <div class="map-panel">
+                    <div class="map-container" id="kingdom-map">
+                        <img class="map-layer" src="/static/images/map/map.png" alt="" draggable="false">
+                        <img class="map-layer" src="/static/images/map/Water.png" alt="" draggable="false">
+                        <img class="map-layer" src="/static/images/map/BorderLines.png" alt="" draggable="false">
+                        <img class="map-layer" src="/static/images/map/Names.png" alt="" draggable="false">
+                        <img class="map-layer" id="highlight-1" src="/static/images/map/VylfodDominionHighlight.png" alt="" draggable="false" style="display:none;">
+                        <img class="map-layer" id="highlight-2" src="/static/images/map/RabaricRepublicHighlight.png" alt="" draggable="false" style="display:none;">
+                        <img class="map-layer" id="highlight-3" src="/static/images/map/KingdomofElRuhnHighlight.png" alt="" draggable="false" style="display:none;">
+                        <img class="map-layer" id="highlight-4" src="/static/images/map/KelsinFederationHighlight.png" alt="" draggable="false" style="display:none;">
+                        <img class="map-layer" id="highlight-5" src="/static/images/map/DivineEmpireofGosainHighlight.png" alt="" draggable="false" style="display:none;">
+                        <img class="map-layer" id="highlight-6" src="/static/images/map/YozuanDesertHighlight.png" alt="" draggable="false" style="display:none;">
+                        <img class="map-layer" id="shadow-1" src="/static/images/map/VylfodDominionShadow.png" alt="" draggable="false" style="display:none;">
+                        <img class="map-layer" id="shadow-2" src="/static/images/map/RabaricRepublicShadow.png" alt="" draggable="false" style="display:none;">
+                        <img class="map-layer" id="shadow-3" src="/static/images/map/KingdomofElRuhnShadow.png" alt="" draggable="false" style="display:none;">
+                        <img class="map-layer" id="shadow-4" src="/static/images/map/KelsinFederationShadow.png" alt="" draggable="false" style="display:none;">
+                        <img class="map-layer" id="shadow-5" src="/static/images/map/DivineEmpireofGosainShadow.png" alt="" draggable="false" style="display:none;">
+                        <img class="map-layer" id="shadow-6" src="/static/images/map/YozuanDesertShadow.png" alt="" draggable="false" style="display:none;">
+                        <div class="city-dot" id="city-dot" style="display:none;"></div>
+                    </div>
+                    <div class="map-controls">
+                        <span class="kingdom-display" id="map-kingdom-label"></span>
+                        <button class="btn btn-secondary btn-sm" onclick="randomizeDot()">Randomize Position</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="creation-lord" class="creation-content" style="display:none;">
+            <div class="card">
+                <div class="form-group">
+                    <label>Lord Name</label>
+                    <input type="text" id="lord-name-input" placeholder="Enter lord name">
+                </div>
+                <div class="empty-state" style="padding:20px;">
+                    <div class="empty-icon">🛡️</div>
+                    <div class="empty-text">More lord customization coming soon</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="display:flex;gap:8px;margin-top:16px;justify-content:flex-end;">
+            <button class="btn btn-primary btn-lg" id="create-btn" onclick="submitCreate()" disabled>Create</button>
+        </div>
+    </div>
+
+    <div class="screen" id="town-screen">
+        <div id="town-content" class="tab-content">
+            <div style="margin-bottom:16px;">
+                <h2 class="section-title" id="town-header-name"></h2>
+                <p class="text-secondary" id="town-header-kingdom"></p>
+            </div>
+            <div class="card-grid" id="buildings-grid"></div>
+        </div>
+
+        <div id="map-content" class="tab-content" style="display:none;">
+            <h2 class="section-title mb-12">World Map</h2>
+            <div class="map-panel">
+                <div class="map-container" id="game-map">
+                    <img class="map-layer" src="/static/images/map/map.png" alt="" draggable="false">
+                    <img class="map-layer" src="/static/images/map/Water.png" alt="" draggable="false">
+                    <img class="map-layer" src="/static/images/map/BorderLines.png" alt="" draggable="false">
+                    <img class="map-layer" src="/static/images/map/Names.png" alt="" draggable="false">
+                    <img class="map-layer" id="game-highlight-1" src="/static/images/map/VylfodDominionHighlight.png" alt="" draggable="false" style="display:none;">
+                    <img class="map-layer" id="game-highlight-2" src="/static/images/map/RabaricRepublicHighlight.png" alt="" draggable="false" style="display:none;">
+                    <img class="map-layer" id="game-highlight-3" src="/static/images/map/KingdomofElRuhnHighlight.png" alt="" draggable="false" style="display:none;">
+                    <img class="map-layer" id="game-highlight-4" src="/static/images/map/KelsinFederationHighlight.png" alt="" draggable="false" style="display:none;">
+                    <img class="map-layer" id="game-highlight-5" src="/static/images/map/DivineEmpireofGosainHighlight.png" alt="" draggable="false" style="display:none;">
+                    <img class="map-layer" id="game-highlight-6" src="/static/images/map/YozuanDesertHighlight.png" alt="" draggable="false" style="display:none;">
+                    <img class="map-layer" id="game-shadow-1" src="/static/images/map/VylfodDominionShadow.png" alt="" draggable="false" style="display:none;">
+                    <img class="map-layer" id="game-shadow-2" src="/static/images/map/RabaricRepublicShadow.png" alt="" draggable="false" style="display:none;">
+                    <img class="map-layer" id="game-shadow-3" src="/static/images/map/KingdomofElRuhnShadow.png" alt="" draggable="false" style="display:none;">
+                    <img class="map-layer" id="game-shadow-4" src="/static/images/map/KelsinFederationShadow.png" alt="" draggable="false" style="display:none;">
+                    <img class="map-layer" id="game-shadow-5" src="/static/images/map/DivineEmpireofGosainShadow.png" alt="" draggable="false" style="display:none;">
+                    <img class="map-layer" id="game-shadow-6" src="/static/images/map/YozuanDesertShadow.png" alt="" draggable="false" style="display:none;">
+                    <div class="city-dot" id="game-city-dot" style="display:none;"></div>
+                </div>
+            </div>
+            <div class="card mt-12" id="game-kingdom-info"></div>
+        </div>
+
+        <div id="expeditions-content" class="tab-content" style="display:none;">
+            <div id="active-expedition"></div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                <h2 class="section-title" style="margin-bottom:0;">Expedition Board</h2>
+                <span class="text-secondary" id="board-refresh"></span>
+            </div>
+            <div id="job-board"></div>
+        </div>
+
+        <div id="adventurers-content" class="tab-content" style="display:none;">
+            <h2 class="section-title mb-12">Adventurer Roster</h2>
+            <div id="adventurer-roster">
+                <div class="empty-state">
+                    <div class="empty-icon">👥</div>
+                    <div class="empty-text">No adventurers recruited yet</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="threats-content" class="tab-content" style="display:none;">
+            <h2 class="section-title mb-12">Dungeon Threats</h2>
+            <div id="threats-list"></div>
+            <div id="raid-warnings" class="mt-16"></div>
+        </div>
+    </div>
+
+</div>
+
+<div class="bottom-nav" id="bottom-nav" style="display:none;">
+    <button class="nav-tab active" id="nav-town" onclick="showTab('town')">
+        <span class="nav-icon">🏠</span>
+        <span class="nav-label">Town</span>
+    </button>
+    <button class="nav-tab" id="nav-map" onclick="showTab('map')">
+        <span class="nav-icon">🗺️</span>
+        <span class="nav-label">Map</span>
+    </button>
+    <button class="nav-tab" id="nav-expeditions" onclick="showTab('expeditions')">
+        <span class="nav-icon">⚔️</span>
+        <span class="nav-label">Expeditions</span>
+    </button>
+    <button class="nav-tab" id="nav-adventurers" onclick="showTab('adventurers')">
+        <span class="nav-icon">👥</span>
+        <span class="nav-label">Adventurers</span>
+    </button>
+    <button class="nav-tab" id="nav-threats" onclick="showTab('threats')">
+        <span class="nav-icon">💀</span>
+        <span class="nav-label">Threats</span>
+    </button>
+</div>
+
+<div class="modal-overlay hidden" id="modal-overlay">
+    <div class="modal-content">
+        <h3 id="modal-title"></h3>
+        <p id="modal-message"></p>
+        <div class="modal-actions">
+            <button class="btn btn-secondary" onclick="hideModal()">Cancel</button>
+            <button class="btn btn-danger" id="modal-confirm">Confirm</button>
+        </div>
+    </div>
+</div>
+
+<script>
+const KINGDOM_DATA = {
+    1: {name: "Vylfod Dominion", biomes: ["coastal", "wetlands"], climate: "humid", favored: ["fish", "salt", "herbs"], building: "Harbor"},
+    2: {name: "Rabaric Republic", biomes: ["plains", "hills"], climate: "temperate", favored: ["food", "wood", "stone"], building: "Market"},
+    3: {name: "Kingdom of El'Ruhn", biomes: ["forest", "mountains"], climate: "temperate", favored: ["wood", "ore", "gems"], building: "Lumberyard"},
+    4: {name: "Kelsin Federation", biomes: ["forest", "oasis"], climate: "lush", favored: ["wood", "food", "mana"], building: "Sanctum"},
+    5: {name: "Divine Empire of Gosain", biomes: ["tundra", "mountains"], climate: "cold", favored: ["stone", "ore", "relics"], building: "Cathedral"},
+    6: {name: "Yozuan Desert", biomes: ["desert", "canyons", "oasis"], climate: "arid", favored: ["stone", "gems", "mana"], building: "Caravanserai"}
+};
+const KINGDOM_TO_DEITY = {1:0, 5:1, 6:2, 3:3, 4:4, 2:5};
+const DEITY_DATA = {
+    0: {name: "Nivarius", desc: "Wisdom / Knowledge", passive: "Expedition outcomes are more consistent.", active: "Academy: Reduce casualty chance.", bane: "Building construction takes longer."},
+    1: {name: "Seraphina", desc: "Faith", passive: "Less morale loss from deaths.", active: "Temple: Faster wound recovery.", bane: "Loot sells for less Gold."},
+    2: {name: "Fortane", desc: "Darkness / Luck", passive: "Higher loot variance.", active: "Bank: Pay gold for better loot.", bane: "Recruitment costs vary."},
+    3: {name: "Thorn", desc: "Nature / Food", passive: "Fewer attrition deaths.", active: "Cottages: Spend food to reduce deaths.", bane: "Worse trade income."},
+    4: {name: "Aurelia", desc: "Strength", passive: "More survivable combat.", active: "Estates: Train party for next expedition.", bane: "Expeditions use more supplies."},
+    5: {name: "Zephra", desc: "Speed", passive: "Expeditions complete faster.", active: "Guild: Shorter prep and cooldown.", bane: "Slower injury recovery."}
+};
+const KINGDOM_CENTERS = {
+    1: {x: 346.88/843.75, y: 284.34/568.5},
+    2: {x: 206.19/843.75, y: 208.77/568.5},
+    3: {x: 215.42/843.75, y: 146.32/568.5},
+    4: {x: 351.50/843.75, y: 131.44/568.5},
+    5: {x: 277.22/843.75, y: 197.82/568.5},
+    6: {x: 169.44/843.75, y: 155.78/568.5}
+};
+const KINGDOM_MAP_FILES = {
+    1: {highlight: "VylfodDominionHighlight.png", shadow: "VylfodDominionShadow.png"},
+    2: {highlight: "RabaricRepublicHighlight.png", shadow: "RabaricRepublicShadow.png"},
+    3: {highlight: "KingdomofElRuhnHighlight.png", shadow: "KingdomofElRuhnShadow.png"},
+    4: {highlight: "KelsinFederationHighlight.png", shadow: "KelsinFederationShadow.png"},
+    5: {highlight: "DivineEmpireofGosainHighlight.png", shadow: "DivineEmpireofGosainShadow.png"},
+    6: {highlight: "YozuanDesertHighlight.png", shadow: "YozuanDesertShadow.png"}
+};
+const BUILDING_TYPES = {
+    town_hall: {name: "Town Hall", cost: {gold: 100, wood: 50, stone: 50}, production: {gold: 5}, max_level: 5},
+    tavern: {name: "Tavern", cost: {gold: 80, wood: 40}, production: {gold: 3, population: 1}, max_level: 5},
+    barracks: {name: "Barracks", cost: {gold: 120, wood: 30, stone: 60}, production: {}, max_level: 5},
+    market: {name: "Market", cost: {gold: 150, wood: 40, stone: 30}, production: {gold: 8}, max_level: 5},
+    farm: {name: "Farm", cost: {gold: 60, wood: 30}, production: {food: 10}, max_level: 5},
+    mine: {name: "Mine", cost: {gold: 100, wood: 20, stone: 40}, production: {ore: 5, stone: 3}, max_level: 5},
+    lumber_mill: {name: "Lumber Mill", cost: {gold: 80, wood: 20}, production: {wood: 8}, max_level: 5},
+    temple: {name: "Temple", cost: {gold: 200, stone: 80}, production: {mana: 3, knowledge: 2}, max_level: 5},
+    library: {name: "Library", cost: {gold: 150, wood: 50, stone: 30}, production: {knowledge: 5}, max_level: 5},
+    smithy: {name: "Smithy", cost: {gold: 120, ore: 30, stone: 20}, production: {}, max_level: 5}
+};
+
+const BUILDING_ICONS = {
+    town_hall: "🏛️", tavern: "🍺", barracks: "⚔️", market: "🏪",
+    farm: "🌾", mine: "⛏️", lumber_mill: "🪵", temple: "⛪",
+    library: "📚", smithy: "🔨"
+};
+
+const RESOURCE_ICONS = {
+    gold: "💰", food: "🍖", wood: "🪵", stone: "🪨", ore: "⛏️",
+    gems: "💎", relics: "🏺", knowledge: "📚", mana: "✨", population: "👥"
+};
+
+let currentScreen = 'title-screen';
+let activeSave = null;
+let selectedKingdom = -1;
+let selectedSlot = -1;
+let gameTickInterval = null;
+let boundaryCache = {};
+let isDraggingDot = false;
+
+let createResources = {gold: 200, population: 10, food: 100, wood: 100, stone: 50, ore: 0};
+
+async function api(url, method, body) {
+    const opts = {method: method || 'GET', headers: {'Content-Type': 'application/json'}};
+    if (body) opts.body = JSON.stringify(body);
+    const res = await fetch(url, opts);
+    if (!res.ok) {
+        const err = await res.text();
+        throw new Error(err);
+    }
+    return res.json();
+}
+
+function formatNumber(n) {
+    if (n === undefined || n === null) return '0';
+    n = Number(n);
+    if (n >= 1000000) return (n / 1000000).toFixed(1) + 'M';
+    if (n >= 1000) return (n / 1000).toFixed(1) + 'K';
+    return String(n);
+}
+
+function showScreen(screenId) {
+    document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+    document.getElementById(screenId).classList.add('active');
+    currentScreen = screenId;
+
+    const inGame = screenId === 'town-screen';
+    document.getElementById('resource-bar').style.display = inGame ? 'flex' : 'none';
+    document.getElementById('bottom-nav').style.display = inGame ? 'flex' : 'none';
+
+    const mc = document.getElementById('main-content');
+    if (inGame) {
+        mc.style.top = 'var(--resource-bar-height)';
+        mc.style.bottom = 'var(--nav-height)';
+    } else {
+        mc.style.top = '0';
+        mc.style.bottom = '0';
+    }
+}
+
+function showTab(tabName) {
+    document.querySelectorAll('.tab-content').forEach(t => t.style.display = 'none');
+    const el = document.getElementById(tabName + '-content');
+    if (el) el.style.display = 'block';
+    setActiveNav(tabName);
+
+    if (tabName === 'map' && activeSave) {
+        updateGameMap();
+    }
+}
+
+function setActiveNav(tabName) {
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    const navEl = document.getElementById('nav-' + tabName);
+    if (navEl) navEl.classList.add('active');
+}
+
+async function loadSaves() {
+    try {
+        const data = await api('/api/saves');
+        renderSaveSlots(data.saves || data);
+    } catch(e) {
+        renderSaveSlots([]);
+    }
+}
+
+function renderSaveSlots(saves) {
+    const grid = document.getElementById('save-slots-grid');
+    let html = '';
+    const saveMap = {};
+    if (Array.isArray(saves)) {
+        saves.forEach(s => { saveMap[s.slot] = s; });
+    }
+    for (let i = 1; i <= 20; i++) {
+        const save = saveMap[i];
+        if (save) {
+            const kName = KINGDOM_DATA[save.kingdom_id] ? KINGDOM_DATA[save.kingdom_id].name : 'Unknown';
+            html += '<div class="save-slot occupied">' +
+                '<div style="flex:1;min-width:0;">' +
+                '<div class="slot-header"><span class="slot-number">Slot ' + i + '</span><span class="day-display">Day ' + (save.day || 1) + '</span></div>' +
+                '<div class="lord-name">' + (save.lord_name || 'Unknown Lord') + '</div>' +
+                '<div class="town-name">' + (save.town_name || 'Unknown Town') + '</div>' +
+                '<div class="kingdom-name">' + kName + '</div>' +
+                '<div class="resource-preview">' +
+                '<div class="resource-item"><span class="resource-icon">💰</span><span class="resource-value">' + formatNumber(save.gold) + '</span></div>' +
+                '<div class="resource-item"><span class="resource-icon">🍖</span><span class="resource-value">' + formatNumber(save.food) + '</span></div>' +
+                '<div class="resource-item"><span class="resource-icon">🪵</span><span class="resource-value">' + formatNumber(save.wood) + '</span></div>' +
+                '<div class="resource-item"><span class="resource-icon">🪨</span><span class="resource-value">' + formatNumber(save.stone) + '</span></div>' +
+                '</div></div>' +
+                '<div class="card-footer" style="margin-top:0;">' +
+                '<button class="btn btn-primary btn-sm" onclick="loadGame(' + i + ')">Load</button>' +
+                '<button class="btn btn-danger btn-sm" onclick="deleteGame(' + i + ')">Delete</button>' +
+                '</div></div>';
+        } else {
+            html += '<div class="save-slot empty" onclick="createNewGame(' + i + ')">' +
+                '<div class="empty-icon">+</div>' +
+                '<div class="empty-label">Empty Slot</div>' +
+                '<div class="slot-number">Slot ' + i + '</div>' +
+                '</div>';
+        }
+    }
+    grid.innerHTML = html;
+}
+
+function createNewGame(slotNumber) {
+    selectedSlot = slotNumber;
+    selectedKingdom = -1;
+    document.getElementById('town-name-input').value = '';
+    document.getElementById('lord-name-input').value = '';
+    document.getElementById('seed-input').value = '';
+    createResources = {gold: 200, population: 10, food: 100, wood: 100, stone: 50, ore: 0};
+    Object.keys(createResources).forEach(r => {
+        const el = document.getElementById('create-' + r);
+        if (el) el.textContent = createResources[r];
+    });
+    document.getElementById('dungeon-chance').value = 10;
+    document.getElementById('dungeon-chance-val').textContent = '10';
+    document.querySelectorAll('.kingdom-btn').forEach(b => b.classList.remove('selected'));
+    document.getElementById('kingdom-details').style.display = 'none';
+    document.getElementById('deity-info').style.display = 'none';
+    document.getElementById('city-dot').style.display = 'none';
+    updateMapOverlays(-1);
+    updateCreateButton();
+    randomizeSeed();
+    switchCreationTab('town');
+    showScreen('create-screen');
+}
+
+async function loadGame(slotNumber) {
+    try {
+        const data = await api('/api/saves/' + slotNumber + '/load', 'POST');
+        activeSave = data;
+        renderTown(data);
+        showScreen('town-screen');
+        showTab('town');
+        startGameLoop();
+    } catch(e) {
+        console.error('Failed to load game:', e);
+    }
+}
+
+function deleteGame(slotNumber) {
+    showModal('Delete Save', 'Are you sure you want to delete save slot ' + slotNumber + '? This cannot be undone.', async function() {
+        try {
+            await api('/api/saves/' + slotNumber, 'DELETE');
+            hideModal();
+            loadSaves();
+        } catch(e) {
+            console.error('Failed to delete:', e);
+            hideModal();
+        }
+    });
+}
+
+async function continueGame() {
+    try {
+        const data = await api('/api/saves');
+        const saves = data.saves || data;
+        if (saves && saves.length > 0) {
+            const latest = saves.reduce((a, b) => (b.slot > a.slot ? b : a), saves[0]);
+            await loadGame(latest.slot);
+        } else {
+            showScreen('save-select-screen');
+            loadSaves();
+        }
+    } catch(e) {
+        showScreen('save-select-screen');
+        loadSaves();
+    }
+}
+
+function switchCreationTab(tabName) {
+    document.querySelectorAll('.creation-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + tabName).classList.add('active');
+    document.querySelectorAll('.creation-content').forEach(c => c.style.display = 'none');
+    document.getElementById('creation-' + tabName).style.display = 'block';
+}
+
+function selectKingdom(kingdomId) {
+    selectedKingdom = kingdomId;
+    const kData = KINGDOM_DATA[kingdomId];
+    const dId = KINGDOM_TO_DEITY[kingdomId];
+    const deity = DEITY_DATA[dId];
+
+    document.querySelectorAll('.kingdom-btn').forEach(b => b.classList.remove('selected'));
+    const kingdoms = ['', 'vylfod', 'rabaric', 'elruhn', 'kelsin', 'gosain', 'yozuan'];
+    const btn = document.querySelector('.kingdom-btn[data-kingdom="' + kingdoms[kingdomId] + '"]');
+    if (btn) btn.classList.add('selected');
+
+    document.getElementById('kingdom-details').style.display = 'block';
+    document.getElementById('kingdom-detail-name').textContent = kData.name;
+    document.getElementById('kingdom-detail-biomes').textContent = kData.biomes.join(', ');
+    document.getElementById('kingdom-detail-climate').textContent = kData.climate;
+    document.getElementById('kingdom-detail-favored').textContent = kData.favored.join(', ');
+    document.getElementById('kingdom-detail-building').textContent = kData.building;
+
+    document.getElementById('deity-info').style.display = 'block';
+    document.getElementById('deity-name').textContent = deity.name;
+    document.getElementById('deity-domain').textContent = deity.desc;
+    document.getElementById('deity-passive').textContent = deity.passive;
+    document.getElementById('deity-active').textContent = deity.active;
+    document.getElementById('deity-bane').textContent = deity.bane;
+
+    document.getElementById('map-kingdom-label').textContent = kData.name;
+
+    updateMapOverlays(kingdomId);
+
+    const center = KINGDOM_CENTERS[kingdomId];
+    const dot = document.getElementById('city-dot');
+    dot.style.display = 'block';
+    dot.style.left = (center.x * 100) + '%';
+    dot.style.top = (center.y * 100) + '%';
+
+    fetchBoundaryData(kingdomId);
+    updateCreateButton();
+}
+
+function updateMapOverlays(kingdomId) {
+    for (let i = 1; i <= 6; i++) {
+        const hl = document.getElementById('highlight-' + i);
+        const sh = document.getElementById('shadow-' + i);
+        if (kingdomId === -1) {
+            if (hl) hl.style.display = 'none';
+            if (sh) sh.style.display = 'none';
+        } else if (i === kingdomId) {
+            if (hl) hl.style.display = 'block';
+            if (sh) sh.style.display = 'none';
+        } else {
+            if (hl) hl.style.display = 'none';
+            if (sh) sh.style.display = 'block';
+        }
+    }
+}
+
+async function fetchBoundaryData(kingdomId) {
+    if (boundaryCache[kingdomId]) return boundaryCache[kingdomId];
+    try {
+        const data = await api('/api/map/boundary/' + kingdomId);
+        boundaryCache[kingdomId] = data;
+        return data;
+    } catch(e) {
+        return null;
+    }
+}
+
+function isPositionInKingdom(relX, relY, kingdomId) {
+    const bd = boundaryCache[kingdomId];
+    if (!bd || !bd.positions) return true;
+    const positions = bd.positions;
+    let minDist = Infinity;
+    for (let i = 0; i < positions.length; i++) {
+        const dx = relX - positions[i][0];
+        const dy = relY - positions[i][1];
+        const d = dx * dx + dy * dy;
+        if (d < minDist) minDist = d;
+    }
+    return minDist < 0.002;
+}
+
+function findNearestValidPosition(relX, relY, kingdomId) {
+    const bd = boundaryCache[kingdomId];
+    if (!bd || !bd.positions || bd.positions.length === 0) return {x: relX, y: relY};
+    const positions = bd.positions;
+    let minDist = Infinity;
+    let nearest = {x: relX, y: relY};
+    for (let i = 0; i < positions.length; i++) {
+        const dx = relX - positions[i][0];
+        const dy = relY - positions[i][1];
+        const d = dx * dx + dy * dy;
+        if (d < minDist) {
+            minDist = d;
+            nearest = {x: positions[i][0], y: positions[i][1]};
+        }
+    }
+    return nearest;
+}
+
+async function randomizeDot() {
+    if (selectedKingdom === -1) return;
+    const bd = await fetchBoundaryData(selectedKingdom);
+    const dot = document.getElementById('city-dot');
+    if (bd && bd.positions && bd.positions.length > 0) {
+        const idx = Math.floor(Math.random() * bd.positions.length);
+        const pos = bd.positions[idx];
+        dot.style.left = (pos[0] * 100) + '%';
+        dot.style.top = (pos[1] * 100) + '%';
+    } else {
+        const center = KINGDOM_CENTERS[selectedKingdom];
+        const offsetX = (Math.random() - 0.5) * 0.05;
+        const offsetY = (Math.random() - 0.5) * 0.05;
+        dot.style.left = ((center.x + offsetX) * 100) + '%';
+        dot.style.top = ((center.y + offsetY) * 100) + '%';
+    }
+}
+
+function onMapClick(event) {
+    if (selectedKingdom === -1) return;
+    if (isDraggingDot) return;
+    const container = document.getElementById('kingdom-map');
+    const rect = container.getBoundingClientRect();
+    const relX = (event.clientX - rect.left) / rect.width;
+    const relY = (event.clientY - rect.top) / rect.height;
+
+    const clampedX = Math.max(0, Math.min(1, relX));
+    const clampedY = Math.max(0, Math.min(1, relY));
+
+    if (boundaryCache[selectedKingdom] && boundaryCache[selectedKingdom].positions) {
+        if (isPositionInKingdom(clampedX, clampedY, selectedKingdom)) {
+            const dot = document.getElementById('city-dot');
+            dot.style.left = (clampedX * 100) + '%';
+            dot.style.top = (clampedY * 100) + '%';
+        } else {
+            const nearest = findNearestValidPosition(clampedX, clampedY, selectedKingdom);
+            const dot = document.getElementById('city-dot');
+            dot.style.left = (nearest.x * 100) + '%';
+            dot.style.top = (nearest.y * 100) + '%';
+        }
+    } else {
+        const dot = document.getElementById('city-dot');
+        dot.style.left = (clampedX * 100) + '%';
+        dot.style.top = (clampedY * 100) + '%';
+    }
+}
+
+function setupMapDrag() {
+    const dot = document.getElementById('city-dot');
+    const container = document.getElementById('kingdom-map');
+
+    function startDrag(e) {
+        if (selectedKingdom === -1) return;
+        e.preventDefault();
+        e.stopPropagation();
+        isDraggingDot = true;
+    }
+
+    function moveDrag(e) {
+        if (!isDraggingDot) return;
+        e.preventDefault();
+        const rect = container.getBoundingClientRect();
+        let clientX, clientY;
+        if (e.touches) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+        } else {
+            clientX = e.clientX;
+            clientY = e.clientY;
+        }
+        let relX = (clientX - rect.left) / rect.width;
+        let relY = (clientY - rect.top) / rect.height;
+        relX = Math.max(0, Math.min(1, relX));
+        relY = Math.max(0, Math.min(1, relY));
+
+        if (boundaryCache[selectedKingdom] && boundaryCache[selectedKingdom].positions) {
+            if (!isPositionInKingdom(relX, relY, selectedKingdom)) {
+                const nearest = findNearestValidPosition(relX, relY, selectedKingdom);
+                relX = nearest.x;
+                relY = nearest.y;
+            }
+        }
+
+        dot.style.left = (relX * 100) + '%';
+        dot.style.top = (relY * 100) + '%';
+    }
+
+    function endDrag(e) {
+        if (isDraggingDot) {
+            isDraggingDot = false;
+            setTimeout(function() { isDraggingDot = false; }, 50);
+        }
+    }
+
+    dot.addEventListener('mousedown', startDrag);
+    dot.addEventListener('touchstart', startDrag, {passive: false});
+    document.addEventListener('mousemove', moveDrag);
+    document.addEventListener('touchmove', moveDrag, {passive: false});
+    document.addEventListener('mouseup', endDrag);
+    document.addEventListener('touchend', endDrag);
+
+    container.addEventListener('click', function(e) {
+        if (e.target === dot) return;
+        onMapClick(e);
+    });
+}
+
+function adjustResource(resource, delta) {
+    createResources[resource] = Math.max(0, (createResources[resource] || 0) + delta);
+    const el = document.getElementById('create-' + resource);
+    if (el) el.textContent = createResources[resource];
+}
+
+function randomizeSeed() {
+    const seed = Math.random().toString(36).substring(2, 10).toUpperCase();
+    document.getElementById('seed-input').value = seed;
+}
+
+function updateCreateButton() {
+    const townName = document.getElementById('town-name-input').value.trim();
+    const lordName = document.getElementById('lord-name-input').value.trim();
+    const btn = document.getElementById('create-btn');
+    btn.disabled = !(selectedKingdom > 0 && townName.length > 0 && lordName.length > 0);
+}
+
+async function submitCreate() {
+    const townName = document.getElementById('town-name-input').value.trim();
+    const lordName = document.getElementById('lord-name-input').value.trim();
+    const seed = document.getElementById('seed-input').value.trim();
+    const dungeonChance = parseInt(document.getElementById('dungeon-chance').value);
+
+    const dot = document.getElementById('city-dot');
+    const dotX = parseFloat(dot.style.left) / 100;
+    const dotY = parseFloat(dot.style.top) / 100;
+
+    const body = {
+        slot: selectedSlot,
+        town_name: townName,
+        lord_name: lordName,
+        kingdom_id: selectedKingdom,
+        seed: seed,
+        position_x: dotX,
+        position_y: dotY,
+        dungeon_chance: dungeonChance,
+        starting_resources: createResources
+    };
+
+    try {
+        const data = await api('/api/saves', 'POST', body);
+        activeSave = data;
+        renderTown(data);
+        showScreen('town-screen');
+        showTab('town');
+        startGameLoop();
+    } catch(e) {
+        console.error('Failed to create game:', e);
+    }
+}
+
+function renderTown(saveData) {
+    activeSave = saveData;
+    updateResourceBar(saveData);
+
+    document.getElementById('town-header-name').textContent = saveData.town_name || 'Unknown Town';
+    const kName = KINGDOM_DATA[saveData.kingdom_id] ? KINGDOM_DATA[saveData.kingdom_id].name : '';
+    document.getElementById('town-header-kingdom').textContent = kName;
+
+    renderBuildings(saveData.buildings || {});
+    renderExpeditions(saveData.active_expedition, saveData.expedition_board);
+    renderAdventurers(saveData.adventurers || []);
+    renderThreats(saveData.dungeons || []);
+}
+
+function updateResourceBar(save) {
+    if (!save) return;
+    const resources = save.resources || save;
+    const fields = ['gold', 'food', 'wood', 'stone', 'ore', 'gems', 'relics', 'knowledge', 'mana', 'population'];
+    fields.forEach(f => {
+        const el = document.getElementById('res-' + f);
+        if (el) el.textContent = formatNumber(resources[f] || save[f] || 0);
+    });
+    document.getElementById('day-counter').textContent = 'Day ' + (save.day || 1);
+}
+
+function renderBuildings(buildings) {
+    const grid = document.getElementById('buildings-grid');
+    let html = '';
+    Object.keys(BUILDING_TYPES).forEach(key => {
+        const bt = BUILDING_TYPES[key];
+        const level = (buildings[key] && buildings[key].level) || 0;
+        const icon = BUILDING_ICONS[key] || '🏗️';
+        const prodText = Object.keys(bt.production).map(r => '+' + bt.production[r] + ' ' + r).join(', ') || 'Special';
+        const costText = Object.keys(bt.cost).map(r => bt.cost[r] * (level + 1) + ' ' + r).join(', ');
+
+        html += '<div class="building-card">' +
+            '<div class="building-icon" style="width:64px;height:64px;font-size:32px;">' + icon +
+            (level > 0 ? '<span class="building-level">' + level + '</span>' : '') +
+            '</div>' +
+            '<div class="building-info">' +
+            '<div class="building-name">' + bt.name + '</div>' +
+            '<div class="building-production">' + prodText + '/day</div>' +
+            '</div>' +
+            '<button class="upgrade-btn" onclick="upgradeBuild(\'' + key + '\')"' + (level >= bt.max_level ? ' disabled' : '') + '>' +
+            (level === 0 ? 'Build' : (level >= bt.max_level ? 'Max' : 'Upgrade')) +
+            '<br><span style="font-size:10px;font-weight:400;">' + costText + '</span></button>' +
+            '</div>';
+    });
+    grid.innerHTML = html;
+}
+
+async function upgradeBuild(buildingId) {
+    try {
+        const data = await api('/api/game/build', 'POST', {building_id: buildingId});
+        if (data) renderTown(data);
+    } catch(e) {
+        console.error('Build failed:', e);
+    }
+}
+
+function renderExpeditions(activeExp, board) {
+    const activeEl = document.getElementById('active-expedition');
+    if (activeExp) {
+        const progress = activeExp.progress || 0;
+        activeEl.innerHTML = '<div class="card">' +
+            '<div class="card-header"><h3 class="card-title">Active Expedition</h3><span class="badge">' + (activeExp.party_size || 0) + ' party</span></div>' +
+            '<div class="card-body">' +
+            '<div class="progress-bar"><div class="progress-fill" style="width:' + progress + '%;"></div></div>' +
+            '<p class="mt-8 text-secondary">Returns on Day ' + (activeExp.return_day || '?') + '</p>' +
+            '</div></div>';
+    } else {
+        activeEl.innerHTML = '';
+    }
+
+    const boardEl = document.getElementById('job-board');
+    const refreshEl = document.getElementById('board-refresh');
+    if (board && board.refresh_in !== undefined) {
+        refreshEl.textContent = 'Refreshes in ' + board.refresh_in + ' days';
+    }
+
+    const jobs = (board && board.jobs) || [];
+    if (jobs.length === 0) {
+        boardEl.innerHTML = '<div class="empty-state"><div class="empty-icon">⚔️</div><div class="empty-text">No expeditions available</div></div>';
+        return;
+    }
+
+    let html = '';
+    jobs.forEach(function(job, idx) {
+        const riskClass = job.risk <= 3 ? 'risk-low' : (job.risk <= 6 ? 'risk-medium' : 'risk-high');
+        const riskLabel = job.risk <= 3 ? 'Low' : (job.risk <= 6 ? 'Medium' : 'High');
+        html += '<div class="job-card">' +
+            '<div class="job-icon">' + (job.icon || '🗡️') + '</div>' +
+            '<div class="job-info">' +
+            '<div class="job-name">' + (job.type || 'Expedition') + ' — ' + (job.target || 'Unknown') + '</div>' +
+            '<div class="job-duration">' + (job.duration || '?') + ' days</div>' +
+            '<div class="job-reward">' + (job.reward_hint || 'Various loot') + '</div>' +
+            '</div>' +
+            '<span class="risk-indicator ' + riskClass + '">' + riskLabel + '</span>' +
+            '<button class="btn btn-primary btn-sm" onclick="startExpedition(' + idx + ')">Deploy</button>' +
+            '</div>';
+    });
+    boardEl.innerHTML = html;
+}
+
+async function startExpedition(jobIndex) {
+    try {
+        const data = await api('/api/game/expedition/start', 'POST', {job_index: jobIndex});
+        if (data) renderTown(data);
+    } catch(e) {
+        console.error('Expedition start failed:', e);
+    }
+}
+
+function renderAdventurers(adventurers) {
+    const roster = document.getElementById('adventurer-roster');
+    if (!adventurers || adventurers.length === 0) {
+        roster.innerHTML = '<div class="empty-state"><div class="empty-icon">👥</div><div class="empty-text">No adventurers recruited yet</div></div>';
+        return;
+    }
+    let html = '<div class="card-grid">';
+    adventurers.forEach(function(adv) {
+        const hpPct = adv.max_hp ? Math.round((adv.hp / adv.max_hp) * 100) : 100;
+        html += '<div class="adventurer-card">' +
+            '<div class="portrait">' + (adv.portrait || '🧙') + '</div>' +
+            '<div class="adventurer-info">' +
+            '<div class="adventurer-name">' + (adv.name || 'Unknown') + '</div>' +
+            '<div class="adventurer-class">' + (adv.class_name || 'Adventurer') + '</div>' +
+            '<div class="adventurer-level">Lv. ' + (adv.level || 1) + '</div>' +
+            '<div class="stat-bars">' +
+            '<div class="stat-row"><span class="stat-label">HP</span><div class="progress-bar" style="flex:1;"><div class="progress-fill health" style="width:' + hpPct + '%;"></div></div><span style="font-size:11px;min-width:40px;text-align:right;">' + (adv.hp || 0) + '/' + (adv.max_hp || 0) + '</span></div>' +
+            '</div></div></div>';
+    });
+    html += '</div>';
+    roster.innerHTML = html;
+}
+
+function renderThreats(dungeons) {
+    const list = document.getElementById('threats-list');
+    if (!dungeons || dungeons.length === 0) {
+        list.innerHTML = '<div class="empty-state"><div class="empty-icon">💀</div><div class="empty-text">No threats detected</div></div>';
+        return;
+    }
+    let html = '';
+    dungeons.forEach(function(d) {
+        const threatPct = Math.min(100, Math.round((d.threat || 0) * 100));
+        const stateLabel = d.state || 'dormant';
+        html += '<div class="threat-card">' +
+            '<div class="threat-header">' +
+            '<div><div class="threat-name">' + (d.name || 'Unknown Site') + '</div>' +
+            '<span class="text-secondary" style="font-size:12px;">' + (d.theme || '') + ' — ' + (d.distance || '?') + ' leagues</span></div>' +
+            '<span class="threat-level">' + stateLabel + '</span>' +
+            '</div>' +
+            '<div class="threat-bar"><div class="threat-fill" style="width:' + threatPct + '%;"></div></div>' +
+            (d.desc ? '<div class="threat-desc">' + d.desc + '</div>' : '') +
+            '</div>';
+    });
+    list.innerHTML = html;
+}
+
+function updateGameMap() {
+    if (!activeSave) return;
+    const kId = activeSave.kingdom_id;
+    for (let i = 1; i <= 6; i++) {
+        const hl = document.getElementById('game-highlight-' + i);
+        const sh = document.getElementById('game-shadow-' + i);
+        if (i === kId) {
+            if (hl) hl.style.display = 'block';
+            if (sh) sh.style.display = 'none';
+        } else {
+            if (hl) hl.style.display = 'none';
+            if (sh) sh.style.display = 'block';
+        }
+    }
+    const dot = document.getElementById('game-city-dot');
+    if (activeSave.dot_x !== undefined) {
+        dot.style.display = 'block';
+        dot.style.left = (activeSave.dot_x * 100) + '%';
+        dot.style.top = (activeSave.dot_y * 100) + '%';
+    }
+    const info = document.getElementById('game-kingdom-info');
+    if (KINGDOM_DATA[kId]) {
+        const k = KINGDOM_DATA[kId];
+        info.innerHTML = '<h3 class="text-gold mb-8">' + k.name + '</h3>' +
+            '<div class="card-body"><p><strong>Biomes:</strong> ' + k.biomes.join(', ') + '</p>' +
+            '<p><strong>Climate:</strong> ' + k.climate + '</p>' +
+            '<p><strong>Favored:</strong> ' + k.favored.join(', ') + '</p></div>';
+    }
+}
+
+function startGameLoop() {
+    stopGameLoop();
+    gameTickInterval = setInterval(gameTick, 1000);
+}
+
+function stopGameLoop() {
+    if (gameTickInterval) {
+        clearInterval(gameTickInterval);
+        gameTickInterval = null;
+    }
+}
+
+async function gameTick() {
+    if (currentScreen !== 'town-screen') return;
+    try {
+        const data = await api('/api/game/tick', 'POST');
+        if (data) {
+            activeSave = data;
+            updateResourceBar(data);
+        }
+    } catch(e) {}
+}
+
+function showModal(title, message, onConfirm) {
+    document.getElementById('modal-title').textContent = title;
+    document.getElementById('modal-message').textContent = message;
+    document.getElementById('modal-overlay').classList.remove('hidden');
+    const confirmBtn = document.getElementById('modal-confirm');
+    const newBtn = confirmBtn.cloneNode(true);
+    confirmBtn.parentNode.replaceChild(newBtn, confirmBtn);
+    newBtn.id = 'modal-confirm';
+    newBtn.addEventListener('click', onConfirm);
+}
+
+function hideModal() {
+    document.getElementById('modal-overlay').classList.add('hidden');
+}
+
+document.getElementById('town-name-input').addEventListener('input', updateCreateButton);
+document.getElementById('lord-name-input').addEventListener('input', updateCreateButton);
+
+setupMapDrag();
+randomizeSeed();
+</script>
+
+</body>
+</html>
