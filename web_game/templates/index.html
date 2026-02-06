@@ -60,14 +60,11 @@
             <div class="card">
                 <div class="form-group">
                     <label>Town Name</label>
-                    <input type="text" id="town-name-input" placeholder="Enter town name">
+                    <input type="text" id="town-name-input" placeholder="Enter town name" oninput="updateSeed(); updateCreateButton();">
                 </div>
                 <div class="form-group">
-                    <label>Seed</label>
-                    <div style="display:flex;gap:8px;">
-                        <input type="text" id="seed-input" placeholder="World seed" style="flex:1;">
-                        <button class="btn btn-secondary" onclick="randomizeSeed()">Randomize</button>
-                    </div>
+                    <label>Seed <span style="font-size:11px;color:var(--text-secondary);">(auto-generated from your settings)</span></label>
+                    <input type="text" id="seed-input" readonly style="opacity:0.7;cursor:default;">
                 </div>
             </div>
             <div class="card">
@@ -200,7 +197,7 @@
             <div class="card">
                 <div class="form-group">
                     <label>Lord Name</label>
-                    <input type="text" id="lord-name-input" placeholder="Enter lord name">
+                    <input type="text" id="lord-name-input" placeholder="Enter lord name" oninput="updateSeed(); updateCreateButton();">
                 </div>
                 <div class="empty-state" style="padding:20px;">
                     <div class="empty-icon">🛡️</div>
@@ -330,12 +327,12 @@ const DEITY_DATA = {
     5: {name: "Zephra", desc: "Speed", passive: "Expeditions complete faster.", active: "Guild: Shorter prep and cooldown.", bane: "Slower injury recovery."}
 };
 const KINGDOM_CENTERS = {
-    1: {x: 346.88/843.75, y: 284.34/568.5},
-    2: {x: 206.19/843.75, y: 208.77/568.5},
-    3: {x: 215.42/843.75, y: 146.32/568.5},
-    4: {x: 351.50/843.75, y: 131.44/568.5},
-    5: {x: 277.22/843.75, y: 197.82/568.5},
-    6: {x: 169.44/843.75, y: 155.78/568.5}
+    1: {x: 0.6691, y: 0.6751},
+    2: {x: 0.3383, y: 0.6837},
+    3: {x: 0.4634, y: 0.5389},
+    4: {x: 0.6549, y: 0.3997},
+    5: {x: 0.4555, y: 0.2821},
+    6: {x: 0.2391, y: 0.4314}
 };
 const KINGDOM_MAP_FILES = {
     1: {highlight: "VylfodDominionHighlight.png", shadow: "VylfodDominionShadow.png"},
@@ -498,7 +495,7 @@ function createNewGame(slotNumber) {
     document.getElementById('city-dot').style.display = 'none';
     updateMapOverlays(-1);
     updateCreateButton();
-    randomizeSeed();
+    updateSeed();
     switchCreationTab('town');
     showScreen('create-screen');
 }
@@ -604,6 +601,7 @@ function selectKingdom(kingdomId) {
             dot.style.top = (positions[idx][1] * 100) + '%';
         }
     });
+    updateSeed();
     updateCreateButton();
 }
 
@@ -778,11 +776,35 @@ function adjustResource(resource, delta) {
     createResources[resource] = Math.max(0, (createResources[resource] || 0) + delta);
     const el = document.getElementById('create-' + resource);
     if (el) el.textContent = createResources[resource];
+    updateSeed();
 }
 
-function randomizeSeed() {
-    const seed = Math.random().toString(36).substring(2, 10).toUpperCase();
-    document.getElementById('seed-input').value = seed;
+function computeSeedHash(str) {
+    let hash = 0;
+    for (let i = 0; i < str.length; i++) {
+        const ch = str.charCodeAt(i);
+        hash = ((hash << 5) - hash) + ch;
+        hash = hash & hash;
+    }
+    return Math.abs(hash).toString(36).toUpperCase().padStart(8, '0').substring(0, 8);
+}
+
+function updateSeed() {
+    const townName = document.getElementById('town-name-input').value;
+    const lordName = document.getElementById('lord-name-input').value;
+    const parts = [
+        townName,
+        lordName,
+        selectedKingdom.toString(),
+        createResources.gold.toString(),
+        createResources.population.toString(),
+        createResources.food.toString(),
+        createResources.wood.toString(),
+        createResources.stone.toString(),
+        createResources.ore.toString()
+    ];
+    const combined = parts.join('|');
+    document.getElementById('seed-input').value = computeSeedHash(combined);
 }
 
 function updateCreateButton() {
