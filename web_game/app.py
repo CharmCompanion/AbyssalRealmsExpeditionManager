@@ -7,7 +7,8 @@ from sqlalchemy.orm.attributes import flag_modified
 from web_game.models import db, SaveSlot
 from web_game.game_data import (
     KINGDOM_DATA, KINGDOM_TO_DEITY, DEITY_BONUSES, BUILDING_TYPES,
-    KINGDOM_MAP_FILES, generate_kingdom_resources, generate_stats,
+    KINGDOM_MAP_FILES, STAT_CATEGORIES, ADVENTURER_CLASSES,
+    generate_kingdom_resources, generate_stats, generate_starting_adventurers,
 )
 from web_game.game_logic import DungeonThreatSystem, ExpeditionBoard, AutonomousExpeditions
 
@@ -124,7 +125,7 @@ def create_save():
 
     game_data = {
         'buildings': buildings,
-        'adventurers': [],
+        'adventurers': generate_starting_adventurers(seed, 4),
         'dungeons': initial_dungeons,
         'expeditions': {},
         'expedition_board': {'jobs': []},

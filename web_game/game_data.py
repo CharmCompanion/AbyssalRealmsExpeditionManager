@@ -279,6 +279,187 @@ def generate_kingdom_resources(kingdom_id, seed_val):
     return resources
 
 
+ADVENTURER_CLASSES = {
+    "warrior": {
+        "name": "Warrior",
+        "portrait": "⚔️",
+        "desc": "Heavy melee fighter with high strength and endurance.",
+        "stat_bonuses": {"strength": 4, "endurance": 3, "tactics": 2},
+        "base_hp": 120,
+        "hp_per_level": 12,
+        "equipment_slots": ["weapon", "armor", "shield", "accessory"],
+        "preferred_weapon": "Greatsword",
+    },
+    "mage": {
+        "name": "Mage",
+        "portrait": "🧙",
+        "desc": "Arcane spellcaster with devastating magical power.",
+        "stat_bonuses": {"magic": 5, "wisdom": 3, "faith": 1},
+        "base_hp": 70,
+        "hp_per_level": 6,
+        "equipment_slots": ["weapon", "robe", "focus", "accessory"],
+        "preferred_weapon": "Crystal Staff",
+    },
+    "ranger": {
+        "name": "Ranger",
+        "portrait": "🏹",
+        "desc": "Versatile scout skilled in survival and ranged combat.",
+        "stat_bonuses": {"exploration": 4, "survival": 3, "speed": 2},
+        "base_hp": 90,
+        "hp_per_level": 8,
+        "equipment_slots": ["weapon", "armor", "quiver", "accessory"],
+        "preferred_weapon": "Longbow",
+    },
+    "cleric": {
+        "name": "Cleric",
+        "portrait": "⛪",
+        "desc": "Divine healer who bolsters the party's resilience.",
+        "stat_bonuses": {"faith": 5, "wisdom": 3, "endurance": 1},
+        "base_hp": 85,
+        "hp_per_level": 8,
+        "equipment_slots": ["weapon", "armor", "holy_symbol", "accessory"],
+        "preferred_weapon": "Blessed Mace",
+    },
+    "rogue": {
+        "name": "Rogue",
+        "portrait": "🗡️",
+        "desc": "Cunning operative excelling at stealth and treasure.",
+        "stat_bonuses": {"speed": 4, "trade": 3, "wealth": 2},
+        "base_hp": 80,
+        "hp_per_level": 7,
+        "equipment_slots": ["weapon", "light_armor", "tools", "accessory"],
+        "preferred_weapon": "Twin Daggers",
+    },
+    "paladin": {
+        "name": "Paladin",
+        "portrait": "🛡️",
+        "desc": "Holy knight combining martial prowess with divine magic.",
+        "stat_bonuses": {"strength": 3, "faith": 3, "leadership": 2, "endurance": 1},
+        "base_hp": 110,
+        "hp_per_level": 10,
+        "equipment_slots": ["weapon", "heavy_armor", "shield", "accessory"],
+        "preferred_weapon": "Holy Sword",
+    },
+}
+
+ADVENTURER_TRAITS = [
+    {"id": "brave", "name": "Brave", "desc": "+15% combat effectiveness", "effect": {"combat_mult": 1.15}},
+    {"id": "cautious", "name": "Cautious", "desc": "-10% injury chance", "effect": {"injury_mult": 0.9}},
+    {"id": "lucky", "name": "Lucky", "desc": "+20% loot chance", "effect": {"loot_mult": 1.2}},
+    {"id": "tough", "name": "Tough", "desc": "+25 max HP", "effect": {"hp_bonus": 25}},
+    {"id": "swift", "name": "Swift", "desc": "+2 speed", "effect": {"speed_bonus": 2}},
+    {"id": "scholarly", "name": "Scholarly", "desc": "+3 wisdom, +2 knowledge gain", "effect": {"wisdom_bonus": 3}},
+    {"id": "devout", "name": "Devout", "desc": "+3 faith, faster recovery", "effect": {"faith_bonus": 3}},
+    {"id": "greedy", "name": "Greedy", "desc": "+30% gold from expeditions", "effect": {"gold_mult": 1.3}},
+    {"id": "veteran", "name": "Veteran", "desc": "+2 tactics, +1 endurance", "effect": {"tactics_bonus": 2, "endurance_bonus": 1}},
+    {"id": "wild", "name": "Wild", "desc": "+3 survival, +2 exploration", "effect": {"survival_bonus": 3, "exploration_bonus": 2}},
+    {"id": "charismatic", "name": "Charismatic", "desc": "+3 diplomacy, +2 leadership", "effect": {"diplomacy_bonus": 3, "leadership_bonus": 2}},
+    {"id": "cursed", "name": "Cursed", "desc": "+4 magic but +10% injury chance", "effect": {"magic_bonus": 4, "injury_mult": 1.1}},
+]
+
+ADVENTURER_FIRST_NAMES = [
+    "Aldric", "Brenna", "Caelum", "Dara", "Edric", "Fiona", "Gareth", "Helena",
+    "Ivar", "Johanna", "Kael", "Lyra", "Magnus", "Nessa", "Orin", "Petra",
+    "Quinn", "Rowan", "Seren", "Thane", "Ulric", "Vera", "Wren", "Xara",
+    "Yorick", "Zara", "Ashwin", "Brigid", "Corvin", "Delia", "Eamon", "Freya",
+    "Gideon", "Hilda", "Idris", "Jael", "Kieran", "Lena", "Mordecai", "Niamh",
+]
+
+ADVENTURER_LAST_NAMES = [
+    "Ashford", "Blackwood", "Cinderfell", "Darkhollow", "Evernight", "Frostborne",
+    "Grimshaw", "Holloway", "Ironvale", "Jadecrest", "Knightfall", "Lionsgate",
+    "Moorfield", "Nightshade", "Oakenhelm", "Pyreforge", "Quicksilver", "Ravencrest",
+    "Stormwind", "Thornwick", "Underhill", "Voidwalker", "Whitecliff", "Yarrow",
+]
+
+ADVENTURER_STATUS_TYPES = {
+    "idle": {"label": "Idle", "color": "#4ade80", "icon": "🟢"},
+    "deployed": {"label": "Deployed", "color": "#facc15", "icon": "🟡"},
+    "injured": {"label": "Injured", "color": "#f97316", "icon": "🟠"},
+    "recovering": {"label": "Recovering", "color": "#60a5fa", "icon": "🔵"},
+    "dead": {"label": "Dead", "color": "#ef4444", "icon": "🔴"},
+}
+
+
+def generate_adventurer(seed_val, index=0):
+    rng = random.Random(seed_from_code("adventurer|seed:%d|idx:%d" % (seed_val, index)))
+
+    class_keys = list(ADVENTURER_CLASSES.keys())
+    class_id = class_keys[rng.randint(0, len(class_keys) - 1)]
+    cls = ADVENTURER_CLASSES[class_id]
+
+    first = ADVENTURER_FIRST_NAMES[rng.randint(0, len(ADVENTURER_FIRST_NAMES) - 1)]
+    last = ADVENTURER_LAST_NAMES[rng.randint(0, len(ADVENTURER_LAST_NAMES) - 1)]
+
+    level = 1
+    xp = 0
+    xp_to_next = 100
+
+    stats = {}
+    for category in STAT_CATEGORIES:
+        for stat_name in STAT_CATEGORIES[category]:
+            base = 3 + rng.randint(0, 7)
+            bonus = cls["stat_bonuses"].get(stat_name, 0)
+            stats[stat_name] = base + bonus
+
+    trait_pool = list(ADVENTURER_TRAITS)
+    rng.shuffle(trait_pool)
+    num_traits = rng.randint(1, 2)
+    traits = [{"id": t["id"], "name": t["name"], "desc": t["desc"]} for t in trait_pool[:num_traits]]
+
+    hp_bonus = 0
+    for t in traits:
+        trait_data = next((tr for tr in ADVENTURER_TRAITS if tr["id"] == t["id"]), None)
+        if trait_data:
+            hp_bonus += trait_data["effect"].get("hp_bonus", 0)
+
+    max_hp = cls["base_hp"] + (cls["hp_per_level"] * (level - 1)) + hp_bonus
+    hp = max_hp
+
+    morale = 70 + rng.randint(0, 30)
+    kills = 0
+    missions_completed = 0
+    days_hired = 0
+    injury_days_left = 0
+
+    equipment = {}
+    for slot_name in cls["equipment_slots"]:
+        if slot_name == "weapon":
+            equipment[slot_name] = {"name": cls["preferred_weapon"], "quality": "Common"}
+        else:
+            equipment[slot_name] = None
+
+    return {
+        "id": "adv_%d_%d" % (seed_val % 100000, index),
+        "name": first + " " + last,
+        "class_id": class_id,
+        "class_name": cls["name"],
+        "portrait": cls["portrait"],
+        "desc": cls["desc"],
+        "level": level,
+        "xp": xp,
+        "xp_to_next": xp_to_next,
+        "hp": hp,
+        "max_hp": max_hp,
+        "morale": morale,
+        "status": "idle",
+        "stats": stats,
+        "traits": traits,
+        "equipment": equipment,
+        "kills": kills,
+        "missions_completed": missions_completed,
+        "days_hired": days_hired,
+        "injury_days_left": injury_days_left,
+    }
+
+
+def generate_starting_adventurers(seed_val, count=4):
+    adventurers = []
+    for i in range(count):
+        adventurers.append(generate_adventurer(seed_val, i))
+    return adventurers
+
+
 def generate_stats(seed_val):
     rng = random.Random(seed_val)
     stats = {}

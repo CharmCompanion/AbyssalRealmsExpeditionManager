@@ -256,7 +256,10 @@
         </div>
 
         <div id="adventurers-content" class="tab-content" style="display:none;">
-            <h2 class="section-title mb-12">Adventurer Roster</h2>
+            <div class="roster-header">
+                <h2 class="section-title mb-0">Adventurer Roster</h2>
+                <div class="roster-summary" id="roster-summary"></div>
+            </div>
             <div id="adventurer-roster">
                 <div class="empty-state">
                     <div class="empty-icon">👥</div>
@@ -848,16 +851,18 @@ async function submitCreate() {
 
 function renderTown(saveData) {
     activeSave = saveData;
+    var gd = saveData.game_data || {};
     updateResourceBar(saveData);
 
     document.getElementById('town-header-name').textContent = saveData.town_name || 'Unknown Town';
     const kName = KINGDOM_DATA[saveData.kingdom_id] ? KINGDOM_DATA[saveData.kingdom_id].name : '';
     document.getElementById('town-header-kingdom').textContent = kName;
 
-    renderBuildings(saveData.buildings || {});
-    renderExpeditions(saveData.active_expedition, saveData.expedition_board);
-    renderAdventurers(saveData.adventurers || []);
-    renderThreats(saveData.dungeons || []);
+    renderBuildings(saveData.buildings || gd.buildings || {});
+    var expData = gd.expeditions || {};
+    renderExpeditions(expData.active || saveData.active_expedition, gd.expedition_board || saveData.expedition_board);
+    renderAdventurers(gd.adventurers || saveData.adventurers || []);
+    renderThreats(gd.dungeons || saveData.dungeons || []);
 }
 
 function updateResourceBar(save) {
@@ -961,25 +966,144 @@ async function startExpedition(jobIndex) {
 
 function renderAdventurers(adventurers) {
     const roster = document.getElementById('adventurer-roster');
+    const summary = document.getElementById('roster-summary');
     if (!adventurers || adventurers.length === 0) {
         roster.innerHTML = '<div class="empty-state"><div class="empty-icon">👥</div><div class="empty-text">No adventurers recruited yet</div></div>';
+        if (summary) summary.innerHTML = '';
         return;
     }
-    let html = '<div class="card-grid">';
-    adventurers.forEach(function(adv) {
-        const hpPct = adv.max_hp ? Math.round((adv.hp / adv.max_hp) * 100) : 100;
-        html += '<div class="adventurer-card">' +
-            '<div class="portrait">' + (adv.portrait || '🧙') + '</div>' +
-            '<div class="adventurer-info">' +
-            '<div class="adventurer-name">' + (adv.name || 'Unknown') + '</div>' +
-            '<div class="adventurer-class">' + (adv.class_name || 'Adventurer') + '</div>' +
-            '<div class="adventurer-level">Lv. ' + (adv.level || 1) + '</div>' +
-            '<div class="stat-bars">' +
-            '<div class="stat-row"><span class="stat-label">HP</span><div class="progress-bar" style="flex:1;"><div class="progress-fill health" style="width:' + hpPct + '%;"></div></div><span style="font-size:11px;min-width:40px;text-align:right;">' + (adv.hp || 0) + '/' + (adv.max_hp || 0) + '</span></div>' +
-            '</div></div></div>';
+
+    var idle = 0, deployed = 0, injured = 0, dead = 0;
+    adventurers.forEach(function(a) {
+        if (a.status === 'deployed') deployed++;
+        else if (a.status === 'injured' || a.status === 'recovering') injured++;
+        else if (a.status === 'dead') dead++;
+        else idle++;
     });
-    html += '</div>';
+    if (summary) {
+        summary.innerHTML = '<span class="roster-count">' + adventurers.length + ' adventurers</span>' +
+            '<span class="roster-stat rs-idle">' + idle + ' idle</span>' +
+            '<span class="roster-stat rs-deployed">' + deployed + ' deployed</span>' +
+            (injured > 0 ? '<span class="roster-stat rs-injured">' + injured + ' injured</span>' : '') +
+            (dead > 0 ? '<span class="roster-stat rs-dead">' + dead + ' dead</span>' : '');
+    }
+
+    var statusInfo = {
+        idle: {label:'Idle', color:'#4ade80', icon:'🟢'},
+        deployed: {label:'Deployed', color:'#facc15', icon:'🟡'},
+        injured: {label:'Injured', color:'#f97316', icon:'🟠'},
+        recovering: {label:'Recovering', color:'#60a5fa', icon:'🔵'},
+        dead: {label:'Dead', color:'#ef4444', icon:'🔴'}
+    };
+
+    var statCategories = {
+        military: {label: 'Military', icon: '⚔️', stats: ['strength', 'endurance', 'tactics']},
+        mystic: {label: 'Mystic', icon: '✨', stats: ['magic', 'wisdom', 'faith']},
+        survival: {label: 'Survival', icon: '🏕️', stats: ['survival', 'exploration']},
+        civic: {label: 'Civic', icon: '🏛️', stats: ['diplomacy', 'leadership', 'justice']},
+        commerce: {label: 'Commerce', icon: '💰', stats: ['wealth', 'trade']},
+        mobility: {label: 'Mobility', icon: '💨', stats: ['speed']}
+    };
+
+    var statDisplayNames = {
+        strength:'STR', endurance:'END', tactics:'TAC',
+        magic:'MAG', wisdom:'WIS', faith:'FAI',
+        survival:'SRV', exploration:'EXP',
+        diplomacy:'DIP', leadership:'LDR', justice:'JUS',
+        wealth:'WLT', trade:'TRD', speed:'SPD'
+    };
+
+    var html = '';
+    adventurers.forEach(function(adv, idx) {
+        var si = statusInfo[adv.status] || statusInfo.idle;
+        var hpPct = adv.max_hp ? Math.round((adv.hp / adv.max_hp) * 100) : 100;
+        var hpColor = hpPct > 60 ? '#4ade80' : (hpPct > 30 ? '#facc15' : '#ef4444');
+        var morale = adv.morale || 100;
+        var moralePct = Math.min(100, morale);
+        var moraleColor = morale > 70 ? '#4ade80' : (morale > 40 ? '#facc15' : '#ef4444');
+        var xpPct = adv.xp_to_next ? Math.round((adv.xp / adv.xp_to_next) * 100) : 0;
+        var isDead = adv.status === 'dead';
+
+        html += '<div class="adv-panel' + (isDead ? ' adv-dead' : '') + '" onclick="toggleAdvPanel(this)">';
+
+        html += '<div class="adv-panel-header">';
+        html += '<div class="adv-portrait-wrap"><span class="adv-portrait">' + (adv.portrait || '🧙') + '</span></div>';
+        html += '<div class="adv-header-info">';
+        html += '<div class="adv-name-row"><span class="adv-name">' + (adv.name || 'Unknown') + '</span>';
+        html += '<span class="adv-status-badge" style="background:' + si.color + '20;color:' + si.color + ';border:1px solid ' + si.color + '40">' + si.icon + ' ' + si.label + '</span></div>';
+        html += '<div class="adv-class-row"><span class="adv-class">' + (adv.class_name || 'Adventurer') + '</span>';
+        html += '<span class="adv-level">Lv.' + (adv.level || 1) + '</span></div>';
+
+        html += '<div class="adv-vital-bars">';
+        html += '<div class="adv-vital"><span class="vital-label">HP</span><div class="vital-bar"><div class="vital-fill" style="width:' + hpPct + '%;background:' + hpColor + '"></div></div><span class="vital-val">' + (adv.hp||0) + '/' + (adv.max_hp||0) + '</span></div>';
+        html += '<div class="adv-vital"><span class="vital-label">XP</span><div class="vital-bar"><div class="vital-fill" style="width:' + xpPct + '%;background:#a78bfa"></div></div><span class="vital-val">' + (adv.xp||0) + '/' + (adv.xp_to_next||100) + '</span></div>';
+        html += '<div class="adv-vital"><span class="vital-label">Morale</span><div class="vital-bar"><div class="vital-fill" style="width:' + moralePct + '%;background:' + moraleColor + '"></div></div><span class="vital-val">' + morale + '</span></div>';
+        html += '</div>';
+        html += '</div>';
+        html += '<div class="adv-expand-arrow">▼</div>';
+        html += '</div>';
+
+        html += '<div class="adv-panel-body">';
+
+        html += '<div class="adv-desc">' + (adv.desc || '') + '</div>';
+
+        html += '<div class="adv-stats-grid">';
+        for (var catKey in statCategories) {
+            var cat = statCategories[catKey];
+            html += '<div class="stat-category">';
+            html += '<div class="stat-cat-header"><span class="stat-cat-icon">' + cat.icon + '</span><span class="stat-cat-label">' + cat.label + '</span></div>';
+            cat.stats.forEach(function(skey) {
+                var val = (adv.stats && adv.stats[skey]) ? adv.stats[skey] : 0;
+                var maxStat = 20;
+                var pct = Math.min(100, Math.round((val / maxStat) * 100));
+                var barColor = val >= 12 ? '#4ade80' : (val >= 8 ? '#60a5fa' : (val >= 5 ? '#facc15' : '#ef4444'));
+                html += '<div class="stat-entry"><span class="stat-abbr">' + (statDisplayNames[skey]||skey) + '</span>';
+                html += '<div class="stat-bar-wrap"><div class="stat-bar-fill" style="width:' + pct + '%;background:' + barColor + '"></div></div>';
+                html += '<span class="stat-num">' + val + '</span></div>';
+            });
+            html += '</div>';
+        }
+        html += '</div>';
+
+        if (adv.traits && adv.traits.length > 0) {
+            html += '<div class="adv-traits-section"><div class="adv-section-label">Traits</div><div class="adv-traits">';
+            adv.traits.forEach(function(t) {
+                html += '<div class="adv-trait"><span class="trait-name">' + t.name + '</span><span class="trait-desc">' + t.desc + '</span></div>';
+            });
+            html += '</div></div>';
+        }
+
+        if (adv.equipment) {
+            html += '<div class="adv-equip-section"><div class="adv-section-label">Equipment</div><div class="adv-equip-grid">';
+            for (var slot in adv.equipment) {
+                var item = adv.equipment[slot];
+                var slotLabel = slot.replace(/_/g, ' ').replace(/\b\w/g, function(c){return c.toUpperCase();});
+                if (item) {
+                    html += '<div class="equip-slot filled"><span class="equip-slot-label">' + slotLabel + '</span><span class="equip-item-name">' + item.name + '</span><span class="equip-quality quality-' + (item.quality||'common').toLowerCase() + '">' + (item.quality||'Common') + '</span></div>';
+                } else {
+                    html += '<div class="equip-slot empty"><span class="equip-slot-label">' + slotLabel + '</span><span class="equip-empty">Empty</span></div>';
+                }
+            }
+            html += '</div></div>';
+        }
+
+        html += '<div class="adv-record">';
+        html += '<div class="record-stat"><span class="record-label">Missions</span><span class="record-val">' + (adv.missions_completed||0) + '</span></div>';
+        html += '<div class="record-stat"><span class="record-label">Kills</span><span class="record-val">' + (adv.kills||0) + '</span></div>';
+        html += '<div class="record-stat"><span class="record-label">Days Hired</span><span class="record-val">' + (adv.days_hired||0) + '</span></div>';
+        if (adv.injury_days_left > 0) {
+            html += '<div class="record-stat"><span class="record-label">Recovery</span><span class="record-val" style="color:#f97316">' + adv.injury_days_left + ' days</span></div>';
+        }
+        html += '</div>';
+
+        html += '</div>';
+        html += '</div>';
+    });
     roster.innerHTML = html;
+}
+
+function toggleAdvPanel(el) {
+    el.classList.toggle('expanded');
 }
 
 function renderThreats(dungeons) {
