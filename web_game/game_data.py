@@ -382,7 +382,8 @@ ADVENTURER_STATUS_TYPES = {
 
 
 def generate_adventurer(seed_val, index=0):
-    rng = random.Random(seed_from_code("adventurer|seed:%d|idx:%d" % (seed_val, index)))
+    seed_int = int(seed_val) if seed_val is not None else 0
+    rng = random.Random(seed_from_code("adventurer|seed:%d|idx:%d" % (seed_int, index)))
 
     class_keys = list(ADVENTURER_CLASSES.keys())
     class_id = class_keys[rng.randint(0, len(class_keys) - 1)]
@@ -430,7 +431,7 @@ def generate_adventurer(seed_val, index=0):
             equipment[slot_name] = None
 
     return {
-        "id": "adv_%d_%d" % (seed_val % 100000, index),
+        "id": "adv_%d_%d" % (seed_int % 100000, index),
         "name": first + " " + last,
         "class_id": class_id,
         "class_name": cls["name"],

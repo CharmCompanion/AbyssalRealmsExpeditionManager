@@ -1201,7 +1201,7 @@ document.getElementById('town-name-input').addEventListener('input', updateCreat
 document.getElementById('lord-name-input').addEventListener('input', updateCreateButton);
 
 setupMapDrag();
-randomizeSeed();
+document.getElementById('seed-input').value = computeSeedHash('init' + Date.now());
 </script>
 
 </body>
