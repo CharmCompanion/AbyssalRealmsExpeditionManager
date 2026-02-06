@@ -1,0 +1,1898 @@
+{
+  "kit_root": "imported/Map and Character/Fantasy tileset - 2D Isometric",
+  "png_count": 2948,
+  "by_top_folder": [
+    [
+      "Environment",
+      1876
+    ],
+    [
+      "Animations",
+      897
+    ],
+    [
+      "Characters",
+      168
+    ],
+    [
+      "Other",
+      7
+    ]
+  ],
+  "by_first_token": [
+    [
+      "Ground",
+      452
+    ],
+    [
+      "Wall",
+      416
+    ],
+    [
+      "Misc",
+      396
+    ],
+    [
+      "Roof",
+      228
+    ],
+    [
+      "Stone",
+      88
+    ],
+    [
+      "Tree",
+      73
+    ],
+    [
+      "WallFlora",
+      56
+    ],
+    [
+      "0009",
+      55
+    ],
+    [
+      "0011",
+      55
+    ],
+    [
+      "0013",
+      55
+    ],
+    [
+      "0003",
+      54
+    ],
+    [
+      "0005",
+      54
+    ],
+    [
+      "0007",
+      54
+    ],
+    [
+      "0015",
+      54
+    ],
+    [
+      "0017",
+      54
+    ],
+    [
+      "0019",
+      54
+    ],
+    [
+      "0021",
+      54
+    ],
+    [
+      "0023",
+      54
+    ],
+    [
+      "0001",
+      53
+    ],
+    [
+      "0025",
+      53
+    ],
+    [
+      "0027",
+      53
+    ],
+    [
+      "0029",
+      53
+    ],
+    [
+      "Flora",
+      52
+    ],
+    [
+      "0031",
+      42
+    ],
+    [
+      "Door",
+      32
+    ],
+    [
+      "Chest",
+      24
+    ],
+    [
+      "0033",
+      7
+    ],
+    [
+      "Attack1",
+      7
+    ],
+    [
+      "Attack2",
+      7
+    ],
+    [
+      "Attack3",
+      7
+    ],
+    [
+      "Attack4",
+      7
+    ],
+    [
+      "Attack5",
+      7
+    ],
+    [
+      "AttackRun",
+      7
+    ],
+    [
+      "AttackRun2",
+      7
+    ],
+    [
+      "CrouchIdle",
+      7
+    ],
+    [
+      "CrouchRun",
+      7
+    ],
+    [
+      "Die",
+      7
+    ],
+    [
+      "Idle",
+      7
+    ],
+    [
+      "Idle2",
+      7
+    ],
+    [
+      "Idle3",
+      7
+    ],
+    [
+      "Idle4",
+      7
+    ],
+    [
+      "RideIdle",
+      7
+    ],
+    [
+      "RideRun",
+      7
+    ],
+    [
+      "Run",
+      7
+    ],
+    [
+      "RunBackwards",
+      7
+    ],
+    [
+      "Special1",
+      7
+    ],
+    [
+      "StrafeLeft",
+      7
+    ],
+    [
+      "StrafeRight",
+      7
+    ],
+    [
+      "TakeDamage",
+      7
+    ],
+    [
+      "Taunt",
+      7
+    ],
+    [
+      "Walk",
+      7
+    ],
+    [
+      "Shadow10",
+      4
+    ],
+    [
+      "Shadow11",
+      4
+    ],
+    [
+      "Shadow12",
+      4
+    ],
+    [
+      "Shadow13",
+      4
+    ],
+    [
+      "Shadow1",
+      4
+    ],
+    [
+      "Shadow2",
+      4
+    ],
+    [
+      "Shadow3",
+      4
+    ],
+    [
+      "Shadow4",
+      4
+    ],
+    [
+      "Shadow5",
+      4
+    ],
+    [
+      "Shadow6",
+      4
+    ],
+    [
+      "Shadow7",
+      4
+    ],
+    [
+      "Shadow8",
+      4
+    ],
+    [
+      "Shadow9",
+      4
+    ],
+    [
+      "0035",
+      2
+    ],
+    [
+      "0037",
+      2
+    ],
+    [
+      "0039",
+      2
+    ],
+    [
+      "Torch",
+      2
+    ],
+    [
+      "0041",
+      1
+    ],
+    [
+      "0043",
+      1
+    ],
+    [
+      "0045",
+      1
+    ],
+    [
+      "0047",
+      1
+    ],
+    [
+      "0049",
+      1
+    ],
+    [
+      "0051",
+      1
+    ],
+    [
+      "0053",
+      1
+    ],
+    [
+      "0055",
+      1
+    ],
+    [
+      "0057",
+      1
+    ],
+    [
+      "0059",
+      1
+    ],
+    [
+      "0034",
+      1
+    ],
+    [
+      "0036",
+      1
+    ],
+    [
+      "0038",
+      1
+    ],
+    [
+      "0040",
+      1
+    ],
+    [
+      "0042",
+      1
+    ],
+    [
+      "0044",
+      1
+    ],
+    [
+      "0046",
+      1
+    ],
+    [
+      "0048",
+      1
+    ],
+    [
+      "0050",
+      1
+    ],
+    [
+      "0052",
+      1
+    ],
+    [
+      "0054",
+      1
+    ],
+    [
+      "0056",
+      1
+    ],
+    [
+      "0058",
+      1
+    ],
+    [
+      "0060",
+      1
+    ],
+    [
+      "0062",
+      1
+    ],
+    [
+      "CB1",
+      1
+    ],
+    [
+      "CB2",
+      1
+    ],
+    [
+      "CB3",
+      1
+    ],
+    [
+      "CB4",
+      1
+    ],
+    [
+      "CB5",
+      1
+    ],
+    [
+      "CB6",
+      1
+    ],
+    [
+      "CB7",
+      1
+    ],
+    [
+      "CB8",
+      1
+    ],
+    [
+      "BLACK",
+      1
+    ],
+    [
+      "FirePlace",
+      1
+    ],
+    [
+      "TilePreview",
+      1
+    ],
+    [
+      "Torch2",
+      1
+    ],
+    [
+      "TreeTrunkBroken",
+      1
+    ],
+    [
+      "AoEFire",
+      1
+    ],
+    [
+      "Cloud1",
+      1
+    ],
+    [
+      "Cloud2",
+      1
+    ],
+    [
+      "Cloud3",
+      1
+    ],
+    [
+      "DashLine",
+      1
+    ],
+    [
+      "GodRay",
+      1
+    ],
+    [
+      "ItemRay",
+      1
+    ]
+  ],
+  "by_alpha_prefix": [
+    [
+      "Ground",
+      452
+    ],
+    [
+      "Wall",
+      416
+    ],
+    [
+      "Misc",
+      396
+    ],
+    [
+      "Roof",
+      228
+    ],
+    [
+      "Stone",
+      88
+    ],
+    [
+      "Tree",
+      73
+    ],
+    [
+      "WallFlora",
+      56
+    ],
+    [
+      "Flora",
+      52
+    ],
+    [
+      "Shadow",
+      52
+    ],
+    [
+      "Attack",
+      35
+    ],
+    [
+      "Door",
+      32
+    ],
+    [
+      "Idle",
+      28
+    ],
+    [
+      "Chest",
+      24
+    ],
+    [
+      "AttackRun",
+      14
+    ],
+    [
+      "CB",
+      8
+    ],
+    [
+      "CrouchIdle",
+      7
+    ],
+    [
+      "CrouchRun",
+      7
+    ],
+    [
+      "Die",
+      7
+    ],
+    [
+      "RideIdle",
+      7
+    ],
+    [
+      "RideRun",
+      7
+    ],
+    [
+      "Run",
+      7
+    ],
+    [
+      "RunBackwards",
+      7
+    ],
+    [
+      "Special",
+      7
+    ],
+    [
+      "StrafeLeft",
+      7
+    ],
+    [
+      "StrafeRight",
+      7
+    ],
+    [
+      "TakeDamage",
+      7
+    ],
+    [
+      "Taunt",
+      7
+    ],
+    [
+      "Walk",
+      7
+    ],
+    [
+      "Torch",
+      3
+    ],
+    [
+      "Cloud",
+      3
+    ],
+    [
+      "BLACK",
+      1
+    ],
+    [
+      "FirePlace",
+      1
+    ],
+    [
+      "TilePreview",
+      1
+    ],
+    [
+      "TreeTrunkBroken",
+      1
+    ],
+    [
+      "AoEFire",
+      1
+    ],
+    [
+      "DashLine",
+      1
+    ],
+    [
+      "GodRay",
+      1
+    ],
+    [
+      "ItemRay",
+      1
+    ]
+  ],
+  "structured": {
+    "by_prefix": [
+      [
+        "Ground",
+        452
+      ],
+      [
+        "Wall",
+        416
+      ],
+      [
+        "Misc",
+        396
+      ],
+      [
+        "Roof",
+        228
+      ],
+      [
+        "Stone",
+        88
+      ],
+      [
+        "Tree",
+        72
+      ],
+      [
+        "WallFlora",
+        56
+      ],
+      [
+        "Flora",
+        52
+      ],
+      [
+        "Door",
+        32
+      ],
+      [
+        "Chest",
+        24
+      ]
+    ],
+    "by_dir": [
+      [
+        "E",
+        454
+      ],
+      [
+        "N",
+        454
+      ],
+      [
+        "S",
+        454
+      ],
+      [
+        "W",
+        454
+      ]
+    ],
+    "top_codes": [
+      [
+        "Chest A1",
+        4
+      ],
+      [
+        "Chest A2",
+        4
+      ],
+      [
+        "Chest A3",
+        4
+      ],
+      [
+        "Chest A4",
+        4
+      ],
+      [
+        "Chest B1",
+        4
+      ],
+      [
+        "Chest B2",
+        4
+      ],
+      [
+        "Door A1",
+        4
+      ],
+      [
+        "Door A2",
+        4
+      ],
+      [
+        "Door C1",
+        4
+      ],
+      [
+        "Door C2",
+        4
+      ],
+      [
+        "Door C3",
+        4
+      ],
+      [
+        "Door C4",
+        4
+      ],
+      [
+        "Door C5",
+        4
+      ],
+      [
+        "Door C6",
+        4
+      ],
+      [
+        "Flora A1",
+        4
+      ],
+      [
+        "Flora A2",
+        4
+      ],
+      [
+        "Flora A3",
+        4
+      ],
+      [
+        "Flora A4",
+        4
+      ],
+      [
+        "Flora A5",
+        4
+      ],
+      [
+        "Flora A6",
+        4
+      ],
+      [
+        "Flora A7",
+        4
+      ],
+      [
+        "Flora B1",
+        4
+      ],
+      [
+        "Flora B2",
+        4
+      ],
+      [
+        "Flora B3",
+        4
+      ],
+      [
+        "Flora B4",
+        4
+      ],
+      [
+        "Flora B5",
+        4
+      ],
+      [
+        "Flora B6",
+        4
+      ],
+      [
+        "Ground A10",
+        4
+      ],
+      [
+        "Ground A11",
+        4
+      ],
+      [
+        "Ground A12",
+        4
+      ],
+      [
+        "Ground A14",
+        4
+      ],
+      [
+        "Ground A15",
+        4
+      ],
+      [
+        "Ground A16",
+        4
+      ],
+      [
+        "Ground A17",
+        4
+      ],
+      [
+        "Ground A18",
+        4
+      ],
+      [
+        "Ground A19",
+        4
+      ],
+      [
+        "Ground A1",
+        4
+      ],
+      [
+        "Ground A20",
+        4
+      ],
+      [
+        "Ground A21",
+        4
+      ],
+      [
+        "Ground A22",
+        4
+      ],
+      [
+        "Ground A23",
+        4
+      ],
+      [
+        "Ground A24",
+        4
+      ],
+      [
+        "Ground A2",
+        4
+      ],
+      [
+        "Ground A3",
+        4
+      ],
+      [
+        "Ground A4",
+        4
+      ],
+      [
+        "Ground A5",
+        4
+      ],
+      [
+        "Ground A6",
+        4
+      ],
+      [
+        "Ground A7",
+        4
+      ],
+      [
+        "Ground A8",
+        4
+      ],
+      [
+        "Ground A9",
+        4
+      ],
+      [
+        "Ground B1",
+        4
+      ],
+      [
+        "Ground B2",
+        4
+      ],
+      [
+        "Ground B3",
+        4
+      ],
+      [
+        "Ground B4",
+        4
+      ],
+      [
+        "Ground B5",
+        4
+      ],
+      [
+        "Ground B6",
+        4
+      ],
+      [
+        "Ground C1",
+        4
+      ],
+      [
+        "Ground C2",
+        4
+      ],
+      [
+        "Ground C3",
+        4
+      ],
+      [
+        "Ground C4",
+        4
+      ]
+    ]
+  },
+  "samples": {
+    "by_first_token": {
+      "0001": [
+        "Animations/Animated Tiles/Water Ripples 1/0001.png",
+        "Animations/Animated Tiles/Water Ripples 10/0001.png",
+        "Animations/Animated Tiles/Water Ripples 11/0001.png",
+        "Animations/Animated Tiles/Water Ripples 12/0001.png",
+        "Animations/Animated Tiles/Water Ripples 13/0001.png",
+        "Animations/Animated Tiles/Water Ripples 2/0001.png",
+        "Animations/Animated Tiles/Water Ripples 3/0001.png",
+        "Animations/Animated Tiles/Water Ripples 4/0001.png",
+        "Animations/Animated Tiles/Water Ripples 5/0001.png",
+        "Animations/Animated Tiles/Water Ripples 6/0001.png",
+        "Animations/Animated Tiles/Water Ripples 7/0001.png",
+        "Animations/Animated Tiles/Water Ripples 8/0001.png"
+      ],
+      "0003": [
+        "Animations/Animated Tiles/Water Ripples 1/0003.png",
+        "Animations/Animated Tiles/Water Ripples 10/0003.png",
+        "Animations/Animated Tiles/Water Ripples 11/0003.png",
+        "Animations/Animated Tiles/Water Ripples 12/0003.png",
+        "Animations/Animated Tiles/Water Ripples 13/0003.png",
+        "Animations/Animated Tiles/Water Ripples 2/0003.png",
+        "Animations/Animated Tiles/Water Ripples 3/0003.png",
+        "Animations/Animated Tiles/Water Ripples 4/0003.png",
+        "Animations/Animated Tiles/Water Ripples 5/0003.png",
+        "Animations/Animated Tiles/Water Ripples 6/0003.png",
+        "Animations/Animated Tiles/Water Ripples 7/0003.png",
+        "Animations/Animated Tiles/Water Ripples 8/0003.png"
+      ],
+      "0005": [
+        "Animations/Animated Tiles/Water Ripples 1/0005.png",
+        "Animations/Animated Tiles/Water Ripples 10/0005.png",
+        "Animations/Animated Tiles/Water Ripples 11/0005.png",
+        "Animations/Animated Tiles/Water Ripples 12/0005.png",
+        "Animations/Animated Tiles/Water Ripples 13/0005.png",
+        "Animations/Animated Tiles/Water Ripples 2/0005.png",
+        "Animations/Animated Tiles/Water Ripples 3/0005.png",
+        "Animations/Animated Tiles/Water Ripples 4/0005.png",
+        "Animations/Animated Tiles/Water Ripples 5/0005.png",
+        "Animations/Animated Tiles/Water Ripples 6/0005.png",
+        "Animations/Animated Tiles/Water Ripples 7/0005.png",
+        "Animations/Animated Tiles/Water Ripples 8/0005.png"
+      ],
+      "0007": [
+        "Animations/Animated Tiles/Water Ripples 1/0007.png",
+        "Animations/Animated Tiles/Water Ripples 10/0007.png",
+        "Animations/Animated Tiles/Water Ripples 11/0007.png",
+        "Animations/Animated Tiles/Water Ripples 12/0007.png",
+        "Animations/Animated Tiles/Water Ripples 13/0007.png",
+        "Animations/Animated Tiles/Water Ripples 2/0007.png",
+        "Animations/Animated Tiles/Water Ripples 3/0007.png",
+        "Animations/Animated Tiles/Water Ripples 4/0007.png",
+        "Animations/Animated Tiles/Water Ripples 5/0007.png",
+        "Animations/Animated Tiles/Water Ripples 6/0007.png",
+        "Animations/Animated Tiles/Water Ripples 7/0007.png",
+        "Animations/Animated Tiles/Water Ripples 8/0007.png"
+      ],
+      "0009": [
+        "Animations/Animated Tiles/Water Ripples 1/0009.png",
+        "Animations/Animated Tiles/Water Ripples 10/0009.png",
+        "Animations/Animated Tiles/Water Ripples 11/0009.png",
+        "Animations/Animated Tiles/Water Ripples 12/0009.png",
+        "Animations/Animated Tiles/Water Ripples 13/0009.png",
+        "Animations/Animated Tiles/Water Ripples 2/0009.png",
+        "Animations/Animated Tiles/Water Ripples 3/0009.png",
+        "Animations/Animated Tiles/Water Ripples 4/0009.png",
+        "Animations/Animated Tiles/Water Ripples 5/0009.png",
+        "Animations/Animated Tiles/Water Ripples 6/0009.png",
+        "Animations/Animated Tiles/Water Ripples 7/0009.png",
+        "Animations/Animated Tiles/Water Ripples 8/0009.png"
+      ],
+      "0011": [
+        "Animations/Animated Tiles/Water Ripples 1/0011.png",
+        "Animations/Animated Tiles/Water Ripples 10/0011.png",
+        "Animations/Animated Tiles/Water Ripples 11/0011.png",
+        "Animations/Animated Tiles/Water Ripples 12/0011.png",
+        "Animations/Animated Tiles/Water Ripples 13/0011.png",
+        "Animations/Animated Tiles/Water Ripples 2/0011.png",
+        "Animations/Animated Tiles/Water Ripples 3/0011.png",
+        "Animations/Animated Tiles/Water Ripples 4/0011.png",
+        "Animations/Animated Tiles/Water Ripples 5/0011.png",
+        "Animations/Animated Tiles/Water Ripples 6/0011.png",
+        "Animations/Animated Tiles/Water Ripples 7/0011.png",
+        "Animations/Animated Tiles/Water Ripples 8/0011.png"
+      ],
+      "0013": [
+        "Animations/Animated Tiles/Water Ripples 1/0013.png",
+        "Animations/Animated Tiles/Water Ripples 10/0013.png",
+        "Animations/Animated Tiles/Water Ripples 11/0013.png",
+        "Animations/Animated Tiles/Water Ripples 12/0013.png",
+        "Animations/Animated Tiles/Water Ripples 13/0013.png",
+        "Animations/Animated Tiles/Water Ripples 2/0013.png",
+        "Animations/Animated Tiles/Water Ripples 3/0013.png",
+        "Animations/Animated Tiles/Water Ripples 4/0013.png",
+        "Animations/Animated Tiles/Water Ripples 5/0013.png",
+        "Animations/Animated Tiles/Water Ripples 6/0013.png",
+        "Animations/Animated Tiles/Water Ripples 7/0013.png",
+        "Animations/Animated Tiles/Water Ripples 8/0013.png"
+      ],
+      "0015": [
+        "Animations/Animated Tiles/Water Ripples 1/0015.png",
+        "Animations/Animated Tiles/Water Ripples 10/0015.png",
+        "Animations/Animated Tiles/Water Ripples 11/0015.png",
+        "Animations/Animated Tiles/Water Ripples 12/0015.png",
+        "Animations/Animated Tiles/Water Ripples 13/0015.png",
+        "Animations/Animated Tiles/Water Ripples 2/0015.png",
+        "Animations/Animated Tiles/Water Ripples 3/0015.png",
+        "Animations/Animated Tiles/Water Ripples 4/0015.png",
+        "Animations/Animated Tiles/Water Ripples 5/0015.png",
+        "Animations/Animated Tiles/Water Ripples 6/0015.png",
+        "Animations/Animated Tiles/Water Ripples 7/0015.png",
+        "Animations/Animated Tiles/Water Ripples 8/0015.png"
+      ],
+      "0017": [
+        "Animations/Animated Tiles/Water Ripples 1/0017.png",
+        "Animations/Animated Tiles/Water Ripples 10/0017.png",
+        "Animations/Animated Tiles/Water Ripples 11/0017.png",
+        "Animations/Animated Tiles/Water Ripples 12/0017.png",
+        "Animations/Animated Tiles/Water Ripples 13/0017.png",
+        "Animations/Animated Tiles/Water Ripples 2/0017.png",
+        "Animations/Animated Tiles/Water Ripples 3/0017.png",
+        "Animations/Animated Tiles/Water Ripples 4/0017.png",
+        "Animations/Animated Tiles/Water Ripples 5/0017.png",
+        "Animations/Animated Tiles/Water Ripples 6/0017.png",
+        "Animations/Animated Tiles/Water Ripples 7/0017.png",
+        "Animations/Animated Tiles/Water Ripples 8/0017.png"
+      ],
+      "0019": [
+        "Animations/Animated Tiles/Water Ripples 1/0019.png",
+        "Animations/Animated Tiles/Water Ripples 10/0019.png",
+        "Animations/Animated Tiles/Water Ripples 11/0019.png",
+        "Animations/Animated Tiles/Water Ripples 12/0019.png",
+        "Animations/Animated Tiles/Water Ripples 13/0019.png",
+        "Animations/Animated Tiles/Water Ripples 2/0019.png",
+        "Animations/Animated Tiles/Water Ripples 3/0019.png",
+        "Animations/Animated Tiles/Water Ripples 4/0019.png",
+        "Animations/Animated Tiles/Water Ripples 5/0019.png",
+        "Animations/Animated Tiles/Water Ripples 6/0019.png",
+        "Animations/Animated Tiles/Water Ripples 7/0019.png",
+        "Animations/Animated Tiles/Water Ripples 8/0019.png"
+      ],
+      "0021": [
+        "Animations/Animated Tiles/Water Ripples 1/0021.png",
+        "Animations/Animated Tiles/Water Ripples 10/0021.png",
+        "Animations/Animated Tiles/Water Ripples 11/0021.png",
+        "Animations/Animated Tiles/Water Ripples 12/0021.png",
+        "Animations/Animated Tiles/Water Ripples 13/0021.png",
+        "Animations/Animated Tiles/Water Ripples 2/0021.png",
+        "Animations/Animated Tiles/Water Ripples 3/0021.png",
+        "Animations/Animated Tiles/Water Ripples 4/0021.png",
+        "Animations/Animated Tiles/Water Ripples 5/0021.png",
+        "Animations/Animated Tiles/Water Ripples 6/0021.png",
+        "Animations/Animated Tiles/Water Ripples 7/0021.png",
+        "Animations/Animated Tiles/Water Ripples 8/0021.png"
+      ],
+      "0023": [
+        "Animations/Animated Tiles/Water Ripples 1/0023.png",
+        "Animations/Animated Tiles/Water Ripples 10/0023.png",
+        "Animations/Animated Tiles/Water Ripples 11/0023.png",
+        "Animations/Animated Tiles/Water Ripples 12/0023.png",
+        "Animations/Animated Tiles/Water Ripples 13/0023.png",
+        "Animations/Animated Tiles/Water Ripples 2/0023.png",
+        "Animations/Animated Tiles/Water Ripples 3/0023.png",
+        "Animations/Animated Tiles/Water Ripples 4/0023.png",
+        "Animations/Animated Tiles/Water Ripples 5/0023.png",
+        "Animations/Animated Tiles/Water Ripples 6/0023.png",
+        "Animations/Animated Tiles/Water Ripples 7/0023.png",
+        "Animations/Animated Tiles/Water Ripples 8/0023.png"
+      ],
+      "0025": [
+        "Animations/Animated Tiles/Water Ripples 1/0025.png",
+        "Animations/Animated Tiles/Water Ripples 10/0025.png",
+        "Animations/Animated Tiles/Water Ripples 11/0025.png",
+        "Animations/Animated Tiles/Water Ripples 12/0025.png",
+        "Animations/Animated Tiles/Water Ripples 13/0025.png",
+        "Animations/Animated Tiles/Water Ripples 2/0025.png",
+        "Animations/Animated Tiles/Water Ripples 3/0025.png",
+        "Animations/Animated Tiles/Water Ripples 4/0025.png",
+        "Animations/Animated Tiles/Water Ripples 5/0025.png",
+        "Animations/Animated Tiles/Water Ripples 6/0025.png",
+        "Animations/Animated Tiles/Water Ripples 7/0025.png",
+        "Animations/Animated Tiles/Water Ripples 8/0025.png"
+      ],
+      "0027": [
+        "Animations/Animated Tiles/Water Ripples 1/0027.png",
+        "Animations/Animated Tiles/Water Ripples 10/0027.png",
+        "Animations/Animated Tiles/Water Ripples 11/0027.png",
+        "Animations/Animated Tiles/Water Ripples 12/0027.png",
+        "Animations/Animated Tiles/Water Ripples 13/0027.png",
+        "Animations/Animated Tiles/Water Ripples 2/0027.png",
+        "Animations/Animated Tiles/Water Ripples 3/0027.png",
+        "Animations/Animated Tiles/Water Ripples 4/0027.png",
+        "Animations/Animated Tiles/Water Ripples 5/0027.png",
+        "Animations/Animated Tiles/Water Ripples 6/0027.png",
+        "Animations/Animated Tiles/Water Ripples 7/0027.png",
+        "Animations/Animated Tiles/Water Ripples 8/0027.png"
+      ],
+      "0029": [
+        "Animations/Animated Tiles/Water Ripples 1/0029.png",
+        "Animations/Animated Tiles/Water Ripples 10/0029.png",
+        "Animations/Animated Tiles/Water Ripples 11/0029.png",
+        "Animations/Animated Tiles/Water Ripples 12/0029.png",
+        "Animations/Animated Tiles/Water Ripples 13/0029.png",
+        "Animations/Animated Tiles/Water Ripples 2/0029.png",
+        "Animations/Animated Tiles/Water Ripples 3/0029.png",
+        "Animations/Animated Tiles/Water Ripples 4/0029.png",
+        "Animations/Animated Tiles/Water Ripples 5/0029.png",
+        "Animations/Animated Tiles/Water Ripples 6/0029.png",
+        "Animations/Animated Tiles/Water Ripples 7/0029.png",
+        "Animations/Animated Tiles/Water Ripples 8/0029.png"
+      ],
+      "0031": [
+        "Animations/Animated Tiles/Water Ripples 1/0031.png",
+        "Animations/Animated Tiles/Water Ripples 10/0031.png",
+        "Animations/Animated Tiles/Water Ripples 11/0031.png",
+        "Animations/Animated Tiles/Water Ripples 12/0031.png",
+        "Animations/Animated Tiles/Water Ripples 13/0031.png",
+        "Animations/Animated Tiles/Water Ripples 2/0031.png",
+        "Animations/Animated Tiles/Water Ripples 3/0031.png",
+        "Animations/Animated Tiles/Water Ripples 4/0031.png",
+        "Animations/Animated Tiles/Water Ripples 5/0031.png",
+        "Animations/Animated Tiles/Water Ripples 6/0031.png",
+        "Animations/Animated Tiles/Water Ripples 7/0031.png",
+        "Animations/Animated Tiles/Water Ripples 8/0031.png"
+      ],
+      "0033": [
+        "Animations/Animated Tiles/WindMill1/0033.png",
+        "Animations/Animated Tiles/WindMill2/0033.png",
+        "Animations/Effects/AoE/0033.png",
+        "Animations/Props/Barrel 1/0033.png",
+        "Animations/Props/Barrel 3/0033.png",
+        "Animations/Props/Gas/0033.png",
+        "Animations/Props/PortalIdle/0033.png"
+      ],
+      "0035": [
+        "Animations/Effects/AoE/0035.png",
+        "Animations/Props/Gas/0035.png"
+      ],
+      "0037": [
+        "Animations/Effects/AoE/0037.png",
+        "Animations/Props/Gas/0037.png"
+      ],
+      "0039": [
+        "Animations/Effects/AoE/0039.png",
+        "Animations/Props/Gas/0039.png"
+      ],
+      "0041": [
+        "Animations/Effects/AoE/0041.png"
+      ],
+      "0043": [
+        "Animations/Effects/AoE/0043.png"
+      ],
+      "0045": [
+        "Animations/Effects/AoE/0045.png"
+      ],
+      "0047": [
+        "Animations/Effects/AoE/0047.png"
+      ],
+      "0049": [
+        "Animations/Effects/AoE/0049.png"
+      ],
+      "0051": [
+        "Animations/Effects/AoE/0051.png"
+      ],
+      "0053": [
+        "Animations/Effects/AoE/0053.png"
+      ],
+      "0055": [
+        "Animations/Effects/AoE/0055.png"
+      ],
+      "0057": [
+        "Animations/Effects/AoE/0057.png"
+      ],
+      "0059": [
+        "Animations/Effects/AoE/0059.png"
+      ],
+      "0034": [
+        "Animations/Props/PortalIdle/0034.png"
+      ],
+      "0036": [
+        "Animations/Props/PortalIdle/0036.png"
+      ],
+      "0038": [
+        "Animations/Props/PortalIdle/0038.png"
+      ],
+      "0040": [
+        "Animations/Props/PortalIdle/0040.png"
+      ],
+      "0042": [
+        "Animations/Props/PortalIdle/0042.png"
+      ],
+      "0044": [
+        "Animations/Props/PortalIdle/0044.png"
+      ],
+      "0046": [
+        "Animations/Props/PortalIdle/0046.png"
+      ],
+      "0048": [
+        "Animations/Props/PortalIdle/0048.png"
+      ],
+      "0050": [
+        "Animations/Props/PortalIdle/0050.png"
+      ],
+      "0052": [
+        "Animations/Props/PortalIdle/0052.png"
+      ],
+      "0054": [
+        "Animations/Props/PortalIdle/0054.png"
+      ],
+      "0056": [
+        "Animations/Props/PortalIdle/0056.png"
+      ],
+      "0058": [
+        "Animations/Props/PortalIdle/0058.png"
+      ],
+      "0060": [
+        "Animations/Props/PortalIdle/0060.png"
+      ],
+      "0062": [
+        "Animations/Props/PortalIdle/0062.png"
+      ],
+      "CB1": [
+        "Animations/Props/Turret1/CB1.png"
+      ],
+      "CB2": [
+        "Animations/Props/Turret1/CB2.png"
+      ],
+      "CB3": [
+        "Animations/Props/Turret1/CB3.png"
+      ],
+      "CB4": [
+        "Animations/Props/Turret1/CB4.png"
+      ],
+      "CB5": [
+        "Animations/Props/Turret1/CB5.png"
+      ],
+      "CB6": [
+        "Animations/Props/Turret1/CB6.png"
+      ],
+      "CB7": [
+        "Animations/Props/Turret1/CB7.png"
+      ],
+      "CB8": [
+        "Animations/Props/Turret1/CB8.png"
+      ],
+      "Attack1": [
+        "Characters/Enemy 1/Attack1.png",
+        "Characters/Enemy 2/Attack1.png",
+        "Characters/Enemy 3/Attack1.png",
+        "Characters/NPC1/Attack1.png",
+        "Characters/NPC2/Attack1.png",
+        "Characters/NPC3/Attack1.png",
+        "Characters/Player/Attack1.png"
+      ],
+      "Attack2": [
+        "Characters/Enemy 1/Attack2.png",
+        "Characters/Enemy 2/Attack2.png",
+        "Characters/Enemy 3/Attack2.png",
+        "Characters/NPC1/Attack2.png",
+        "Characters/NPC2/Attack2.png",
+        "Characters/NPC3/Attack2.png",
+        "Characters/Player/Attack2.png"
+      ],
+      "Attack3": [
+        "Characters/Enemy 1/Attack3.png",
+        "Characters/Enemy 2/Attack3.png",
+        "Characters/Enemy 3/Attack3.png",
+        "Characters/NPC1/Attack3.png",
+        "Characters/NPC2/Attack3.png",
+        "Characters/NPC3/Attack3.png",
+        "Characters/Player/Attack3.png"
+      ],
+      "Attack4": [
+        "Characters/Enemy 1/Attack4.png",
+        "Characters/Enemy 2/Attack4.png",
+        "Characters/Enemy 3/Attack4.png",
+        "Characters/NPC1/Attack4.png",
+        "Characters/NPC2/Attack4.png",
+        "Characters/NPC3/Attack4.png",
+        "Characters/Player/Attack4.png"
+      ],
+      "Attack5": [
+        "Characters/Enemy 1/Attack5.png",
+        "Characters/Enemy 2/Attack5.png",
+        "Characters/Enemy 3/Attack5.png",
+        "Characters/NPC1/Attack5.png",
+        "Characters/NPC2/Attack5.png",
+        "Characters/NPC3/Attack5.png",
+        "Characters/Player/Attack5.png"
+      ],
+      "AttackRun": [
+        "Characters/Enemy 1/AttackRun.png",
+        "Characters/Enemy 2/AttackRun.png",
+        "Characters/Enemy 3/AttackRun.png",
+        "Characters/NPC1/AttackRun.png",
+        "Characters/NPC2/AttackRun.png",
+        "Characters/NPC3/AttackRun.png",
+        "Characters/Player/AttackRun.png"
+      ],
+      "AttackRun2": [
+        "Characters/Enemy 1/AttackRun2.png",
+        "Characters/Enemy 2/AttackRun2.png",
+        "Characters/Enemy 3/AttackRun2.png",
+        "Characters/NPC1/AttackRun2.png",
+        "Characters/NPC2/AttackRun2.png",
+        "Characters/NPC3/AttackRun2.png",
+        "Characters/Player/AttackRun2.png"
+      ],
+      "CrouchIdle": [
+        "Characters/Enemy 1/CrouchIdle.png",
+        "Characters/Enemy 2/CrouchIdle.png",
+        "Characters/Enemy 3/CrouchIdle.png",
+        "Characters/NPC1/CrouchIdle.png",
+        "Characters/NPC2/CrouchIdle.png",
+        "Characters/NPC3/CrouchIdle.png",
+        "Characters/Player/CrouchIdle.png"
+      ],
+      "CrouchRun": [
+        "Characters/Enemy 1/CrouchRun.png",
+        "Characters/Enemy 2/CrouchRun.png",
+        "Characters/Enemy 3/CrouchRun.png",
+        "Characters/NPC1/CrouchRun.png",
+        "Characters/NPC2/CrouchRun.png",
+        "Characters/NPC3/CrouchRun.png",
+        "Characters/Player/CrouchRun.png"
+      ],
+      "Die": [
+        "Characters/Enemy 1/Die.png",
+        "Characters/Enemy 2/Die.png",
+        "Characters/Enemy 3/Die.png",
+        "Characters/NPC1/Die.png",
+        "Characters/NPC2/Die.png",
+        "Characters/NPC3/Die.png",
+        "Characters/Player/Die.png"
+      ],
+      "Idle": [
+        "Characters/Enemy 1/Idle.png",
+        "Characters/Enemy 2/Idle.png",
+        "Characters/Enemy 3/Idle.png",
+        "Characters/NPC1/Idle.png",
+        "Characters/NPC2/Idle.png",
+        "Characters/NPC3/Idle.png",
+        "Characters/Player/Idle.png"
+      ],
+      "Idle2": [
+        "Characters/Enemy 1/Idle2.png",
+        "Characters/Enemy 2/Idle2.png",
+        "Characters/Enemy 3/Idle2.png",
+        "Characters/NPC1/Idle2.png",
+        "Characters/NPC2/Idle2.png",
+        "Characters/NPC3/Idle2.png",
+        "Characters/Player/Idle2.png"
+      ],
+      "Idle3": [
+        "Characters/Enemy 1/Idle3.png",
+        "Characters/Enemy 2/Idle3.png",
+        "Characters/Enemy 3/Idle3.png",
+        "Characters/NPC1/Idle3.png",
+        "Characters/NPC2/Idle3.png",
+        "Characters/NPC3/Idle3.png",
+        "Characters/Player/Idle3.png"
+      ],
+      "Idle4": [
+        "Characters/Enemy 1/Idle4.png",
+        "Characters/Enemy 2/Idle4.png",
+        "Characters/Enemy 3/Idle4.png",
+        "Characters/NPC1/Idle4.png",
+        "Characters/NPC2/Idle4.png",
+        "Characters/NPC3/Idle4.png",
+        "Characters/Player/Idle4.png"
+      ],
+      "RideIdle": [
+        "Characters/Enemy 1/RideIdle.png",
+        "Characters/Enemy 2/RideIdle.png",
+        "Characters/Enemy 3/RideIdle.png",
+        "Characters/NPC1/RideIdle.png",
+        "Characters/NPC2/RideIdle.png",
+        "Characters/NPC3/RideIdle.png",
+        "Characters/Player/RideIdle.png"
+      ],
+      "RideRun": [
+        "Characters/Enemy 1/RideRun.png",
+        "Characters/Enemy 2/RideRun.png",
+        "Characters/Enemy 3/RideRun.png",
+        "Characters/NPC1/RideRun.png",
+        "Characters/NPC2/RideRun.png",
+        "Characters/NPC3/RideRun.png",
+        "Characters/Player/RideRun.png"
+      ],
+      "Run": [
+        "Characters/Enemy 1/Run.png",
+        "Characters/Enemy 2/Run.png",
+        "Characters/Enemy 3/Run.png",
+        "Characters/NPC1/Run.png",
+        "Characters/NPC2/Run.png",
+        "Characters/NPC3/Run.png",
+        "Characters/Player/Run.png"
+      ],
+      "RunBackwards": [
+        "Characters/Enemy 1/RunBackwards.png",
+        "Characters/Enemy 2/RunBackwards.png",
+        "Characters/Enemy 3/RunBackwards.png",
+        "Characters/NPC1/RunBackwards.png",
+        "Characters/NPC2/RunBackwards.png",
+        "Characters/NPC3/RunBackwards.png",
+        "Characters/Player/RunBackwards.png"
+      ],
+      "Special1": [
+        "Characters/Enemy 1/Special1.png",
+        "Characters/Enemy 2/Special1.png",
+        "Characters/Enemy 3/Special1.png",
+        "Characters/NPC1/Special1.png",
+        "Characters/NPC2/Special1.png",
+        "Characters/NPC3/Special1.png",
+        "Characters/Player/Special1.png"
+      ],
+      "StrafeLeft": [
+        "Characters/Enemy 1/StrafeLeft.png",
+        "Characters/Enemy 2/StrafeLeft.png",
+        "Characters/Enemy 3/StrafeLeft.png",
+        "Characters/NPC1/StrafeLeft.png",
+        "Characters/NPC2/StrafeLeft.png",
+        "Characters/NPC3/StrafeLeft.png",
+        "Characters/Player/StrafeLeft.png"
+      ],
+      "StrafeRight": [
+        "Characters/Enemy 1/StrafeRight.png",
+        "Characters/Enemy 2/StrafeRight.png",
+        "Characters/Enemy 3/StrafeRight.png",
+        "Characters/NPC1/StrafeRight.png",
+        "Characters/NPC2/StrafeRight.png",
+        "Characters/NPC3/StrafeRight.png",
+        "Characters/Player/StrafeRight.png"
+      ],
+      "TakeDamage": [
+        "Characters/Enemy 1/TakeDamage.png",
+        "Characters/Enemy 2/TakeDamage.png",
+        "Characters/Enemy 3/TakeDamage.png",
+        "Characters/NPC1/TakeDamage.png",
+        "Characters/NPC2/TakeDamage.png",
+        "Characters/NPC3/TakeDamage.png",
+        "Characters/Player/TakeDamage.png"
+      ],
+      "Taunt": [
+        "Characters/Enemy 1/Taunt.png",
+        "Characters/Enemy 2/Taunt.png",
+        "Characters/Enemy 3/Taunt.png",
+        "Characters/NPC1/Taunt.png",
+        "Characters/NPC2/Taunt.png",
+        "Characters/NPC3/Taunt.png",
+        "Characters/Player/Taunt.png"
+      ],
+      "Walk": [
+        "Characters/Enemy 1/Walk.png",
+        "Characters/Enemy 2/Walk.png",
+        "Characters/Enemy 3/Walk.png",
+        "Characters/NPC1/Walk.png",
+        "Characters/NPC2/Walk.png",
+        "Characters/NPC3/Walk.png",
+        "Characters/Player/Walk.png"
+      ],
+      "BLACK": [
+        "Environment/BLACK TILE.png"
+      ],
+      "Chest": [
+        "Environment/Chest A1_E.png",
+        "Environment/Chest A1_N.png",
+        "Environment/Chest A1_S.png",
+        "Environment/Chest A1_W.png",
+        "Environment/Chest A2_E.png",
+        "Environment/Chest A2_N.png",
+        "Environment/Chest A2_S.png",
+        "Environment/Chest A2_W.png",
+        "Environment/Chest A3_E.png",
+        "Environment/Chest A3_N.png",
+        "Environment/Chest A3_S.png",
+        "Environment/Chest A3_W.png"
+      ],
+      "Door": [
+        "Environment/Door A1_E.png",
+        "Environment/Door A1_N.png",
+        "Environment/Door A1_S.png",
+        "Environment/Door A1_W.png",
+        "Environment/Door A2_E.png",
+        "Environment/Door A2_N.png",
+        "Environment/Door A2_S.png",
+        "Environment/Door A2_W.png",
+        "Environment/Door C1_E.png",
+        "Environment/Door C1_N.png",
+        "Environment/Door C1_S.png",
+        "Environment/Door C1_W.png"
+      ],
+      "FirePlace": [
+        "Environment/FirePlace.png"
+      ],
+      "Flora": [
+        "Environment/Flora A1_E.png",
+        "Environment/Flora A1_N.png",
+        "Environment/Flora A1_S.png",
+        "Environment/Flora A1_W.png",
+        "Environment/Flora A2_E.png",
+        "Environment/Flora A2_N.png",
+        "Environment/Flora A2_S.png",
+        "Environment/Flora A2_W.png",
+        "Environment/Flora A3_E.png",
+        "Environment/Flora A3_N.png",
+        "Environment/Flora A3_S.png",
+        "Environment/Flora A3_W.png"
+      ],
+      "Ground": [
+        "Environment/Ground A10_E.png",
+        "Environment/Ground A10_N.png",
+        "Environment/Ground A10_S.png",
+        "Environment/Ground A10_W.png",
+        "Environment/Ground A11_E.png",
+        "Environment/Ground A11_N.png",
+        "Environment/Ground A11_S.png",
+        "Environment/Ground A11_W.png",
+        "Environment/Ground A12_E.png",
+        "Environment/Ground A12_N.png",
+        "Environment/Ground A12_S.png",
+        "Environment/Ground A12_W.png"
+      ],
+      "Misc": [
+        "Environment/Misc A1_E.png",
+        "Environment/Misc A1_N.png",
+        "Environment/Misc A1_S.png",
+        "Environment/Misc A1_W.png",
+        "Environment/Misc A2_E.png",
+        "Environment/Misc A2_N.png",
+        "Environment/Misc A2_S.png",
+        "Environment/Misc A2_W.png",
+        "Environment/Misc A3_E.png",
+        "Environment/Misc A3_N.png",
+        "Environment/Misc A3_S.png",
+        "Environment/Misc A3_W.png"
+      ],
+      "Roof": [
+        "Environment/Roof A10_E.png",
+        "Environment/Roof A10_N.png",
+        "Environment/Roof A10_S.png",
+        "Environment/Roof A10_W.png",
+        "Environment/Roof A1_E.png",
+        "Environment/Roof A1_N.png",
+        "Environment/Roof A1_S.png",
+        "Environment/Roof A1_W.png",
+        "Environment/Roof A2_E.png",
+        "Environment/Roof A2_N.png",
+        "Environment/Roof A2_S.png",
+        "Environment/Roof A2_W.png"
+      ],
+      "Shadow10": [
+        "Environment/Shadow10_E.png",
+        "Environment/Shadow10_N.png",
+        "Environment/Shadow10_S.png",
+        "Environment/Shadow10_W.png"
+      ],
+      "Shadow11": [
+        "Environment/Shadow11_E.png",
+        "Environment/Shadow11_N.png",
+        "Environment/Shadow11_S.png",
+        "Environment/Shadow11_W.png"
+      ],
+      "Shadow12": [
+        "Environment/Shadow12_E.png",
+        "Environment/Shadow12_N.png",
+        "Environment/Shadow12_S.png",
+        "Environment/Shadow12_W.png"
+      ],
+      "Shadow13": [
+        "Environment/Shadow13_E.png",
+        "Environment/Shadow13_N.png",
+        "Environment/Shadow13_S.png",
+        "Environment/Shadow13_W.png"
+      ],
+      "Shadow1": [
+        "Environment/Shadow1_E.png",
+        "Environment/Shadow1_N.png",
+        "Environment/Shadow1_S.png",
+        "Environment/Shadow1_W.png"
+      ],
+      "Shadow2": [
+        "Environment/Shadow2_E.png",
+        "Environment/Shadow2_N.png",
+        "Environment/Shadow2_S.png",
+        "Environment/Shadow2_W.png"
+      ],
+      "Shadow3": [
+        "Environment/Shadow3_E.png",
+        "Environment/Shadow3_N.png",
+        "Environment/Shadow3_S.png",
+        "Environment/Shadow3_W.png"
+      ],
+      "Shadow4": [
+        "Environment/Shadow4_E.png",
+        "Environment/Shadow4_N.png",
+        "Environment/Shadow4_S.png",
+        "Environment/Shadow4_W.png"
+      ],
+      "Shadow5": [
+        "Environment/Shadow5_E.png",
+        "Environment/Shadow5_N.png",
+        "Environment/Shadow5_S.png",
+        "Environment/Shadow5_W.png"
+      ],
+      "Shadow6": [
+        "Environment/Shadow6_E.png",
+        "Environment/Shadow6_N.png",
+        "Environment/Shadow6_S.png",
+        "Environment/Shadow6_W.png"
+      ],
+      "Shadow7": [
+        "Environment/Shadow7_E.png",
+        "Environment/Shadow7_N.png",
+        "Environment/Shadow7_S.png",
+        "Environment/Shadow7_W.png"
+      ],
+      "Shadow8": [
+        "Environment/Shadow8_E.png",
+        "Environment/Shadow8_N.png",
+        "Environment/Shadow8_S.png",
+        "Environment/Shadow8_W.png"
+      ],
+      "Shadow9": [
+        "Environment/Shadow9_E.png",
+        "Environment/Shadow9_N.png",
+        "Environment/Shadow9_S.png",
+        "Environment/Shadow9_W.png"
+      ],
+      "Stone": [
+        "Environment/Stone A10_E.png",
+        "Environment/Stone A10_N.png",
+        "Environment/Stone A10_S.png",
+        "Environment/Stone A10_W.png",
+        "Environment/Stone A11_E.png",
+        "Environment/Stone A11_N.png",
+        "Environment/Stone A11_S.png",
+        "Environment/Stone A11_W.png",
+        "Environment/Stone A12_E.png",
+        "Environment/Stone A12_N.png",
+        "Environment/Stone A12_S.png",
+        "Environment/Stone A12_W.png"
+      ],
+      "TilePreview": [
+        "Environment/TilePreview.png"
+      ],
+      "Torch": [
+        "Environment/Torch East.png",
+        "Environment/Torch West.png"
+      ],
+      "Torch2": [
+        "Environment/Torch2.png"
+      ],
+      "Tree": [
+        "Environment/Tree A1_E.png",
+        "Environment/Tree A1_N.png",
+        "Environment/Tree A1_S.png",
+        "Environment/Tree A1_W.png",
+        "Environment/Tree A2_E.png",
+        "Environment/Tree A2_N.png",
+        "Environment/Tree A2_S.png",
+        "Environment/Tree A2_W.png",
+        "Environment/Tree A3_E.png",
+        "Environment/Tree A3_N.png",
+        "Environment/Tree A3_S.png",
+        "Environment/Tree A3_W.png"
+      ],
+      "TreeTrunkBroken": [
+        "Environment/TreeTrunkBroken.png"
+      ],
+      "Wall": [
+        "Environment/Wall A10_E.png",
+        "Environment/Wall A10_N.png",
+        "Environment/Wall A10_S.png",
+        "Environment/Wall A10_W.png",
+        "Environment/Wall A11_E.png",
+        "Environment/Wall A11_N.png",
+        "Environment/Wall A11_S.png",
+        "Environment/Wall A11_W.png",
+        "Environment/Wall A12_E.png",
+        "Environment/Wall A12_N.png",
+        "Environment/Wall A12_S.png",
+        "Environment/Wall A12_W.png"
+      ],
+      "WallFlora": [
+        "Environment/WallFlora A10_E.png",
+        "Environment/WallFlora A10_N.png",
+        "Environment/WallFlora A10_S.png",
+        "Environment/WallFlora A10_W.png",
+        "Environment/WallFlora A11_E.png",
+        "Environment/WallFlora A11_N.png",
+        "Environment/WallFlora A11_S.png",
+        "Environment/WallFlora A11_W.png",
+        "Environment/WallFlora A12_E.png",
+        "Environment/WallFlora A12_N.png",
+        "Environment/WallFlora A12_S.png",
+        "Environment/WallFlora A12_W.png"
+      ],
+      "AoEFire": [
+        "Other/AoEFire.png"
+      ],
+      "Cloud1": [
+        "Other/Cloud1.png"
+      ],
+      "Cloud2": [
+        "Other/Cloud2.png"
+      ],
+      "Cloud3": [
+        "Other/Cloud3.png"
+      ],
+      "DashLine": [
+        "Other/DashLine.png"
+      ],
+      "GodRay": [
+        "Other/GodRay.png"
+      ],
+      "ItemRay": [
+        "Other/ItemRay.png"
+      ]
+    },
+    "by_struct_prefix": {
+      "Chest": [
+        "Environment/Chest A1_E.png",
+        "Environment/Chest A1_N.png",
+        "Environment/Chest A1_S.png",
+        "Environment/Chest A1_W.png",
+        "Environment/Chest A2_E.png",
+        "Environment/Chest A2_N.png",
+        "Environment/Chest A2_S.png",
+        "Environment/Chest A2_W.png",
+        "Environment/Chest A3_E.png",
+        "Environment/Chest A3_N.png",
+        "Environment/Chest A3_S.png",
+        "Environment/Chest A3_W.png"
+      ],
+      "Door": [
+        "Environment/Door A1_E.png",
+        "Environment/Door A1_N.png",
+        "Environment/Door A1_S.png",
+        "Environment/Door A1_W.png",
+        "Environment/Door A2_E.png",
+        "Environment/Door A2_N.png",
+        "Environment/Door A2_S.png",
+        "Environment/Door A2_W.png",
+        "Environment/Door C1_E.png",
+        "Environment/Door C1_N.png",
+        "Environment/Door C1_S.png",
+        "Environment/Door C1_W.png"
+      ],
+      "Flora": [
+        "Environment/Flora A1_E.png",
+        "Environment/Flora A1_N.png",
+        "Environment/Flora A1_S.png",
+        "Environment/Flora A1_W.png",
+        "Environment/Flora A2_E.png",
+        "Environment/Flora A2_N.png",
+        "Environment/Flora A2_S.png",
+        "Environment/Flora A2_W.png",
+        "Environment/Flora A3_E.png",
+        "Environment/Flora A3_N.png",
+        "Environment/Flora A3_S.png",
+        "Environment/Flora A3_W.png"
+      ],
+      "Ground": [
+        "Environment/Ground A10_E.png",
+        "Environment/Ground A10_N.png",
+        "Environment/Ground A10_S.png",
+        "Environment/Ground A10_W.png",
+        "Environment/Ground A11_E.png",
+        "Environment/Ground A11_N.png",
+        "Environment/Ground A11_S.png",
+        "Environment/Ground A11_W.png",
+        "Environment/Ground A12_E.png",
+        "Environment/Ground A12_N.png",
+        "Environment/Ground A12_S.png",
+        "Environment/Ground A12_W.png"
+      ],
+      "Misc": [
+        "Environment/Misc A1_E.png",
+        "Environment/Misc A1_N.png",
+        "Environment/Misc A1_S.png",
+        "Environment/Misc A1_W.png",
+        "Environment/Misc A2_E.png",
+        "Environment/Misc A2_N.png",
+        "Environment/Misc A2_S.png",
+        "Environment/Misc A2_W.png",
+        "Environment/Misc A3_E.png",
+        "Environment/Misc A3_N.png",
+        "Environment/Misc A3_S.png",
+        "Environment/Misc A3_W.png"
+      ],
+      "Roof": [
+        "Environment/Roof A10_E.png",
+        "Environment/Roof A10_N.png",
+        "Environment/Roof A10_S.png",
+        "Environment/Roof A10_W.png",
+        "Environment/Roof A1_E.png",
+        "Environment/Roof A1_N.png",
+        "Environment/Roof A1_S.png",
+        "Environment/Roof A1_W.png",
+        "Environment/Roof A2_E.png",
+        "Environment/Roof A2_N.png",
+        "Environment/Roof A2_S.png",
+        "Environment/Roof A2_W.png"
+      ],
+      "Stone": [
+        "Environment/Stone A10_E.png",
+        "Environment/Stone A10_N.png",
+        "Environment/Stone A10_S.png",
+        "Environment/Stone A10_W.png",
+        "Environment/Stone A11_E.png",
+        "Environment/Stone A11_N.png",
+        "Environment/Stone A11_S.png",
+        "Environment/Stone A11_W.png",
+        "Environment/Stone A12_E.png",
+        "Environment/Stone A12_N.png",
+        "Environment/Stone A12_S.png",
+        "Environment/Stone A12_W.png"
+      ],
+      "Tree": [
+        "Environment/Tree A1_E.png",
+        "Environment/Tree A1_N.png",
+        "Environment/Tree A1_S.png",
+        "Environment/Tree A1_W.png",
+        "Environment/Tree A2_E.png",
+        "Environment/Tree A2_N.png",
+        "Environment/Tree A2_S.png",
+        "Environment/Tree A2_W.png",
+        "Environment/Tree A3_E.png",
+        "Environment/Tree A3_N.png",
+        "Environment/Tree A3_S.png",
+        "Environment/Tree A3_W.png"
+      ],
+      "Wall": [
+        "Environment/Wall A10_E.png",
+        "Environment/Wall A10_N.png",
+        "Environment/Wall A10_S.png",
+        "Environment/Wall A10_W.png",
+        "Environment/Wall A11_E.png",
+        "Environment/Wall A11_N.png",
+        "Environment/Wall A11_S.png",
+        "Environment/Wall A11_W.png",
+        "Environment/Wall A12_E.png",
+        "Environment/Wall A12_N.png",
+        "Environment/Wall A12_S.png",
+        "Environment/Wall A12_W.png"
+      ],
+      "WallFlora": [
+        "Environment/WallFlora A10_E.png",
+        "Environment/WallFlora A10_N.png",
+        "Environment/WallFlora A10_S.png",
+        "Environment/WallFlora A10_W.png",
+        "Environment/WallFlora A11_E.png",
+        "Environment/WallFlora A11_N.png",
+        "Environment/WallFlora A11_S.png",
+        "Environment/WallFlora A11_W.png",
+        "Environment/WallFlora A12_E.png",
+        "Environment/WallFlora A12_N.png",
+        "Environment/WallFlora A12_S.png",
+        "Environment/WallFlora A12_W.png"
+      ]
+    }
+  }
+}
