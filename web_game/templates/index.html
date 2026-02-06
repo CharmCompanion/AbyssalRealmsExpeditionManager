@@ -335,6 +335,18 @@
             </div>
         </div>
 
+        <div id="city-content" class="tab-content" style="display:none;">
+            <div class="city-builder-container">
+                <canvas id="city-canvas"></canvas>
+                <div class="city-sidebar" id="city-sidebar"></div>
+            </div>
+            <div class="city-controls">
+                <button class="btn btn-secondary btn-sm" id="city-rotate-btn" onclick="rotatePlacement()">⟳ Rotate</button>
+                <button class="btn btn-danger btn-sm" id="city-demolish-btn" onclick="toggleDemolish()">🔨 Demolish</button>
+                <span class="text-secondary" id="city-status">Select a building to place</span>
+            </div>
+        </div>
+
         <div id="threats-content" class="tab-content" style="display:none;">
             <h2 class="section-title mb-12">Dungeon Threats</h2>
             <div id="threats-list"></div>
@@ -348,6 +360,10 @@
     <button class="nav-tab active" id="nav-town" onclick="showTab('town')">
         <span class="nav-icon">🏠</span>
         <span class="nav-label">Town</span>
+    </button>
+    <button class="nav-tab" id="nav-city" onclick="showTab('city')">
+        <span class="nav-icon">🏗️</span>
+        <span class="nav-label">City</span>
     </button>
     <button class="nav-tab" id="nav-map" onclick="showTab('map')">
         <span class="nav-icon">🗺️</span>
@@ -492,6 +508,9 @@ function showTab(tabName) {
 
     if (tabName === 'map' && activeSave) {
         updateGameMap();
+    }
+    if (tabName === 'city' && activeSave) {
+        initCityBuilder();
     }
 }
 
@@ -1352,6 +1371,448 @@ document.getElementById('lord-name-input').addEventListener('input', updateCreat
 setupMapDrag();
 document.getElementById('seed-input').value = computeSeedHash('init' + Date.now());
 updateLordPreview();
+
+var CITY_GRID_SIZE = 12;
+var CITY_CELL = 48;
+var cityCanvas = null;
+var cityCtx = null;
+var cityInitialized = false;
+var cityPlacedBuildings = [];
+var citySelectedBuilding = null;
+var cityRotation = 0;
+var cityDemolishMode = false;
+var cityHoverX = -1;
+var cityHoverY = -1;
+var citySpriteImages = {};
+var cityGrassImg = null;
+var citySpriteLoaded = false;
+
+var CITY_SPRITE_MAP = {
+    town_hall: {sprite: 'manor', gridW: 3, gridH: 2, icon: '🏛️'},
+    tavern:    {sprite: 'cottage', gridW: 1, gridH: 1, icon: '🍺'},
+    barracks:  {sprite: 'estate', gridW: 2, gridH: 2, icon: '⚔️'},
+    market:    {sprite: 'guild', gridW: 2, gridH: 2, icon: '🏪'},
+    farm:      {sprite: 'house', gridW: 1, gridH: 1, icon: '🌾'},
+    mine:      {sprite: 'bank', gridW: 2, gridH: 2, icon: '⛏️'},
+    lumber_mill: {sprite: 'house', gridW: 1, gridH: 1, icon: '🪵'},
+    temple:    {sprite: 'temple', gridW: 2, gridH: 2, icon: '⛪'},
+    library:   {sprite: 'school', gridW: 2, gridH: 2, icon: '📚'},
+    smithy:    {sprite: 'cottage', gridW: 1, gridH: 1, icon: '🔨'}
+};
+
+function getCitySpriteKey(buildingId, rotation) {
+    var info = CITY_SPRITE_MAP[buildingId];
+    if (!info) return null;
+    var base = info.sprite;
+    var w = info.gridW;
+    var h = info.gridH;
+    var r = rotation % 4;
+    if (w === 1 && h === 1) {
+        return (r === 1 || r === 3) ? base + '_1x1_flip' : base + '_1x1';
+    }
+    if (w === 2 && h === 2) {
+        if (r === 0 || r === 2) return base + '_2x2';
+        var flipped = base + '_1x1_flip';
+        return citySpriteImages[flipped] ? flipped : base + '_2x2';
+    }
+    if (r === 0 || r === 2) return base + '_2x2';
+    if (r === 1) {
+        var k12 = base + '_1x2';
+        return citySpriteImages[k12] ? k12 : base + '_2x2';
+    }
+    var k21 = base + '_2x1';
+    return citySpriteImages[k21] ? k21 : base + '_2x2';
+}
+
+function getCityBuildingSize(buildingId, rotation) {
+    var info = CITY_SPRITE_MAP[buildingId];
+    if (!info) return {w: 1, h: 1};
+    var w = info.gridW;
+    var h = info.gridH;
+    var r = rotation % 4;
+    if (r === 1 || r === 3) return {w: h, h: w};
+    return {w: w, h: h};
+}
+
+function loadCitySprites(callback) {
+    if (citySpriteLoaded) { callback(); return; }
+    var spriteNames = [
+        'house_1x1', 'house_1x1_flip', 'house_1x2', 'house_2x1', 'house_2x2',
+        'cottage_1x1', 'cottage_1x1_flip', 'cottage_1x2', 'cottage_2x1', 'cottage_2x2',
+        'estate_1x1', 'estate_1x1_flip', 'estate_1x2', 'estate_2x1', 'estate_2x2',
+        'bank_1x1', 'bank_1x1_flip', 'bank_2x2',
+        'guild_1x1', 'guild_1x1_flip', 'guild_1x2', 'guild_2x1', 'guild_2x2',
+        'school_1x1', 'school_1x1_flip', 'school_2x2',
+        'temple_1x1', 'temple_1x1_flip', 'temple_2x2',
+        'manor_1x1', 'manor_1x1_flip', 'manor_2x2'
+    ];
+    var loaded = 0;
+    var total = spriteNames.length + 1;
+
+    cityGrassImg = new Image();
+    cityGrassImg.onload = function() { loaded++; if (loaded >= total) { citySpriteLoaded = true; callback(); } };
+    cityGrassImg.onerror = function() { loaded++; if (loaded >= total) { citySpriteLoaded = true; callback(); } };
+    cityGrassImg.src = '/static/images/buildings/grass_single.png';
+
+    spriteNames.forEach(function(name) {
+        var img = new Image();
+        img.onload = function() { loaded++; if (loaded >= total) { citySpriteLoaded = true; callback(); } };
+        img.onerror = function() { loaded++; if (loaded >= total) { citySpriteLoaded = true; callback(); } };
+        img.src = '/static/images/buildings/' + name + '.png';
+        citySpriteImages[name] = img;
+    });
+}
+
+function initCityBuilder() {
+    loadCitySprites(function() {
+        cityCanvas = document.getElementById('city-canvas');
+        cityCtx = cityCanvas.getContext('2d');
+
+        var container = document.querySelector('.city-builder-container');
+        var sidebarW = 148;
+        var available = container.clientWidth - sidebarW;
+        var canvasSize = Math.min(available, container.clientHeight, CITY_GRID_SIZE * CITY_CELL);
+        CITY_CELL = Math.floor(canvasSize / CITY_GRID_SIZE);
+        canvasSize = CITY_CELL * CITY_GRID_SIZE;
+
+        cityCanvas.width = canvasSize;
+        cityCanvas.height = canvasSize;
+        cityCanvas.style.width = canvasSize + 'px';
+        cityCanvas.style.height = canvasSize + 'px';
+
+        if (!cityInitialized) {
+            cityCanvas.addEventListener('mousemove', onCityMouseMove);
+            cityCanvas.addEventListener('click', onCityClick);
+            cityCanvas.addEventListener('mouseleave', function() {
+                cityHoverX = -1; cityHoverY = -1; renderCity();
+            });
+            cityCanvas.addEventListener('touchstart', onCityTouch, {passive: false});
+            cityCanvas.addEventListener('touchmove', onCityTouchMove, {passive: false});
+            cityCanvas.addEventListener('touchend', onCityTouchEnd, {passive: false});
+            cityInitialized = true;
+        }
+
+        var gd = activeSave ? (activeSave.game_data || {}) : {};
+        cityPlacedBuildings = gd.city_grid || [];
+
+        renderCityPalette();
+        renderCity();
+    });
+}
+
+function renderCityPalette() {
+    var sidebar = document.getElementById('city-sidebar');
+    var gd = activeSave ? (activeSave.game_data || {}) : {};
+    var buildings = gd.buildings || {};
+    var html = '';
+
+    Object.keys(CITY_SPRITE_MAP).forEach(function(bid) {
+        var bt = BUILDING_TYPES[bid];
+        if (!bt) return;
+        var info = CITY_SPRITE_MAP[bid];
+        var level = (buildings[bid] && buildings[bid].level) || 0;
+        var costMult = level + 1;
+        var costText = Object.keys(bt.cost).map(function(r) { return (bt.cost[r] * costMult) + ' ' + r; }).join(', ');
+        var thumbKey = info.sprite + '_1x1';
+        var thumbSrc = '/static/images/buildings/' + thumbKey + '.png';
+
+        var canAfford = true;
+        if (level >= bt.max_level) canAfford = false;
+        if (activeSave) {
+            Object.keys(bt.cost).forEach(function(r) {
+                var needed = bt.cost[r] * costMult;
+                var have = activeSave[r] || 0;
+                if (have < needed) canAfford = false;
+            });
+        }
+
+        var sel = (citySelectedBuilding === bid) ? ' selected' : '';
+        var dis = (!canAfford || level >= bt.max_level) ? ' disabled' : '';
+
+        html += '<div class="city-palette-item' + sel + dis + '" onclick="selectCityBuilding(\'' + bid + '\')" data-bid="' + bid + '">';
+        html += '<img class="city-palette-thumb" src="' + thumbSrc + '" alt="">';
+        html += '<div class="city-palette-info">';
+        html += '<div class="city-palette-name">' + bt.name + '</div>';
+        if (level >= bt.max_level) {
+            html += '<div class="city-palette-level">MAX Lv.' + level + '</div>';
+        } else if (level > 0) {
+            html += '<div class="city-palette-level">Lv.' + level + ' → ' + (level+1) + '</div>';
+            html += '<div class="city-palette-cost">' + costText + '</div>';
+        } else {
+            html += '<div class="city-palette-cost">' + costText + '</div>';
+        }
+        html += '</div></div>';
+    });
+    sidebar.innerHTML = html;
+}
+
+function selectCityBuilding(bid) {
+    if (cityDemolishMode) toggleDemolish();
+    if (citySelectedBuilding === bid) {
+        citySelectedBuilding = null;
+        document.getElementById('city-status').textContent = 'Select a building to place';
+    } else {
+        citySelectedBuilding = bid;
+        cityRotation = 0;
+        var bt = BUILDING_TYPES[bid];
+        document.getElementById('city-status').textContent = 'Placing: ' + (bt ? bt.name : bid);
+    }
+    renderCityPalette();
+    renderCity();
+}
+
+function rotatePlacement() {
+    cityRotation = (cityRotation + 1) % 4;
+    renderCity();
+}
+
+function toggleDemolish() {
+    cityDemolishMode = !cityDemolishMode;
+    var btn = document.getElementById('city-demolish-btn');
+    if (cityDemolishMode) {
+        btn.classList.add('active');
+        citySelectedBuilding = null;
+        document.getElementById('city-status').textContent = 'Demolish mode: click a building to remove';
+    } else {
+        btn.classList.remove('active');
+        document.getElementById('city-status').textContent = 'Select a building to place';
+    }
+    renderCityPalette();
+    renderCity();
+}
+
+function onCityMouseMove(e) {
+    var rect = cityCanvas.getBoundingClientRect();
+    var sx = (e.clientX - rect.left) * (cityCanvas.width / rect.width);
+    var sy = (e.clientY - rect.top) * (cityCanvas.height / rect.height);
+    cityHoverX = Math.floor(sx / CITY_CELL);
+    cityHoverY = Math.floor(sy / CITY_CELL);
+    renderCity();
+}
+
+function onCityClick(e) {
+    var rect = cityCanvas.getBoundingClientRect();
+    var sx = (e.clientX - rect.left) * (cityCanvas.width / rect.width);
+    var sy = (e.clientY - rect.top) * (cityCanvas.height / rect.height);
+    var gx = Math.floor(sx / CITY_CELL);
+    var gy = Math.floor(sy / CITY_CELL);
+    handleCityGridClick(gx, gy);
+}
+
+var cityLastTouchX = -1;
+var cityLastTouchY = -1;
+
+function onCityTouch(e) {
+    e.preventDefault();
+    var t = e.touches[0];
+    var rect = cityCanvas.getBoundingClientRect();
+    var sx = (t.clientX - rect.left) * (cityCanvas.width / rect.width);
+    var sy = (t.clientY - rect.top) * (cityCanvas.height / rect.height);
+    cityHoverX = Math.floor(sx / CITY_CELL);
+    cityHoverY = Math.floor(sy / CITY_CELL);
+    cityLastTouchX = cityHoverX;
+    cityLastTouchY = cityHoverY;
+    renderCity();
+}
+
+function onCityTouchMove(e) {
+    e.preventDefault();
+    var t = e.touches[0];
+    var rect = cityCanvas.getBoundingClientRect();
+    var sx = (t.clientX - rect.left) * (cityCanvas.width / rect.width);
+    var sy = (t.clientY - rect.top) * (cityCanvas.height / rect.height);
+    cityHoverX = Math.floor(sx / CITY_CELL);
+    cityHoverY = Math.floor(sy / CITY_CELL);
+    cityLastTouchX = cityHoverX;
+    cityLastTouchY = cityHoverY;
+    renderCity();
+}
+
+function onCityTouchEnd(e) {
+    e.preventDefault();
+    if (cityLastTouchX >= 0 && cityLastTouchY >= 0) {
+        handleCityGridClick(cityLastTouchX, cityLastTouchY);
+    }
+    cityLastTouchX = -1;
+    cityLastTouchY = -1;
+}
+
+function handleCityGridClick(gx, gy) {
+    if (gx < 0 || gy < 0 || gx >= CITY_GRID_SIZE || gy >= CITY_GRID_SIZE) return;
+
+    if (cityDemolishMode) {
+        var idx = findPlacedBuildingAt(gx, gy);
+        if (idx >= 0) {
+            cityPlacedBuildings.splice(idx, 1);
+            saveCityGrid();
+            renderCity();
+        }
+        return;
+    }
+
+    if (!citySelectedBuilding) return;
+
+    var size = getCityBuildingSize(citySelectedBuilding, cityRotation);
+    if (gx + size.w > CITY_GRID_SIZE || gy + size.h > CITY_GRID_SIZE) return;
+    if (!isCityPlacementValid(gx, gy, size.w, size.h)) return;
+
+    placeCityBuilding(citySelectedBuilding, gx, gy, cityRotation);
+}
+
+function isCityPlacementValid(gx, gy, w, h) {
+    for (var i = 0; i < cityPlacedBuildings.length; i++) {
+        var p = cityPlacedBuildings[i];
+        var ps = getCityBuildingSize(p.building_id, p.rotation);
+        if (gx < p.grid_x + ps.w && gx + w > p.grid_x &&
+            gy < p.grid_y + ps.h && gy + h > p.grid_y) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function findPlacedBuildingAt(gx, gy) {
+    for (var i = 0; i < cityPlacedBuildings.length; i++) {
+        var p = cityPlacedBuildings[i];
+        var ps = getCityBuildingSize(p.building_id, p.rotation);
+        if (gx >= p.grid_x && gx < p.grid_x + ps.w &&
+            gy >= p.grid_y && gy < p.grid_y + ps.h) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+async function placeCityBuilding(bid, gx, gy, rot) {
+    try {
+        var data = await api('/api/game/build', 'POST', {
+            slot_number: activeSave.slot_number,
+            building_id: bid
+        });
+        if (data) {
+            activeSave = data;
+            var spriteKey = getCitySpriteKey(bid, rot);
+            cityPlacedBuildings.push({
+                building_id: bid,
+                grid_x: gx,
+                grid_y: gy,
+                rotation: rot,
+                sprite_key: spriteKey
+            });
+            saveCityGrid();
+            updateResourceBar(data);
+            renderCityPalette();
+            renderCity();
+            document.getElementById('city-status').textContent = (BUILDING_TYPES[bid] ? BUILDING_TYPES[bid].name : bid) + ' placed!';
+            citySelectedBuilding = null;
+            renderCityPalette();
+        }
+    } catch(e) {
+        document.getElementById('city-status').textContent = 'Cannot afford this building';
+        console.error('Build failed:', e);
+    }
+}
+
+async function saveCityGrid() {
+    if (!activeSave) return;
+    try {
+        await api('/api/saves/' + activeSave.slot_number + '/update_city', 'POST', {
+            city_grid: cityPlacedBuildings
+        });
+        var gd = activeSave.game_data || {};
+        gd.city_grid = cityPlacedBuildings;
+        activeSave.game_data = gd;
+    } catch(e) {
+        console.error('Failed to save city grid:', e);
+    }
+}
+
+function renderCity() {
+    if (!cityCtx) return;
+    var ctx = cityCtx;
+    var cs = CITY_CELL;
+    var total = CITY_GRID_SIZE * cs;
+    ctx.imageSmoothingEnabled = false;
+
+    ctx.fillStyle = '#2a3a2a';
+    ctx.fillRect(0, 0, total, total);
+
+    if (cityGrassImg && cityGrassImg.complete) {
+        for (var gy = 0; gy < CITY_GRID_SIZE; gy++) {
+            for (var gx = 0; gx < CITY_GRID_SIZE; gx++) {
+                ctx.drawImage(cityGrassImg, gx * cs, gy * cs, cs, cs);
+            }
+        }
+    }
+
+    ctx.strokeStyle = 'rgba(255,255,255,0.08)';
+    ctx.lineWidth = 1;
+    for (var i = 0; i <= CITY_GRID_SIZE; i++) {
+        ctx.beginPath();
+        ctx.moveTo(i * cs, 0);
+        ctx.lineTo(i * cs, total);
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.moveTo(0, i * cs);
+        ctx.lineTo(total, i * cs);
+        ctx.stroke();
+    }
+
+    cityPlacedBuildings.forEach(function(p) {
+        var sk = p.sprite_key || getCitySpriteKey(p.building_id, p.rotation);
+        var img = citySpriteImages[sk];
+        var size = getCityBuildingSize(p.building_id, p.rotation);
+        var dx = p.grid_x * cs;
+        var dy = p.grid_y * cs;
+        var dw = size.w * cs;
+        var dh = size.h * cs;
+        if (img && img.complete && img.naturalWidth > 0) {
+            ctx.drawImage(img, dx, dy, dw, dh);
+        } else {
+            var info = CITY_SPRITE_MAP[p.building_id];
+            ctx.fillStyle = 'rgba(100,100,200,0.5)';
+            ctx.fillRect(dx + 1, dy + 1, dw - 2, dh - 2);
+            ctx.fillStyle = '#fff';
+            ctx.font = Math.floor(cs * 0.5) + 'px sans-serif';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(info ? info.icon : '?', dx + dw/2, dy + dh/2);
+        }
+    });
+
+    if (citySelectedBuilding && cityHoverX >= 0 && cityHoverY >= 0) {
+        var size = getCityBuildingSize(citySelectedBuilding, cityRotation);
+        var fits = (cityHoverX + size.w <= CITY_GRID_SIZE && cityHoverY + size.h <= CITY_GRID_SIZE);
+        var valid = fits && isCityPlacementValid(cityHoverX, cityHoverY, size.w, size.h);
+
+        ctx.fillStyle = valid ? 'rgba(74,222,128,0.3)' : 'rgba(239,68,68,0.3)';
+        ctx.fillRect(cityHoverX * cs, cityHoverY * cs, size.w * cs, size.h * cs);
+        ctx.strokeStyle = valid ? 'rgba(74,222,128,0.8)' : 'rgba(239,68,68,0.8)';
+        ctx.lineWidth = 2;
+        ctx.strokeRect(cityHoverX * cs, cityHoverY * cs, size.w * cs, size.h * cs);
+
+        var sk = getCitySpriteKey(citySelectedBuilding, cityRotation);
+        var img = citySpriteImages[sk];
+        if (img && img.complete && img.naturalWidth > 0) {
+            ctx.globalAlpha = 0.6;
+            ctx.drawImage(img, cityHoverX * cs, cityHoverY * cs, size.w * cs, size.h * cs);
+            ctx.globalAlpha = 1.0;
+        }
+    }
+
+    if (cityDemolishMode && cityHoverX >= 0 && cityHoverY >= 0) {
+        var idx = findPlacedBuildingAt(cityHoverX, cityHoverY);
+        if (idx >= 0) {
+            var p = cityPlacedBuildings[idx];
+            var size = getCityBuildingSize(p.building_id, p.rotation);
+            ctx.fillStyle = 'rgba(239,68,68,0.3)';
+            ctx.fillRect(p.grid_x * cs, p.grid_y * cs, size.w * cs, size.h * cs);
+            ctx.strokeStyle = 'rgba(239,68,68,0.8)';
+            ctx.lineWidth = 2;
+            ctx.strokeRect(p.grid_x * cs, p.grid_y * cs, size.w * cs, size.h * cs);
+        }
+    }
+}
 </script>
 
 </body>

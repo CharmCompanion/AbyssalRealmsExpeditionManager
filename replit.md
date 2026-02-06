@@ -30,6 +30,7 @@ A mobile-focused web game ported from a Godot 4.5 project, featuring an Idle MMO
 - **Character Creation**: Town naming, lord naming, kingdom selection (6 kingdoms), deity assignment, seed-based resource generation, starting resource adjustment
 - **Kingdom Map**: Interactive map with highlight/shadow PNG overlays per kingdom, draggable red blinking dot with pixel-based boundary detection
 - **Town Management**: 10 buildings (Town Hall, Tavern, Barracks, Market, Farm, Mine, Lumber Mill, Temple, Library, Smithy) with upgrade levels and resource production
+- **City Builder**: Zeus-inspired canvas-based grid (12x12) with placeable/rotatable medieval buildings using kit-bashed S13 City Builder 8-bit assets. Buildings placed via sidebar palette, validated for overlap/bounds, persisted to game_data.city_grid
 - **Expeditions**: Job board (clear/scout/seal/gather missions), autonomous expedition system with departures/returns/loot/casualties
 - **Dungeon Threats**: 3 dungeons per kingdom with growing threat levels, breach/raid system
 - **SimClock**: Day-based progression via API ticks
@@ -42,6 +43,7 @@ A mobile-focused web game ported from a Godot 4.5 project, featuring an Idle MMO
 - `DELETE /api/saves/<slot>` - Delete save
 - `POST /api/saves/<slot>/copy` - Copy save
 - `POST /api/saves/<slot>/update_dot` - Update town dot position
+- `POST /api/saves/<slot>/update_city` - Save city grid layout
 - `POST /api/game/tick` - Advance one day
 - `POST /api/game/build` - Upgrade building
 - `POST /api/game/expedition/start` - Start expedition
@@ -63,3 +65,4 @@ Buildings use snake_case keys: town_hall, tavern, barracks, market, farm, mine, 
 - 2026-02-06: Fixed SQLAlchemy JSON column mutation detection with flag_modified
 - 2026-02-06: Map boundary detection with finer resolution (step 10) and adjusted alpha threshold
 - 2026-02-06: Added dot position persistence endpoint
+- 2026-02-06: City Builder - Zeus-inspired canvas grid with kit-bashed S13 medieval building sprites, placement/rotation/demolish, persisted to game_data.city_grid

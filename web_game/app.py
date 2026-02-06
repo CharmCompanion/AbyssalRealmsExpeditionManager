@@ -133,6 +133,7 @@ def create_save():
         'kingdom_resources': kingdom_resources,
         'stats': stats,
         'lord_appearance': lord_appearance,
+        'city_grid': [],
     }
 
     slot = SaveSlot.query.filter_by(slot_number=slot_number).first()
@@ -479,6 +480,20 @@ def map_boundary(kingdom_id):
 
     _boundary_cache[kingdom_id] = positions
     return jsonify({'valid_positions': positions})
+
+
+@app.route('/api/saves/<int:slot>/update_city', methods=['POST'])
+def update_city(slot):
+    data = request.get_json()
+    save = SaveSlot.query.filter_by(slot_number=slot).first()
+    if not save or save.is_empty:
+        return jsonify({'error': 'Save slot is empty'}), 404
+    gd = save.game_data or {}
+    gd['city_grid'] = data.get('city_grid', [])
+    save.game_data = gd
+    flag_modified(save, 'game_data')
+    db.session.commit()
+    return jsonify({'ok': True})
 
 
 if __name__ == '__main__':
