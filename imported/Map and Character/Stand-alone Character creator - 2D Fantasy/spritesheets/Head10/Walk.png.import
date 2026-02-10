@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bicmwo4xk2hk6"
-path="res://.godot/imported/Walk.png-0d316802ff266d71a343279bb0dbc2fd.ctex"
+path="res://.godot/imported/Walk.png-8d1b9efaf404374ae5bfa966d4b8033e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Head10/Walk.png"
-dest_files=["res://.godot/imported/Walk.png-0d316802ff266d71a343279bb0dbc2fd.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Head10/Walk.png"
+dest_files=["res://.godot/imported/Walk.png-8d1b9efaf404374ae5bfa966d4b8033e.ctex"]
 
 [params]
 

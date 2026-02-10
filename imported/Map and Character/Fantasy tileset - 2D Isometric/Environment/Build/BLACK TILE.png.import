@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://sqaf1v2ndufj"
-path="res://.godot/imported/BLACK TILE.png-b5633c4e423f8b75e6f037920b596e4f.ctex"
+path="res://.godot/imported/BLACK TILE.png-64c823b97a61e0805d375ab18adc208d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/BLACK TILE.png"
-dest_files=["res://.godot/imported/BLACK TILE.png-b5633c4e423f8b75e6f037920b596e4f.ctex"]
+source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Build/BLACK TILE.png"
+dest_files=["res://.godot/imported/BLACK TILE.png-64c823b97a61e0805d375ab18adc208d.ctex"]
 
 [params]
 

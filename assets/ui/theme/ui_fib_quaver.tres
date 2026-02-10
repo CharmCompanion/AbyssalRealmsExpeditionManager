@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c8fh3t34vsa6o"]
+[gd_resource type="Theme" format=3 uid="uid://c8fh3t34vsa6o"]
 
 [ext_resource type="FontFile" uid="uid://bex1oqi8trx87" path="res://assets/ui/font/quaver.ttf" id="2"]
 

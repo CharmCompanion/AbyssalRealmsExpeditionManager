@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://lein4iid3eb8"
-path="res://.godot/imported/Tree A1_E.png-c55150121f2d6418d5cd1ec38206fe53.ctex"
+path="res://.godot/imported/Tree A1_E.png-df46f95a064044e63a27695ef3406820.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Tree A1_E.png"
-dest_files=["res://.godot/imported/Tree A1_E.png-c55150121f2d6418d5cd1ec38206fe53.ctex"]
+source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Tree/Tree A1_E.png"
+dest_files=["res://.godot/imported/Tree A1_E.png-df46f95a064044e63a27695ef3406820.ctex"]
 
 [params]
 

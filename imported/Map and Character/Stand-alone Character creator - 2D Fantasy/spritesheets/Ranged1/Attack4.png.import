@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://orswkpsn5if8"
-path="res://.godot/imported/Attack4.png-518fe695e47bfc8b4704ed814961bb1b.ctex"
+path="res://.godot/imported/Attack4.png-7ccb7e862eb2cbed9b352b5858efa673.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Ranged1/Attack4.png"
-dest_files=["res://.godot/imported/Attack4.png-518fe695e47bfc8b4704ed814961bb1b.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Ranged1/Attack4.png"
+dest_files=["res://.godot/imported/Attack4.png-7ccb7e862eb2cbed9b352b5858efa673.ctex"]
 
 [params]
 

@@ -1,0 +1,294 @@
+[gd_resource type="TileSet" format=3 uid="uid://dm0kjytrgy8hp"]
+
+[ext_resource type="Texture2D" uid="uid://cft523wn134u0" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0001.png" id="1_wglrp"]
+[ext_resource type="Texture2D" uid="uid://ba260dv3sjbjt" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0003.png" id="2_5swlk"]
+[ext_resource type="Texture2D" uid="uid://67rjgqrh8our" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0021.png" id="3_5n84w"]
+[ext_resource type="Texture2D" uid="uid://di45r025eqaro" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0023.png" id="4_1ycyc"]
+[ext_resource type="Texture2D" uid="uid://bwr2ttjr428iq" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0025.png" id="5_c7iga"]
+[ext_resource type="Texture2D" uid="uid://igks0r0i7n00" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0027.png" id="6_qb420"]
+[ext_resource type="Texture2D" uid="uid://ciwfdlx4w4xmh" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0029.png" id="7_u8cba"]
+[ext_resource type="Texture2D" uid="uid://cj12bkw8hcqxa" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0005.png" id="8_knfi1"]
+[ext_resource type="Texture2D" uid="uid://ceq0voqu7drdf" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0007.png" id="9_x1m1w"]
+[ext_resource type="Texture2D" uid="uid://h5le8l1ddk74" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0009.png" id="10_1it4g"]
+[ext_resource type="Texture2D" uid="uid://cnaot0u234ab8" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0011.png" id="11_02nge"]
+[ext_resource type="Texture2D" uid="uid://dif5v48lehha6" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0013.png" id="12_70frx"]
+[ext_resource type="Texture2D" uid="uid://b1bs7afapckax" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0015.png" id="13_1j0sp"]
+[ext_resource type="Texture2D" uid="uid://3ml4rfht6fq4" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0017.png" id="14_fhbhe"]
+[ext_resource type="Texture2D" uid="uid://b0pdbgajd4fo3" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Effects/Buff10/0019.png" id="15_qmtjp"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4yvqy"]
+texture = ExtResource("1_wglrp")
+3:3/0 = 0
+4:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q7slh"]
+texture = ExtResource("2_5swlk")
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gkdds"]
+texture = ExtResource("3_5n84w")
+3:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dtibr"]
+texture = ExtResource("4_1ycyc")
+3:1/0 = 0
+2:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+3:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0nvxo"]
+texture = ExtResource("5_c7iga")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l6bcp"]
+texture = ExtResource("6_qb420")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43in2"]
+texture = ExtResource("7_u8cba")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qqsfl"]
+texture = ExtResource("8_knfi1")
+3:2/0 = 0
+4:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27etf"]
+texture = ExtResource("9_x1m1w")
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n04tb"]
+texture = ExtResource("10_1it4g")
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bp1ej"]
+texture = ExtResource("11_02nge")
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2snr8"]
+texture = ExtResource("12_70frx")
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys8ji"]
+texture = ExtResource("13_1j0sp")
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e6vbc"]
+texture = ExtResource("14_fhbhe")
+3:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ellm"]
+texture = ExtResource("15_qmtjp")
+3:0/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_4yvqy")
+sources/1 = SubResource("TileSetAtlasSource_q7slh")
+sources/2 = SubResource("TileSetAtlasSource_qqsfl")
+sources/3 = SubResource("TileSetAtlasSource_27etf")
+sources/4 = SubResource("TileSetAtlasSource_n04tb")
+sources/5 = SubResource("TileSetAtlasSource_bp1ej")
+sources/6 = SubResource("TileSetAtlasSource_2snr8")
+sources/7 = SubResource("TileSetAtlasSource_ys8ji")
+sources/8 = SubResource("TileSetAtlasSource_e6vbc")
+sources/9 = SubResource("TileSetAtlasSource_4ellm")
+sources/10 = SubResource("TileSetAtlasSource_gkdds")
+sources/11 = SubResource("TileSetAtlasSource_dtibr")
+sources/12 = SubResource("TileSetAtlasSource_0nvxo")
+sources/13 = SubResource("TileSetAtlasSource_l6bcp")
+sources/14 = SubResource("TileSetAtlasSource_43in2")

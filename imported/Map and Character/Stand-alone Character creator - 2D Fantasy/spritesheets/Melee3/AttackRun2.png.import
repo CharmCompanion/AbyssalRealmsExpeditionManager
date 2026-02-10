@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxcwwx1bl6ovh"
-path="res://.godot/imported/AttackRun2.png-5c841e95ac6525c27f80a5dfb7333b24.ctex"
+path="res://.godot/imported/AttackRun2.png-f9cdf2ce20a3d8d60e5c70f5e5489192.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Melee3/AttackRun2.png"
-dest_files=["res://.godot/imported/AttackRun2.png-5c841e95ac6525c27f80a5dfb7333b24.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Melee3/AttackRun2.png"
+dest_files=["res://.godot/imported/AttackRun2.png-f9cdf2ce20a3d8d60e5c70f5e5489192.ctex"]
 
 [params]
 

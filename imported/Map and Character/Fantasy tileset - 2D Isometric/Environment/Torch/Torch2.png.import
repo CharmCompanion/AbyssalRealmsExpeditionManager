@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dxiehb10vbvru"
-path="res://.godot/imported/Torch2.png-df171ea090e103ae43b0adad510cf746.ctex"
+path="res://.godot/imported/Torch2.png-99ae509d868d324db49c98f0b029d8cd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Torch2.png"
-dest_files=["res://.godot/imported/Torch2.png-df171ea090e103ae43b0adad510cf746.ctex"]
+source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Torch/Torch2.png"
+dest_files=["res://.godot/imported/Torch2.png-99ae509d868d324db49c98f0b029d8cd.ctex"]
 
 [params]
 

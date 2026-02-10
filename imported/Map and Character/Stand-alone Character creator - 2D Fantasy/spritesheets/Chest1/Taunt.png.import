@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dtn8j31wbca3u"
-path="res://.godot/imported/Taunt.png-1da663983a5712cba68aa9ae3d00e01e.ctex"
+path="res://.godot/imported/Taunt.png-9dae8a2d80f62fdf087116e44bfe4a85.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Chest1/Taunt.png"
-dest_files=["res://.godot/imported/Taunt.png-1da663983a5712cba68aa9ae3d00e01e.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Chest1/Taunt.png"
+dest_files=["res://.godot/imported/Taunt.png-9dae8a2d80f62fdf087116e44bfe4a85.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bei8tspkalc8l"
-path="res://.godot/imported/Wall F8_W.png-3a11cbdcb7242d7e14b1bb2e5fe2075f.ctex"
+path="res://.godot/imported/Wall F8_W.png-720d07b79aaacbc9f4023397993785c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall F8_W.png"
-dest_files=["res://.godot/imported/Wall F8_W.png-3a11cbdcb7242d7e14b1bb2e5fe2075f.ctex"]
+source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F8_W.png"
+dest_files=["res://.godot/imported/Wall F8_W.png-720d07b79aaacbc9f4023397993785c0.ctex"]
 
 [params]
 

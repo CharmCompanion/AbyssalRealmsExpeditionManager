@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ctu02xq1ysgwq"
-path="res://.godot/imported/TakeDamage.png-7b85ba2c11ba905e26c404dfd7a6cfda.ctex"
+path="res://.godot/imported/TakeDamage.png-510bf4b1955b4a602bb787d27375bbb7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Hands2/TakeDamage.png"
-dest_files=["res://.godot/imported/TakeDamage.png-7b85ba2c11ba905e26c404dfd7a6cfda.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Hands2/TakeDamage.png"
+dest_files=["res://.godot/imported/TakeDamage.png-510bf4b1955b4a602bb787d27375bbb7.ctex"]
 
 [params]
 

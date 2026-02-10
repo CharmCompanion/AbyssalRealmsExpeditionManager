@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dmenhoa76a1n1"
-path="res://.godot/imported/TreeTrunkBroken.png-77cf874381938343ededb4943c78d3bb.ctex"
+path="res://.godot/imported/TreeTrunkBroken.png-7084d0ba69963e2527692b1a3157e17d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/TreeTrunkBroken.png"
-dest_files=["res://.godot/imported/TreeTrunkBroken.png-77cf874381938343ededb4943c78d3bb.ctex"]
+source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Tree/TreeTrunkBroken.png"
+dest_files=["res://.godot/imported/TreeTrunkBroken.png-7084d0ba69963e2527692b1a3157e17d.ctex"]
 
 [params]
 

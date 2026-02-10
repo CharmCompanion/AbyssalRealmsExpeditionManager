@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b5vvk56xpcwe"
-path="res://.godot/imported/Run.png-acd64ee8d7d9a5244405439acb59165f.ctex"
+path="res://.godot/imported/Run.png-e190ddadf8c9c09995e009d3408616cb.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Melee25/Run.png"
-dest_files=["res://.godot/imported/Run.png-acd64ee8d7d9a5244405439acb59165f.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Melee25/Run.png"
+dest_files=["res://.godot/imported/Run.png-e190ddadf8c9c09995e009d3408616cb.ctex"]
 
 [params]
 

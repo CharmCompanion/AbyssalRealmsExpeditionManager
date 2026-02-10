@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ty5g8wbkae3d"
-path="res://.godot/imported/Ground I6_E.png-93c3bf61d825f91a5cb4a3f2b42e7fcc.ctex"
+path="res://.godot/imported/Ground I6_E.png-82dfbbc45196b8619aa3324b1a3b8095.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Ground I6_E.png"
-dest_files=["res://.godot/imported/Ground I6_E.png-93c3bf61d825f91a5cb4a3f2b42e7fcc.ctex"]
+source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Ground/Ground I6_E.png"
+dest_files=["res://.godot/imported/Ground I6_E.png-82dfbbc45196b8619aa3324b1a3b8095.ctex"]
 
 [params]
 

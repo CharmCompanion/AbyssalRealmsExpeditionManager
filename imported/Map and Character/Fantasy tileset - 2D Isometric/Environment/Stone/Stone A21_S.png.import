@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ddrdu134s7anh"
-path="res://.godot/imported/Stone A21_S.png-ea615f98d2aa9be0980650d71a98df32.ctex"
+path="res://.godot/imported/Stone A21_S.png-4c6e4348bd0adec250d186fb8f15c835.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Stone A21_S.png"
-dest_files=["res://.godot/imported/Stone A21_S.png-ea615f98d2aa9be0980650d71a98df32.ctex"]
+source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Stone/Stone A21_S.png"
+dest_files=["res://.godot/imported/Stone A21_S.png-4c6e4348bd0adec250d186fb8f15c835.ctex"]
 
 [params]
 

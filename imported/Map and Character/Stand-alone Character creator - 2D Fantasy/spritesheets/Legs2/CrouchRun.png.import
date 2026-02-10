@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://1b3vsvwydf7d"
-path="res://.godot/imported/CrouchRun.png-8f348d369a3be88829e541edfdc2f973.ctex"
+path="res://.godot/imported/CrouchRun.png-dc193038d5b84fe846ef1c0d7aa98888.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Legs2/CrouchRun.png"
-dest_files=["res://.godot/imported/CrouchRun.png-8f348d369a3be88829e541edfdc2f973.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Legs2/CrouchRun.png"
+dest_files=["res://.godot/imported/CrouchRun.png-dc193038d5b84fe846ef1c0d7aa98888.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://btpbvaco4opph"
-path="res://.godot/imported/RunBackwards.png-ad40401e3405b4a3b7f719b4f9c9c591.ctex"
+path="res://.godot/imported/RunBackwards.png-130e6e0e125bdaa4c74e8551911005ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Melee23/RunBackwards.png"
-dest_files=["res://.godot/imported/RunBackwards.png-ad40401e3405b4a3b7f719b4f9c9c591.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Melee23/RunBackwards.png"
+dest_files=["res://.godot/imported/RunBackwards.png-130e6e0e125bdaa4c74e8551911005ab.ctex"]
 
 [params]
 

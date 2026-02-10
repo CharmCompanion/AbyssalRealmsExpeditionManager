@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bj6bjraduo1ka"
-path="res://.godot/imported/Flora A4_N.png-de5944203af35cbfd3780663d17d6dd8.ctex"
+path="res://.godot/imported/Flora A4_N.png-1ff92e31c64973a93e430c47590ed80c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora A4_N.png"
-dest_files=["res://.godot/imported/Flora A4_N.png-de5944203af35cbfd3780663d17d6dd8.ctex"]
+source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora A4_N.png"
+dest_files=["res://.godot/imported/Flora A4_N.png-1ff92e31c64973a93e430c47590ed80c.ctex"]
 
 [params]
 

@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://bt1u07rk05lny"
+
+[deps]
+
+files=["res://Docs/3D_Asset_List.Name.translation", "res://Docs/3D_Asset_List.File Name.translation", "res://Docs/3D_Asset_List.Polycount Target.translation", "res://Docs/3D_Asset_List.Texture Size.translation", "res://Docs/3D_Asset_List.Notes.translation", "res://Docs/3D_Asset_List.Status.translation"]
+
+source_file="res://Docs/3D_Asset_List.csv"
+dest_files=["res://Docs/3D_Asset_List.Name.translation", "res://Docs/3D_Asset_List.File Name.translation", "res://Docs/3D_Asset_List.Polycount Target.translation", "res://Docs/3D_Asset_List.Texture Size.translation", "res://Docs/3D_Asset_List.Notes.translation", "res://Docs/3D_Asset_List.Status.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

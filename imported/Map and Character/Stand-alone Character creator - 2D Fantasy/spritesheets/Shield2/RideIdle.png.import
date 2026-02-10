@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c2v4r6uomo33v"
-path="res://.godot/imported/RideIdle.png-01e7bc90d96c50f43b6609ebe11fa539.ctex"
+path="res://.godot/imported/RideIdle.png-58263b72d4a0cd5143a5fbfd858ae666.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Shield2/RideIdle.png"
-dest_files=["res://.godot/imported/RideIdle.png-01e7bc90d96c50f43b6609ebe11fa539.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Shield2/RideIdle.png"
+dest_files=["res://.godot/imported/RideIdle.png-58263b72d4a0cd5143a5fbfd858ae666.ctex"]
 
 [params]
 

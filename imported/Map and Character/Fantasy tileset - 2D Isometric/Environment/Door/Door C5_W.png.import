@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bp0nwmrk7e0ym"
-path="res://.godot/imported/Door C5_W.png-9d5edde0deead6dda52447efbcbb6d70.ctex"
+path="res://.godot/imported/Door C5_W.png-2796a69ac69a52cc55ca906dfa27aa76.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Door C5_W.png"
-dest_files=["res://.godot/imported/Door C5_W.png-9d5edde0deead6dda52447efbcbb6d70.ctex"]
+source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Door/Door C5_W.png"
+dest_files=["res://.godot/imported/Door C5_W.png-2796a69ac69a52cc55ca906dfa27aa76.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dwpdmeslhdtml"
-path="res://.godot/imported/Idle.png-f8687236af5e05b061a2450598dcd760.ctex"
+path="res://.godot/imported/Idle.png-eda9002496e50ce38996422c77102ed1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Head4/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-f8687236af5e05b061a2450598dcd760.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Head4/Idle.png"
+dest_files=["res://.godot/imported/Idle.png-eda9002496e50ce38996422c77102ed1.ctex"]
 
 [params]
 

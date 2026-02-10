@@ -5,7 +5,7 @@ extends Resource
 class_name BiomeData
 
 # Example structure for a kingdom/biome
-dict = {
+var data: Dictionary = {
 	"Igneous Peaks": {
 		"biome": "Volcanic",
 		"terrain_complexity": 0.8,
@@ -20,3 +20,9 @@ dict = {
 	},
 	# ...add other kingdoms
 }
+
+func get_all() -> Dictionary:
+	return data
+
+func get_kingdom(name: String) -> Dictionary:
+	return data.get(name, {})

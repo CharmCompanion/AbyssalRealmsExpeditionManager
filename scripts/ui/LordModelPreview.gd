@@ -5,6 +5,7 @@ extends Node2D
 @export var center_offset := Vector2(0.0, 30.0)
 @export var fps_idle := 8.0
 @export var fps_walk := 10.0
+@export var direction_row_map: PackedInt32Array = []
 
 const FRAME_SIZE := Vector2i(128, 128)
 const DIRECTIONS := 8
@@ -122,10 +123,24 @@ func rotate_step(direction: int, step_radians: float) -> void:
 	var steps := int(round(abs(step_radians) / approx_step))
 	if steps < 1:
 		steps = 1
-	_direction_index = (_direction_index + direction * steps) % DIRECTIONS
+	_direction_index = _map_direction((_direction_index + direction * steps) % DIRECTIONS)
 	if _direction_index < 0:
 		_direction_index += DIRECTIONS
 	_apply_frame_to_layers()
+
+func set_direction_index(idx: int) -> void:
+	_direction_index = _map_direction(idx)
+	if _direction_index < 0:
+		_direction_index += DIRECTIONS
+	_apply_frame_to_layers()
+
+func set_direction_from_vector(dir: Vector2) -> void:
+	if dir.length() < 0.001:
+		return
+	var angle := atan2(dir.y, dir.x)
+	var oct := int(round(angle / (TAU / 8.0)))
+	oct = ((oct % DIRECTIONS) + DIRECTIONS) % DIRECTIONS
+	set_direction_index(oct)
 
 func set_walking(walking: bool) -> void:
 	_walking = walking
@@ -230,3 +245,10 @@ func _get_columns() -> int:
 		if s != null and s.texture != null:
 			return int(float(s.texture.get_width()) / float(FRAME_SIZE.x))
 	return 0
+
+func _map_direction(idx: int) -> int:
+	if direction_row_map.is_empty():
+		return idx
+	if idx < 0 or idx >= direction_row_map.size():
+		return idx
+	return int(direction_row_map[idx])

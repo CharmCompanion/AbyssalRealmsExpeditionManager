@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dip72pqnbenmf"
-path="res://.godot/imported/Roof D6_S.png-ccd13d6f4b53e054ebe4d1e9b07d1753.ctex"
+path="res://.godot/imported/Roof D6_S.png-04561e836918e262bf106bb051aa8248.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Roof D6_S.png"
-dest_files=["res://.godot/imported/Roof D6_S.png-ccd13d6f4b53e054ebe4d1e9b07d1753.ctex"]
+source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Roof/Roof D6_S.png"
+dest_files=["res://.godot/imported/Roof D6_S.png-04561e836918e262bf106bb051aa8248.ctex"]
 
 [params]
 

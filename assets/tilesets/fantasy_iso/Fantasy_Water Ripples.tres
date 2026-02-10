@@ -1,0 +1,213 @@
+[gd_resource type="TileSet" format=3 uid="uid://cjk4da3gnrnwu"]
+
+[ext_resource type="Texture2D" uid="uid://dto26uyjqhhky" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0001.png" id="1_xptfy"]
+[ext_resource type="Texture2D" uid="uid://esa8u8tl6pi5" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0003.png" id="2_til07"]
+[ext_resource type="Texture2D" uid="uid://ds4b5c8smc3fn" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0021.png" id="3_avnvs"]
+[ext_resource type="Texture2D" uid="uid://bw6qxymv8ib25" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0023.png" id="4_onr34"]
+[ext_resource type="Texture2D" uid="uid://cym5x7y4iuvo1" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0025.png" id="5_ory5e"]
+[ext_resource type="Texture2D" uid="uid://cnvfs5xssi3jc" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0027.png" id="6_2v7xi"]
+[ext_resource type="Texture2D" uid="uid://c5fug5wwnl1sd" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0029.png" id="7_rsx3g"]
+[ext_resource type="Texture2D" uid="uid://dtedthj8gs1cn" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0031.png" id="8_u5mqk"]
+[ext_resource type="Texture2D" uid="uid://b4vx7c1spdolr" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0005.png" id="9_0vhym"]
+[ext_resource type="Texture2D" uid="uid://04hor3w23umi" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0007.png" id="10_882k8"]
+[ext_resource type="Texture2D" uid="uid://bhx1buqywmns" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0009.png" id="11_rds71"]
+[ext_resource type="Texture2D" uid="uid://ce1kyv20h1hhf" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0011.png" id="12_epvpa"]
+[ext_resource type="Texture2D" uid="uid://dem5l53rg3xin" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0013.png" id="13_weqaa"]
+[ext_resource type="Texture2D" uid="uid://bkxwamp7qkmio" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0015.png" id="14_qjvbb"]
+[ext_resource type="Texture2D" uid="uid://bu700xmibq3kf" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0017.png" id="15_gfhs5"]
+[ext_resource type="Texture2D" uid="uid://d3p8fml1dqs53" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Animations/Animated Tiles/Water Ripples 1/0019.png" id="16_t4ttl"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t3y0s"]
+texture = ExtResource("1_xptfy")
+7:13/0 = 0
+8:13/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_touev"]
+texture = ExtResource("2_til07")
+7:13/0 = 0
+8:13/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fqe2l"]
+texture = ExtResource("3_avnvs")
+7:13/0 = 0
+8:13/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8qe5f"]
+texture = ExtResource("4_onr34")
+7:13/0 = 0
+8:13/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3okth"]
+texture = ExtResource("5_ory5e")
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aayfg"]
+texture = ExtResource("6_2v7xi")
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4m6xm"]
+texture = ExtResource("7_rsx3g")
+7:13/0 = 0
+8:13/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ndts3"]
+texture = ExtResource("8_u5mqk")
+7:13/0 = 0
+8:13/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bopxh"]
+texture = ExtResource("9_0vhym")
+7:14/0 = 0
+8:14/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n1f3p"]
+texture = ExtResource("10_882k8")
+7:14/0 = 0
+8:14/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rsaf4"]
+texture = ExtResource("11_rds71")
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g06mh"]
+texture = ExtResource("12_epvpa")
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_da6p6"]
+texture = ExtResource("13_weqaa")
+7:13/0 = 0
+8:13/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_scn1x"]
+texture = ExtResource("14_qjvbb")
+7:13/0 = 0
+8:13/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a23v3"]
+texture = ExtResource("15_gfhs5")
+6:13/0 = 0
+7:13/0 = 0
+8:13/0 = 0
+9:13/0 = 0
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+6:15/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+9:15/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_we560"]
+texture = ExtResource("16_t4ttl")
+6:14/0 = 0
+7:14/0 = 0
+8:14/0 = 0
+9:14/0 = 0
+7:15/0 = 0
+8:15/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_t3y0s")
+sources/1 = SubResource("TileSetAtlasSource_touev")
+sources/2 = SubResource("TileSetAtlasSource_bopxh")
+sources/3 = SubResource("TileSetAtlasSource_n1f3p")
+sources/4 = SubResource("TileSetAtlasSource_rsaf4")
+sources/5 = SubResource("TileSetAtlasSource_g06mh")
+sources/6 = SubResource("TileSetAtlasSource_da6p6")
+sources/7 = SubResource("TileSetAtlasSource_scn1x")
+sources/8 = SubResource("TileSetAtlasSource_a23v3")
+sources/9 = SubResource("TileSetAtlasSource_we560")
+sources/10 = SubResource("TileSetAtlasSource_fqe2l")
+sources/11 = SubResource("TileSetAtlasSource_8qe5f")
+sources/12 = SubResource("TileSetAtlasSource_3okth")
+sources/13 = SubResource("TileSetAtlasSource_aayfg")
+sources/14 = SubResource("TileSetAtlasSource_4m6xm")
+sources/15 = SubResource("TileSetAtlasSource_ndts3")

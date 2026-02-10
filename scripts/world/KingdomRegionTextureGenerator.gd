@@ -6,7 +6,7 @@ class_name KingdomRegionTextureGenerator
 
 const _MASK_63: int = 0x7fffffffffffffff
 
-const _ISO_ENV_DIR: String = "res://assets/tilesets/fantasy_iso/Environment/"
+const _ISO_ENV_DIR: String = "res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/"
 
 # NOTE: In Godot 4, const initializers must be constant expressions; calling
 # PackedStringArray([...]) is not allowed in a const. Use runtime-initialized

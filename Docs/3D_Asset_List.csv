@@ -1,4 +1,4 @@
-Asset Type,Name,File Name,Polycount Target,Texture Size,Notes,Status (Keep/Update/Remove)
+Asset Type,Name,File Name,Polycount Target,Texture Size,Notes,Status_KeepUpdateRemove
 Character,Player,char_player_main.glb,3,000-6,000,512x512 or 1024x1024,,
 Character,NPC Shopkeeper,npc_shopkeeper.glb,3,000-6,000,512x512,,
 Pet,Chao Basic,pet_chao_basic.glb,2,000-4,000,512x512 or 1024x1024,,

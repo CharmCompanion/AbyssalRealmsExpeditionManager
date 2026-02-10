@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cb7vn5f7a6egc"
-path="res://.godot/imported/RideRun.png-677cbc81af9029ef32057456a4e51065.ctex"
+path="res://.godot/imported/RideRun.png-3e93297ce5fc30c48b8ab37e508d927d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Mount4/RideRun.png"
-dest_files=["res://.godot/imported/RideRun.png-677cbc81af9029ef32057456a4e51065.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Mount4/RideRun.png"
+dest_files=["res://.godot/imported/RideRun.png-3e93297ce5fc30c48b8ab37e508d927d.ctex"]
 
 [params]
 

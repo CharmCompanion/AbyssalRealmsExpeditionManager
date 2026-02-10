@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bg8behttawol8"
-path="res://.godot/imported/Die.png-f66e973dea8398beb60ffe2af746dda9.ctex"
+path="res://.godot/imported/Die.png-0f49aab29a9d7417c8fbefbfc3ee116f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Magic1/Die.png"
-dest_files=["res://.godot/imported/Die.png-f66e973dea8398beb60ffe2af746dda9.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Magic1/Die.png"
+dest_files=["res://.godot/imported/Die.png-0f49aab29a9d7417c8fbefbfc3ee116f.ctex"]
 
 [params]
 

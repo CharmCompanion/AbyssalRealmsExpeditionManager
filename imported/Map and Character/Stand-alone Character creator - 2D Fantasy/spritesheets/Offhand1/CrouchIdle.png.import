@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cp81ine5vyww"
-path="res://.godot/imported/CrouchIdle.png-54c434a425162ebb05676941d83dde05.ctex"
+path="res://.godot/imported/CrouchIdle.png-61e0cf8516217e91679c7d3ba79a712d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Offhand1/CrouchIdle.png"
-dest_files=["res://.godot/imported/CrouchIdle.png-54c434a425162ebb05676941d83dde05.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Offhand1/CrouchIdle.png"
+dest_files=["res://.godot/imported/CrouchIdle.png-61e0cf8516217e91679c7d3ba79a712d.ctex"]
 
 [params]
 

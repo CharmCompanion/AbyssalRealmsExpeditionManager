@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://db01x2872jen5"
-path="res://.godot/imported/Chest A1_E.png-1b431a66441cab0cd6bbdecf046aa6fa.ctex"
+path="res://.godot/imported/Chest A1_E.png-eaa079f53a2c0ff9bda24dc03ff0caf1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Chest A1_E.png"
-dest_files=["res://.godot/imported/Chest A1_E.png-1b431a66441cab0cd6bbdecf046aa6fa.ctex"]
+source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Chest/Chest A1_E.png"
+dest_files=["res://.godot/imported/Chest A1_E.png-eaa079f53a2c0ff9bda24dc03ff0caf1.ctex"]
 
 [params]
 

@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7bwdcqlksvqc"
-path="res://.godot/imported/StrafeLeft.png-a6304260758a85fe465c4d9b9818fb59.ctex"
+path="res://.godot/imported/StrafeLeft.png-dcf76575ef9616054be94efbb5abbad0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Legs3/StrafeLeft.png"
-dest_files=["res://.godot/imported/StrafeLeft.png-a6304260758a85fe465c4d9b9818fb59.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Legs3/StrafeLeft.png"
+dest_files=["res://.godot/imported/StrafeLeft.png-dcf76575ef9616054be94efbb5abbad0.ctex"]
 
 [params]
 

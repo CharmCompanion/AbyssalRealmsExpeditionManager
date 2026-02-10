@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cr1074d6xkmrb"
-path="res://.godot/imported/StrafeRight.png-b814765273f819c218d4ec2368da61d5.ctex"
+path="res://.godot/imported/StrafeRight.png-bd0597b00b2e08ebc86091e9085d8c2c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy V1-0-3 (1)/Character creator - 2D Fantasy_Data/StreamingAssets/spritesheets/Hands3/StrafeRight.png"
-dest_files=["res://.godot/imported/StrafeRight.png-b814765273f819c218d4ec2368da61d5.ctex"]
+source_file="res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets/Hands3/StrafeRight.png"
+dest_files=["res://.godot/imported/StrafeRight.png-bd0597b00b2e08ebc86091e9085d8c2c.ctex"]
 
 [params]
 

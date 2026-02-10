@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dst1fcd2sphd1"
-path="res://.godot/imported/Shadow9_E.png-de7c8af5dc1049d2f032ad4ef2420636.ctex"
+path="res://.godot/imported/Shadow9_E.png-675a5d0f33b4e4833a17b69a0a223313.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Shadow9_E.png"
-dest_files=["res://.godot/imported/Shadow9_E.png-de7c8af5dc1049d2f032ad4ef2420636.ctex"]
+source_file="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Shadow/Shadow9_E.png"
+dest_files=["res://.godot/imported/Shadow9_E.png-675a5d0f33b4e4833a17b69a0a223313.ctex"]
 
 [params]
 
