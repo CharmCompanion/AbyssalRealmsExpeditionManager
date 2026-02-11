@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ewvmnpf71b0c"]
+[gd_scene format=3 uid="uid://ewvmnpf71b0c"]
 
 [ext_resource type="Theme" uid="uid://c8fh3t34vsa6o" path="res://assets/ui/theme/ui_fib_quaver.tres" id="1"]
 [ext_resource type="Script" uid="uid://di35sk8hubvc4" path="res://scripts/ui/MainMenu.gd" id="2"]
 [ext_resource type="FontFile" uid="uid://dfoq8el3t2s7s" path="res://assets/ui/font/fibberish.ttf" id="3"]
 [ext_resource type="Texture2D" uid="uid://bp5mg3tg5r8o0" path="res://assets/ui/panel/Panel.png" id="3_2ysvc"]
 
-[node name="MainMenu" type="Control"]
+[node name="MainMenu" type="Control" unique_id=1153459610]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -15,7 +15,7 @@ grow_vertical = 2
 theme = ExtResource("1")
 script = ExtResource("2")
 
-[node name="Dim" type="ColorRect" parent="."]
+[node name="Dim" type="ColorRect" parent="." unique_id=659757969]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.45)
 
-[node name="Panel" type="NinePatchRect" parent="."]
+[node name="Panel" type="NinePatchRect" parent="." unique_id=1476002641]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.02
@@ -39,7 +39,7 @@ patch_margin_top = 8
 patch_margin_right = 8
 patch_margin_bottom = 8
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="." unique_id=2133971503]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -57,11 +57,11 @@ theme_override_constants/margin_top = 28
 theme_override_constants/margin_right = 28
 theme_override_constants/margin_bottom = 28
 
-[node name="VBox" type="VBoxContainer" parent="Margin"]
+[node name="VBox" type="VBoxContainer" parent="Margin" unique_id=1926142175]
 layout_mode = 2
 theme_override_constants/separation = 22
 
-[node name="Title" type="Label" parent="Margin/VBox"]
+[node name="Title" type="Label" parent="Margin/VBox" unique_id=507703654]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.93, 0.8, 0.25, 1)
 theme_override_colors/font_shadow_color = Color(0.52, 0.22, 0.62, 0.75)
@@ -75,35 +75,25 @@ text = "Abyssal Realms:
 Expedition Manager"
 horizontal_alignment = 1
 
-[node name="Spacer" type="Control" parent="Margin/VBox"]
+[node name="Spacer" type="Control" parent="Margin/VBox" unique_id=1524513059]
 custom_minimum_size = Vector2(0, 56)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Buttons" type="VBoxContainer" parent="Margin/VBox"]
+[node name="Buttons" type="VBoxContainer" parent="Margin/VBox" unique_id=1983695893]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="StartBtn" type="Button" parent="Margin/VBox/Buttons"]
+[node name="StartBtn" type="Button" parent="Margin/VBox/Buttons" unique_id=776357165]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "START"
-tooltip_text = "Begin your adventure (load or create a save)"
-# icon_path = "res://assets/ui/icons/start.png" # Add your icon here
-
-[node name="SettingsBtn" type="Button" parent="Margin/VBox/Buttons"]
-custom_minimum_size = Vector2(0, 64)
-layout_mode = 2
-size_flags_horizontal = 3
-text = "SETTINGS"
 tooltip_text = "Adjust game, audio, and video settings"
-# icon_path = "res://assets/ui/icons/settings.png"
+text = "SETTINGS"
 
-[node name="QuitBtn" type="Button" parent="Margin/VBox/Buttons"]
+[node name="QuitBtn" type="Button" parent="Margin/VBox/Buttons" unique_id=199915818]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 size_flags_horizontal = 3
-text = "QUIT"
 tooltip_text = "Exit the game"
-# icon_path = "res://assets/ui/icons/quit.png"
+text = "QUIT"

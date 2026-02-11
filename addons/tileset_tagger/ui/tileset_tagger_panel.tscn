@@ -1,0 +1,152 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://addons/tileset_tagger/ui/tileset_tagger_panel.gd" id="1"]
+
+[node name="TileSetTaggerPanel" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1")
+
+[node name="Root" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Toolbar" type="HBoxContainer" parent="Root"]
+size_flags_horizontal = 3
+
+[node name="TileSetPath" type="LineEdit" parent="Root/Toolbar"]
+size_flags_horizontal = 3
+placeholder_text = "res://path/to/tileset.tres"
+
+[node name="BrowseTileSet" type="Button" parent="Root/Toolbar"]
+text = "Browse"
+
+[node name="Reload" type="Button" parent="Root/Toolbar"]
+text = "Load"
+
+[node name="HelpToggle" type="Button" parent="Root/Toolbar"]
+text = "?"
+custom_minimum_size = Vector2(30, 0)
+
+[node name="HelpPanel" type="PanelContainer" parent="Root"]
+visible = false
+
+[node name="HelpText" type="Label" parent="Root/HelpPanel"]
+text = "TILESET TAGGER QUICK GUIDE
+
+1. Browse & Load: Pick a TileSet (.tres)
+
+2. Select Tiles:
+  • Click - Single select (clears others)
+  • Shift+Click - Multi-select
+  • Ctrl+Click - Toggle selection
+  • Alt+Click - Clear metadata
+
+3. Set Metadata:
+  • Tag: Semantic label (building_house_small)
+  • Direction: N/NE/E/SE/S/SW/W/NW or None
+  • Animation: Check if animation frame
+  • Type: Animation type (auto-detects from path)
+
+4. Apply: Click Apply or enable Paint mode
+  • Paint ON: Click to apply, Alt+Click to erase
+  • History: Use dropdown for recent tags
+
+5. Export: Dump/Import JSON or Export Map"
+autowrap_mode = 3
+custom_minimum_size = Vector2(0, 200)
+
+[node name="TagRow" type="HBoxContainer" parent="Root"]
+size_flags_horizontal = 3
+
+[node name="TagLabel" type="Label" parent="Root/TagRow"]
+text = "Tag"
+
+[node name="TagInput" type="LineEdit" parent="Root/TagRow"]
+size_flags_horizontal = 3
+placeholder_text = "e.g., building_house_small"
+
+[node name="ApplyTag" type="Button" parent="Root/TagRow"]
+text = "Apply"
+
+[node name="ClearTag" type="Button" parent="Root/TagRow"]
+text = "Clear"
+
+[node name="PaintToggle" type="CheckBox" parent="Root/TagRow"]
+text = "Paint"
+
+[node name="HistoryOption" type="OptionButton" parent="Root/TagRow"]
+custom_minimum_size = Vector2(140, 0)
+
+[node name="MetaRow" type="HBoxContainer" parent="Root"]
+size_flags_horizontal = 3
+
+[node name="DirectionLabel" type="Label" parent="Root/MetaRow"]
+text = "Dir"
+
+[node name="DirectionOption" type="OptionButton" parent="Root/MetaRow"]
+custom_minimum_size = Vector2(100, 0)
+
+[node name="IsAnimCheck" type="CheckBox" parent="Root/MetaRow"]
+text = "Animation"
+
+[node name="AnimTypeLabel" type="Label" parent="Root/MetaRow"]
+text = "Type"
+
+[node name="AnimTypeInput" type="LineEdit" parent="Root/MetaRow"]
+size_flags_horizontal = 3
+placeholder_text = "e.g., walk, idle, attack"
+
+[node name="IoRow" type="HBoxContainer" parent="Root"]
+size_flags_horizontal = 3
+
+[node name="JsonPath" type="LineEdit" parent="Root/IoRow"]
+size_flags_horizontal = 3
+placeholder_text = "res://tools/tileset_tagger/tileset_tags.json"
+
+[node name="DumpJson" type="Button" parent="Root/IoRow"]
+text = "Dump"
+
+[node name="LoadJson" type="Button" parent="Root/IoRow"]
+text = "Import"
+
+[node name="SaveMap" type="Button" parent="Root/IoRow"]
+text = "Export Map"
+
+[node name="Split" type="HSplitContainer" parent="Root"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TileList" type="ItemList" parent="Root/Split"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+select_mode = 2
+icon_mode = 1
+fixed_icon_size = Vector2i(64, 64)
+max_text_lines = 1
+
+[node name="Preview" type="VBoxContainer" parent="Root/Split"]
+custom_minimum_size = Vector2(200, 0)
+size_flags_vertical = 3
+
+[node name="PreviewTexture" type="TextureRect" parent="Root/Split/Preview"]
+stretch_mode = 5
+expand_mode = 1
+custom_minimum_size = Vector2(200, 200)
+
+[node name="PreviewInfo" type="Label" parent="Root/Split/Preview"]
+text = "Select a tile to preview"
+
+[node name="Dialogs" type="Node" parent="."]
+
+[node name="TileSetDialog" type="FileDialog" parent="Dialogs"]
+access = 2
+file_mode = 1
+filters = PackedStringArray("*.tres ; TileSet")
+
+[node name="JsonDialog" type="FileDialog" parent="Dialogs"]
+access = 2
+file_mode = 1
+filters = PackedStringArray("*.json ; JSON")

@@ -1,11 +1,19 @@
 # LAPTOP CONTINUATION — ISO TEST MAP + LORD/NPC SETUP
 **Project:** Abyssal Realms Expedition Manager
-**Session Date:** Feb 10, 2026
-**Status:** ISO test scene playable; map sampler + tileset workflow in progress ✅
+**Session Date:** Feb 11, 2026
+**Status:** ISO test scene playable; tileset atlas cleanup + UID fixes in progress ✅
 
 ---
 
 ## ✅ What we did this session
+
+### 0) Tileset repair + UID cleanup
+- Restored missing TileSet resources into `assets/tilesets/fantasy_iso/`
+  - Fantasy_Build, Fantasy_Flora, Fantasy_Stone, Fantasy_Trees
+- Cleaned atlas entries so tiles only exist inside each texture's bounds
+  - Removed out-of-range coords like (7,12) / (8,12)
+- Removed duplicate UIDs from the restored TileSets to avoid editor warnings
+- Added a safer atlas repair tool: [tools/repair_atlas_tilesets.gd](tools/repair_atlas_tilesets.gd)
 
 ### 1) World map sampling (static layer)
 - Added [scripts/world/WorldMapSampler.gd](scripts/world/WorldMapSampler.gd)
@@ -17,6 +25,7 @@
 - Player can walk via `OverworldPlayer.gd`
 - Uses TileMapLayer (Godot 4.6) to avoid deprecation warnings
 - Y-sorting enabled so sprites layer correctly in iso view
+- Ground layer now points to `Fantasy_Ground.tres` (stable tileset)
 
 ### 3) Player uses character-creator rig
 - Player now uses a `LordRig` (from `LordModelPreview.gd`) instead of a static sprite
@@ -45,6 +54,7 @@
 ---
 
 ## ✅ Current files touched
+- [tools/repair_atlas_tilesets.gd](tools/repair_atlas_tilesets.gd)
 - [scripts/world/WorldMapSampler.gd](scripts/world/WorldMapSampler.gd)
 - [scripts/world/OverworldTest.gd](scripts/world/OverworldTest.gd)
 - [scripts/world/OverworldPlayer.gd](scripts/world/OverworldPlayer.gd)
@@ -52,6 +62,10 @@
 - [scripts/ui/LordModelPreview.gd](scripts/ui/LordModelPreview.gd)
 - [scripts/world/KingdomRegionTextureGenerator.gd](scripts/world/KingdomRegionTextureGenerator.gd)
 - [scenes/world/overworld/OverworldTest.tscn](scenes/world/overworld/OverworldTest.tscn)
+- [assets/tilesets/fantasy_iso/Fantasy_Build.tres](assets/tilesets/fantasy_iso/Fantasy_Build.tres)
+- [assets/tilesets/fantasy_iso/Fantasy_Flora.tres](assets/tilesets/fantasy_iso/Fantasy_Flora.tres)
+- [assets/tilesets/fantasy_iso/Fantasy_Stone.tres](assets/tilesets/fantasy_iso/Fantasy_Stone.tres)
+- [assets/tilesets/fantasy_iso/Fantasy_Trees.tres](assets/tilesets/fantasy_iso/Fantasy_Trees.tres)
 
 ---
 
@@ -60,6 +74,8 @@
    - If sheet frames are not 128x128, update `frame_size` on the NPC Sprite2D nodes.
 2) **TileSet coverage**
    - TileSet resources need to be created for each kit folder (Ground, Tree, Stone, etc.).
+3) **OverworldTest atlas sanity**
+  - Reopen the scene and confirm no TileSetAtlasSource errors remain.
 
 ---
 

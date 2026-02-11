@@ -1,0 +1,90 @@
+@tool
+extends EditorScript
+
+const ROOT_PATH := "res://assets/tilesets/fantasy_iso"
+
+func _run() -> void:
+	var paths: Array[String] = []
+	_collect_tilesets(ROOT_PATH, paths)
+	if paths.is_empty():
+		push_warning("[AtlasRepair] No TileSet resources found under: %s" % ROOT_PATH)
+		return
+
+	var updated := 0
+	for path in paths:
+		var ts := load(path) as TileSet
+		if ts == null:
+			push_warning("[AtlasRepair] Failed to load TileSet: %s" % path)
+			continue
+		if _repair_tileset(ts):
+			if ResourceSaver.save(ts, path) == OK:
+				updated += 1
+			else:
+				push_warning("[AtlasRepair] Failed to save TileSet: %s" % path)
+
+	print("[AtlasRepair] Updated TileSets:", updated)
+
+
+func _repair_tileset(ts: TileSet) -> bool:
+	var changed := false
+	var source_count: int = ts.get_source_count()
+	for i in range(source_count):
+		var source_id: int = ts.get_source_id(i)
+		var source: TileSetSource = ts.get_source(source_id)
+		if source == null or not (source is TileSetAtlasSource):
+			continue
+		var atlas := source as TileSetAtlasSource
+		if atlas.texture == null:
+			continue
+
+		var tex_size := atlas.texture.get_size()
+		var tex_size_i := Vector2i(tex_size)
+		var region := Vector2i(atlas.texture_region_size)
+		if region.x <= 0 or region.y <= 0:
+			continue
+		if region.x > tex_size_i.x or region.y > tex_size_i.y:
+			atlas.texture_region_size = tex_size_i
+			region = tex_size_i
+			changed = true
+
+		var max_cols := int(tex_size_i.x / region.x)
+		var max_rows := int(tex_size_i.y / region.y)
+		if max_cols <= 0 or max_rows <= 0:
+			continue
+
+		var existing_coords: Array[Vector2i] = []
+		var tile_count := atlas.get_tiles_count()
+		for t in range(tile_count):
+			existing_coords.append(atlas.get_tile_id(t))
+		for coords in existing_coords:
+			if coords.x < 0 or coords.y < 0 or coords.x >= max_cols or coords.y >= max_rows:
+				if atlas.has_tile(coords):
+					atlas.remove_tile(coords)
+					changed = true
+
+		if region == tex_size_i and atlas.get_tiles_count() == 0:
+			var single_coords := Vector2i(0, 0)
+			if not atlas.has_tile(single_coords):
+				atlas.create_tile(single_coords)
+				changed = true
+
+	return changed
+
+
+func _collect_tilesets(root: String, out: Array[String]) -> void:
+	var dir := DirAccess.open(root)
+	if dir == null:
+		return
+	dir.list_dir_begin()
+	while true:
+		var name := dir.get_next()
+		if name == "":
+			break
+		if name.begins_with("."):
+			continue
+		var path := root.path_join(name)
+		if dir.current_is_dir():
+			_collect_tilesets(path, out)
+		elif name.to_lower().ends_with(".tres"):
+			out.append(path)
+	dir.list_dir_end()
