@@ -1,0 +1,6 @@
+[gd_resource type="TileSet" format=3 uid="uid://8r7jkpt1kpwc"]
+
+[resource]
+tile_shape = 1
+tile_offset_axis = 1
+tile_size = Vector2i(128, 64)

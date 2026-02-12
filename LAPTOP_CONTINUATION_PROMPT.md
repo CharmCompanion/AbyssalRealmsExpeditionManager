@@ -1,118 +1,106 @@
-# LAPTOP CONTINUATION — ISO TEST MAP + LORD/NPC SETUP
+# LAPTOP CONTINUATION — ISO TILESETS + OVERWORLD PAINTING + PROCGEN DIRECTION
 **Project:** Abyssal Realms Expedition Manager
 **Session Date:** Feb 11, 2026
-**Status:** ISO test scene playable; tileset atlas cleanup + UID fixes in progress ✅
+**Status:** Ground painting fixed ✅ | Wall sorting fixed ✅ | Wall paint-under-mouse still being tuned ⚠️ | Overworld exploration prototype added ✅
 
 ---
 
 ## ✅ What we did this session
 
-### 0) Tileset repair + UID cleanup
-- Restored missing TileSet resources into `assets/tilesets/fantasy_iso/`
-  - Fantasy_Build, Fantasy_Flora, Fantasy_Stone, Fantasy_Trees
-- Cleaned atlas entries so tiles only exist inside each texture's bounds
-  - Removed out-of-range coords like (7,12) / (8,12)
-- Removed duplicate UIDs from the restored TileSets to avoid editor warnings
-- Added a safer atlas repair tool: [tools/repair_atlas_tilesets.gd](tools/repair_atlas_tilesets.gd)
+### 0) Core fix: iso TileSet selection/painting
+- Root cause was PNGs (often 256×256) being treated like multi-cell atlases → “4 squares” selection + wrong snapping.
+- Added/iterated an editor script that tightens atlas selection and removes stray atlas coords:
+  - [tools/tighten_iso_tileset_selection.gd](tools/tighten_iso_tileset_selection.gd)
+- Ground painting now behaves correctly (pixel-tight selection, no stray atlas coords).
 
-### 1) World map sampling (static layer)
-- Added [scripts/world/WorldMapSampler.gd](scripts/world/WorldMapSampler.gd)
-  - Reads `assets/map/Biomes.png`, `assets/map/map.png`, `assets/map/kingdoms/Water.png`
-  - Exposes `get_biome_at_tile`, `get_country_at_tile`, `is_water`
+### 1) Sorting/overlap improvements
+- Enabled Y-sort on the iso layers that needed correct overlap.
+- Overworld test scene updates:
+  - GroundLayer: `y_sort_enabled = true`
+  - WallLayer: `y_sort_enabled = true` and `x_draw_order_reversed = true` (iso tie-break fix)
 
-### 2) Overworld test scene (walkable)
+### 2) Overworld exploration prototype (player + camera + ground streaming)
 - Scene: [scenes/world/overworld/OverworldTest.tscn](scenes/world/overworld/OverworldTest.tscn)
-- Player can walk via `OverworldPlayer.gd`
-- Uses TileMapLayer (Godot 4.6) to avoid deprecation warnings
-- Y-sorting enabled so sprites layer correctly in iso view
-- Ground layer now points to `Fantasy_Ground.tres` (stable tileset)
+- Added a simple `Player` (CharacterBody2D) + `Camera2D` follow.
+- Added an exploration controller that inherits the building placement script and streams ground tiles around the player:
+  - [scripts/world/OverworldExploreController.gd](scripts/world/OverworldExploreController.gd)
+  - Note: project treats warnings as errors → avoid Variant-inference patterns (`min()`, `max()` without explicit typing).
 
-### 3) Player uses character-creator rig
-- Player now uses a `LordRig` (from `LordModelPreview.gd`) instead of a static sprite
-- Appearance generated at runtime via `CharacterAppearanceGenerator`
-- Movement drives 8-direction facing + walk/idle actions
+### 3) Mouse-to-tile placement fixes (runtime)
+- Fixed incorrect coordinate conversion: `TileMapLayer.local_to_map()` needs layer-local coords.
+- Added an iso cursor offset knob (still being tuned):
+  - [scripts/world/BuildingPlacement.gd](scripts/world/BuildingPlacement.gd)
 
-### 4) NPCs + enemy in the test map
-- Added 3 NPCs and 1 enemy using iso sprite sheets
-- New helper script for their sheet animation: [scripts/world/IsoCharacterSprite.gd](scripts/world/IsoCharacterSprite.gd)
+### 4) Addon noise/warnings cleanup
+- Fixed WFC addon warning: removed duplicate scene UID from one demo scene:
+  - [addons/wfc/examples/demo_wfc_2d_tilemap.tscn](addons/wfc/examples/demo_wfc_2d_tilemap.tscn)
 
-### 5) Kit paths fixed
-- Isometric environment dir now points to imported kit
-  - [scripts/world/KingdomRegionTextureGenerator.gd](scripts/world/KingdomRegionTextureGenerator.gd)
-
-### 6) TileSet sorting folders created
-- assets/tilesets/fantasy_iso/Animations
-- assets/tilesets/fantasy_iso/Animations/Animated Tiles
-- assets/tilesets/fantasy_iso/Animations/Destructible tiles
-- assets/tilesets/fantasy_iso/Animations/Effects
-- assets/tilesets/fantasy_iso/Animations/Props
-
-### 7) Fixed Godot parse error
-- Fixed `biome_data.gd` (invalid top-level `dict`)
-  - [Chimera3D_Scaffold/map_gen/biome_data.gd](Chimera3D_Scaffold/map_gen/biome_data.gd)
+### 5) Procgen direction (agreed intent)
+- Goal: no hand-made maps; deterministic seeded world; persistent main town saved; expeditions/quests can generate temporary overlays.
+- Recommended structure:
+  - Base world terrain = deterministic (noise + biome rules) per world seed.
+  - POIs (towns/dungeons/routes) = deterministic placement per world seed + stored persistent discoveries.
+  - Expedition overlay = generated per expedition seed (can change per quest/run), optionally “committed” to save.
 
 ---
 
-## ✅ Current files touched
-- [tools/repair_atlas_tilesets.gd](tools/repair_atlas_tilesets.gd)
-- [scripts/world/WorldMapSampler.gd](scripts/world/WorldMapSampler.gd)
-- [scripts/world/OverworldTest.gd](scripts/world/OverworldTest.gd)
+## ✅ Current files touched (high-signal)
+- [tools/tighten_iso_tileset_selection.gd](tools/tighten_iso_tileset_selection.gd)
+- [scripts/world/BuildingPlacement.gd](scripts/world/BuildingPlacement.gd)
+- [scripts/world/OverworldExploreController.gd](scripts/world/OverworldExploreController.gd)
 - [scripts/world/OverworldPlayer.gd](scripts/world/OverworldPlayer.gd)
-- [scripts/world/IsoCharacterSprite.gd](scripts/world/IsoCharacterSprite.gd)
-- [scripts/ui/LordModelPreview.gd](scripts/ui/LordModelPreview.gd)
-- [scripts/world/KingdomRegionTextureGenerator.gd](scripts/world/KingdomRegionTextureGenerator.gd)
 - [scenes/world/overworld/OverworldTest.tscn](scenes/world/overworld/OverworldTest.tscn)
-- [assets/tilesets/fantasy_iso/Fantasy_Build.tres](assets/tilesets/fantasy_iso/Fantasy_Build.tres)
-- [assets/tilesets/fantasy_iso/Fantasy_Flora.tres](assets/tilesets/fantasy_iso/Fantasy_Flora.tres)
-- [assets/tilesets/fantasy_iso/Fantasy_Stone.tres](assets/tilesets/fantasy_iso/Fantasy_Stone.tres)
-- [assets/tilesets/fantasy_iso/Fantasy_Trees.tres](assets/tilesets/fantasy_iso/Fantasy_Trees.tres)
+- [assets/tilesets/fantasy_iso/Fantasy_Ground.tres](assets/tilesets/fantasy_iso/Fantasy_Ground.tres)
+- [assets/tilesets/fantasy_iso/Fantasy_Wall.tres](assets/tilesets/fantasy_iso/Fantasy_Wall.tres)
+- [addons/wfc/examples/demo_wfc_2d_tilemap.tscn](addons/wfc/examples/demo_wfc_2d_tilemap.tscn)
 
 ---
 
 ## ⚠️ Known issues / things to verify
-1) **NPC/Enemy animation framing**
-   - If sheet frames are not 128x128, update `frame_size` on the NPC Sprite2D nodes.
-2) **TileSet coverage**
-   - TileSet resources need to be created for each kit folder (Ground, Tree, Stone, etc.).
-3) **OverworldTest atlas sanity**
-  - Reopen the scene and confirm no TileSetAtlasSource errors remain.
+1) **Wall paint-under-mouse still off in editor**
+  - Walls must keep a consistent origin to avoid gaps; cursor alignment needs to be solved via preview/placement logic, not per-tile origin.
+2) **Warnings-as-errors**
+  - Avoid Variant-inferred locals (e.g. `var x := min(...)`). Use explicit types and simple clamps.
+3) **Re-run the tileset tightening when resources drift**
+  - Run [tools/tighten_iso_tileset_selection.gd](tools/tighten_iso_tileset_selection.gd) to re-save TileSets consistently.
 
 ---
 
 ## 🔜 What we need to do next
 
-### A) Finish tile set organization
-- For each kit folder, create a TileSet resource (same workflow as Ground).
-- Keep animated tiles in their own TileSet folder (Animations/Animated Tiles).
+### A) Finish wall cursor alignment (without gaps)
+- Add a “paint preview” sprite that follows the mouse and snaps to the computed cell (visual confirmation).
+- Make the preview use the wall tile’s origin so the user clicks where they see.
 
-### B) Clean iso test map
-- Paint a small starter map: ground, house, tree, rock, props.
-- Confirm player/npc sorting looks correct.
+### B) Procgen scaffolding (next milestone)
+- Define `WorldSeed` + save data schema (persistent POIs vs temporary overlays).
+- Implement chunk generator:
+  - deterministic ground/biomes per chunk
+  - deterministic POI placement per chunk
+  - expedition overlay generation per expedition/quest
 
-### C) Replace NPC/enemy with character-creator rigs (optional next)
-- If we want all actors using the creator system, swap NPC Sprite2D to layered rigs.
-
-### D) Move toward chunked overworld
-- Build `Chunk.tscn` + `ChunkStreamer.gd` to stream tiles by player position.
+### C) Optional: use Voronoi/Delaunay for macro layout
+- Voronoi cells = regions/kingdoms/biomes.
+- Delaunay edges = roads/expedition routes graph.
 
 ---
 
 ## 📌 Plan going forward (short)
-1) Finalize TileSet resources for the iso kit folders.
-2) Lock down the OverworldTest visual baseline (ground + props + working actors).
-3) Start chunked overworld generation with `WorldMapSampler`.
-4) Integrate quest/rumor systems after the overworld is stable.
+1) Lock down tile painting UX (especially walls) so authoring + testing is fast.
+2) Implement deterministic chunked overworld base layer (noise/biomes).
+3) Add POI placement + persistence (main town always saved).
+4) Add expedition overlays (change per quest/run, optionally commit discoveries).
 
 ---
 
 ## 🧪 Quick test checklist
 - Open OverworldTest, confirm:
-  - Player moves and faces correctly (8 directions)
-  - NPCs and enemy animate
-  - Y-sort looks right
-  - TileMapLayer draws without warnings
+  - Ground painting selects only visible pixels (no “4 squares”)
+  - Walls Y-sort correctly (no corner behind)
+  - No UID duplicate warnings
+  - No script parse errors from warnings-as-errors
 
 ---
 
-**STATUS:** OverworldTest is playable, tile workflow in progress.  
-**NEXT MILESTONE:** TileSets + chunked overworld streaming.
+**STATUS:** Ground painting + sorting stable; wall paint-under-mouse still needs a clean UX fix.  
+**NEXT MILESTONE:** Deterministic chunked overworld + POI persistence.

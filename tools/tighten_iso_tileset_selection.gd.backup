@@ -1,0 +1,183 @@
+@tool
+extends EditorScript
+
+# Auto-fixes atlas selections so you only select/paint the pixels (not empty padding)
+# and prevents Godot from treating each 256x256 PNG as a 2x2 (or worse) atlas.
+#
+# What it does:
+# - For every TileSet under ROOT_PATH:
+#   - For every TileSetAtlasSource with a texture:
+#     - Reads the texture's Image and computes its non-transparent used rect.
+#     - Sets atlas.texture_region_size = used_rect.size
+#     - Sets atlas.margins = used_rect.position
+#     - Sets atlas.separation = (0,0)
+#     - Removes ALL tiles except atlas coord (0,0) (brute-force scan)
+#     - Sets texture_origin so the bottom of the region aligns to the TileSet's tile_size.
+#
+# Special-case:
+# - Fantasy_Ground.tres is forced to a 128x64 iso footprint so floor tiles touch.
+
+const ROOT_PATH := "res://assets/tilesets/fantasy_iso"
+const KEEP_ATLAS_COORDS := Vector2i(0, 0)
+
+const FORCE_GROUND_FOOTPRINT := Vector2i(128, 64)
+
+const MAKE_TRES_BACKUPS := true
+
+func _run() -> void:
+	var paths: Array[String] = []
+	_collect_tilesets(ROOT_PATH, paths)
+	if paths.is_empty():
+		push_warning("[TightenAtlas] No TileSet resources found under: %s" % ROOT_PATH)
+		return
+
+	var updated := 0
+	for path in paths:
+		var ts := load(path) as TileSet
+		if ts == null:
+			push_warning("[TightenAtlas] Failed to load TileSet: %s" % path)
+			continue
+
+		var changed := _tighten_tileset(ts, path)
+		if not changed:
+			continue
+
+		if MAKE_TRES_BACKUPS:
+			_make_backup_if_missing(path)
+
+		if ResourceSaver.save(ts, path) == OK:
+			updated += 1
+		else:
+			push_warning("[TightenAtlas] Failed to save TileSet: %s" % path)
+
+	print("[TightenAtlas] Updated TileSets:", updated, "/", paths.size())
+
+
+func _tighten_tileset(ts: TileSet, res_path: String) -> bool:
+	var changed := false
+
+	# Only force footprint for the ground (so it paints as a contiguous floor).
+	if res_path.ends_with("/Fantasy_Ground.tres"):
+		# Ensure it is isometric.
+		if ts.tile_shape != TileSet.TILE_SHAPE_ISOMETRIC:
+			ts.tile_shape = TileSet.TILE_SHAPE_ISOMETRIC
+			changed = true
+		if ts.tile_layout != TileSet.TILE_LAYOUT_STACKED:
+			ts.tile_layout = TileSet.TILE_LAYOUT_STACKED
+			changed = true
+		if ts.tile_offset_axis != TileSet.TILE_OFFSET_AXIS_VERTICAL:
+			ts.tile_offset_axis = TileSet.TILE_OFFSET_AXIS_VERTICAL
+			changed = true
+		if ts.tile_size != FORCE_GROUND_FOOTPRINT:
+			ts.tile_size = FORCE_GROUND_FOOTPRINT
+			changed = true
+
+	var tile_footprint := Vector2i(ts.tile_size)
+	if tile_footprint == Vector2i.ZERO:
+		# Fallback to something sane; prevents divide-by-zero alignment.
+		tile_footprint = Vector2i(128, 64)
+
+	var source_count: int = ts.get_source_count()
+	for i in range(source_count):
+		var source_id: int = ts.get_source_id(i)
+		var source: TileSetSource = ts.get_source(source_id)
+		if source == null or not (source is TileSetAtlasSource):
+			continue
+
+		var atlas := source as TileSetAtlasSource
+		if atlas.texture == null:
+			continue
+
+		var img: Image = atlas.texture.get_image()
+		if img == null:
+			continue
+
+		# Compute tight bounds of non-transparent pixels.
+		var used := img.get_used_rect()
+		if used.size.x <= 0 or used.size.y <= 0:
+			# Fully empty/transparent texture; leave it alone.
+			continue
+
+		# Apply tight selection rect.
+		if Vector2i(atlas.texture_region_size) != Vector2i(used.size):
+			atlas.texture_region_size = Vector2i(used.size)
+			changed = true
+		if atlas.margins != Vector2i(used.position):
+			atlas.margins = Vector2i(used.position)
+			changed = true
+		if atlas.separation != Vector2i.ZERO:
+			atlas.separation = Vector2i.ZERO
+			changed = true
+
+		# Brutally remove all tiles except (0,0), without relying on get_tiles_count().
+		# Godot can keep stray coords in the resource even when tile enumeration is weird.
+		var region := Vector2i(atlas.texture_region_size)
+		var tex_size := Vector2i(atlas.texture.get_size())
+		var max_cols := int(ceil(float(tex_size.x) / max(1, region.x))) + 2
+		var max_rows := int(ceil(float(tex_size.y) / max(1, region.y))) + 2
+
+		for y in range(max_rows):
+			for x in range(max_cols):
+				var c := Vector2i(x, y)
+				if c == KEEP_ATLAS_COORDS:
+					continue
+				if atlas.has_tile(c):
+					atlas.remove_tile(c)
+					changed = true
+
+		if not atlas.has_tile(KEEP_ATLAS_COORDS):
+			atlas.create_tile(KEEP_ATLAS_COORDS)
+			changed = true
+
+		# Align the texture so tiles snap flush:
+		# - center horizontally in the footprint
+		# - align region bottom to footprint bottom
+		var desired_origin := Vector2i(
+			int(floor((tile_footprint.x - region.x) * 0.5)),
+			tile_footprint.y - region.y
+		)
+
+		var data := atlas.get_tile_data(KEEP_ATLAS_COORDS, 0)
+		if data != null and data.texture_origin != desired_origin:
+			data.texture_origin = desired_origin
+			changed = true
+
+	return changed
+
+
+func _collect_tilesets(root: String, out: Array[String]) -> void:
+	var dir := DirAccess.open(root)
+	if dir == null:
+		return
+	dir.list_dir_begin()
+	while true:
+		var name := dir.get_next()
+		if name == "":
+			break
+		if name.begins_with("."):
+			continue
+		var path := root.path_join(name)
+		if dir.current_is_dir():
+			_collect_tilesets(path, out)
+		elif name.to_lower().ends_with(".tres"):
+			out.append(path)
+	dir.list_dir_end()
+
+
+func _make_backup_if_missing(res_path: String) -> void:
+	var abs_path := ProjectSettings.globalize_path(res_path)
+	var backup_path := abs_path + ".backup"
+	if FileAccess.file_exists(backup_path):
+		return
+	var src := FileAccess.open(abs_path, FileAccess.READ)
+	if src == null:
+		push_warning("[TightenAtlas] Backup skipped; cannot read: %s" % abs_path)
+		return
+	var data := src.get_buffer(src.get_length())
+	src.close()
+	var dst := FileAccess.open(backup_path, FileAccess.WRITE)
+	if dst == null:
+		push_warning("[TightenAtlas] Backup skipped; cannot write: %s" % backup_path)
+		return
+	dst.store_buffer(data)
+	dst.close()

@@ -1,120 +1,56 @@
-[gd_scene format=3 uid="uid://cupao41pxjt7h"]
+[gd_scene format=4 uid="uid://cupao41pxjt7h"]
 
-[ext_resource type="Script" uid="uid://b3pgttwcnre5q" path="res://scripts/world/OverworldTest.gd" id="1"]
-[ext_resource type="Script" uid="uid://dg7s0b58ofnfc" path="res://scripts/world/WorldMapSampler.gd" id="2"]
-[ext_resource type="Script" uid="uid://c4io2h1cuqf1n" path="res://scripts/world/OverworldPlayer.gd" id="3"]
-[ext_resource type="TileSet" uid="uid://uiecrbci84v8" path="res://assets/tilesets/fantasy_iso/Fantasy_Ground.tres" id="3_6amdu"]
-[ext_resource type="Script" uid="uid://c4uvnk0r8x81o" path="res://scripts/ui/LordModelPreview.gd" id="4_lord_preview"]
-[ext_resource type="Script" uid="uid://dv55fjn4wjtm5" path="res://scripts/world/IsoCharacterSprite.gd" id="5_iso_char"]
-[ext_resource type="TileSet" uid="uid://01sov2ugbd10" path="res://assets/tilesets/fantasy_iso/Fantasy_Build.tres" id="build_tileset"]
-[ext_resource type="Texture2D" uid="uid://d117ynsyg4stw" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Characters/Enemy 1/Idle.png" id="enemy1_idle"]
-[ext_resource type="Texture2D" uid="uid://cc88btjrkbwgo" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Characters/Enemy 1/Walk.png" id="enemy1_walk"]
-[ext_resource type="TileSet" uid="uid://d02vgl7iktsr6" path="res://assets/tilesets/fantasy_iso/Fantasy_Flora.tres" id="flora_tileset"]
-[ext_resource type="Texture2D" uid="uid://cg7nray6f6cta" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Characters/NPC1/Idle.png" id="npc1_idle"]
-[ext_resource type="Texture2D" uid="uid://cvxpik42o27vj" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Characters/NPC1/Walk.png" id="npc1_walk"]
-[ext_resource type="Texture2D" uid="uid://7sahrpwd8wdf" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Characters/NPC2/Idle.png" id="npc2_idle"]
-[ext_resource type="Texture2D" uid="uid://drvk5j6mn2me2" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Characters/NPC2/Walk.png" id="npc2_walk"]
-[ext_resource type="Texture2D" uid="uid://mrogrn8rx45r" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Characters/NPC3/Idle.png" id="npc3_idle"]
-[ext_resource type="Texture2D" uid="uid://bnu18apsy1od7" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Characters/NPC3/Walk.png" id="npc3_walk"]
-[ext_resource type="TileSet" uid="uid://dq30b471fwmnl" path="res://assets/tilesets/fantasy_iso/Fantasy_Stone.tres" id="stone_tileset"]
-[ext_resource type="TileSet" uid="uid://c74l175c65elg" path="res://assets/tilesets/fantasy_iso/Fantasy_Trees.tres" id="trees_tileset"]
+[ext_resource type="Script" uid="uid://cqygxt3yocq2l" path="res://scripts/world/OverworldExploreController.gd" id="Script_overworld_explore"]
+[ext_resource type="Script" uid="uid://c4io2h1cuqf1n" path="res://scripts/world/OverworldPlayer.gd" id="Script_overworld_player"]
+[ext_resource type="Texture2D" uid="uid://bqsy0me0w278r" path="res://icon.svg" id="Tex_player_icon"]
+[ext_resource type="TileSet" uid="uid://ceyctpqa6033s" path="res://assets/tilesets/fantasy_iso/Fantasy_Build.tres" id="TileSet_build"]
+[ext_resource type="TileSet" uid="uid://me342j8y04ap" path="res://assets/tilesets/fantasy_iso/Fantasy_Flora.tres" id="TileSet_flora"]
+[ext_resource type="TileSet" uid="uid://cwhg0u5hgq0s7" path="res://assets/tilesets/fantasy_iso/Fantasy_Ground.tres" id="TileSet_ground"]
+[ext_resource type="TileSet" uid="uid://bf44yoca6phrp" path="res://assets/tilesets/fantasy_iso/Fantasy_Roof.tres" id="TileSet_roof"]
+[ext_resource type="TileSet" uid="uid://d2ruxbfavaq8x" path="res://assets/tilesets/fantasy_iso/Fantasy_Stone.tres" id="TileSet_stone"]
+[ext_resource type="TileSet" uid="uid://bf1vggi7qmsn3" path="res://assets/tilesets/fantasy_iso/Fantasy_Trees.tres" id="TileSet_trees"]
+[ext_resource type="TileSet" uid="uid://dsklcxvto5i0x" path="res://assets/tilesets/fantasy_iso/Fantasy_Wall.tres" id="TileSet_wall"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_player"]
-size = Vector2(24, 18)
+[node name="OverworldTest" type="Node2D" unique_id=543527600]
+position = Vector2(512, 384)
+script = ExtResource("Script_overworld_explore")
 
-[node name="OverworldTest" type="Node2D" unique_id=736308009]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=2103175915]
+script = ExtResource("Script_overworld_player")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=2103175916]
+texture = ExtResource("Tex_player_icon")
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=2103175917]
+position_smoothing_enabled = true
+position_smoothing_speed = 6.0
+
+[node name="BuildLayer" type="TileMapLayer" parent="." unique_id=620559555]
+tile_map_data = PackedByteArray("AAD3//n/AAAAAAAAAAD4//n/AAAAAAAAAAD5//n/AAAAAAAAAAD6//n/AAAAAAAAAAD7//n/AAAAAAAAAAD6//r/AAAAAAAAAAD8//n/AAAAAAAAAAD9//n/AAAAAAAAAAD8//r/AAAAAAAAAAD9//r/AAAAAAAAAAD+//v/AAAAAAAAAAD///v/AAAAAAAAAAD///z/AAAAAAAAAAD///3/AAAAAAAAAAAAAP7/AAAAAAAAAAABAP7/AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAD3//r/AAAAAAAAAAD3//v/AAAAAAAAAAD3//z/AAAAAAAAAAD3//3/AAAAAAAAAAD3//7/AAAAAAAAAAD3////AAAAAAAAAAD3/wAAAAAAAAAAAAD3/wEAAAAAAAAAAAD3/wIAAAAAAAAAAAD3/wMAAAAAAAAAAAD4//r/AAAAAAAAAAD4//v/AAAAAAAAAAD4//z/AAAAAAAAAAD4//3/AAAAAAAAAAD4//7/AAAAAAAAAAD4////AAAAAAAAAAD4/wAAAAAAAAAAAAD4/wEAAAAAAAAAAAD4/wIAAAAAAAAAAAD4/wMAAAAAAAAAAAD5//r/AAAAAAAAAAD5//v/AAAAAAAAAAD5//z/AAAAAAAAAAD5//3/AAAAAAAAAAD5//7/AAAAAAAAAAD5////AAAAAAAAAAD5/wAAAAAAAAAAAAD5/wEAAAAAAAAAAAD5/wIAAAAAAAAAAAD5/wMAAAAAAAAAAAD6//v/AAAAAAAAAAD6//z/AAAAAAAAAAD6//3/AAAAAAAAAAD6//7/AAAAAAAAAAD6////AAAAAAAAAAD6/wAAAAAAAAAAAAD6/wEAAAAAAAAAAAD6/wIAAAAAAAAAAAD6/wMAAAAAAAAAAAD7//r/AAAAAAAAAAD7//v/AAAAAAAAAAD7//z/AAAAAAAAAAD7//3/AAAAAAAAAAD7//7/AAAAAAAAAAD7////AAAAAAAAAAD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD7/wIAAAAAAAAAAAD7/wMAAAAAAAAAAAD8//v/AAAAAAAAAAD8//z/AAAAAAAAAAD8//3/AAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAAAAAD9//v/AAAAAAAAAAD9//z/AAAAAAAAAAD9//3/AAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wMAAAAAAAAAAAD+//n/AAAAAAAAAAD+//r/AAAAAAAAAAD+//z/AAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wMAAAAAAAAAAAD///n/AAAAAAAAAAD///r/AAAAAAAAAAD///7/AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAAAAPn/AAAAAAAAAAAAAPr/AAAAAAAAAAAAAPv/AAAAAAAAAAAAAPz/AAAAAAAAAAAAAP3/AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAABAPn/AAAAAAAAAAABAPr/AAAAAAAAAAABAPv/AAAAAAAAAAABAPz/AAAAAAAAAAABAP3/AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAAAAAAAAAAACAPn/AAAAAAAAAAACAPr/AAAAAAAAAAACAPv/AAAAAAAAAAACAPz/AAAAAAAAAAACAP3/AAAAAAAAAAACAP7/AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAADAPn/AAAAAAAAAAADAPr/AAAAAAAAAAADAPv/AAAAAAAAAAADAPz/AAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAAEAPn/AAAAAAAAAAAEAPr/AAAAAAAAAAAEAPv/AAAAAAAAAAAEAPz/AAAAAAAAAAAEAP3/AAAAAAAAAAAEAP7/AAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAAAAAAAAAAAFAPn/AAAAAAAAAAAFAPr/AAAAAAAAAAAFAPv/AAAAAAAAAAAFAPz/AAAAAAAAAAAFAP3/AAAAAAAAAAAFAP7/AAAAAAAAAAAFAP//AAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAGAPn/AAAAAAAAAAAGAPr/AAAAAAAAAAAGAPv/AAAAAAAAAAAGAPz/AAAAAAAAAAAGAP3/AAAAAAAAAAAGAP7/AAAAAAAAAAAGAP//AAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAHAPn/AAAAAAAAAAAHAPr/AAAAAAAAAAAHAPv/AAAAAAAAAAAHAPz/AAAAAAAAAAAHAP3/AAAAAAAAAAAHAP7/AAAAAAAAAAAHAP//AAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAIAPn/AAAAAAAAAAAIAPr/AAAAAAAAAAAIAPv/AAAAAAAAAAAIAPz/AAAAAAAAAAAIAP3/AAAAAAAAAAAIAP7/AAAAAAAAAAAIAP//AAAAAAAAAAAIAAAAAAAAAAAAAAAIAAEAAAAAAAAAAAAIAAIAAAAAAAAAAAAIAAMAAAAAAAAAAAAJAPn/AAAAAAAAAAAJAPr/AAAAAAAAAAAJAPv/AAAAAAAAAAAJAPz/AAAAAAAAAAAJAP3/AAAAAAAAAAAJAP7/AAAAAAAAAAAJAP//AAAAAAAAAAAJAAAAAAAAAAAAAAAJAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAAJAAMAAAAAAAAAAAD4/wQAAAAAAAAAAAD6/wQAAAAAAAAAAAD8/wQAAAAAAAAAAAD+/wQAAAAAAAAAAAAAAAQAAAAAAAAAAAACAAQAAAAAAAAAAAAEAAQAAAAAAAAAAAAGAAQAAAAAAAAAAAAIAAQAAAAAAAAAAAA=")
+tile_set = ExtResource("TileSet_build")
+
+[node name="GroundLayer" type="TileMapLayer" parent="." unique_id=1175019054]
 y_sort_enabled = true
-script = ExtResource("1")
+tile_map_data = PackedByteArray("AAD/////cQAAAAAAAAD9////cQAAAAAAAAD+////cQAAAAAAAAD///7/cQAAAAAAAAAAAP//cQAAAAAAAAABAP//cQAAAAAAAAAAAAAAcQAAAAAAAAABAAAAcQAAAAAAAAAAAAEAcQAAAAAAAAACAAAAcQAAAAAAAAACAP//cQAAAAAAAAABAP7/cQAAAAAAAAAAAP7/cQAAAAAAAAADAP//cQAAAAAAAAAEAAAAcQAAAAAAAAADAAAAcQAAAAAAAAAFAAAAcQAAAAAAAAAGAAEAcQAAAAAAAAAHAAEAcQAAAAAAAAAGAAIAcQAAAAAAAAAFAAEAcQAAAAAAAAAEAAIAcQAAAAAAAAADAAIAcQAAAAAAAAACAAIAcQAAAAAAAAADAAEAcQAAAAAAAAAEAAEAcQAAAAAAAAACAAEAcQAAAAAAAAABAP3/cQAAAAAAAAACAP3/cQAAAAAAAAADAPz/cQAAAAAAAAAEAPz/cQAAAAAAAAAJAP7/cQAAAAAAAAAIAP//cQAAAAAAAAAJAP//cQAAAAAAAAAIAAAAcQAAAAAAAAAJAAAAcQAAAAAAAAAIAAEAcQAAAAAAAAAIAP7/cQAAAAAAAAAHAAAAcQAAAAAAAAAHAP7/cQAAAAAAAAAHAP//cQAAAAAAAAAHAP3/cQAAAAAAAAAGAAAAcQAAAAAAAAAGAP//cQAAAAAAAAAGAP7/cQAAAAAAAAAFAP3/cQAAAAAAAAAGAP3/cQAAAAAAAAAFAP7/cQAAAAAAAAAFAPz/cQAAAAAAAAAEAP//cQAAAAAAAAAFAP//cQAAAAAAAAAEAP7/cQAAAAAAAAADAP3/cQAAAAAAAAACAP7/cQAAAAAAAAADAP7/cQAAAAAAAAAEAP3/cQAAAAAAAAD///n/cQAAAAAAAAD7//3/cQAAAAAAAAD+//7/cQAAAAAAAAD///3/cQAAAAAAAAAAAP3/cQAAAAAAAAABAPz/cQAAAAAAAAACAPz/cQAAAAAAAAADAPv/cQAAAAAAAAD9//3/cQAAAAAAAAD+//3/cQAAAAAAAAD///z/cQAAAAAAAAAAAPz/cQAAAAAAAAABAPv/cQAAAAAAAAACAPv/cQAAAAAAAAD8//3/cQAAAAAAAAD9//z/cQAAAAAAAAD+//z/cQAAAAAAAAD///v/cQAAAAAAAAAAAPv/cQAAAAAAAAABAPr/cQAAAAAAAAD+//v/cQAAAAAAAAD9//v/cQAAAAAAAAD///r/cQAAAAAAAAAAAPr/cQAAAAAAAAD//wAAcQAAAAAAAAD+/wAAcQAAAAAAAAAIAPr/cQAAAAAAAAAJAPn/cQAAAAAAAAAHAPr/cQAAAAAAAAAGAPv/cQAAAAAAAAAFAPv/cQAAAAAAAAAEAPv/cQAAAAAAAAAGAPz/cQAAAAAAAAAHAPv/cQAAAAAAAAAIAPv/cQAAAAAAAAAJAPr/cQAAAAAAAAAJAPv/cQAAAAAAAAAJAPz/cQAAAAAAAAAIAP3/cQAAAAAAAAAJAP3/cQAAAAAAAAAIAPz/cQAAAAAAAAAHAPz/cQAAAAAAAAAJAAEAcQAAAAAAAAAJAAIAcQAAAAAAAAAIAAMAcQAAAAAAAAAJAAMAcQAAAAAAAAAIAAQAcQAAAAAAAAAHAAMAcQAAAAAAAAAGAAQAcQAAAAAAAAAFAAMAcQAAAAAAAAAEAAQAcQAAAAAAAAADAAMAcQAAAAAAAAACAAQAcQAAAAAAAAABAAMAcQAAAAAAAAAAAAQAcQAAAAAAAAD//wMAcQAAAAAAAAD+/wQAcQAAAAAAAAD9/wMAcQAAAAAAAAD8/wQAcQAAAAAAAAD7/wMAcQAAAAAAAAD6/wQAcQAAAAAAAAD5/wMAcQAAAAAAAAD4/wQAcQAAAAAAAAD3/wMAcQAAAAAAAAD3/wIAcQAAAAAAAAD3/wEAcQAAAAAAAAD3/wAAcQAAAAAAAAD3////cQAAAAAAAAD3//7/cQAAAAAAAAD3//3/cQAAAAAAAAD3//z/cQAAAAAAAAD3//v/cQAAAAAAAAD3//r/cQAAAAAAAAD4//r/cQAAAAAAAAD3//n/cQAAAAAAAAD4//n/cQAAAAAAAAD5//n/cQAAAAAAAAD6//n/cQAAAAAAAAD7//n/cQAAAAAAAAD8//n/cQAAAAAAAAD9//n/cQAAAAAAAAD+//n/cQAAAAAAAAAAAPn/cQAAAAAAAAABAPn/cQAAAAAAAAACAPn/cQAAAAAAAAADAPn/cQAAAAAAAAAEAPn/cQAAAAAAAAAFAPn/cQAAAAAAAAAGAPn/cQAAAAAAAAAHAPn/cQAAAAAAAAAIAPn/cQAAAAAAAAAGAPr/cQAAAAAAAAAEAPr/cQAAAAAAAAACAPr/cQAAAAAAAAADAPr/cQAAAAAAAAAFAPr/cQAAAAAAAAABAAEAcQAAAAAAAAABAAIAcQAAAAAAAAACAAMAcQAAAAAAAAAEAAMAcQAAAAAAAAAGAAMAcQAAAAAAAAAHAAIAcQAAAAAAAAAIAAIAcQAAAAAAAAAFAAIAcQAAAAAAAAAAAAMAcQAAAAAAAAD//wIAcQAAAAAAAAD+/wMAcQAAAAAAAAD9/wIAcQAAAAAAAAD8/wMAcQAAAAAAAAD7/wIAcQAAAAAAAAD6/wMAcQAAAAAAAAD5/wIAcQAAAAAAAAD4/wMAcQAAAAAAAAD6/wIAcQAAAAAAAAD7/wEAcQAAAAAAAAD8/wEAcQAAAAAAAAD9/wAAcQAAAAAAAAD+/wEAcQAAAAAAAAD9/wEAcQAAAAAAAAD8/wIAcQAAAAAAAAD//wEAcQAAAAAAAAAAAAIAcQAAAAAAAAD+/wIAcQAAAAAAAAD8/wAAcQAAAAAAAAD9//7/cQAAAAAAAAD8//7/cQAAAAAAAAD7//z/cQAAAAAAAAD6//z/cQAAAAAAAAD5//v/cQAAAAAAAAD4//v/cQAAAAAAAAD5//r/cQAAAAAAAAD6//r/cQAAAAAAAAD7//r/cQAAAAAAAAD6//v/cQAAAAAAAAD7//v/cQAAAAAAAAD8//v/cQAAAAAAAAD9//r/cQAAAAAAAAD8//r/cQAAAAAAAAD8//z/cQAAAAAAAAD+//r/cQAAAAAAAAD6//3/cQAAAAAAAAD5//z/cQAAAAAAAAD4//z/cQAAAAAAAAD4//3/cQAAAAAAAAD5//3/cQAAAAAAAAD4//7/cQAAAAAAAAD4////cQAAAAAAAAD5////cQAAAAAAAAD4/wAAcQAAAAAAAAD4/wEAcQAAAAAAAAD5/wEAcQAAAAAAAAD4/wIAcQAAAAAAAAD5/wAAcQAAAAAAAAD6/wAAcQAAAAAAAAD7/wAAcQAAAAAAAAD6/wEAcQAAAAAAAAD7////cQAAAAAAAAD6////cQAAAAAAAAD5//7/cQAAAAAAAAD6//7/cQAAAAAAAAD7//7/cQAAAAAAAAD8////cQAAAAAAAAA=")
+tile_set = ExtResource("TileSet_ground")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=303053970]
+[node name="StoneyLayer" type="TileMapLayer" parent="." unique_id=1738849583]
+tile_map_data = PackedByteArray("AAD9/wAAAAAAAAAAAAAEAP7/AAAAAAAAAAD8//z/AAAAAAAAAAAEAAIAAAAAAAAAAAAAAP7/AQAAAAAAAAD6//7/AQAAAAAAAAD5/wIAAgAAAAAAAAD6/wMAAgAAAAAAAAD4/wIAAgAAAAAAAAD3/wEAAgAAAAAAAAD7/wMAAgAAAAAAAAA=")
+tile_set = ExtResource("TileSet_stone")
 
-[node name="WorldMapSampler" type="Node" parent="." unique_id=265295748]
-script = ExtResource("2")
+[node name="FloraLayer" type="TileMapLayer" parent="." unique_id=1009131147]
+tile_map_data = PackedByteArray("AAACAP//BAAAAAAAAAACAAAABAAAAAAAAAADAP//BAAAAAAAAAADAAAABAAAAAAAAAAGAAAABAAAAAAAAAAFAAAABAAAAAAAAAAFAAEABAAAAAAAAAAFAAIABAAAAAAAAAAGAAEABAAAAAAAAAAGAAIABAAAAAAAAAA=")
+tile_set = ExtResource("TileSet_flora")
 
-[node name="GroundLayer" type="TileMapLayer" parent="." unique_id=1746414495]
-tile_set = ExtResource("3_6amdu")
+[node name="TreeLayer" type="TileMapLayer" parent="." unique_id=1583387297]
+tile_map_data = PackedByteArray("AAD5//n/AAAAAAAAAAADAPn/AAAAAAAAAAD/////AAAAAAAAAAD+/wAAAAAAAAAAAAA=")
+tile_set = ExtResource("TileSet_trees")
 
-[node name="PropsLayer" type="TileMapLayer" parent="." unique_id=1804703024]
-z_index = 1
+[node name="WallLayer" type="TileMapLayer" parent="." unique_id=961965545]
 y_sort_enabled = true
-tile_set = ExtResource("stone_tileset")
+tile_map_data = PackedByteArray("AAAEAPr/AQAAAAAAAAAFAPr/AQAAAAAAAAAGAPv/AQAAAAAAAAAHAPv/AQAAAAAAAAAIAPz/AQAAAAAAAAAJAPz/AQAAAAAAAAAKAP3/AQAAAAAAAAADAPn/AgAAAAAAAAA=")
+tile_set = ExtResource("TileSet_wall")
+x_draw_order_reversed = true
 
-[node name="BuildingsLayer" type="TileMapLayer" parent="." unique_id=1936313877]
-z_index = 2
-y_sort_enabled = true
-tile_set = ExtResource("build_tileset")
-
-[node name="TreesLayer" type="TileMapLayer" parent="." unique_id=1893536892]
-z_index = 3
-y_sort_enabled = true
-tile_set = ExtResource("trees_tileset")
-
-[node name="FloraLayer" type="TileMapLayer" parent="." unique_id=778008801]
-z_index = 4
-y_sort_enabled = true
-tile_set = ExtResource("flora_tileset")
-
-[node name="Player" type="CharacterBody2D" parent="." unique_id=858596961]
-y_sort_enabled = true
-position = Vector2(256, 256)
-script = ExtResource("3")
-
-[node name="LordRig" type="Node2D" parent="Player" unique_id=319531616]
-script = ExtResource("4_lord_preview")
-spritesheets_root = "res://imported/Map and Character/Stand-alone Character creator - 2D Fantasy/spritesheets"
-preview_scale = 1.0
-center_offset = Vector2(0, 16)
-
-[node name="Body" type="Sprite2D" parent="Player/LordRig" unique_id=199706408]
-
-[node name="Legs" type="Sprite2D" parent="Player/LordRig" unique_id=719725094]
-
-[node name="Shoes" type="Sprite2D" parent="Player/LordRig" unique_id=69259926]
-
-[node name="Chest" type="Sprite2D" parent="Player/LordRig" unique_id=1934161745]
-
-[node name="Belt" type="Sprite2D" parent="Player/LordRig" unique_id=477807712]
-
-[node name="Head" type="Sprite2D" parent="Player/LordRig" unique_id=1234650143]
-
-[node name="Hands" type="Sprite2D" parent="Player/LordRig" unique_id=1078931322]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1966718223]
-position = Vector2(0, 10)
-shape = SubResource("RectangleShape2D_player")
-
-[node name="NPC1" type="Node2D" parent="." unique_id=2147293703]
-y_sort_enabled = true
-position = Vector2(320, 240)
-
-[node name="Sprite2D" type="Sprite2D" parent="NPC1" unique_id=1399865042]
-script = ExtResource("5_iso_char")
-idle_texture = ExtResource("npc1_idle")
-walk_texture = ExtResource("npc1_walk")
-
-[node name="NPC2" type="Node2D" parent="." unique_id=364012195]
-y_sort_enabled = true
-position = Vector2(360, 300)
-
-[node name="Sprite2D" type="Sprite2D" parent="NPC2" unique_id=258985845]
-script = ExtResource("5_iso_char")
-idle_texture = ExtResource("npc2_idle")
-walk_texture = ExtResource("npc2_walk")
-
-[node name="NPC3" type="Node2D" parent="." unique_id=1315192326]
-y_sort_enabled = true
-position = Vector2(200, 300)
-
-[node name="Sprite2D" type="Sprite2D" parent="NPC3" unique_id=1644636399]
-script = ExtResource("5_iso_char")
-idle_texture = ExtResource("npc3_idle")
-walk_texture = ExtResource("npc3_walk")
-
-[node name="Enemy1" type="Node2D" parent="." unique_id=1838268011]
-y_sort_enabled = true
-position = Vector2(420, 260)
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy1" unique_id=1395313630]
-script = ExtResource("5_iso_char")
-idle_texture = ExtResource("enemy1_idle")
-walk_texture = ExtResource("enemy1_walk")
+[node name="RoofLayer" type="TileMapLayer" parent="." unique_id=1985775345]
+tile_set = ExtResource("TileSet_roof")

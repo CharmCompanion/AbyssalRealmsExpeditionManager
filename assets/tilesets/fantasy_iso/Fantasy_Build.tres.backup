@@ -1,0 +1,11 @@
+[gd_resource type="TileSet" format=3 uid="uid://ceyctpqa6033s"]
+
+[ext_resource type="Texture2D" uid="uid://sqaf1v2ndufj" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Build/BLACK TILE.png" id="black_tile"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
+texture = ExtResource("black_tile")
+texture_region_size = Vector2i(128, 128)
+
+[resource]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_0")

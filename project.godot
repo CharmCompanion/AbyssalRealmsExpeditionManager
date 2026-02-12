@@ -25,7 +25,7 @@ GdPAIAutoload="*uid://ol4q4tu0vtwo"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/GdPlanningAI/plugin.cfg", "res://addons/sk_fly_camera/plugin.cfg", "res://addons/worldmap_builder/plugin.cfg", "res://addons/limboai/plugin.cfg")
+enabled=PackedStringArray("res://addons/GdPlanningAI/plugin.cfg", "res://addons/sk_fly_camera/plugin.cfg", "res://addons/worldmap_builder/plugin.cfg")
 
 [rendering]
 

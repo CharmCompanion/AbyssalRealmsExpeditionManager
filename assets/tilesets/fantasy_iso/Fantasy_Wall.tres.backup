@@ -1,0 +1,629 @@
+[gd_resource type="TileSet" format=3 uid="uid://dsklcxvto5i0x"]
+
+[ext_resource type="Texture2D" uid="uid://j0da2n87id2u" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A1_N.png" id="A1"]
+[ext_resource type="Texture2D" uid="uid://ccan1j42sd37u" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A2_N.png" id="A2"]
+[ext_resource type="Texture2D" uid="uid://d3aoi2x8vngaq" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A3_N.png" id="A3"]
+[ext_resource type="Texture2D" uid="uid://pr6vf0mmsjc2" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A4_N.png" id="A4"]
+[ext_resource type="Texture2D" uid="uid://c3j3efug0idn" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A5_N.png" id="A5"]
+[ext_resource type="Texture2D" uid="uid://cleiv1be0n7jq" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A6_N.png" id="A6"]
+[ext_resource type="Texture2D" uid="uid://dvnyjtkwp2sfw" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A7_N.png" id="A7"]
+[ext_resource type="Texture2D" uid="uid://be1aj60vttr5m" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A8_N.png" id="A8"]
+[ext_resource type="Texture2D" uid="uid://cutw24l3jgxq6" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A9_N.png" id="A9"]
+[ext_resource type="Texture2D" uid="uid://wxm1ydi3sv7g" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A10_N.png" id="A10"]
+[ext_resource type="Texture2D" uid="uid://cpgrwirvh8ivb" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A11_N.png" id="A11"]
+[ext_resource type="Texture2D" uid="uid://b4471spo6axj8" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A12_N.png" id="A12"]
+[ext_resource type="Texture2D" uid="uid://c387pftqe12t" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A13_N.png" id="A13"]
+[ext_resource type="Texture2D" uid="uid://bucxjeewoob8m" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A14_N.png" id="A14"]
+[ext_resource type="Texture2D" uid="uid://g7dycx3jjjbp" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A15_N.png" id="A15"]
+[ext_resource type="Texture2D" uid="uid://e6mtsoj4m2dp" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A16_N.png" id="A16"]
+[ext_resource type="Texture2D" uid="uid://cktyuywjolxhb" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A17_N.png" id="A17"]
+[ext_resource type="Texture2D" uid="uid://bi0o8aqtoty1v" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A18_N.png" id="A18"]
+[ext_resource type="Texture2D" uid="uid://ltyb0sfiw8pr" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A19_N.png" id="A19"]
+[ext_resource type="Texture2D" uid="uid://kivg03ihdal7" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A20_N.png" id="A20"]
+[ext_resource type="Texture2D" uid="uid://c3plmuc3cthkw" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A21_N.png" id="A21"]
+[ext_resource type="Texture2D" uid="uid://c88fj7vdedcj3" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall A22_N.png" id="A22"]
+[ext_resource type="Texture2D" uid="uid://d31hc1vv0tptm" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall B1_N.png" id="B1"]
+[ext_resource type="Texture2D" uid="uid://c1hkaa5ivwyr7" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall B2_N.png" id="B2"]
+[ext_resource type="Texture2D" uid="uid://ychxfkigvmrk" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall B3_N.png" id="B3"]
+[ext_resource type="Texture2D" uid="uid://dbqucqk8vfmc3" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall B4_N.png" id="B4"]
+[ext_resource type="Texture2D" uid="uid://cas1gt7t02bl2" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall B5_N.png" id="B5"]
+[ext_resource type="Texture2D" uid="uid://cvicqs4tt1opj" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall B6_N.png" id="B6"]
+[ext_resource type="Texture2D" uid="uid://bqmjkabplk8p0" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall B7_N.png" id="B7"]
+[ext_resource type="Texture2D" uid="uid://c4ykog2rcidf2" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall B8_N.png" id="B8"]
+[ext_resource type="Texture2D" uid="uid://dxn5vk4wfeugv" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall B9_N.png" id="B9"]
+[ext_resource type="Texture2D" uid="uid://crm4ony5p1nr8" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall B10_N.png" id="B10"]
+[ext_resource type="Texture2D" uid="uid://cnaepfqrimueb" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall B11_N.png" id="B11"]
+[ext_resource type="Texture2D" uid="uid://b11fjgfxvywlg" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall C1_N.png" id="C1"]
+[ext_resource type="Texture2D" uid="uid://i50womd27717" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall C2_N.png" id="C2"]
+[ext_resource type="Texture2D" uid="uid://glx43dd15ke2" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall C3_N.png" id="C3"]
+[ext_resource type="Texture2D" uid="uid://db368bb3mlxt1" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall C4_N.png" id="C4"]
+[ext_resource type="Texture2D" uid="uid://h2pa8wuobla5" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall C5_N.png" id="C5"]
+[ext_resource type="Texture2D" uid="uid://cirxpptwx337g" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall C6_N.png" id="C6"]
+[ext_resource type="Texture2D" uid="uid://beorig5ucd0wh" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D1_N.png" id="D1"]
+[ext_resource type="Texture2D" uid="uid://bp0t7yjnr66dh" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D2_N.png" id="D2"]
+[ext_resource type="Texture2D" uid="uid://lkrds8olqxos" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D3_N.png" id="D3"]
+[ext_resource type="Texture2D" uid="uid://cw7b2fnpvt0tu" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D4_N.png" id="D4"]
+[ext_resource type="Texture2D" uid="uid://ciu28ayyrom5f" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D5_N.png" id="D5"]
+[ext_resource type="Texture2D" uid="uid://b2e4gwn3rn8gr" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D6_N.png" id="D6"]
+[ext_resource type="Texture2D" uid="uid://ws7agv3he3ek" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D7_N.png" id="D7"]
+[ext_resource type="Texture2D" uid="uid://bv6epduiop2g6" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D8_N.png" id="D8"]
+[ext_resource type="Texture2D" uid="uid://b548avhustcqn" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D9_N.png" id="D9"]
+[ext_resource type="Texture2D" uid="uid://dwn2w8lopl6h3" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D10_N.png" id="D10"]
+[ext_resource type="Texture2D" uid="uid://dxx270yg1jy53" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D11_N.png" id="D11"]
+[ext_resource type="Texture2D" uid="uid://de5qljrewodyf" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D12_N.png" id="D12"]
+[ext_resource type="Texture2D" uid="uid://c0sfksrhlgot0" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D13_N.png" id="D13"]
+[ext_resource type="Texture2D" uid="uid://0cxxgj1q56x6" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D14_N.png" id="D14"]
+[ext_resource type="Texture2D" uid="uid://k1g034ypkdl6" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D15_N.png" id="D15"]
+[ext_resource type="Texture2D" uid="uid://dybhnd83uksy8" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D16_N.png" id="D16"]
+[ext_resource type="Texture2D" uid="uid://beleuefyogqx" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D17_N.png" id="D17"]
+[ext_resource type="Texture2D" uid="uid://bgasb6dmfbv3p" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D18_N.png" id="D18"]
+[ext_resource type="Texture2D" uid="uid://6nrrxoc4kg34" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall D19_N.png" id="D19"]
+[ext_resource type="Texture2D" uid="uid://bq1qbbl65l3i2" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E1_N.png" id="E1"]
+[ext_resource type="Texture2D" uid="uid://gyk2lc11kyp2" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E2_N.png" id="E2"]
+[ext_resource type="Texture2D" uid="uid://bqqouug0m5liw" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E3_N.png" id="E3"]
+[ext_resource type="Texture2D" uid="uid://24icxes1a5e0" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E4_N.png" id="E4"]
+[ext_resource type="Texture2D" uid="uid://dkpkqu2flx0ra" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E5_N.png" id="E5"]
+[ext_resource type="Texture2D" uid="uid://cfea4k3h1todi" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E6_N.png" id="E6"]
+[ext_resource type="Texture2D" uid="uid://bsw6eli37ut4r" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E7_N.png" id="E7"]
+[ext_resource type="Texture2D" uid="uid://b110xgca1pe80" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E8_N.png" id="E8"]
+[ext_resource type="Texture2D" uid="uid://c3yp2omr4c6by" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E9_N.png" id="E9"]
+[ext_resource type="Texture2D" uid="uid://b1byqu7q730c6" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E10_N.png" id="E10"]
+[ext_resource type="Texture2D" uid="uid://b6anhfa10dtt" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E11_N.png" id="E11"]
+[ext_resource type="Texture2D" uid="uid://c0yudebih4o75" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E12_N.png" id="E12"]
+[ext_resource type="Texture2D" uid="uid://bxd1m3g3eg28x" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E15_N.png" id="E15"]
+[ext_resource type="Texture2D" uid="uid://b6wh86vxmuqcw" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E16_N.png" id="E16"]
+[ext_resource type="Texture2D" uid="uid://b81efh5ar7ahh" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E17_N.png" id="E17"]
+[ext_resource type="Texture2D" uid="uid://c2xqt630ospw1" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall E18_N.png" id="E18"]
+[ext_resource type="Texture2D" uid="uid://dnfuec2t5lvlf" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F1_N.png" id="F1"]
+[ext_resource type="Texture2D" uid="uid://57ib24n2ydo1" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F2_N.png" id="F2"]
+[ext_resource type="Texture2D" uid="uid://dpfnomwwc07sn" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F3_N.png" id="F3"]
+[ext_resource type="Texture2D" uid="uid://dpxmhdhg3pwo6" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F4_N.png" id="F4"]
+[ext_resource type="Texture2D" uid="uid://ccua5tukfpqv" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F5_N.png" id="F5"]
+[ext_resource type="Texture2D" uid="uid://d3sb53x672s55" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F6_N.png" id="F6"]
+[ext_resource type="Texture2D" uid="uid://cjlhibwsn12m" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F7_N.png" id="F7"]
+[ext_resource type="Texture2D" uid="uid://bc6ldvmc2jb2h" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F8_N.png" id="F8"]
+[ext_resource type="Texture2D" uid="uid://bk8b80jh2alo0" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F9_N.png" id="F9"]
+[ext_resource type="Texture2D" uid="uid://biloeobrv1go4" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F10_N.png" id="F10"]
+[ext_resource type="Texture2D" uid="uid://4i7vhtlahpsa" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F11_N.png" id="F11"]
+[ext_resource type="Texture2D" uid="uid://e881hm6tx40o" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F12_N.png" id="F12"]
+[ext_resource type="Texture2D" uid="uid://7sunarajfhpg" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F13_N.png" id="F13"]
+[ext_resource type="Texture2D" uid="uid://ftsicbbi5v1x" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F14_N.png" id="F14"]
+[ext_resource type="Texture2D" uid="uid://co57ugd4fw04a" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F15_N.png" id="F15"]
+[ext_resource type="Texture2D" uid="uid://dr5wy3qmcy8ri" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F16_N.png" id="F16"]
+[ext_resource type="Texture2D" uid="uid://culhxe6ojr353" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F17_N.png" id="F17"]
+[ext_resource type="Texture2D" uid="uid://b2md6qobbfb70" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F18_N.png" id="F18"]
+[ext_resource type="Texture2D" uid="uid://bradm6qsiwav0" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall F19_N.png" id="F19"]
+[ext_resource type="Texture2D" uid="uid://jxk1cnopdhul" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall G1_N.png" id="G1"]
+[ext_resource type="Texture2D" uid="uid://dr2kdnmucsu12" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall G2_N.png" id="G2"]
+[ext_resource type="Texture2D" uid="uid://bf747dmaprw3y" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall G3_N.png" id="G3"]
+[ext_resource type="Texture2D" uid="uid://c0tcvyqjln6xn" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall G4_N.png" id="G4"]
+[ext_resource type="Texture2D" uid="uid://bo5pjis7uhtej" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall G5_N.png" id="G5"]
+[ext_resource type="Texture2D" uid="uid://dq8kpes535n2e" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall G6_N.png" id="G6"]
+[ext_resource type="Texture2D" uid="uid://bevv7o31hjc3m" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall G7_N.png" id="G7"]
+[ext_resource type="Texture2D" uid="uid://cyd51rohqltu1" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall G8_N.png" id="G8"]
+[ext_resource type="Texture2D" uid="uid://cm05mtkctslnt" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall G9_N.png" id="G9"]
+[ext_resource type="Texture2D" uid="uid://b372ltq7lqjkd" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall G10_N.png" id="G10"]
+[ext_resource type="Texture2D" uid="uid://bl4iko5ry7wt4" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Wall/Wall G11_N.png" id="G11"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
+texture = ExtResource("A1")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1"]
+texture = ExtResource("A10")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10"]
+texture = ExtResource("A19")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_100"]
+texture = ExtResource("G6")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_101"]
+texture = ExtResource("G7")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_102"]
+texture = ExtResource("G8")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_103"]
+texture = ExtResource("G9")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_11"]
+texture = ExtResource("A2")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_12"]
+texture = ExtResource("A20")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_13"]
+texture = ExtResource("A21")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_14"]
+texture = ExtResource("A22")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_15"]
+texture = ExtResource("A3")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_16"]
+texture = ExtResource("A4")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17"]
+texture = ExtResource("A5")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_18"]
+texture = ExtResource("A6")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_19"]
+texture = ExtResource("A7")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2"]
+texture = ExtResource("A11")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20"]
+texture = ExtResource("A8")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21"]
+texture = ExtResource("A9")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22"]
+texture = ExtResource("B1")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_23"]
+texture = ExtResource("B10")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24"]
+texture = ExtResource("B11")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_25"]
+texture = ExtResource("B2")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26"]
+texture = ExtResource("B3")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27"]
+texture = ExtResource("B4")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28"]
+texture = ExtResource("B5")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_29"]
+texture = ExtResource("B6")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3"]
+texture = ExtResource("A12")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_30"]
+texture = ExtResource("B7")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31"]
+texture = ExtResource("B8")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_32"]
+texture = ExtResource("B9")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33"]
+texture = ExtResource("C1")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_34"]
+texture = ExtResource("C2")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_35"]
+texture = ExtResource("C3")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36"]
+texture = ExtResource("C4")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37"]
+texture = ExtResource("C5")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38"]
+texture = ExtResource("C6")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_39"]
+texture = ExtResource("D1")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4"]
+texture = ExtResource("A13")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_40"]
+texture = ExtResource("D10")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_41"]
+texture = ExtResource("D11")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_42"]
+texture = ExtResource("D12")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43"]
+texture = ExtResource("D13")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44"]
+texture = ExtResource("D14")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_45"]
+texture = ExtResource("D15")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_46"]
+texture = ExtResource("D16")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_47"]
+texture = ExtResource("D17")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_48"]
+texture = ExtResource("D18")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_49"]
+texture = ExtResource("D19")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5"]
+texture = ExtResource("A14")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_50"]
+texture = ExtResource("D2")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_51"]
+texture = ExtResource("D3")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52"]
+texture = ExtResource("D4")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_53"]
+texture = ExtResource("D5")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_54"]
+texture = ExtResource("D6")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_55"]
+texture = ExtResource("D7")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_56"]
+texture = ExtResource("D8")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_57"]
+texture = ExtResource("D9")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_58"]
+texture = ExtResource("E1")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_59"]
+texture = ExtResource("E10")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6"]
+texture = ExtResource("A15")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_60"]
+texture = ExtResource("E11")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_61"]
+texture = ExtResource("E12")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_62"]
+texture = ExtResource("E15")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63"]
+texture = ExtResource("E16")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_64"]
+texture = ExtResource("E17")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_65"]
+texture = ExtResource("E18")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_66"]
+texture = ExtResource("E2")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_67"]
+texture = ExtResource("E3")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_68"]
+texture = ExtResource("E4")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_69"]
+texture = ExtResource("E5")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7"]
+texture = ExtResource("A16")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_70"]
+texture = ExtResource("E6")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71"]
+texture = ExtResource("E7")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_72"]
+texture = ExtResource("E8")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73"]
+texture = ExtResource("E9")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74"]
+texture = ExtResource("F1")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_75"]
+texture = ExtResource("F10")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76"]
+texture = ExtResource("F11")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_77"]
+texture = ExtResource("F12")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_78"]
+texture = ExtResource("F13")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_79"]
+texture = ExtResource("F14")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8"]
+texture = ExtResource("A17")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80"]
+texture = ExtResource("F15")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_81"]
+texture = ExtResource("F16")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_82"]
+texture = ExtResource("F17")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83"]
+texture = ExtResource("F18")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_84"]
+texture = ExtResource("F19")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85"]
+texture = ExtResource("F2")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_86"]
+texture = ExtResource("F3")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87"]
+texture = ExtResource("F4")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_88"]
+texture = ExtResource("F5")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_89"]
+texture = ExtResource("F6")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_9"]
+texture = ExtResource("A18")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_90"]
+texture = ExtResource("F7")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_91"]
+texture = ExtResource("F8")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_92"]
+texture = ExtResource("F9")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_93"]
+texture = ExtResource("G1")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_94"]
+texture = ExtResource("G10")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_95"]
+texture = ExtResource("G11")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_96"]
+texture = ExtResource("G2")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_97"]
+texture = ExtResource("G3")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_98"]
+texture = ExtResource("G4")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_99"]
+texture = ExtResource("G5")
+texture_region_size = Vector2i(128, 128)
+
+[resource]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_0")
+sources/1 = SubResource("TileSetAtlasSource_1")
+sources/2 = SubResource("TileSetAtlasSource_2")
+sources/3 = SubResource("TileSetAtlasSource_3")
+sources/4 = SubResource("TileSetAtlasSource_4")
+sources/5 = SubResource("TileSetAtlasSource_5")
+sources/6 = SubResource("TileSetAtlasSource_6")
+sources/7 = SubResource("TileSetAtlasSource_7")
+sources/8 = SubResource("TileSetAtlasSource_8")
+sources/9 = SubResource("TileSetAtlasSource_9")
+sources/10 = SubResource("TileSetAtlasSource_10")
+sources/11 = SubResource("TileSetAtlasSource_11")
+sources/12 = SubResource("TileSetAtlasSource_12")
+sources/13 = SubResource("TileSetAtlasSource_13")
+sources/14 = SubResource("TileSetAtlasSource_14")
+sources/15 = SubResource("TileSetAtlasSource_15")
+sources/16 = SubResource("TileSetAtlasSource_16")
+sources/17 = SubResource("TileSetAtlasSource_17")
+sources/18 = SubResource("TileSetAtlasSource_18")
+sources/19 = SubResource("TileSetAtlasSource_19")
+sources/20 = SubResource("TileSetAtlasSource_20")
+sources/21 = SubResource("TileSetAtlasSource_21")
+sources/22 = SubResource("TileSetAtlasSource_22")
+sources/23 = SubResource("TileSetAtlasSource_23")
+sources/24 = SubResource("TileSetAtlasSource_24")
+sources/25 = SubResource("TileSetAtlasSource_25")
+sources/26 = SubResource("TileSetAtlasSource_26")
+sources/27 = SubResource("TileSetAtlasSource_27")
+sources/28 = SubResource("TileSetAtlasSource_28")
+sources/29 = SubResource("TileSetAtlasSource_29")
+sources/30 = SubResource("TileSetAtlasSource_30")
+sources/31 = SubResource("TileSetAtlasSource_31")
+sources/32 = SubResource("TileSetAtlasSource_32")
+sources/33 = SubResource("TileSetAtlasSource_33")
+sources/34 = SubResource("TileSetAtlasSource_34")
+sources/35 = SubResource("TileSetAtlasSource_35")
+sources/36 = SubResource("TileSetAtlasSource_36")
+sources/37 = SubResource("TileSetAtlasSource_37")
+sources/38 = SubResource("TileSetAtlasSource_38")
+sources/39 = SubResource("TileSetAtlasSource_39")
+sources/40 = SubResource("TileSetAtlasSource_40")
+sources/41 = SubResource("TileSetAtlasSource_41")
+sources/42 = SubResource("TileSetAtlasSource_42")
+sources/43 = SubResource("TileSetAtlasSource_43")
+sources/44 = SubResource("TileSetAtlasSource_44")
+sources/45 = SubResource("TileSetAtlasSource_45")
+sources/46 = SubResource("TileSetAtlasSource_46")
+sources/47 = SubResource("TileSetAtlasSource_47")
+sources/48 = SubResource("TileSetAtlasSource_48")
+sources/49 = SubResource("TileSetAtlasSource_49")
+sources/50 = SubResource("TileSetAtlasSource_50")
+sources/51 = SubResource("TileSetAtlasSource_51")
+sources/52 = SubResource("TileSetAtlasSource_52")
+sources/53 = SubResource("TileSetAtlasSource_53")
+sources/54 = SubResource("TileSetAtlasSource_54")
+sources/55 = SubResource("TileSetAtlasSource_55")
+sources/56 = SubResource("TileSetAtlasSource_56")
+sources/57 = SubResource("TileSetAtlasSource_57")
+sources/58 = SubResource("TileSetAtlasSource_58")
+sources/59 = SubResource("TileSetAtlasSource_59")
+sources/60 = SubResource("TileSetAtlasSource_60")
+sources/61 = SubResource("TileSetAtlasSource_61")
+sources/62 = SubResource("TileSetAtlasSource_62")
+sources/63 = SubResource("TileSetAtlasSource_63")
+sources/64 = SubResource("TileSetAtlasSource_64")
+sources/65 = SubResource("TileSetAtlasSource_65")
+sources/66 = SubResource("TileSetAtlasSource_66")
+sources/67 = SubResource("TileSetAtlasSource_67")
+sources/68 = SubResource("TileSetAtlasSource_68")
+sources/69 = SubResource("TileSetAtlasSource_69")
+sources/70 = SubResource("TileSetAtlasSource_70")
+sources/71 = SubResource("TileSetAtlasSource_71")
+sources/72 = SubResource("TileSetAtlasSource_72")
+sources/73 = SubResource("TileSetAtlasSource_73")
+sources/74 = SubResource("TileSetAtlasSource_74")
+sources/75 = SubResource("TileSetAtlasSource_75")
+sources/76 = SubResource("TileSetAtlasSource_76")
+sources/77 = SubResource("TileSetAtlasSource_77")
+sources/78 = SubResource("TileSetAtlasSource_78")
+sources/79 = SubResource("TileSetAtlasSource_79")
+sources/80 = SubResource("TileSetAtlasSource_80")
+sources/81 = SubResource("TileSetAtlasSource_81")
+sources/82 = SubResource("TileSetAtlasSource_82")
+sources/83 = SubResource("TileSetAtlasSource_83")
+sources/84 = SubResource("TileSetAtlasSource_84")
+sources/85 = SubResource("TileSetAtlasSource_85")
+sources/86 = SubResource("TileSetAtlasSource_86")
+sources/87 = SubResource("TileSetAtlasSource_87")
+sources/88 = SubResource("TileSetAtlasSource_88")
+sources/89 = SubResource("TileSetAtlasSource_89")
+sources/90 = SubResource("TileSetAtlasSource_90")
+sources/91 = SubResource("TileSetAtlasSource_91")
+sources/92 = SubResource("TileSetAtlasSource_92")
+sources/93 = SubResource("TileSetAtlasSource_93")
+sources/94 = SubResource("TileSetAtlasSource_94")
+sources/95 = SubResource("TileSetAtlasSource_95")
+sources/96 = SubResource("TileSetAtlasSource_96")
+sources/97 = SubResource("TileSetAtlasSource_97")
+sources/98 = SubResource("TileSetAtlasSource_98")
+sources/99 = SubResource("TileSetAtlasSource_99")
+sources/100 = SubResource("TileSetAtlasSource_100")
+sources/101 = SubResource("TileSetAtlasSource_101")
+sources/102 = SubResource("TileSetAtlasSource_102")
+sources/103 = SubResource("TileSetAtlasSource_103")

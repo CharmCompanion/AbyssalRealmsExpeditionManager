@@ -1,0 +1,83 @@
+[gd_resource type="TileSet" format=3 uid="uid://me342j8y04ap"]
+
+[ext_resource type="Texture2D" uid="uid://cyj880kfhmf5q" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora A1_N.png" id="A1"]
+[ext_resource type="Texture2D" uid="uid://cljhlafcxhysa" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora A2_N.png" id="A2"]
+[ext_resource type="Texture2D" uid="uid://brrpu8qxkb58v" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora A3_N.png" id="A3"]
+[ext_resource type="Texture2D" uid="uid://bj6bjraduo1ka" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora A4_N.png" id="A4"]
+[ext_resource type="Texture2D" uid="uid://dte71dhgxnamk" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora A5_N.png" id="A5"]
+[ext_resource type="Texture2D" uid="uid://bhnoda1w6tqwo" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora A6_N.png" id="A6"]
+[ext_resource type="Texture2D" uid="uid://cr8fi41kcaftr" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora A7_N.png" id="A7"]
+[ext_resource type="Texture2D" uid="uid://cs1dudvlbsgax" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora B1_N.png" id="B1"]
+[ext_resource type="Texture2D" uid="uid://yrs8o8fbab3s" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora B2_N.png" id="B2"]
+[ext_resource type="Texture2D" uid="uid://dk0k23xvam20u" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora B3_N.png" id="B3"]
+[ext_resource type="Texture2D" uid="uid://lfbc3nfdd683" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora B4_N.png" id="B4"]
+[ext_resource type="Texture2D" uid="uid://bshu6ab1hxl43" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora B5_N.png" id="B5"]
+[ext_resource type="Texture2D" uid="uid://ci4vsij02jtt" path="res://imported/Map and Character/Fantasy tileset - 2D Isometric/Environment/Flora/Flora B6_N.png" id="B6"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
+texture = ExtResource("A1")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1"]
+texture = ExtResource("A2")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10"]
+texture = ExtResource("B4")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_11"]
+texture = ExtResource("B5")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_12"]
+texture = ExtResource("B6")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2"]
+texture = ExtResource("A3")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3"]
+texture = ExtResource("A4")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4"]
+texture = ExtResource("A5")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5"]
+texture = ExtResource("A6")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6"]
+texture = ExtResource("A7")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7"]
+texture = ExtResource("B1")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8"]
+texture = ExtResource("B2")
+texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_9"]
+texture = ExtResource("B3")
+texture_region_size = Vector2i(128, 128)
+
+[resource]
+tile_size = Vector2i(128, 128)
+sources/0 = SubResource("TileSetAtlasSource_0")
+sources/1 = SubResource("TileSetAtlasSource_1")
+sources/2 = SubResource("TileSetAtlasSource_2")
+sources/3 = SubResource("TileSetAtlasSource_3")
+sources/4 = SubResource("TileSetAtlasSource_4")
+sources/5 = SubResource("TileSetAtlasSource_5")
+sources/6 = SubResource("TileSetAtlasSource_6")
+sources/7 = SubResource("TileSetAtlasSource_7")
+sources/8 = SubResource("TileSetAtlasSource_8")
+sources/9 = SubResource("TileSetAtlasSource_9")
+sources/10 = SubResource("TileSetAtlasSource_10")
+sources/11 = SubResource("TileSetAtlasSource_11")
+sources/12 = SubResource("TileSetAtlasSource_12")
