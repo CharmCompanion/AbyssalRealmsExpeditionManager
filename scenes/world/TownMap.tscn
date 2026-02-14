@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cchktna0o5ym7"]
+
+[ext_resource type="Script" uid="uid://42gcjjnpo60p" path="res://scripts/world/TownMap.gd" id="1"]
+[ext_resource type="TileSet" uid="uid://ceyctpqa6033s" path="res://assets/tilesets/fantasy_iso/Fantasy_Build.tres" id="2"]
+[ext_resource type="TileSet" uid="uid://me342j8y04ap" path="res://assets/tilesets/fantasy_iso/Fantasy_Flora.tres" id="3"]
+[ext_resource type="TileSet" uid="uid://cwhg0u5hgq0s7" path="res://assets/tilesets/fantasy_iso/Fantasy_Ground.tres" id="4"]
+[ext_resource type="TileSet" uid="uid://bf44yoca6phrp" path="res://assets/tilesets/fantasy_iso/Fantasy_Roof.tres" id="5"]
+[ext_resource type="TileSet" uid="uid://d2ruxbfavaq8x" path="res://assets/tilesets/fantasy_iso/Fantasy_Stone.tres" id="6"]
+[ext_resource type="TileSet" uid="uid://bf1vggi7qmsn3" path="res://assets/tilesets/fantasy_iso/Fantasy_Trees.tres" id="7"]
+[ext_resource type="TileSet" uid="uid://dsklcxvto5i0x" path="res://assets/tilesets/fantasy_iso/Fantasy_Wall.tres" id="8"]
+
+[node name="TownMap" type="Node2D" unique_id=1275004588]
+script = ExtResource("1")
+
+[node name="GroundLayer" type="TileMapLayer" parent="." unique_id=189235494]
+y_sort_enabled = true
+tile_set = ExtResource("4")
+
+[node name="BuildLayer" type="TileMapLayer" parent="." unique_id=975149920]
+y_sort_enabled = true
+tile_set = ExtResource("2")
+
+[node name="WallBackLayer" type="TileMapLayer" parent="." unique_id=764072322]
+y_sort_enabled = true
+tile_set = ExtResource("8")
+x_draw_order_reversed = true
+
+[node name="WallFrontLayer" type="TileMapLayer" parent="." unique_id=1957723448]
+y_sort_enabled = true
+tile_set = ExtResource("8")
+x_draw_order_reversed = true
+
+[node name="RoofBackLayer" type="TileMapLayer" parent="." unique_id=1957723449]
+y_sort_enabled = true
+tile_set = ExtResource("5")
+
+[node name="RoofFrontLayer" type="TileMapLayer" parent="." unique_id=1957723450]
+y_sort_enabled = true
+tile_set = ExtResource("5")
+
+[node name="PropsLayer" type="TileMapLayer" parent="." unique_id=1776616699]
+y_sort_enabled = true
+tile_set = ExtResource("2")
+
+[node name="TreesLayer" type="TileMapLayer" parent="." unique_id=1190218221]
+y_sort_enabled = true
+tile_set = ExtResource("7")
+
+[node name="FloraLayer" type="TileMapLayer" parent="." unique_id=1168623939]
+y_sort_enabled = true
+tile_set = ExtResource("4")
+
+[node name="StoneLayer" type="TileMapLayer" parent="." unique_id=1265252560]
+y_sort_enabled = true
+tile_set = ExtResource("6")
