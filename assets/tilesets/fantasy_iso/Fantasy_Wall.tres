@@ -107,736 +107,422 @@
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0"]
 texture = ExtResource("A1")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1"]
 texture = ExtResource("A10")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_10"]
 texture = ExtResource("A19")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_100"]
 texture = ExtResource("G6")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_101"]
 texture = ExtResource("G7")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_102"]
 texture = ExtResource("G8")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_103"]
 texture = ExtResource("G9")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_11"]
 texture = ExtResource("A2")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_12"]
 texture = ExtResource("A20")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_13"]
 texture = ExtResource("A21")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_14"]
 texture = ExtResource("A22")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_15"]
 texture = ExtResource("A3")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_16"]
 texture = ExtResource("A4")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17"]
 texture = ExtResource("A5")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_18"]
 texture = ExtResource("A6")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_19"]
 texture = ExtResource("A7")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2"]
 texture = ExtResource("A11")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_20"]
 texture = ExtResource("A8")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21"]
 texture = ExtResource("A9")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_22"]
 texture = ExtResource("B1")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_23"]
 texture = ExtResource("B10")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_24"]
 texture = ExtResource("B11")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_25"]
 texture = ExtResource("B2")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_26"]
 texture = ExtResource("B3")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_27"]
 texture = ExtResource("B4")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_28"]
 texture = ExtResource("B5")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_29"]
 texture = ExtResource("B6")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3"]
 texture = ExtResource("A12")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_30"]
 texture = ExtResource("B7")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_31"]
 texture = ExtResource("B8")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_32"]
 texture = ExtResource("B9")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33"]
 texture = ExtResource("C1")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_34"]
 texture = ExtResource("C2")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_35"]
 texture = ExtResource("C3")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36"]
 texture = ExtResource("C4")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_37"]
 texture = ExtResource("C5")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_38"]
 texture = ExtResource("C6")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_39"]
 texture = ExtResource("D1")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4"]
 texture = ExtResource("A13")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_40"]
 texture = ExtResource("D10")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_41"]
 texture = ExtResource("D11")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_42"]
 texture = ExtResource("D12")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_43"]
 texture = ExtResource("D13")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44"]
 texture = ExtResource("D14")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_45"]
 texture = ExtResource("D15")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_46"]
 texture = ExtResource("D16")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_47"]
 texture = ExtResource("D17")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_48"]
 texture = ExtResource("D18")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_49"]
 texture = ExtResource("D19")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5"]
 texture = ExtResource("A14")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_50"]
 texture = ExtResource("D2")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_51"]
 texture = ExtResource("D3")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_52"]
 texture = ExtResource("D4")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_53"]
 texture = ExtResource("D5")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_54"]
 texture = ExtResource("D6")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_55"]
 texture = ExtResource("D7")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_56"]
 texture = ExtResource("D8")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_57"]
 texture = ExtResource("D9")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_58"]
 texture = ExtResource("E1")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_59"]
 texture = ExtResource("E10")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6"]
 texture = ExtResource("A15")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_60"]
 texture = ExtResource("E11")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_61"]
 texture = ExtResource("E12")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_62"]
 texture = ExtResource("E15")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_63"]
 texture = ExtResource("E16")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_64"]
 texture = ExtResource("E17")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_65"]
 texture = ExtResource("E18")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_66"]
 texture = ExtResource("E2")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_67"]
 texture = ExtResource("E3")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_68"]
 texture = ExtResource("E4")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_69"]
 texture = ExtResource("E5")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7"]
 texture = ExtResource("A16")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_70"]
 texture = ExtResource("E6")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71"]
 texture = ExtResource("E7")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_72"]
 texture = ExtResource("E8")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_73"]
 texture = ExtResource("E9")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_74"]
 texture = ExtResource("F1")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_75"]
 texture = ExtResource("F10")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_76"]
 texture = ExtResource("F11")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_77"]
 texture = ExtResource("F12")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_78"]
 texture = ExtResource("F13")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_79"]
 texture = ExtResource("F14")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8"]
 texture = ExtResource("A17")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80"]
 texture = ExtResource("F15")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_81"]
 texture = ExtResource("F16")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_82"]
 texture = ExtResource("F17")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83"]
 texture = ExtResource("F18")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_84"]
 texture = ExtResource("F19")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85"]
 texture = ExtResource("F2")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_86"]
 texture = ExtResource("F3")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_87"]
 texture = ExtResource("F4")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_88"]
 texture = ExtResource("F5")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_89"]
 texture = ExtResource("F6")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_9"]
 texture = ExtResource("A18")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_90"]
 texture = ExtResource("F7")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_91"]
 texture = ExtResource("F8")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_92"]
 texture = ExtResource("F9")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_93"]
 texture = ExtResource("G1")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_94"]
 texture = ExtResource("G10")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_95"]
 texture = ExtResource("G11")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_96"]
 texture = ExtResource("G2")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_97"]
 texture = ExtResource("G3")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_98"]
 texture = ExtResource("G4")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_99"]
 texture = ExtResource("G5")
-texture_region_size = Vector2i(256, 256)
-0:0/0 = 0
-0:0/0/texture_origin = Vector2i(-128, -288)
-0:0/0/y_sort_origin = 32
+texture_region_size = Vector2i(128, 128)
 
 [resource]
-tile_shape = 1
-tile_offset_axis = 1
-tile_size = Vector2i(128, 64)
+tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_0")
 sources/1 = SubResource("TileSetAtlasSource_1")
 sources/2 = SubResource("TileSetAtlasSource_2")
